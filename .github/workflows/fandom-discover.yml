@@ -1,0 +1,29 @@
+name: Fandom discovery (temporary)
+
+# One-off: dumps Big Brother Wiki pages into cache/fandom_discovery/ so the Fandom
+# parser can be written against real markup. Removed once the integration lands.
+on:
+  push:
+    branches: [claude/big-brother-wiki-api-7j1pkl]
+    paths: [.github/workflows/fandom-discover.yml, tools/fandom_discover.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python tools/fandom_discover.py
+      - name: Commit dump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cache/fandom_discovery
+          git commit -m "Fandom discovery dump" && git push
