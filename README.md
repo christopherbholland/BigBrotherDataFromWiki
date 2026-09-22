@@ -49,6 +49,37 @@ its details just below it. BB26 Week 3 had two veto winners and the AI Arena twi
 
 <img src="docs/screenshots/mobile-week.png" alt="Phone-width view with the BB26 Week 3 tooltip" width="390">
 
+## Detail views
+
+The main cards stay short. More detail sits behind two options:
+
+**Click or tap a week** to open its details:
+- **Votes**: who voted to evict whom, as a bar per nominee listing the voters, plus who
+  didn't vote and why (HOH, nominated, not eligible).
+- **What was different**: the week's twist rows (e.g. "AI Arena winner: Makensy"),
+  anything unusual about the eviction, and the explanatory notes Wikipedia attaches to
+  that week, quoted as written.
+- **Episodes**: that week's episodes from the season's episode table, with days, air
+  date, viewers, and each episode's summary (tap to expand).
+
+![Week details for BB26 Week 4: votes, the Deepfake HoH twist and episodes](docs/screenshots/details-week.png)
+
+**Players**: a table for each season showing HOH wins, veto wins, times nominated, times
+on the final block, votes against, votes cast (and how many went with the house), and
+twist wins. Click a player for a week-by-week timeline.
+
+![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
+
+![Angela's BB26 timeline](docs/screenshots/details-player.png)
+
+On a phone, details open as a bottom sheet:
+
+<img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
+
+Every view has its own link, e.g. `#week=26/Week%204`, `#players=28` or
+`#player=26/Angela`, so it can be shared or embedded directly. The detail data lives in
+`web/details.json`, which loads only when a detail view is first opened.
+
 ## Usage
 
 ```sh
@@ -57,7 +88,7 @@ pip install -r requirements.txt
 python -m bbgrid fetch            # fetch all seasons in seasons.yaml into cache/
                                   # (or run the "Fetch Wikipedia pages" GitHub Action)
 python -m bbgrid inspect 21 26    # print table headers and row-label mapping (for checking)
-python -m bbgrid build            # cache/ -> web/weeks.json + report.txt
+python -m bbgrid build            # cache/ -> web/weeks.json, web/details.json, report.txt
 python -m bbgrid refresh 28       # refetch one season, then build
 
 python -m http.server -d web      # then open http://localhost:8000
@@ -93,6 +124,8 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_interpret.py`: interpreter and validator on
   `tests/fixtures/synthetic_season.html`. That table is **synthetic**: the houseguests and
   events are made up. It copies the structure the design doc describes for BB26.
+- `tests/test_details.py`: votes, what was different, player stats, footnote text and
+  episode parsing.
 - `tests/test_snapshots.py`: one snapshot per cached season in `tests/snapshots/`. A season
   with no cache file is skipped. The first run writes the snapshot. After an intended
   change, update with `UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.

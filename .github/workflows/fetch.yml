@@ -1,6 +1,6 @@
 name: Fetch Wikipedia pages
 
-# Fetches each season's page into cache/, rebuilds web/weeks.json and
+# Fetches each season's page into cache/, rebuilds web/weeks.json, details.json and
 # report.txt, and commits them back to the branch if any page changed.
 # Runs when this file or seasons.yaml changes, or by hand from the Actions tab.
 on:
@@ -46,7 +46,7 @@ jobs:
           if git diff --quiet -- 'cache/*.html'; then
             echo "Wikipedia pages unchanged; nothing to commit"
           else
-            git add cache/ web/weeks.json report.txt
+            git add cache/ web/weeks.json web/details.json report.txt
             git commit -m "Update Wikipedia page cache and weeks.json"
             git push
           fi

@@ -180,8 +180,8 @@ def build_round(rows, col, sub_label):
         "tally": None,
         "extras": {},
     }
-    vote_cells, evicted_cell = [], None
-    for kind, key, _, row in rows:
+    vote_cells, voters, evicted_cell = [], [], None
+    for kind, key, label, row in rows:
         cell = row[col]
         if kind == "field":
             rnd[key] = split_names(cell)
@@ -194,7 +194,10 @@ def build_round(rows, col, sub_label):
             rnd["evicted"], rnd["tally"] = parse_evicted(cell)
         elif kind == "vote":
             vote_cells.append(cell.names)
-    rnd["_vote_cells"] = vote_cells  # used by the validator, dropped on export
+            voters.append((label, cell.names))
+    # Used by the validator and the details export; dropped from weeks.json.
+    rnd["_vote_cells"] = vote_cells
+    rnd["_voters"] = voters
     return rnd, round_problem(rnd, evicted_cell)
 
 
@@ -279,7 +282,7 @@ def interpret(grid: Grid, season: int):
         if len(round_cols) == 2:
             notes.insert(1 if finale else 0, two_round_note(round_cols, twist))
 
-        for _, _, _, row in rows:
+        for _, _, _, row in [(None, None, None, r) for r in grid.header_rows] + rows:
             for c in cols:
                 for fn in row[c].footnotes:
                     if fn not in record["footnotes"]:
@@ -288,3 +291,26 @@ def interpret(grid: Grid, season: int):
         record["_raw"] = raw_text(rows, cols, [s or week_label for s, _ in subcols])
         records.append(record)
     return records
+
+
+# A houseguest's last cell in the vote rows says how their game ended.
+RESULT_RE = re.compile(r"\b(winner|runner-up|place|evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
+
+
+def houseguests(grid: Grid):
+    """The season's houseguests in table order, with how their game ended.
+
+    Returns [{"name", "result"}]. "result" is the last cell of the
+    houseguest's vote row that states an outcome ("Winner", "Evicted
+    (Day 52)"), or None for someone still in the game while the season airs.
+    """
+    label_cols = label_columns(grid)
+    out = []
+    for kind, _, label, row in classify_rows(grid, label_cols):
+        if kind != "vote":
+            continue
+        cells = [row[c].text.replace("\n", " ") for c in range(grid.width) if c not in label_cols]
+        # Jurors' last cell is their Finale vote, so take the last stated outcome.
+        result = next((t for t in reversed(cells) if RESULT_RE.search(t)), None)
+        out.append({"name": label, "result": result})
+    return out

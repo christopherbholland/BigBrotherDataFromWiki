@@ -215,6 +215,7 @@
   ],
   "raw": null,
   "footnotes": [
+   "a",
    "g"
   ]
  },
@@ -253,6 +254,7 @@
   ],
   "raw": null,
   "footnotes": [
+   "a",
    "g"
   ]
  },
@@ -292,6 +294,7 @@
   ],
   "raw": null,
   "footnotes": [
+   "a",
    "g"
   ]
  },
@@ -387,7 +390,9 @@
    }
   ],
   "raw": null,
-  "footnotes": []
+  "footnotes": [
+   "b"
+  ]
  },
  {
   "season": 24,
@@ -481,7 +486,9 @@
    }
   ],
   "raw": null,
-  "footnotes": []
+  "footnotes": [
+   "c"
+  ]
  },
  {
   "season": 24,

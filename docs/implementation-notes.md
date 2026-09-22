@@ -56,6 +56,38 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
   eviction yet. BB28's caption on Wikipedia reads "Big Brother 26 voting history", a
   mistake on the page itself that doesn't affect parsing.
 
+## Detail views (details.json)
+
+All of this comes from the same cached page. Nothing is shown on the main cards.
+
+- **Votes.** Each houseguest's vote-row cell for a round is either a vote (exactly one
+  final nominee's name) or a reason for not voting (e.g. "Head of Household",
+  "Nominated", "Not eligible"). "Evicted (Day X)"-style cells are left out.
+- **What was different.**
+  - The unusual parts of the week's note: two rounds, non-standard outcomes. "Finale"
+    and "No eviction" don't count.
+  - The week's twist rows.
+  - The text of every Wikipedia footnote on the week's cells, header included.
+    `grid.footnote_texts` resolves each `[a]` marker to its entry in the page's notes
+    list and drops backlinks and citation numbers. There's no attempt to classify or
+    reword a twist; the notes are quoted as written.
+- **Episodes.** Every season page has one `wikiepisodetable`, grouped by full-width
+  "Week N" rows. Each episode row is followed by a full-width summary row. The week
+  headings match the voting table's week labels in all eight seasons. Two BB24 episodes
+  have no summary on Wikipedia, and BB28's unaired episodes have none yet.
+- **Players.**
+  - The roster is the voting table's vote rows. A player's result is the last cell in
+    their row that states an outcome ("Winner", "Evicted (Day 52)"); jurors' Finale
+    votes are skipped.
+  - Stats count the modeled rounds only.
+  - A name in parentheses in a twist row, like BB22's "Room winner: Kaysar, (Janelle)",
+    isn't counted as a twist win.
+  - Any summary-cell name that matches no houseguest is listed in `report.txt`. There are
+    none today.
+- **Header footnotes.** Footnotes on week headers (e.g. "[a] This week was a Double
+  Eviction week") were previously missed. They're now included in each week's
+  `footnotes`, which changed 17 weeks' snapshots.
+
 ## Row-label patterns (`bbgrid/interpret.py`)
 
 Labels are lowercased, whitespace is collapsed, and footnote markers are removed before

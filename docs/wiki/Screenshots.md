@@ -29,3 +29,23 @@ The grid scrolls sideways with the season labels pinned. Tapping a cell opens it
 just below it.
 
 <img src="https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/mobile-week.png?raw=true" alt="Phone view with the BB26 Week 3 tooltip" width="390">
+
+## Week details
+
+Click or tap a week to see who voted for whom, what was different about the week
+(twists, plus Wikipedia's notes), and that week's episodes.
+
+![BB26 Week 4 details](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/details-week.png?raw=true)
+
+## Players
+
+Per-season stats for each houseguest: HOH wins, veto wins, noms, votes against, votes
+cast, twist wins. Click a player for a week-by-week timeline.
+
+![BB28 players, dark mode](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/players-dark.png?raw=true)
+
+![Angela's BB26 timeline](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/details-player.png?raw=true)
+
+On a phone, details open as a bottom sheet:
+
+<img src="https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/mobile-details.png?raw=true" alt="BB26 Week 10 details on a phone" width="390">

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T18:35:08+00:00",
+ "generated_at": "2026-09-22T18:52:56+00:00",
  "license": "Wikipedia content, CC BY-SA 4.0",
  "sources": [
   {
@@ -760,7 +760,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 21,
@@ -1348,7 +1350,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 22,
@@ -2022,7 +2026,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 23,
@@ -2081,7 +2087,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 23,
@@ -2525,6 +2533,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "a",
     "g"
    ]
   },
@@ -2563,6 +2572,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "a",
     "g"
    ]
   },
@@ -2602,6 +2612,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "a",
     "g"
    ]
   },
@@ -2697,7 +2708,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "b"
+   ]
   },
   {
    "season": 24,
@@ -2791,7 +2804,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "c"
+   ]
   },
   {
    "season": 24,
@@ -3084,7 +3099,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 25,
@@ -3323,6 +3340,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "b",
     "d"
    ]
   },
@@ -3642,7 +3660,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "b"
+   ]
   },
   {
    "season": 25,
@@ -4346,7 +4366,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 26,
@@ -5225,6 +5247,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "c",
     "i",
     "h"
    ]
@@ -5285,7 +5308,9 @@
     }
    ],
    "raw": null,
-   "footnotes": []
+   "footnotes": [
+    "a"
+   ]
   },
   {
    "season": 27,
@@ -6099,6 +6124,7 @@
    ],
    "raw": null,
    "footnotes": [
+    "c",
     "e",
     "f"
    ]
@@ -6305,6 +6331,7 @@
     ]
    },
    "footnotes": [
+    "a",
     "g"
    ]
   },

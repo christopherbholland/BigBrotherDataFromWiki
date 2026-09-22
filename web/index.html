@@ -83,7 +83,7 @@ table.grid { border-collapse: separate; border-spacing: 2px; padding: 8px; }
   display: flex; align-items: center; min-height: 19px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
 .cell:not(.multi) .part { min-height: 40px; }
-.cell:hover .part, .cell:focus-visible .part, .cell.active .part { background: var(--cell-hover); }
+.cell:hover .part, .cell:focus-visible .part { background: var(--cell-hover); }
 .cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
 .cell .empty { color: var(--text-muted); }
 .badge {
@@ -98,7 +98,6 @@ table.grid { border-collapse: separate; border-spacing: 2px; padding: 8px; }
   background: var(--tip-bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--tip-shadow);
   padding: 10px 12px; font-size: 13px; display: none;
 }
-#tip.pinned { pointer-events: auto; }
 #tip h3 { margin: 0 0 2px; font-size: 14px; }
 #tip .status { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
 #tip .round + .round { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; }
@@ -117,13 +116,90 @@ footer a { color: var(--text-secondary); }
 /* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
 .embed main { padding-top: 8px; }
 .embed h1, .embed .sub { display: none; }
+/* View tabs */
+.toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.tabs { display: inline-flex; gap: 2px; padding: 3px; background: var(--cell); border-radius: 8px; }
+.tabs button {
+  border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600;
+  padding: 6px 14px; border-radius: 6px; cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.tabs button:focus-visible, .chips button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* Details drawer: a side panel, or a bottom sheet on phones */
+#scrim { position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 20; }
+#drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(480px, 100vw); z-index: 21;
+  display: flex; flex-direction: column; background: var(--surface-1);
+  border-left: 1px solid var(--line); box-shadow: -8px 0 32px rgba(0,0,0,.18);
+}
+@media (max-width: 640px) {
+  #drawer { top: auto; left: 0; width: auto; height: 88vh; border-left: 0; border-top: 1px solid var(--line); border-radius: 14px 14px 0 0; }
+}
+[hidden] { display: none !important; }
+.drawer-head { display: flex; align-items: flex-start; gap: 8px; padding: 16px 16px 10px; border-bottom: 1px solid var(--line); }
+.drawer-head h2 { margin: 0; font-size: 18px; flex: 1; }
+.drawer-head .status { color: var(--text-secondary); font-size: 13px; font-weight: 400; margin-top: 2px; }
+#drawer-close { flex: none; border: 0; background: var(--cell); color: var(--text-primary); width: 32px; height: 32px; border-radius: 8px; font-size: 18px; cursor: pointer; }
+#drawer-body { overflow: auto; padding: 4px 16px 32px; font-size: 14px; }
+#drawer-body h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-secondary); margin: 22px 0 8px; }
+#drawer-body h4 { font-size: 13px; margin: 12px 0 4px; }
+#drawer-body dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; }
+#drawer-body dt { color: var(--text-secondary); }
+#drawer-body dd { margin: 0; }
+.round + .round { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
+.round h4 { color: var(--text-secondary); font-size: 12px !important; text-transform: uppercase; letter-spacing: .04em; }
+.muted { color: var(--text-muted); }
+a.plink { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+a.plink:hover { text-decoration-color: currentColor; }
+.vote-row { display: grid; grid-template-columns: minmax(0, 150px) 1fr 24px; align-items: center; gap: 10px; margin-top: 10px; }
+.bar { height: 8px; background: var(--cell); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.vote-count { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.voters { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.tag { display: inline-block; font-size: 11px; line-height: 16px; border: 1px solid var(--line); border-radius: 8px; padding: 0 6px; margin-left: 6px; color: var(--text-secondary); font-weight: 400; }
+ul.plain { margin: 0; padding-left: 18px; }
+ul.plain li { margin: 3px 0; }
+blockquote.wnote { margin: 8px 0; padding: 8px 10px; border-left: 3px solid var(--line); background: var(--surface-0); border-radius: 0 6px 6px 0; font-size: 13px; }
+blockquote.wnote cite { display: block; font-style: normal; color: var(--text-muted); font-size: 11px; margin-top: 4px; }
+.ep { border-top: 1px solid var(--line); padding: 8px 0; }
+.ep summary { cursor: pointer; }
+.ep-meta { color: var(--text-secondary); font-size: 12px; }
+.ep p { margin: 6px 0 0; white-space: pre-line; font-size: 13px; }
+/* Players view */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button {
+  border: 1px solid var(--line); background: var(--surface-1); color: var(--text-secondary); font: inherit; font-size: 13px;
+  font-weight: 600; padding: 4px 10px; border-radius: 14px; cursor: pointer;
+}
+.chips button[aria-pressed="true"] { background: var(--text-primary); color: var(--surface-1); border-color: var(--text-primary); }
+table.players { border-collapse: collapse; font-size: 13px; min-width: 100%; }
+table.players th, table.players td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.players th { color: var(--text-secondary); font-size: 12px; font-weight: 600; }
+table.players th:first-child, table.players td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface-1); }
+table.players td.result { text-align: left; color: var(--text-secondary); }
+table.players tr:last-child td { border-bottom: 0; }
+.zero { color: var(--text-muted); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.stat { background: var(--surface-0); border-radius: 8px; padding: 8px 10px; }
+.stat b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--text-secondary); }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
+.timeline li > a, .timeline li > span:first-child { color: var(--text-secondary); font-size: 12px; padding-top: 1px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
 <body>
 <main>
   <h1>Big Brother, week by week</h1>
-  <p class="sub">US seasons 21–28. Each cell names who was evicted that week. Hover, tap, or tab to a cell for details.</p>
+  <p class="sub">US seasons 21–28. Each cell names who was evicted that week. Hover for a summary; click or tap a week for votes, twists and episodes.</p>
+  <div class="toolbar">
+    <div class="tabs" role="tablist" aria-label="View">
+      <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
+      <button role="tab" id="tab-players" aria-selected="false" aria-controls="players-view">Players</button>
+    </div>
+  </div>
+  <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
   <div class="legend" aria-hidden="true">
     <span><i class="swatch"></i> One eviction</span>
     <span><i class="swatch split"><i></i><i></i></i> Two rounds in one week, e.g. a double eviction (stacked)</span>
@@ -131,9 +207,22 @@ footer a { color: var(--text-secondary); }
     <span><i class="badge error" style="position:static">×</i> Error: failed a check</span>
   </div>
   <div class="panel" id="panel"><div class="msg">Loading weeks.json…</div></div>
+  </section>
+  <section id="players-view" role="tabpanel" aria-labelledby="tab-players" hidden>
+    <div class="chips" id="season-pick" role="group" aria-label="Season" style="margin-bottom:12px"></div>
+    <div class="panel" id="players-panel"></div>
+  </section>
   <footer id="footer"></footer>
 </main>
 <div id="tip" role="tooltip"></div>
+<div id="scrim" hidden></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+  <div class="drawer-head">
+    <div style="flex:1"><h2 id="drawer-title"></h2><div class="status" id="drawer-status"></div></div>
+    <button id="drawer-close" aria-label="Close details">×</button>
+  </div>
+  <div id="drawer-body"></div>
+</aside>
 <script>
 if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 
@@ -229,7 +318,6 @@ function render(data) {
 
 function wireTooltip(weeks) {
   const tip = document.getElementById("tip");
-  let pinned = null;
   const show = (btn, x, y) => {
     tip.innerHTML = tipHtml(weeks[+btn.dataset.i]);
     tip.style.display = "block";
@@ -242,7 +330,7 @@ function wireTooltip(weeks) {
       if (left + tw > innerWidth - 8) left = Math.max(8, x - tw - 12);
       if (top + th > innerHeight - 8) top = Math.max(8, innerHeight - th - 8);
     } else {
-      // Tap or keyboard focus: sit below the cell (above if no room) so it stays visible.
+      // Keyboard focus: sit below the cell (above if no room) so it stays visible.
       left = Math.min(Math.max(8, r.left), innerWidth - tw - 8);
       top = r.bottom + 6;
       if (top + th > innerHeight - 8) top = r.top - th - 6;
@@ -251,32 +339,277 @@ function wireTooltip(weeks) {
     tip.style.left = left + "px"; tip.style.top = top + "px";
   };
   const hide = () => { tip.style.display = "none"; };
-  const unpin = () => { if (pinned) pinned.classList.remove("active"); pinned = null; tip.classList.remove("pinned"); hide(); };
   const panel = document.getElementById("panel");
+  const drawerOpen = () => !document.getElementById("drawer").hidden;
   panel.addEventListener("mousemove", e => {
-    if (pinned) return;
     const btn = e.target.closest(".cell");
-    btn ? show(btn, e.clientX, e.clientY) : hide();
+    btn && !drawerOpen() ? show(btn, e.clientX, e.clientY) : hide();
   });
-  panel.addEventListener("mouseleave", () => { if (!pinned) hide(); });
-  panel.addEventListener("focusin", e => { const btn = e.target.closest(".cell"); if (btn && !pinned) show(btn); });
-  panel.addEventListener("focusout", () => { if (!pinned) hide(); });
+  panel.addEventListener("mouseleave", hide);
+  panel.addEventListener("focusin", e => { const btn = e.target.closest(".cell"); if (btn && !drawerOpen()) show(btn); });
+  panel.addEventListener("focusout", hide);
+  // Clicking or tapping a week opens its details (the hover card stays a summary).
   panel.addEventListener("click", e => {
     const btn = e.target.closest(".cell");
     if (!btn) return;
-    if (pinned === btn) return unpin();
-    unpin();
-    pinned = btn; btn.classList.add("active"); tip.classList.add("pinned");
-    show(btn);
-    e.stopPropagation();
+    hide();
+    const w = weeks[+btn.dataset.i];
+    location.hash = weekHash(w.season, w.week_label);
   });
-  document.addEventListener("click", e => { if (pinned && !tip.contains(e.target)) unpin(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") unpin(); });
 }
+
+// ---------- Detail views (loaded on demand from details.json) ----------
+
+let DATA = null, DETAILS = null, detailsPromise = null;
+function loadDetails() {
+  if (!detailsPromise) {
+    detailsPromise = fetch("details.json")
+      .then(r => { if (!r.ok) throw new Error(r.status + " " + r.statusText); return r.json(); })
+      .then(d => (DETAILS = d))
+      .catch(err => { detailsPromise = null; throw err; });
+  }
+  return detailsPromise;
+}
+
+const weekHash = (season, label) => `#week=${season}/${encodeURIComponent(label)}`;
+const playerHash = (season, name) => `#player=${season}/${encodeURIComponent(name)}`;
+const plink = (season, name) => `<a class="plink" href="${playerHash(season, name)}">${esc(name)}</a>`;
+const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + "s")}`;
+
+const $ = id => document.getElementById(id);
+let lastFocus = null;
+
+function openDrawer(title, status, body) {
+  if ($("drawer").hidden) lastFocus = document.activeElement;
+  $("drawer-title").textContent = title;
+  $("drawer-status").textContent = status || "";
+  $("drawer-body").innerHTML = body;
+  $("drawer-body").scrollTop = 0;
+  $("drawer").hidden = false;
+  $("scrim").hidden = false;
+  $("drawer-close").focus();
+}
+
+function hideDrawer() {
+  $("drawer").hidden = true;
+  $("scrim").hidden = true;
+  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  lastFocus = null;
+}
+
+// Closing returns to the current view's own address.
+function closeDrawer() {
+  location.hash = currentView === "players" ? `#players=${currentSeason}` : "";
+}
+
+function errorHtml(err) {
+  return `<p class="muted">Couldn’t load details.json (${esc(err.message)}). Run <code>python -m bbgrid build</code> to create it.</p>`;
+}
+
+function weekRecord(season, label) {
+  return DATA.weeks.find(w => w.season === season && w.week_label === label);
+}
+
+function statusText(w) {
+  if (w.status === "ok") return w.note || "";
+  return `${w.status === "error" ? "Error" : "Note"}: ${w.note || ""}`;
+}
+
+async function showWeek(season, label) {
+  const w = weekRecord(season, label);
+  if (!w) return closeDrawer();
+  const title = `BB${season} · ${label}`;
+  openDrawer(title, statusText(w), `<p class="muted">Loading…</p>`);
+  let d;
+  try { d = (await loadDetails()).weeks[`${season}|${label}`]; }
+  catch (err) { return openDrawer(title, statusText(w), errorHtml(err)); }
+  if (location.hash !== weekHash(season, label)) return;  // moved on while loading
+  const multi = w.rounds.length > 1;
+  const summary = w.rounds.length
+    ? w.rounds.map((r, i) => roundHtml(r, multi ? `Round ${i + 1}${r.sub_label ? " · " + r.sub_label : ""}` : "")).join("")
+    : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
+  openDrawer(title, statusText(w),
+    `<h3>Summary</h3>${summary}`
+    + `<h3>Votes</h3>${votesHtml(w, d)}`
+    + `<h3>What was different</h3>${specialHtml(d)}`
+    + `<h3>Episodes</h3>${episodesHtml(d)}`);
+}
+
+function votesHtml(w, d) {
+  if (!d || !d.rounds.length) return `<p class="muted">No vote to show.</p>`;
+  const multi = d.rounds.length > 1;
+  return d.rounds.map((v, i) => {
+    const r = w.rounds[i];
+    const total = v.votes.length;
+    let html = multi ? `<h4>Round ${i + 1}${v.sub_label ? " · " + esc(v.sub_label) : ""}</h4>` : "";
+    if (r.tally && r.tally.type === "sole_vote") {
+      html += `<p>${plink(w.season, r.tally.by)} cast the sole vote to evict.</p>`;
+    }
+    html += v.by_nominee.map(n => {
+      const pct = total ? Math.round(100 * n.voters.length / total) : 0;
+      return `<div class="vote-row"><div>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</div>`
+        + `<div class="bar" role="img" aria-label="${n.voters.length} of ${total} votes"><i style="width:${pct}%"></i></div>`
+        + `<div class="vote-count">${n.voters.length}</div></div>`
+        + `<div class="voters">${n.voters.length ? n.voters.map(x => plink(w.season, x)).join(", ") : "No votes"}</div>`;
+    }).join("");
+    if (v.not_voting.length) {
+      html += `<p class="voters" style="margin-top:10px">Didn’t vote: ${v.not_voting.map(x => `${plink(w.season, x.voter)} (${esc(x.reason)})`).join(", ")}</p>`;
+    }
+    return html;
+  }).join("");
+}
+
+function specialHtml(d) {
+  if (!d) return "";
+  const items = d.special.items.map(x => `<li>${esc(x)}</li>`).join("");
+  const notes = d.special.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia note [${esc(n.label)}]</cite></blockquote>`).join("");
+  if (!items && !notes) return `<p class="muted">Nothing unusual recorded for this week.</p>`;
+  return (items ? `<ul class="plain">${items}</ul>` : "") + notes;
+}
+
+function fmtDate(ep) {
+  if (!ep.air_date) return ep.air_date_text || "";
+  return new Date(ep.air_date + "T12:00:00Z").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
+function episodesHtml(d) {
+  if (!d || !d.episodes.length) return `<p class="muted">No episodes listed for this week.</p>`;
+  return d.episodes.map(ep => {
+    const meta = [ep.days, fmtDate(ep), ep.viewers_millions != null ? `${ep.viewers_millions}M viewers` : ""].filter(Boolean).join(" · ");
+    const head = `<strong>${esc(ep.title)}</strong> <span class="ep-meta">${esc(meta)}</span>`;
+    return ep.summary
+      ? `<details class="ep"><summary>${head}</summary><p>${esc(ep.summary)}</p></details>`
+      : `<div class="ep">${head}</div>`;
+  }).join("");
+}
+
+// ---------- Players ----------
+
+let currentView = "weeks", currentSeason = null;
+
+function seasonList() {
+  return [...new Set(DATA.weeks.map(w => w.season))].sort((a, b) => b - a);
+}
+
+function setView(view) {
+  currentView = view;
+  $("weeks-view").hidden = view !== "weeks";
+  $("players-view").hidden = view !== "players";
+  $("tab-weeks").setAttribute("aria-selected", view === "weeks");
+  $("tab-players").setAttribute("aria-selected", view === "players");
+}
+
+function playerStats(p) {
+  const against = p.votes_against.reduce((n, x) => n + x.voters.length, 0);
+  const withHouse = p.votes_cast.filter(v => v.with_house).length;
+  return { hoh: p.hoh.length, veto: p.veto.length, noms: p.nominated.length, block: p.on_block.length,
+           against, cast: p.votes_cast.length, withHouse, twist: p.twist.length };
+}
+
+async function showPlayers(season) {
+  setView("players");
+  currentSeason = season;
+  $("season-pick").innerHTML = seasonList().map(s =>
+    `<button aria-pressed="${s === season}" data-season="${s}">BB${s}</button>`).join("");
+  const panel = $("players-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading players…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentSeason !== season) return;
+  const rows = d.players.filter(p => p.season === season);
+  const num = n => n ? n : `<span class="zero">0</span>`;
+  panel.innerHTML = `<table class="players"><thead><tr>
+      <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
+      <th scope="col">HOH</th><th scope="col">Veto</th><th scope="col">Noms</th><th scope="col">Final noms</th>
+      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th><th scope="col">Twist wins</th>
+    </tr></thead><tbody>` + rows.map(p => {
+      const s = playerStats(p);
+      return `<tr><td>${plink(season, p.name)}</td><td class="result">${esc(p.result || "In the game")}</td>`
+        + `<td>${num(s.hoh)}</td><td>${num(s.veto)}</td><td>${num(s.noms)}</td><td>${num(s.block)}</td>`
+        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td><td>${num(s.twist)}</td></tr>`;
+    }).join("") + `</tbody></table>`;
+}
+
+// Week keys in season order, e.g. "Week 10 (Day 67)" for a round of a two-round week.
+function roundKeys(season) {
+  const keys = [];
+  DATA.weeks.filter(w => w.season === season).forEach(w => {
+    const multi = w.rounds.length > 1;
+    if (!w.rounds.length) keys.push([w.week_label, w.week_label]);
+    w.rounds.forEach(r => keys.push([multi && r.sub_label ? `${w.week_label} (${r.sub_label})` : w.week_label, w.week_label]));
+  });
+  return keys;
+}
+
+async function showPlayer(season, name) {
+  const title = name;
+  const status = `BB${season}`;
+  openDrawer(title, status, `<p class="muted">Loading…</p>`);
+  let d;
+  try { d = await loadDetails(); } catch (err) { return openDrawer(title, status, errorHtml(err)); }
+  if (location.hash !== playerHash(season, name)) return;
+  const p = d.players.find(x => x.season === season && x.name === name);
+  if (!p) return openDrawer(title, status, `<p class="muted">No player by that name in BB${season}.</p>`);
+  const s = playerStats(p);
+  const events = new Map();
+  const add = (week, html) => { if (!events.has(week)) events.set(week, []); events.get(week).push(html); };
+  p.hoh.forEach(w => add(w, "Won HOH"));
+  p.veto.forEach(w => add(w, "Won the veto"));
+  p.twist.forEach(t => add(t.week, esc(t.label)));
+  p.nominated.forEach(w => add(w, p.on_block.includes(w) ? "Nominated" : "Nominated, then saved"));
+  p.on_block.filter(w => !p.nominated.includes(w)).forEach(w => add(w, "Put on the block as a replacement nominee"));
+  p.votes_against.forEach(v => add(v.week, `${plural(v.voters.length, "vote")} to evict them (${v.voters.map(x => plink(season, x)).join(", ")})`));
+  p.votes_cast.forEach(v => add(v.week, `Voted to evict ${plink(season, v.vote)}${v.with_house ? "" : " <span class=\"tag\">against the house</span>"}`));
+  if (p.evicted) add(p.evicted, "<strong>Evicted</strong>");
+  const timeline = roundKeys(season).filter(([k]) => events.has(k)).map(([k, label]) =>
+    `<li><a class="plink" href="${weekHash(season, label)}">${esc(k)}</a><div>${events.get(k).join("<br>")}</div></li>`).join("");
+  openDrawer(title, `BB${season} · ${p.result || "In the game"}`,
+    `<div class="stats">
+       <div class="stat"><b>${s.hoh}</b><span>HOH wins</span></div>
+       <div class="stat"><b>${s.veto}</b><span>Veto wins</span></div>
+       <div class="stat"><b>${s.noms}</b><span>Times nominated</span></div>
+       <div class="stat"><b>${s.against}</b><span>Votes against</span></div>
+     </div>
+     <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${s.withHouse} with the house` : ""}${s.twist ? ` · ${plural(s.twist, "twist win")}` : ""}</p>
+     <h3>Week by week</h3>
+     ${timeline ? `<ul class="timeline">${timeline}</ul>` : `<p class="muted">Nothing recorded in the modeled weeks.</p>`}
+     <p class="voters" style="margin-top:12px">Counted from the weeks the grid models; twist rounds shown as notes aren’t included.</p>`);
+}
+
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela ----------
+
+function route() {
+  if (!DATA) return;
+  const m = location.hash.match(/^#(week|players|player)=(\d+)(?:\/(.*))?$/);
+  const newest = seasonList()[0];
+  if (!m) { setView("weeks"); hideDrawer(); return; }
+  const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
+  if (kind === "week") {
+    if (currentView !== "players") setView("weeks");
+    showWeek(season, rest);
+  } else if (kind === "players") {
+    hideDrawer();
+    showPlayers(season || newest);
+  } else {
+    if (currentView !== "players" || currentSeason !== season) showPlayers(season);
+    showPlayer(season, rest);
+  }
+}
+
+$("tab-weeks").addEventListener("click", () => { location.hash = ""; });
+$("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
+$("season-pick").addEventListener("click", e => {
+  const b = e.target.closest("button[data-season]");
+  if (b) location.hash = `#players=${b.dataset.season}`;
+});
+$("drawer-close").addEventListener("click", closeDrawer);
+$("scrim").addEventListener("click", closeDrawer);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("drawer").hidden) closeDrawer(); });
+addEventListener("hashchange", route);
 
 fetch("weeks.json")
   .then(r => { if (!r.ok) throw new Error(r.status + " " + r.statusText); return r.json(); })
-  .then(render)
+  .then(data => { DATA = data; render(data); route(); })
   .catch(err => {
     document.getElementById("panel").innerHTML =
       `<div class="msg">Couldn’t load weeks.json (${esc(err.message)}). Run <code>python -m bbgrid build</code>, then serve this folder, e.g. <code>python -m http.server -d web</code>.</div>`;
