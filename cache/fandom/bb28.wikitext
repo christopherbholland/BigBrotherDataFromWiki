@@ -1,0 +1,240 @@
+{{Season
+|image = <gallery>
+BB28 Logo.png|Updated
+US28 Logo.jpg|Original
+</gallery>
+|season = 28
+|prizemoney = $750,000
+|numberofhouseguests = 17
+|numberofdays = 87
+|winner = 
+|runnersup = 
+|network = [[CBS]]<br>[[wikipedia:Paramount+|Paramount+]] (live feeds)<br>[[wikipedia:Pluto TV|Pluto TV]] (live feeds)<br>[[wikipedia:YouTube|YouTube]] (live feeds; limited)
+|executiveproducer = [[wikipedia:Allison Grodner|Allison Grodner]]<br>Rich Meehan
+|challengeproducer = 
+|casting = Jesse Tannenbaum
+|announcers = Don Wollman<br>Clayton Halsey
+|productioncompany = {{nowrap|Fly on the Wall Entertainment}}<br>{{nowrap|[[wikipedia:Endemol Shine North America|Endemol Shine North America]]}}
+|seasonrun = July 9, 2026 - October 1, 2026
+|filmingrun = July 7, 2026 - October 1, 2026
+|numberofepisodes = <abbr title="Includes 6 Big Brother: Unlocked only episodes">41</abbr>
+|viewership = 
+|companionshows = [[Big Brother: Unlocked]] <small>[[Big Brother: Unlocked/Season 2|(Season 2)]]</small>
+|castphoto = <gallery>
+BB28 Cast.jpg|Swimsuit
+US28 Cast.jpg|Poster
+</gallery>
+|video = BB28 Intro
+|previousseason = [[Big Brother 27 (US)]]
+|nextseason = 
+|host= [[Julie Chen-Moonves]]
+|version= [[Big Brother U.S. (franchise)|United States]]
+}}'''Big Brother 28''' is the current 28th season of the broadcasted edition of ''[[Big Brother U.S. (franchise)|Big Brother (U.S.)]]'' and the 33rd season overall.
+==Background==
+[[File:BB28 Promo Logo.jpg|thumb|200px|Promotional Logo]]
+[[File:BB 1000th Logo.jpg|thumb|250px|1000th Episode Logo]]
+===Development===
+Once again, this season was revealed by production ahead of an official renewal announcement from CBS, when they updated their casting website on August 1, 2025 during ''[[Big Brother 27 (US)]]''.
+
+On May 13, 2026, it was announced that the season would have a 90-minute premiere on Thursday, July 9, 2026, followed by another 90-minute episode the next Sunday. The traditional Sunday, Wednesday, Thursday episode schedule returned, with all episodes airing at 8 PM throughout the season. The 90-minute Wednesday episodes returned for this season, while the Sunday and Thursday episodes would remain at an hour length following the premiere week. This season marked the 1000th episode of ''Big Brother US'', a primetime television first, and featured the most programming hours in the show's history. It was also announced that the companion show, ''[[Big Brother: Unlocked]]'', would return for its [[Big Brother: Unlocked/Season 2|second season]], airing every other Friday at 8 PM starting on July 10.<ref>{{Cite web|url=https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=112872-big-brother-turns-up-the-heat-with-its-biggest-season-yet-premiering-thursday-july-9-with-a-90-minute-episode|title=“BIG BROTHER” TURNS UP THE HEAT WITH ITS BIGGEST SEASON YET, PREMIERING THURSDAY, JULY 9 WITH A 90-MINUTE EPISODE|publisher=Paramount Press Express|date=13 May 2026}}</ref>
+===Canadian Viewership Changes===
+On May 26, 2026, it was announced that this season would be the last one to air on [[Global]] in Canada. Global was the home of ''[[Big Brother U.S. (franchise)|Big Brother US]]'' in Canada since its debut, and aired [[Big Brother Canada (franchise)|Canada's own ''Big Brother'' franchise]] from [[Big Brother Canada 3|2014]] to [[Big Brother Canada 12|2024]], after picking it up from sister channel [[Slice]].<ref>{{Cite web|url=https://globalnews.ca/news/11863358/big-brother-season-28-last-to-air-on-global/|title=Global announces upcoming season of ‘Big Brother’ will be last to air on network|archivedate=27 May 2026|last=Scott|first=Katie|date=27 May 2026|publisher=Global News|accessdate=26 May 2026|archiveurl=https://web.archive.org/web/20260528034953/https://globalnews.ca/news/11863358/big-brother-season-28-last-to-air-on-global/}}</ref> On June 4, 2026, it was later announced that future seasons would air on [[wikipedia:CTV Television Network|CTV]], following [[wikipedia:Bell Media|Bell Media's]] acquisition of ''[[Big Brother Canada (franchise)|Big Brother Canada]]''.<ref>{{cite web|url=https://www.bellmedia.ca/the-lede/press/bell-media-becomes-head-of-household-with-order-of-big-brother-canada-for-crave-and-ctv-and-acquisition-of-future-seasons-of-big-brother-usa-beginning-in-2027/|title=Bell Media Becomes Head of Household with Order of BIG BROTHER CANADA for Crave and CTV and Acquisition of Future Seasons of BIG BROTHER USA, Beginning in 2027|publisher=Bell Media|date=4 June 2026|accessdate=4 June 2026}}</ref>
+===Possible Chinese Leak===
+<small>'''Note:''' ''The "Big Brother Wiki" has archived the Leaked Advertising Pitch via the Official X Account, you can see it [https://x.com/bigbrotherwikia/status/2069796927307174258 here]''</small>
+
+On June 24, 2026, a leak to a Paramount Advertising in China was leaked via a WeChat link on X.<ref name="China Leak">{{cite web|url=https://mp.weixin.qq.com/s/I44GcBnaZw3rEIp9AnpHTw|title=Walls have ears, and brands have voices! Sponsorship opportunities are now open for Season 28 of the phenomenal American reality show "Big Brother".|publisher=Paramount Adversiting|date=26 May 2026|accessdate=24 June 2026|language=Chinese}}</ref> In the pitch to Chinese advertisers, Paramount listed a promotional pitch for aspects on potential sponsorships for the Chinese social media platform [[wikipedia:Douban|Douban]].
+
+''In the leak, the following '''<u>pitched possible</u>''' aspects of the season were revealed:''
+*The Potential Finale Date of October 1, 2026
+*The Season's Theme of "Time Trip"
+*Twists Including:
+**Returning Players
+**"BB Time Capsule" Competition, where "fans will vote to select a guest to participate in a high-stakes challenge to win legendary privileges or face classic punishments from BB history."
+**1,000 Episode Special
+**<abbr title="Later Proved to Be Incorrect">[[Derek Xiao]] replacing [[Derrick Levasseur]] as the co-host of ''[[Big Brother: Unlocked/Season 2|Big Brother: Unlocked]]''</abbr>
+
+The slide presentations are listed below:
+<gallery widths="150">
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 1.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 2.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 3.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 4.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 5.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 6.png
+File:US 28 Chinese Paramount Advert Pitch Leak Slide 7.png
+</gallery>
+===Unlocked Changes===
+[[File:Jerry O'Connell Big Brother Host.jpg|thumb|right|Jerry O'Connell's Official Press Photo]]
+On June 30, 2026, CBS announced that actor [[Jerry O'Connell]] would join the [[Big Brother: Unlocked/Season 2|second season]] of ''[[Big Brother: Unlocked]]'' alongside returning hosts and former winners [[Derrick Levasseur]] and [[Taylor Hale]] from the [[Big Brother: Unlocked/Season 1|first season]].<ref>{{Cite web|url=https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=113009-jerry-oconnell-joins-big-brother-unlocked-as-celebrity-panelist-alongside-returning-winners-taylor-hale-and-derrick-levasseur|title=JERRY O’CONNELL JOINS “BIG BROTHER: UNLOCKED” AS CELEBRITY PANELIST ALONGSIDE RETURNING WINNERS TAYLOR HALE AND DERRICK LEVASSEUR|author=Paramount Press Express|date=30 June 2026|accessdate=30 June 2026}}</ref> O'Connell returns to the franchise after appearing on the second episode of ''Unlocked'' in season 1.<ref>{{Cite web|url=https://www.imdb.com/title/tt37613759/|title=Big Brother: Unlocked #2|publisher=imdb|accessdate=30 June 2026}}</ref> Prior to that, O'Connell was brought in last minute to guest host the Week 8 Eviction in ''[[Big Brother 26 (US)]]'' after it was announced that [[Julie Chen-Moonves]] was quarantining from a COVID infection.<ref>{{Cite web|url=https://parade.com/tv/big-brother-26-julie-chen-moonves-covid-absence-jerry-oconnell|title=Why is Julie Chen Moonves Missing from Tonight's 'Big Brother 26' Eviction Episode?|first=Mike|last=Bloom|date=24 September 2024|accessdate=30 June 2026}}</ref>
+
+In the official release, O'Connell stated, "''Big Brother'' is my summer and rolls into my fall too. I’m already watching on Wednesdays, Thursdays and Sundays, so the fact that CBS is now paying me to do it is kind of amazing. It’s an absolute honor to sit next to Derrick – ‘Champ,’ as I call him – and Taylor, who is my all-time favorite ''Big Brother'' winner (sorry, [[Jag Bains|Jag]]). This is what we call in showbiz a dream gig. I’ll do my best to be the voice of the fans, but as Julie says, expect the unexpected. And most importantly, remember to love one another. I’m soooo excited to join the ''Big Brother'' fam!"
+
+The first episode of the sideshow would go on to premiere on July 10th, the night after the premiere.
+
+Unlike the previous season, ''Unlocked'' now featured a live audience for tapings and included voting aspects that would change the game.
+===House Reveal===
+On July 1st, 2026, CBS released the official house for the first time as the "Time Trip" theme, in which was leaked earlier via the Chinese Promotional Leak earlier in the preseason.<ref>{{Cite web|url=https://parade.com/tv/big-brother-28-time-travel-theme-house-pictures-video|title=CBS Announces ‘Big Brother 28’s ‘Time Trip’ Theme: See First-Look House Photos|first=Mike|last=Bloom|date=1 July 2026|accessdate=1 July 2026|publisher=Parade}}</ref><ref name="China Leak"/> 
+
+The theme has centered around time travel as the franchise prepares for it's landmarked 1,000 episode that will air during the season. The house has, "turning time into the ultimate twist. Houseguests will enter a world where rooms, relics and competitions transport them across moments in time, while early twists shake up the game from the start. Inspired by decades like the ’80s and Y2K, new powers and challenges can disrupt strategy and alliances."<ref name="Paramount House PR">{{Cite web|url=https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=113016-first-look-big-brother-time-trip-warps-houseguests-through-the-past-present-and-future-in-a-season-of-endless-possibilities|title=FIRST LOOK: “BIG BROTHER: TIME TRIP” WARPS HOUSEGUESTS THROUGH THE PAST, PRESENT AND FUTURE IN A SEASON OF ENDLESS POSSIBILITIES|author=Paramount Press Express|date=1 July 2026|accessdate=1 July 2026}}</ref>
+
+The original house released photos, taken by CBS photographer Matthew Taplinger:
+<gallery widths="150">
+US 28 House 2.png
+US 28 House 3.png
+US 28 House 4.png
+US 28 House 5.png
+US 28 House 6.png
+US 28 House 7.png
+US 28 House 8.png
+</gallery>
+
+According to the official press release, the house highlights include:
+*'''Time-Bending Entryway:''' Houseguests are greeted by a striking faux neon sign and a dizzying array of clocks, immediately setting the tone: time is fractured, unpredictable and constantly in motion.
+*'''Living Room of Eras:''' 17-foot gothic windows glow against oxblood stone walls, blending classic and industrial design alongside relics from across history, from a triceratops skull to royal crown jewels – a reminder that anything from any era could shape the game.
+*'''Nostalgic Trophies:''' A 1940s jukebox and an ’80s transparent phone highlight a surreal mix of decades, celebrating nostalgia as past, present and future collide inside the BB house.
+*'''Relic Lab Hallway:''' The iconic time laser returns alongside quirky failed inventions including a pogo stick, keytar and more, all displayed as relics of past experiments.
+*'''Clockwork Bathroom:''' Gears and intricate mechanical details surround Houseguests, while sub-atomic-inspired lighting fixtures create a visually stunning otherworldly atmosphere.
+*'''The Artifact Bedroom:''' Housing five houseguests, this artifact-filled room features two mysterious doorways – one to the past, one to the future.
+*'''Futuristic Sleep Pods Room:''' A sleek retreat with pod beds, organic ladders and nebula visuals offers a calm, futuristic escape from the chaos of the game.
+*'''Upstairs Lounge:''' Vintage tech lines the shelves. Massive arched windows overlooking the living room make it a prime vantage point for eavesdropping, while the custom-built sofa is perfectly suited for both strategizing and showmancing.
+*'''Time-Lapse Gym:''' Walls wrapped in time-lapse photography create the illusion of motion and progression, energizing Houseguests as they work out and reset.
+*'''Clock Tower Feature:''' Tying the entire house together, a dramatic clock tower crowns the space, a symbolic reminder that in this game, time is always ticking … but never predictable.<ref name="Paramount House PR"/>
+
+Earlier in the week, [[Julie Chen-Moonves]] led journalists on a tour inside of the house.
+===Potential Returning Aspects===
+[[File:US 28 House 1.png|thumb|right|200px|Julie in the entrance way for the season's house.<br><small>Matthew Taplinger/CBS</small>]]
+As the season is a theme of a blast to the past, Julie hinted as some previous season aspects could be returning to the ''Big Brother'' game. 
+
+In a quote to [[wikipedia:Men%27s_Journal|Men's Journal]] reporter Sharon Tharp, she stated, "time travel, so that could go forward or backwards, and that will play into some of the competitions. Maybe we’ll do the new twist, which is you love that competition in Season 4, but they have to be in, like, I don’t know, surrounded by dinosaurs, who knows."<ref>{{Cite web|url=https://www.mensjournal.com/entertainment/julie-chen-moonves-hints-controversial-reality-tv-veterans-big-brother-28-cast|title=Julie Chen Moonves Hints ‘Controversial’ Reality TV Veterans Will Be Factored Into ‘Big Brother 28’|first=Sharon|last=Tharp|date=1 July 2026|accessdate=1 July 2026|publisher=Men's Journal}}</ref>
+
+Julie would then state that "Controversial people will be factored in." When asked who, and the possibility of which other possible reality show could be featured, she stated, "If you’re a Big Brother fan, you’ll be like, ‘Aha!’ And I think a lot of people will be like, ‘Yes!’ And I think some people [will be] like, ‘What?’ But it’s good TV. And if you love reality television beyond Big Brother…you’ll be excited as well."
+===Big Brother Broveal===
+[[File:BB Broveal.jpg|thumb|right|250px|''Big Brother: Broveal'' logo]]
+On July 6, 2026, CBS announced the ''Big Brother: Broveal'', a YouTube livestream that will be hosted by Julie as she reveals the cast and dives deeper into the theme, the house and the twists. Following this inaugural stream, the YouTube channel will be used to showcase Live Feeds for free for limited periods following the conclusion of each episode, including ''Unlocked''. Live Feeds will still be hosted with full access for Pluto TV and Paramount+ subscribers.<ref name="Paramount Broveal PR"> {{Cite web|url=https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=113031-big-brother-debuts-two-new-live-fan-experiences-available-on-its-official-youtube-channel|title=“BIG BROTHER” DEBUTS TWO NEW LIVE FAN EXPERIENCES AVAILABLE ON ITS OFFICIAL YOUTUBE CHANNELS|author=Paramount Press Express|date=6 July 2026|accessdate=6 July 2026}}</ref>
+
+The reveal was set as a live premiere on YouTube on July 6th to air on July 7th.<ref>@BBigBrotherBuzz. “[https://x.com/BBigBrotherBuzz/status/2074240366165860825 The waiting room is LIVE! CBS has officially opened the YouTube waiting room for tomorrow’s #BB28 “Big Brother: Broveal” cast reveal livestream! Set a reminder now so you don’t miss the reveal at 12:00 PM ET tomorrow!  #BigBrother #BigBrotherBuzz]” X, 6 July 2026. Retrieved 7 July 2026</ref> However, an hour before it was to go live, it was taken offline in order to, according to [https://www.hamsterwatch.com/ Hamsterwatch], swap out a houseguest.<ref>@BBigBrotherBuzz. “[https://x.com/BBigBrotherBuzz/status/2074513806198268326 The #BB28 Broveal waiting room has been taken down. #BigBrother #BigBrotherBuzz]” X, 7 July 2026. Retrieved 7 July 2026</ref><ref name="Hamsterwatch Cast Reveal">@hamsterwatch.com‬. “[https://bsky.app/profile/hamsterwatch.com/post/3mq2vxn7ank2p happy Day 1! happy move-in! happy Broveal! to all who celebrate! #bb28 a slight revision to my alphabet soup - as always, it's not necessarily accurate, correct, or complete but we're now at  A A B C D D H J K L L L M M R R T]” Bsky, 7 July 2026. Retrieved 7 July 2026</ref>
+
+In a post by Hamsterwatch, the letters "A A B C D D H J K L L L M M R R T" were revealed to be the initials of the seventeen houseguests that would be entering the house.<ref name="Hamsterwatch Cast Reveal"/> When the cast was revealed, 13 initials would go on to match the 14 houseguests revealed by CBS.<ref name="Cast Reveal PR"/> It was then discovered that [[Levi Banks]] was supposed to be the fourteenth houseguest, but was replaced in the final moments by [[Yash Patel]] after it was revealed in a preseason article that was not adjusted before the reveal.<ref name="Levi Twitter Find">@brendalowesveto‬. “[https://bsky.app/profile/hamsterwatch.com/post/3mq2vxn7ank2p who tf is this???? #BB28]” X, 7 July 2026. Retrieved 8 July 2026</ref><ref name="Levi Reveal Men's Joural">{{Cite web|last=Tharp|first=Sharon|date=7 July 2026|url=https://web.archive.org/web/20260707164916/https://www.mensjournal.com/entertainment/big-brother-season-28-cast-meet-houseguests-photos-bios|accessdate=8 July 2026|title=(Wayback Machine) ‘Big Brother’ Season 28 Cast Revealed: Meet the New Houseguests}}</ref>
+
+That would be the explanation for the additional "L" and no "Y".
+
+Shortly after the reveal, the official Paramount press site released a press release stating that, "Additional surprise Houseguests will be revealed on air," signifying that more houseguests would be revealed on the premiere episode.<ref name="Cast Reveal PR"> {{Cite web|url=https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=113033-big-brother-introduces-a-new-cast-of-houseguests-to-a-game-where-the-past-present-and-future-collide|title=“BIG BROTHER” INTRODUCES A NEW CAST OF HOUSEGUESTS TO A GAME WHERE THE PAST, PRESENT AND FUTURE COLLIDE|author=Paramount Press Express|date=7 July 2026|accessdate=7 July 2026|archiveurl=https://web.archive.org/web/20260707171622/https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/releases/?view=113033-big-brother-introduces-a-new-cast-of-houseguests-to-a-game-where-the-past-present-and-future-collide|archivedate=7 July 2026}}</ref> 
+====Additional Players Revealed====
+Three hours after the initial cast release, ''[[wikipedia:Entertainment Weekly|Entertainment Weekly's]]'' [https://x.com/DaltonRoss Dalton Ross] revealed that ''Survivor'' contestants would be included in the season's cast. In an exclusive announcement for ''Entertainment Weekly'', former ''[[w:c:survivor:Survivor: Edge of Extinction|Survivor: Edge of Extinction]]'' and ''[[w:c:survivor:Survivor 50: In the Hands of the Fans|Survivor 50: In the Hands of the Fans]]'' contestant [[Rick Devens]] would be joining the cast.<ref name="Devens EW Reveal">{{Cite web|url=https://ew.com/survivor-star-rick-devens-to-compete-on-big-brother-exclusive-12013019|title=Survivor star Rick Devens to compete on Big Brother season 28 (exclusive)|last=Ross|first=Dalton|date=7 July 2026|accessdate=8 July 2026|archivedate=8 July 2026|archiveurl=https://web.archive.org/web/20260708053112/https://ew.com/survivor-star-rick-devens-to-compete-on-big-brother-exclusive-12013019}}</ref>
+
+In the same article, it stated "And Devens is not the only former Survivor competitor that will be part of the new cast, as EW has learned that a second former castaway will also be vying for ''Big Brother’s'' $750,000 prize. The identity of that second player has yet to be revealed." 
+
+As well as the Rick Devens speculation, former ''[[w:c:survivor:Survivor 45|Survivor 45]]'' winner and fellow ''Survivor 50: In the Hands of the Fans'' competitor [[Dee Valladares]] was leaked online by various social media accounts.<ref>@Realitytv__fan “[https://x.com/Realitytv__fan/status/2074569761514488167 Survivor castaway Rick Devens will be part of the cast of Big Brother 28, Entertainment Weekly has revealed. Survivor winner Dee Valladares will also be on the cast. #BB28]” X, 7 July 2026. Retrieved 8 July 2026</ref><ref name="Devens Inside Survivor Reveal">{{Cite web|url=https://insidesurvivor.com/two-survivor-50-players-to-compete-on-big-brother-28-61640|title=Two Survivor 50 Players to Compete on Big Brother 28|last=Holmes|first=Martin|date=7 July 2026|accessdate=8 July 2026|archivedate=8 July 2026|archiveurl=https://web.archive.org/web/20260708054224/https://insidesurvivor.com/two-survivor-50-players-to-compete-on-big-brother-28-61640}}</ref> However, it would be revealed that Dee's participation would not be revealed until the first episode of ''Big Brother: Unlocked''.<ref name="Angela Men's Journal Reveal">{{Cite web|url=https://www.mensjournal.com/entertainment/big-brother-angela-murray-season-28-survivor-players-exclusive|title=‘Big Brother’ Alum Angela Murray Joins Season 28 Alongside Two ‘Survivor’ Players (Exclusive)|last=Tharp|first=Sharon|date=7 July 2026|accessdate=8 July 2026|archivedate=8 July 2026|archiveurl=https://web.archive.org/web/20260708054601/https://www.mensjournal.com/entertainment/big-brother-angela-murray-season-28-survivor-players-exclusive}}</ref>
+
+One hour later, Sharon Tharp exclusively revealed that [[Angela Murray]] from ''[[Big Brother 26 (US)]]'' would be the sole ''Big Brother'' returnee.<ref name="Angela Men's Journal Reveal"/> By returning, season 28 becomes the second season in a row that a single ''Big Brother'' alum would return to play alongside new houseguests.
+===Time Travel Theme===
+[[File:Enzo US 28 Appearance.jpg|thumb|right|200px|Enzo's "Meow Meow Enterprises" behind this season's Time Travel theme]]
+The theme for the season was revealed to be time travel. Throughout the season, the houseguests would be traveling through time to compete in competitions and twists.
+
+On premiere night, it was revealed that [[Enzo Palumbo]] from ''[[Big Brother 12 (US)]]'' & ''[[Big Brother 22 (US)]]'' was behind the dining room "time machine" with his "company" "Meow Meow Enterprises"
+
+According to Enzo, the multi-verse laser from ''[[Big Brother 25 (US)]]'' & ''[[Big Brother: Reindeer Games]]'' that was broken by former houseguests [[Britney Haynes]], [[Danielle Reyes]] & [[Frankie Grande]] gave him the idea for time travel, that led to this season's twist format.
+===Mickey Lee Tribute===
+[[File:BB28 Mickey Memorial.png|thumb|right|200px|Titlecard tribute in the opening moments of the season.]]
+The opening shot of the season was a tribute card to ''[[Big Brother 27 (US)]]'' houseguest [[Mickey Lee]] who had passed away after a series of cardiac arrests following complications from the flu.<ref>{{cite web|url=https://parade.com/tv/big-brother-27-mickey-lee-critical-condition-cardiac-arrest|title=‘Big Brother 27’ Star in Critical Condition Following Medical Emergency|date=22 December 2025|accessdate=22 December 2025|website=parade.com}}</ref><ref>{{cite web|url=https://www.nbcnews.com/pop-culture/pop-culture-news/big-brother-star-mickey-lee-dies-35-cardiac-arrests-flu-complications-rcna251038|title='Big Brother' star Mickey Lee dies at 35, family says|date=26 December 2025|accessdate=26 December 2025|website=nbcnews.com}}</ref>
+===1000th Episode===
+[[File:BB Alumni 1000th.jpg|thumb|200px|The Alumni at the 1000th Episode]]
+For the 1000th episode, CBS sent out invitations out to previous houseguests to come to the live show. However, like with the [[Big Brother 20 (US)|Season 20]] premiere, CBS would not pay for flights to Los Angeles, so houseguests who wished to attend must fly out themselves.
+
+The following former houseguests attended the launch:
+
+{{US 28 Alumni}}
+====Fan Votes====
+Multiple fan votes were held in the weeks leading up to the episode, and some of the award winners were honored during a special segment. The winners of the showmance and power/punishment polls were never revealed.
+
+{{US28 CBS Fan Poll}}
+
+==Twists==
+*'''[[Second Chance Challenge|BB Block Buster]]:''' Returning for a third season in a row, the BB Block Buster forces the Head of Household to nominate three houseguests for eviction. Then on eviction night, the three nominated houseguests will have a last chance opportunity to save themselves.<ref name="Blockbuster Returns">{{Cite web|url=https://parade.com/tv/julie-chen-moonves-loved-white-locust-twist-bb-blockbuster-season-27-theme|title=Julie Chen Moonves Defends Rachel Reilly’s Controversial ‘Big Brother’ Exit: ‘It Wasn’t Fair. Neither Is Life.’|last=Bloom|first=Mike|date=2 July 2026|accessdate=8 July 2026|archivedate=8 July 2026|archiveurl=https://web.archive.org/web/20260708055811/https://parade.com/tv/julie-chen-moonves-loved-white-locust-twist-bb-blockbuster-season-27-theme}}</ref>
+*'''[[Immunity Competition|Premiere Night Safety]]:''' On premiere night, the fourteen new houseguests would not be eligible for the first Head of Household. As a result, the houseguests would compete for safety from the first eviction. After a qualifying competition, twelve of the fourteen would be divided into three groups of four in which one would win immunity for the week. The winner of each competition would unleash a "Reality Icon" into the game.
+*'''Additional Houseguests:''' After each competition on premiere night, a "Reality Icon" would then enter the game after receiving a letter telling them to show up to the ''Big Brother'' House in 2026. The icons were revealed as [[Returning Players|former ''Big Brother'' houseguest]] [[Angela Murray]] from ''[[Big Brother 26 (US)]]'', alongside ''[[w:c:survivor:Survivor (U.S.)|Survivor]]'' alumni [[Rick Devens]] and [[Dee Valladares]].<ref name="Devens EW Reveal"/><ref name="Devens Inside Survivor Reveal"/><ref name="Angela Men's Journal Reveal"/>
+**'''Fake Houseguest:''' In was initially teased that former winner [[Rachel Reilly]] would enter the game as the seventeenth houseguest for the second consecutive season, however, it would be revealed that she was not actually playing and another icon would be taking her spot in the game. This icon was then revealed to be Dee.
+[[File:US 28 Time Capsule Set.png|thumb|right|350px|A look inside the Time Capsule from above.]]
+*'''BB Time Capsule''': During the first week, a fan vote opened up giving America the option to send a houseguest into the BB Time Capsule, giving them the chance to win a power or suffer a punishment from a prior season. Beginning in Week 2 and going until Week 7, the houseguest who wins the vote will enter the Time Capsule and compete to try and earn a power, or fail and receive a punishment. There will be six different powers and punishments up for grabs. Once a houseguest is voted into the Time Capsule, they are ineligible to go in again, win or lose.
+*'''Year 1000 Double Eviction:''' To celebrate 1,000 episodes, the houseguests faced a new twist during the start of Week 8, with no HoH, PoV, or Block Buster, but still ending with someone getting sent home before the next live show, leaving the Final 9 houseguests to make up the jury phase.
+**'''Stone of Safety:''' The houseguests will be facing off in four competitions. The winner of each competition will become safe for the night and can select one other person to save alongside them. The winner and the person they save are ineligible to compete in the rest of the competitions.
+**'''Stone of Sacrifice:''' The first houseguest who wins safety must sacrifice two houseguests, forcing them to face off in the next round of competitions. The winner then earns safety for themselves and one other person, and also chooses the next person (or people) to go against the person that was left behind. The winner of the fourth and final competition will then have the sole vote to evict between the remaining houseguests who are not safe.
+*'''[[Temptation Competition|Pharaoh's Curse]]:''' The Final 5 houseguests were given the chance to have everyone get $1,000, but they would be each tempted with their own button. The first person to push that button, if anyone, would earn $10,000 for themselves, leaving everyone else with nothing. If no one pushes the button, everyone keeps their $1,000. However, unbeknownst to the houseguests, pushing the button would subsequently unleash a curse on the house, an extra "Egyptian Eviction" to determine 5th place in the middle of the week.
+
+==Houseguests==
+{{US28 Progress}}
+===Former Houseguest Visitors===
+Throughout the season, various ''Big Brother'' alumni appeared during the season as part of the "Time Travel" theme.
+{{US28 Visitors}}
+==Voting History==
+{{US28 Voting History}}
+==Have/Have-Not History==
+{{US28 Have/Have-Not History}}
+==BB Time Capsule History==
+The Time Capsule was divided up into six powers and punishments from ''Big Brother'' history. If the houseguest won their competition, they would earn a power, but if they failed, they would receive a punishment.
+{{US28 Time Capsule History 2}}
+<tabber>
+|-|Week 2=
+'''Winner:''' [[Angela Murray]]<br>
+'''Result:''' Punishment 3 - '''Hard-Boiled Detective'''<br>
+'''Description:''' Angela must wear the "Hard-Boiled Detective" costume for a week, a costume originally featured in ''[[Big Brother 27 (US)]]''.
+{{nowrap|[[File:US 28 Time Capsule Competition 1.png|350px|thumb|left|Angela inside the Time Capsule]][[File:US 28 Time Capsule Result 1.png|350px|thumb|right|Angela walking out of the Diary Room after<br>receiving the punishment]]}}
+|-|Week 3=
+'''Winner:''' [[Rick Devens]]<br>
+'''Result:''' Power 5 - '''Diamond Power of Veto'''<br>
+'''Description:''' Devens earned the [[Diamond Power of Veto]], originating from ''[[Big Brother 4 (US)]]''. With this power, he earned both the power to veto one of the nominees and to name their replacement. He was allowed to use the Diamond Power of Veto up to six weeks after obtaining the power.<br>
+'''Power Result:''' In Week 6, Devens chose to use the Diamond Power of Veto to save [[Dee Valladares]] and nominated [[Kamu Kirk]] in her place.
+{{nowrap|[[File:US 28 Time Capsule Competition 2.png|350px|thumb|center|Devens inside the Time Capsule]]}}
+|-|Week 4=
+'''Winner:''' [[Dee Valladares]]<br>
+'''Result:''' Power 4 - '''BB Bribe'''<br>
+'''Description:''' Dee earned the BB Bribe, originating from ''[[Big Brother 18 (US)]]''. With this power, Dee is allowed to bribe any houseguest $5,000 to make any game move that she wants. It can range from nominating or not nominating specific people, to use or not use the Power of Veto, casting an eviction vote, or throwing a competition. If the houseguest takes the bribe, they must do what Dee asks of them. It can be used once for the entire season.<ref>@ToomsBB_.“[https://x.com/ToomsBB_/status/2084079579774452156 BB Bribe: You may offer one Houseguest $5,000 in exchange for an action that benefits your game. Any Houseguest that accepts the Bribe must perform the action they have promised. The bribe must be for a gameplay move, such as nominating or not nominating specific people, using or not using the Veto, voting a certain way, or throwing a competition. This bribe can be made in secret or publicly. The BB Bribe can be used once and is good the entire game! #bb28]” X, 2 August 2026. Retrieved 2 August 2026</ref><br>
+'''Power Result:''' In Week 7, Dee successfully bribed [[Yash Patel]] to keep herself, [[Rick Devens]], and [[Angela Murray]] safe during his next Head of Household reign, unless he had no other choice but to nominate one of them.
+{{nowrap|[[File:US 28 Time Capsule Competition 3.png|350px|thumb|center|Dee inside the Time Capsule]]}}
+|-|Week 5=
+'''Winner:''' [[Mallory Aurichio]]<br>
+'''Result:''' Punishment 5 - '''Adam & Eve'''<br>
+'''Description:''' Mallory must be [[Shackles|shackled]] by the wrist to another houseguest of her choosing for 48 hours using a “vine,” with both houseguests required to wear leaf-covered costumes as part of the “Adam and Eve” punishment, originally featured in ''[[Big Brother 16 (US)]]''. Mallory chose to be shackled to [[Melody Morris]].
+{{nowrap|[[File:US 28 Time Capsule Competition 4.png|350px|thumb|left|Mallory inside the Time Capsule]][[File:US 28 Time Capsule Result 4.png|350px|thumb|right|Mallory and Melody revealing their punishment to the house]]}}
+|-|Week 6=
+'''Winner:''' [[Melody Morris]]<br>
+'''Result:''' Punishment 1 - '''Lord of the Latrine'''<br>
+'''Description:''' Melody must become the "Lady of the Latrine" for 24 hours, a punishment originally featured in ''[[Big Brother 23 (US)]]''. Throughout that time frame, every time a houseguest needs to use the restroom, Melody must blow a horn and announce which houseguest is using the restroom to the entire house. 
+{{nowrap|[[File:US 28 Time Capsule Competition 5.png|350px|thumb|left|Melody inside the Time Capsule]][[File:US 28 Time Capsule Result 5.png|350px|thumb|right|Melody announcing LaTrice using the restroom.]]}}
+|-|Week 7=
+'''Winner:''' [[Drew Campbell]]<br>
+'''Result:''' Power 3 - '''Never-Not Pass'''<br>
+'''Description:'''  Drew earned the Never-Not Pass, originating from ''[[Big Brother 15 (US)]]''. With this power, Drew was prevented from becoming a Have-Not for the rest of the season.
+'''Power Result:''' Drew was spared from being a Have-Not for the rest of the season. 
+</tabber>
+===America's BB Time Capsule Voting===
+{{US28 Time Capsule History}}
+==Competition History==
+{{US28 Competitions}}
+===Year 1000 Twist History===
+{{US28 Year 1000 Twist 1}}
+{{US28 Year 1000 Twist 2}}
+==Unlocked Guests==
+{{US28 Unlocked Guests}}
+==Game History==
+{{US28 Game History}}
+==Trivia==
+*Episode 25 (the Week 7 eviction episode) of this season was 1000th episode of the main series. To celebrate, a new twist was introduced and many alumni were honored with awards. Additionally, the series was awarded with two [[wikipedia:Guinness World Records|Guinness World Records]] for having the most episodes in two categories: competitive reality TV and primetime TV.
+
+==Ratings==
+{{US28 Ratings}}
+==References==
+{| class="mw-collapsible mw-collapsed" style="margin:auto; font-size: 6pt; width: 100%;"
+|-
+! style="background-color: rgb(229, 228, 226); color:#3a3a3a; font-size: 8pt;" | References
+|-
+| style="padding:0.2em 0.5em;" |{{Reflist|2}}
+|}
+==External Links==
+*[https://www.cbs.com/shows/big_brother/ CBS Official Site (US)]<br />
+*[https://www.globaltv.com/shows/big-brother/ Global TV Site (Canada)]
+{{US Seasons}}
+{{Season Nav}}
+[[Category:Seasons]]
+[[Category:United States (English) Seasons]]
+[[Category:Seasons with Returning Contestants]]

@@ -1,0 +1,234 @@
+{{Season
+|name = ''{{PAGENAME}}''
+|image = <tabber>GIF=[[File:Big Brother 25 Logo GIF.gif|200px]]|-|Logo=[[File:Big Brother 25 Logo.png|200px]]|-|Alt. Logo=[[File:BB25 Alt Logo.jpg|200px]]</tabber>
+|season = 25
+|prizemoney = $750,000 
+|numberofhouseguests = 17
+|numberofdays = 100
+|winner = [[Jag Bains]]
+|runnersup = [[Matt Klotz]]
+|network = [[CBS]]<br>[[wikipedia:Paramount+|Paramount+]] (live feeds)<br>[[wikipedia:Pluto TV|Pluto TV]] (live feeds)
+|executiveproducer = [[wikipedia:Allison Grodner|Allison Grodner]]<br>Rich Meehan
+|challengeproducer = 
+|casting = Jesse Tannenbaum
+|announcers = Don Wollman<br>Clayton Halsey
+|productioncompany = {{nowrap|Fly on the Wall Entertainment}}<br>{{nowrap|[[wikipedia:Endemol Shine North America|Endemol Shine North America]]}}
+|seasonrun = August 2, 2023 - November 9, 2023
+|numberofepisodes = 42
+|viewership = 3.05m
+|companionshows = [[Big Brother: 25th Anniversary Celebration]]
+|castphoto = BB25 Cast.jpg
+|video = [[File:BB25 Intro|250px]] 
+|previousseason = [[Big Brother 24 (US)]]
+|nextseason = [[Big Brother: Reindeer Games]]<br>[[Big Brother 26 (US)]]
+|host=[[Julie Chen-Moonves]]
+|version=[[Big Brother U.S. (franchise)|United States]]
+|returnees=[[Cameron Hardin]] ''([[Big Brother: Reindeer Games|BBRG]])''}}
+'''Big Brother 25''' is the 25th season of the broadcasted edition of ''[[Big Brother U.S. (franchise)|Big Brother (U.S.)]]'' and the 29th season overall.
+==Background==
+[[File:BB25 Key Art Logo.jpg|thumb|200px|Promotional Logo]]
+As with the past few seasons, this season was first announced by the show itself ahead of an official renewal announcement from CBS, with a casting call being aired during the Final Three recap episode of ''[[Big Brother 24 (US)]]'', the penultimate episode of the season. The same casting call was later tweeted out that night<ref>https://twitter.com/CBSBigBrother/status/1573476301456822272</ref> with the "#BB25" hashtag and a link to the CBS casting webpage,<ref>https://www.bigbrothercasting.tv/home</ref> which was also updated to say that applications for season 25 are open. The official renewal announcement was made on finale night of BB24.<ref>https://twitter.com/JCMoonves/status/1574218978502873088</ref>
+===Development===
+Due to the [[wikipedia:2023 Writers Guild of America strike|2023 Writers Guild of America strike]] impacting their fall schedule, CBS announced on May 22nd, 2023 that ''Big Brother 25'' and [[w:c:thechallenge:The Challenge: USA 2|''The Challenge: USA 2'']] would be getting delayed debuts in August instead of July as they did the year prior. BB25 specifically was set to air on Wednesday, August 2nd with a special 90-minute live premiere at 8 PM EST, continuing with its usual Wednesday-Thursday-Sunday schedule. However, airing on Wednesdays in the fall would clash with the already announced [[w:c:survivor:Survivor 45|''Survivor 45'']] and [[w:c:amazingrace:The Amazing Race 35|''The Amazing Race 35'']], which were confirmed to be getting 90-minute episodes for their entire seasons just weeks ahead of the BB25 announcement.<ref>https://ew.com/tv/big-brother-delayed-start-summer-2023-all-new-cast/</ref> When CBS officially announced their fall schedule on July 17, 2023, it was revealed that the schedule clashing would be resolved by moving the second half of BB25 from Wednesdays to Tuesdays, but remaining in its 8 PM EST timeslot. In addition, the Thursday episodes would be pushed up from 9 PM EST to 8 PM EST, while the Sunday episodes would be pushed back from 8 PM EST to 10 PM EST.<ref>https://twitter.com/CBS/status/1681018180687515648</ref>
+
+The last time a writers strike impacted CBS scheduling was in [[wikipedia:2007–08 Writers Guild of America strike|2007-2008]], which led to ''[[Big Brother 9 (US)]]'' airing that winter, with ''[[Big Brother 10 (US)]]'' taking the usual summer slot in its place. Instead of adding a second main season for the year or going for a fourth ''Celebrity Big Brother'' season, CBS repeated the approach they took the last time ''Big Brother'' had to be delayed to an August premiere, which was with ''[[Big Brother 22 (US)]]'' running from August to late October due to the [[The Impact of COVID-19 on Big Brother|COVID-19 pandemic]].
+
+The promotional material for this season started being released as early as May 2023, and highlighted the series as a whole instead of just the last few seasons, honing in on the anniversary aspect of 25 seasons.<ref>https://twitter.com/JoshTalksBB/status/1658993314132119552</ref><ref>https://twitter.com/CBSBigBrother/status/1660692900496437250</ref>
+
+The season was reported to be lasting into November, which would mark the return to 90+ day seasons since ''[[Big Brother 21 (US)]]'' clocked in 99 days, before the shift down to 85 days the following season.<ref>https://www.yahoo.com/entertainment/cbs-eyes-reality-paramount-originals-012220011.html</ref><ref>https://twitter.com/rbbq/status/1672316916592181248</ref> It was later confirmed that the season would last for 100 days for the first time ever, with finale night set to be on Thursday, November 9, 2023.<ref>https://twitter.com/sharontharp/status/1684610424505761805</ref>
+
+After it was announced that ''[[Big Brother Canada 11]]'' would be doing away with their Live Feeds, a statement was immediately released, informing the American audience that the Live Feeds would remain intact for BB25.<ref>https://ew.com/tv/big-brother-live-feeds-season-25/</ref> On August 1, 2023, it was announced that the Live Feeds would be aired for free on their own channels within Pluto TV, with limited ad breaks shown throughout. The Live Feeds would continue to air on Paramount+ with a subscription and no ads.<ref>https://deadline.com/2023/08/big-brother-season-25-live-feeds-pluto-tv-paramount-plus-1235452160/</ref>
+===Casting===
+This season saw a return to in-person casting calls following their [[The Impact of COVID-19 on Big Brother|hiatus during the pandemic]].<ref>https://bigbrothernetwork.com/big-brother-25-casting-open-call-auditions/</ref>
+===The House===
+The house photos were unveiled ahead of the August 2, 2023, premiere, showcasing a unique "Big Brother Multiverse" theme inspired by a universe of twists and alternate realities. The house was divided into zones with names like Scary-Verse, Comic-Verse, Scramble-Verse, and Humili-Verse, each influencing the design of various rooms.<ref>https://bigbrothernetwork.com/big-brother-25-house-tour-video-photo-gallery/</ref><ref>https://www.paramountpressexpress.com/cbs-entertainment/shows/big-brother/</ref><ref>https://www.etonline.com/big-brother-season-25-twist-revealed-see-what-familiar-faces-are-returning-to-shake-up-the-house</ref>
+<gallery position="center" spacing="small" orientation="none" widths="150">
+bb25-house-asylum-01.jpg|Bedroom (Scary-Verse)
+bb25-house-havenot-01.jpg|Have-Not Room (Humili-Verse)
+bb25-house-hoh-01.jpg|HoH Room
+bb25-house-living-01.jpg|Living Room
+bb25-house-comic-01.jpg|Bedroom (Comic-Verse)
+bb25-house-upsidedown-01.jpg|Bedroom (Scramble-Verse)
+bb25-house-kitchen-01.jpg|Kitchen
+bb25-house-lounge-01.jpg|Lounge
+BB25DiaryRoom.jpg|Diary Room
+</gallery>
+
+===Big Brother: 25th Anniversary Celebration===
+<small>''Main Article: [[Big Brother: 25th Anniversary Celebration]]''</small>
+
+[[File:BB25 Anniversary Special Logo 2.jpg|thumb|250px|The logo for the anniversary special.]]
+[[File:BB25 Anniversary Special.jpg|thumb|250px|The cast of the anniversary special.]]
+During early June 2023, many alumni were reported to be filming a special anniversary segment, rumored to be for ''[[wikipedia:Entertainment Tonight|Entertainment Tonight]]'', with filming occurring at the ''Big Brother'' studio in Los Angeles and also a studio space in New York City. It was later revealed that there would be an entire hour long special as opposed to just a brief segment, airing on Wednesday, July 26th, just one week before the season premiere.<ref>https://twitter.com/rbbq/status/1672300261946306562</ref> On July 13th, the special was officially announced with the title ''Big Brother: 25th Anniversary Celebration'', hosted by ''Entertainment Tonight''.<ref>https://twitter.com/etnow/status/1679522559287754753</ref> In addition to host [[Julie Chen-Moonves]], the alumni who participate in the interviews include: [[Danielle Reyes]], [[Janelle Pierzina]], [[Kaysar Ridha]], [[Jeff Schroeder]], [[Jordan Lloyd]], [[Brendon Villegas]], [[Rachel Reilly]], [[Cody Calafiore]], [[Derrick Levasseur]], [[Frankie Grande]], [[Azah Awasum]], [[Derek Frazier]], [[Hannah Chaddha]], [[Tiffany Mitchell]], [[Xavier Prather]] and [[Taylor Hale]].
+
+The special will look back "at the most notable highlights over the years, including the showmances, biggest feuds and rivalries, shocking twists, historic houseguests and groundbreaking moments in reality TV history," followed by a sneak peek of BB25's house and clues towards the season's twist at the end of the special.<ref>https://www.paramountpressexpress.com/cbs-entertainment/releases/?view=106758-cbs-presents-big-brother-25th-anniversary-celebration-to-air-wednesday-july-26</ref>
+
+==Twists==
+[[File:BB25 Time Laser.jpg|thumb|300px]]
+[[File:BB Multiverse.png|thumb|300px]]
+*'''BB Break-In:''' [[Danielle Reyes]], [[Britney Haynes]] and [[Frankie Grande]] broke into the [[Big Brother House/United States|''Big Brother'' House]] in an attempt to change their fates from their prior seasons with a "Time Laser", but their plan backfired and accidentally cracked open the '''BB Multiverse''', the twist of the season, forcing the new houseguests to live with the consequences of their attempt. The twist will affect the physical state of the house, the competitions, and how the game is played.
+*'''BB Multiverse:''' Four different BB Universes took over after the break in, each with the potential to twist up the game at any point in the season. The universes could bring something as small as a temporary punishment or something as large as a game changing twist. Each universe also correlates to a theme of one of the bedrooms in the house.<small>
+**'''The [[BB Comics|BB Comic]]-verse:'''
+***'''Cock-a-Doodle Zoom:''' Inspired by the "Humanimal" BB Comics characters, the Week 3 [[Power of Veto]] winner would be forced to wear a superhero chicken costume for a week.
+***'''[[Previously Evicted Contestant|BB Power of Invincibility]]:''' During Week 4, fan voting opened for a special superpower. The four houseguests chosen by the vote will compete in a secret, individual competition. The winner of the competition will be allowed to save one of the next two evictees (including themselves) and immediately bring them back into the game, or let the power expire without being used. In the event that the power is used, the outgoing [[Head of Household]] will be allowed to compete in the next HOH competition, due to both of their nominees staying in the game.
+***'''BB Comic-Week:''' BB Comic-Week will be unleashing superpowers to shake up the game throughout all of Week 11.
+****'''[[Invisible HOH|BB Power of Invisibility]]:''' The Head of Household will operate in secret for the duration of the week.
+****'''[[Double Power of Veto|BB Power of Multiplicity]]:''' There will be two Power of Vetoes up for grabs this week.
+**'''The Humili-verse:'''
+***'''[[Have-Not]] Room:''' The Have-Not Room is themed around the Humili-verse, and the houseguests must spin a wheel to determine how many times they get humiliated by a "butt-kicking machine" before they can exit the room.
+***'''Snot A Winner:''' The Week 3 HOH would be humiliated by getting "snotted" at random intervals for 24 hours after their win. They must also choose another houseguest to take the punishment with them every single time.
+***'''Humili-week:''' Week 6 was dubbed "Humili-week". To start, every houseguest except the new HOH would be forced to be Have-Nots, taking turns sleeping in the Have-Not Room. They then had to announce any time they used the bathroom, and if the House "Stink-o-meter" ever reached a 10/10, they would all have to wear gas masks until the air was "no longer stinky". And for the nomination ceremony, the HOH had to name the houseguests who were safe by pieing them in the face, reminiscent of the old key wheel.
+**'''The Scary-verse:'''
+***'''The Nether Region:''' The loser of the premiere night Scary-verse competition was doomed to "disappear into the Nether Region" for "an unknown amount of time". After a few hours, they returned to the house with a transmission, warning the other houseguests that the next person to enter the Nether Region won't be so lucky. In Week 2, it was revealed that the houseguests would be sending each other to the Nether Region at random points in the week, and depending on when they go it could have positive or negative effects on the game. The person who placed second in the HOH competition had to pick someone else to send to the Nether Region, granting them safety for the week. After that person with safety returned, they had to send someone else. This final person sent into the Nether Region will be ineligible to be chosen for the Power of Veto competition, but the HOH and nominees are immune from being sent since they are already in the Veto.
+***'''Scary Week [[Double Eviction]] & [[The Walking Dead|Big Brother Zombies]]:''' The Week 7 Double Eviction will have a Scary-verse twist to it. The two houseguests evicted on Day 51 will turn into "Big Brother Zombies". Later that night, they will move back into the house as Zombies, and the week will play out with no HOH or POV competitions. At the end of Week 8, one of the two will return to the game, while the other is out of the game for good. Because there were no competitions during Week 8, the outgoing HOH heading into Week 9 would be eligible to compete again.
+**'''The Scramble-verse:'''
+***'''[[Nomination Competition]]:''' On premiere night, the game was turned upside down. Instead of competing to be Head of Household, the houseguests competed to avoid being nominated. The houseguests were split into four groups of four to compete, where the losers would be automatically nominated for eviction, leaving a total of four nominees before an HoH is even crowned.
+****'''Head of Household Save:''' Instead of nominating two players for eviction, the first HoH would save two of the four nominees from the Nomination Competition, leaving two more on the block for the week. From there, their reign continues on as normal, controlling the power to renominate or break a tie if necessary.
+***'''[[Additional Housemates|Seventeenth HouseGuest]]:''' After the initial sixteen houseguests were revealed, it was announced that a surprise seventeenth houseguest would also be playing the game. Following the conclusion of the premiere night competitions, it was revealed that ''[[w:c:survivor:Survivor (U.S.)|Survivor]]'' legend [[Cirie Fields]] would also be playing the game.
+****'''[[Project DNA|Relatives Playing Together]]:''' [[Jared Fields]] was initially revealed to be on the cast, and his mother Cirie later joined the game. They knew that the other was playing, and their relation was not confirmed to the other houseguests by production, but certain players were already aware due to Cirie's ''Survivor'' legacy and Jared's appearance as her Loved One on one of her seasons.
+</small>
+*'''Classic [[Jury]] Format:''' At the start of Week 7, Julie revealed that the Jury of the season would be going "old school", regressing back to a Jury of Seven instead of a Jury of Nine.
+
+==Nods to Previous Seasons==
+In an effort to celebrate reaching the milestone of 25 seasons, the season featured many throwbacks from the prior seasons as an homage to the series, similar to how they did for ''[[Big Brother 20 (US)]]''.<ref>https://twitter.com/sharontharp/status/1660691836506198017</ref><ref>https://twitter.com/CBSBigBrother/status/1660692900496437250</ref>
+*Week 1
+**Alumni cameos for the Premiere
+**"Puzzling Headlines" - "[[Kaitlyn's Puzzle]]" (introduced in ''[[Big Brother 20 (US)]]'')
+**"Kicking Butt" - "[[Feel The Burn]]" (introduced in ''[[Big Brother 14 (US)]]'')
+***Butt kicking punishment returning from ''[[Big Brother 16 (US)]]''.
+***Later reappeared as a gimmick in the [[Have-Not]] Room.
+**"Goo-Pocalyse" - "[[Sequence Explosion]]" (introduced in ''[[Big Brother 16 (US)]]'')
+**"Hold On Fright" - "[[The Wall]]" (introduced in ''[[Big Brother 10 (US)]]'')
+***Re-appeared as a full competition during Week 7.
+**"Crash Course in Comics" - "[[Only One Path]]" (introduced in ''[[Big Brother 22 (US)]]'')
+**"Atomic Wedgie" - "[[Giddy Up]]" (introduced in ''[[Big Brother 16 (US)]]'')
+*Week 3
+**"Snot A Winner" - "[[Shootout]]" (introduced in ''[[Big Brother 11 (US)]]'')
+**"Cock-a-Doodle Zoom" - "[[Rollin' in the Dough]]" (introduced in ''[[Big Brother 10 (US)]]'')
+***Chicken suit punishment returning from ''[[Big Brother 15 (US)]]'' and ''[[Big Brother 21 (US)]]''.
+*Week 4
+**"Revenge of the Pressure Cooker" - "[[Pressure Cooker]]" (introduced in ''[[Big Brother 5 (US)]]'')
+***''[[Big Brother 6 (US)]]'', ''[[Big Brother 7 (US)]]'', and ''[[Big Brother 22 (US)]]'''s [[Kaysar Ridha]] returned to host via a series of pre-recorded messages. 
+***This week's [[Have-Not|Have-Nots]] ate peanut butter and jelly sandwiches, the original punishment food, as opposed to slop. 
+**"BB Power of Invincibility" - similar to the "[[BB App Store#Power Apps|Bonus Life]]" of ''[[Big Brother 20 (US)]]''.
+***"Power Path" - "[[Roll It Down]] (introduced in ''[[Big Brother 13 (US)]]'')
+*Week 5
+**"BB Odd Couples" - "[[Knockout]]" (introduced in ''[[Big Brother 8 (US)]]''), featuring new audio clips from past houseguests:
+***''[[Big Brother 10 (US)]]'' and ''[[Big Brother 11 (US)]]'''s [[Jessie Godderz]]
+***''[[Big Brother 11 (US)]]'' and ''[[Big Brother 13 (US)]]'''s [[Jeff Schroeder]]
+***''[[Big Brother 12 (US)]]'' and ''[[Big Brother 13 (US)]]'''s [[Rachel Reilly]]
+***''[[Big Brother 20 (US)]]'''s [[Brett Robinson]] and [[Rockstar Lantry]]
+***''[[Big Brother 24 (US)]]'''s [[Jasmine Davis]] and [[Matt Turner]]
+**"Sludge Stackers" - "[[Microbrews]]" (introduced in ''[[Big Brother 22 (US)]]'')
+*Week 6
+**"Name That Toot" - "[[What Did They Just Do?]]" (introduced in ''[[Big Brother 7 (US)]]'')
+**"Buddy Ball" - "[[Yankee Swap]]" (introduced in ''[[Big Brother 8 (US)]]'') and "[[Bowlerina]]" (introduced in [[Big Brother 15 (US)]])
+***[[Shackles]] punishment first introduced in ''[[Big Brother 8 (US)]]''.
+***2000 lap punishment returning from ''[[Big Brother 16 (US)]]'' and ''[[Big Brother 17 (US)]]''.
+*Week 7
+**"Attack of the 50 Foot Meatball" - "[[The Wall]]" (introduced in ''[[Big Brother 10 (US)]]'')
+***''[[Big Brother 19 (US)]]'' winner [[Josh Martinez]] recorded audio clips for the competition. The competition also featured a cutout of him. 
+**"Sweaty Scrimmage" - "[[Slippery Slope]]" (introduced in ''[[Big Brother 6 (US)]]'')
+**"Soul Mates" - "[[Knockout]]" (introduced in ''[[Big Brother 8 (US)]]'')
+**"Monster Kill" - "[[Somewhere Over The Veto]]" (introduced in ''[[Big Brother 10 (US)]]'')
+*Week 8
+**"Resurrection Rumble" - "[[Seesaw]]" (introduced in ''[[Big Brother 16 (US)]]'')
+**"Do or Die" - "[[Pull Some Strings]]" (introduced in ''[[Big Brother 14 (US)]]''
+*Week 9
+**"We Come in Pieces" - "[[Kaitlyn's Puzzle]]" (introduced in ''[[Big Brother 20 (US)]]'')
+**"BB Exorcism" - "[[The Black Box]]" (introduced in ''[[Big Brother 15 (US)]]'') and "[[The Haunting]]" (introduced in ''[[Big Brother: Over The Top]]'')
+*Week 10
+**"Humili-Gram" - "[[Getting Loopy]]" (introduce in ''[[Big Brother 16 (US)]]'')
+**"OTEV the Zinging Robot" - "[[Zingbot Competition]]" (introduced in ''[[Big Brother 12 (US)]]'') and "[[OTEV]]" (introduced in ''[[Big Brother 7 (US)]]''), featuring pictures of past houseguests:
+***''[[Big Brother 6 (US)]]'''s [[Ashlea Evans]]
+***''[[Big Brother 8 (US)]]'''s [[Carol Journey]]
+***''[[Big Brother 9 (US)]]'''s [[Jacob Heald]]
+***''[[Big Brother 12 (US)]]'''s [[Annie Whittington]]
+***''[[Big Brother 13 (US)]]'''s [[Keith Henderson]]
+***''[[Big Brother 14 (US)]]'''s [[Jodi Rollins]], [[JoJo Spatafora]], and [[Kara Monaco]]
+***''[[Big Brother 15 (US)]]'''s [[David Girton]]
+***''[[Big Brother 16 (US)]]'''s [[Joey Van Pelt]], [[Paola Shea]], and [[Victoria Rafaeli]]
+***''[[Big Brother 17 (US)]]'''s [[Jace Agolli]]
+***''[[Big Brother 18 (US)]]'''s [[Glenn Garcia]] and [[Jozea Flores]]
+***''[[Big Brother 19 (US)]]'''s [[Cameron Heard]] and [[Jillian Parker]]
+***''[[Big Brother 20 (US)]]'''s [[Steve Arienta]]
+***''[[Big Brother 21 (US)]]'''s [[Ovi Kabir]]
+***''[[Big Brother 23 (US)]]'''s [[Frenchie French]] and [[Travis Long]]
+***''[[Big Brother 24 (US)]]'''s [[Ameerah Jones]], [[Indy Santos]], [[Nicole Layog]], and [[Pooch Pucciarelli]]
+*Week 11
+**"BB Power of Invisibility" - "[[Invisible HOH]]" (introduced in ''[[Big Brother 23 (US)]]'')
+**"BB Power of Multiplicity" - "[[Double Power of Veto]]" (introduced in ''[[Big Brother 14 (US)]]'')
+**"[[BB Comics]]" (introduced in ''[[Big Brother 16 (US)]]'')
+**"Superhero Training Academy" - "[[Dizzy Discs]]" (introduced in ''[[Big Brother 9 (US)]]'')
+*Week 12
+**''[[Big Brother 17 (US)]]'''s [[John McGuire]] returned to host "Johnny Mac: Demented Dentist" via a series of pre-recorded messages. 
+***The competition featured references to the previous 24 winners of ''Big Brother''.
+**"Embarrassing Expedition" - "[[Snapshot Shuffle]]" (introduced in ''[[Big Brother 22 (US)]]'')
+**"Triple Feature" - "[[BB Flix & Chill]]" (introduced in ''[[Big Brother 20 (US)]]''), featuring pictures of past houseguests:
+***''[[Big Brother 24 (US)]]'''s [[Matt Turner]], [[Pooch Pucciarelli]], and [[Taylor Hale]]
+**"Drive-In Drop" - "[[Big Top Drop]]" (introduced in ''[[Big Brother 4 (US)]]'')
+*Week 13
+**"Superhero Smackdown" - "[[Perfect Shot]]" (introduced in ''[[Big Brother 6 (US)]]'')
+*Week 14
+**"Chenbot Volume #1" - "[[What Did They Just Do?]]" (introduced in ''[[Big Brother 7 (US)]]'')
+**"Scrambled Timeline" - "[[Cover Your Days]]" (introduced in ''[[Big Brother 10 (US)]]'')
+**''[[Big Brother 24 (US)]]'' winner [[Taylor Hale]] appeared during the live eviction episode. 
+**"When Universes Collide" - "[[Swing, Slam, Dunk]]" (introduced in ''[[Big Brother 10 (US)]]'')
+**"Multiverse Mix-Up" - "[[What Competition Was That?]]" (introduced in ''[[Big Brother 24 (US)]]'')
+**Jury Verse" - "[[Jury Statements]]" (introduced in ''[[Big Brother 3 (US)]]'')
+
+==HouseGuests==
+{{US 25 Progress}}
+==Voting History==
+{{US 25 Voting History}}
+==Have/Have-Not History==
+{{US 25 Have/Have-Not History}}
+==Competition History==
+{{US 25 Competitions}}
+==Game History==
+{{US 25 Game History}}
+
+==Controversies==
+===Luke Valentine's Expulsion===
+In Week 1, [[Luke Valentine]] was [[Ejection|expelled]] for using an ethnic slur during a conversation with other houseguests. [[CBS]] stated that this violated the show's zero-tolerance policy for racial slurs. The network and producers released a statement saying, "Luke violated the BIG BROTHER code of conduct and there is zero tolerance in the house for using a racial slur. He has been removed from the house."<ref>https://www.latimes.com/entertainment-arts/tv/story/2023-08-10/big-brother-25-luke-valentine-racial-slur-response</ref><ref>https://deadline.com/2023/08/big-brother-luke-valentine-n-word-1235458665/</ref> Valentine's removal underscored the show's ongoing struggle with addressing racist behavior among contestants, a recurring issue throughout its history.
+
+===Jared Fields' Use of Offensive Language===
+[[Jared Fields]] faced criticism for allegedly using a derogatory term for individuals with intellectual or developmental disabilities. During a conversation with [[Cory Wurtenberger]], Fields said, "I don't think she's the r-word. I slipped up. Obviously, I was angry about it" in reference to [[America Lopez]]. While the initial comment was not captured on the live feeds, Cory and Jared's subsequent discussion regarding it was.<ref>https://www.usmagazine.com/entertainment/news/big-brothers-luke-shades-jared-and-production-for-r-word-controversy/</ref> Despite the backlash from fans and calls for his removal, Fields was allowed to remain in the house. This decision raised questions about the consistency of the show's code of conduct enforcement, especially since another contestant, Luke Valentine, was expelled earlier in the season for using a racial slur.<ref>https://www.latimes.com/entertainment-arts/tv/story/2023-09-05/big-brother-jared-fields-r-word-controversy-cbs-zero-tolerance</ref>
+
+===Inequitable Competitions and Bias===
+Production faced significant criticism for its competition design, which many viewers and former contestants perceived as unfairly favoring male and physically fit contestants. Throughout the season, male competitors dominated the competitions, winning 82% of all competitions.<ref>https://screenrant.com/big-brother-25-revamp-competitions-fan-reactions/</ref> This disparity led to accusations that the show's production team had created competitions that were "geared toward the men" and made it nearly impossible for women and older contestants to compete on an equal playing field.<ref>https://screenrant.com/big-brother-season-25-competitions-ruined-exciting-season-geared-torward-athletes/</ref>
+
+The physical nature of many competitions was particularly problematic given the show's efforts towards more diverse casting in terms of age and body type. As one fan pointed out, "I love the diversity of age casting this season, but the legacy comps that rely partly or mostly on physical ability is obviously going to advantage a 20-something year old man over several middle aged women."
+
+The competition imbalance was starkly illustrated by the fact that only three women won Head of Household competitions throughout the entire season, compared to multiple wins by male contestants such as Cameron, Jared, and Jag. This trend was even more pronounced in the Power of Veto competitions, where only [[Blue Kim|one woman]] managed to secure a win.<ref>https://www.canyon-news.com/the-reality-competition-big-brother-is-broken/176800</ref>
+
+Further controversy arose as a result of the Week 12 Head of Household competition. As part of the Comic Week twist, the Week 11 Head of Household was to complete their reign in secret. This competition was won by [[Jag Bains]]. Typically, the outgoing Head of Household is ineligible to compete in the following HOH competition. However, Jag was allowed to compete in the subsequent HOH competition, which he ultimately ended up winning. Many people found this unfair as during a previous appearance of the [[Invisible HOH|secret HOH]] twist, the outgoing HOH was told by production that because they were the outgoing HOH, they had to purposely lose the competition.
+
+Critics argued that this bias in competition design not only made the season predictable and less exciting but also fundamentally undermined the fairness of the game. Many called for production to reassess its competition strategy to give all houseguests, regardless of physical prowess, a more equitable chance at winning in future seasons.
+
+==Trivia==
+*This season holds the record for the longest American season ever, at an even 100 days. The previous record was 99 days, first set in [[Big Brother 18 (US)|season 18]], and later matched by [[Big Brother 20 (US)|seasons 20]] and [[Big Brother 21 (US)|21]].
+*This is the second season to remove a houseguest from the opening credits for the duration of the season following ''[[Big Brother 9 (US)]]''.
+*This season marks the first time that the first three eviction votes were unanimous. This would later be extended to the first four eviction votes.
+**This season features the most unanimous votes, with 13 of the 16 evictions being unanimous (or 11 out of 14 if sole vote evictions are discounted).
+*This season breaks the record from ''[[Big Brother 19 (US)]]'' for having the longest pre-jury phase by days, with the jury phase starting on Day 65, and the first juror being evicted on Day 72. Also with a cast of 17 and a jury of 7 players, this season also features the largest pre-jury, with 8 members.
+
+==Ratings==
+{{US 25 Ratings}}
+==References==
+{| class="mw-collapsible mw-collapsed" style="margin:auto; font-size: 6pt; width: 100%;"
+|-
+! style="background-color: rgb(229, 228, 226); color:#3a3a3a; font-size: 8pt;" | References
+|-
+| style="padding:0.2em 0.5em;" |{{Reflist|2}}
+|}
+==External Links==
+* [http://www.cbs.com/shows/big-brother/ CBS Official Site]
+* [https://www.globaltv.com/shows/big-brother/ Global Official Site]
+* [http://www.cbs.com/shows/big_brother/live_feed/stream/ Live Feeds - Requires Paramount+ Subscription]
+* [https://en.wikipedia.org/wiki/Big_Brother_25_(American_season) Wikipedia Page]
+{{US Seasons}}
+{{Season Nav}}
+[[Category:Seasons]]
+[[Category:United States (English) Seasons]]
+[[Category:Seasons with Evicted Contestants Returning]]
