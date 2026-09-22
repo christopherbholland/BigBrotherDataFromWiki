@@ -1,0 +1,1365 @@
+{
+ "info": {
+  "season_run": "July 6, 2022 - September 25, 2022",
+  "premiere": "2022-07-06",
+  "finale": "2022-09-25",
+  "days": "82",
+  "houseguests": "16",
+  "episodes": "34",
+  "prize": "$750,000",
+  "winner": "Taylor Hale",
+  "runner_up": "Monte Taylor",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "3.66m"
+ },
+ "roster": [
+  [
+   "Taylor Hale",
+   "Taylor"
+  ],
+  [
+   "Monte Taylor",
+   "Monte"
+  ],
+  [
+   "Matt Turner",
+   "Turner"
+  ],
+  [
+   "Brittany Hoopes",
+   "Brittany"
+  ],
+  [
+   "Alyssa Snider",
+   "Alyssa"
+  ],
+  [
+   "Michael Bruner",
+   "Michael"
+  ],
+  [
+   "Terrance Higgins",
+   "Terrance"
+  ],
+  [
+   "Kyle Capener",
+   "Kyle"
+  ],
+  [
+   "Joseph Abdin",
+   "Joseph"
+  ],
+  [
+   "Jasmine Davis",
+   "Jasmine"
+  ],
+  [
+   "Indy Santos",
+   "Indy"
+  ],
+  [
+   "Daniel Durston",
+   "Daniel"
+  ],
+  [
+   "Nicole Layog",
+   "Nicole"
+  ],
+  [
+   "Ameerah Jones",
+   "Ameerah"
+  ],
+  [
+   "Pooch Pucciarelli",
+   "Pooch"
+  ],
+  [
+   "Paloma Aguilar",
+   "Paloma"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Drumming for Power",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Daniel"
+   ],
+   "outcome": "wins HOH",
+   "result": "Daniel wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "4",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Ren Fest",
+   "format": null,
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Michael wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "9",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The BB Pie Fest",
+   "format": null,
+   "winners": [
+    "Jasmine"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jasmine wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "11",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Mermaid Fest",
+   "format": "Relay Race",
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Michael wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "16",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Get Lit",
+   "format": "Ready, Set, Woah",
+   "winners": [
+    "Turner"
+   ],
+   "outcome": "wins HOH",
+   "result": "Turner wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "18",
+   "type": "Co-POV",
+   "kind": "veto",
+   "name": "Woodstack",
+   "format": "Faster Than A Speeding Veto",
+   "winners": [
+    "Brittany",
+    "Michael"
+   ],
+   "outcome": "win the Veto",
+   "result": "Brittany & Michael win the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "23",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Invitation",
+   "format": "As Close As You Can",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins HOH",
+   "result": "Monte wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "25",
+   "type": "Co-POV",
+   "kind": "veto",
+   "name": "Trippy Watch Party",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Daniel",
+    "Kyle"
+   ],
+   "outcome": "win the Veto",
+   "result": "Daniel & Kyle win the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "30",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Mind Your Step",
+   "format": "Only One Path",
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins HOH",
+   "result": "Michael wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "32",
+   "type": "Co-POV",
+   "kind": "veto",
+   "name": "OTEV the Singing Stageroach",
+   "format": "OTEV",
+   "winners": [
+    "Brittany",
+    "Michael"
+   ],
+   "outcome": "win the Veto",
+   "result": "Brittany & Michael win the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "37",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Conspiracy Fest",
+   "format": "The Wall",
+   "winners": [
+    "Taylor"
+   ],
+   "outcome": "wins HOH",
+   "result": "Taylor wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Punkaroo",
+   "format": "Yankee Swap",
+   "winners": [
+    "Kyle"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kyle wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Do You See The VIP?",
+   "format": "Knockout",
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins HOH",
+   "result": "Michael wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Do You See The VIP?",
+   "format": "Knockout",
+   "winners": [
+    "Terrance"
+   ],
+   "outcome": "wins HOH",
+   "result": "Terrance wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "45",
+   "type": "POV",
+   "kind": "veto",
+   "name": "One, Two, Three, VIP",
+   "format": "Stay or Fold",
+   "winners": [
+    "Brittany"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Brittany wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "46",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Lunch is Served",
+   "format": "Stacking",
+   "winners": [
+    "Terrance"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Terrance wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "51",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Carni-Small",
+   "format": "Microbrews",
+   "winners": [
+    "Turner"
+   ],
+   "outcome": "wins HOH",
+   "result": "Turner wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "53",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Pride Slide",
+   "format": "Slippery Slope",
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Michael wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Burning Bot",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins HOH",
+   "result": "Michael wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "60",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Michael"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Michael wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Laser Focus",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Turner"
+   ],
+   "outcome": "wins HOH",
+   "result": "Turner wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "65",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Amp It Up",
+   "format": "Feeling Knotty",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Monte wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Horror Fest Lockdown",
+   "format": "The Haunting",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins HOH",
+   "result": "Monte wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "67",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Snooze Fest",
+   "format": "Gear Puzzle",
+   "winners": [
+    "Brittany"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Brittany wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "72",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Fashion Fest",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Taylor"
+   ],
+   "outcome": "wins HOH",
+   "result": "Taylor wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "73",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Mathletes",
+   "format": "Cover Your Days",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Monte wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "79",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Wiener-Palooza",
+   "format": "Dizzy Discs",
+   "winners": [
+    "Turner"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Turner wins Final HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "80",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Festival Lineup",
+   "format": "What Competition Was That?",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Monte wins Final HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "82",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Jury Fest",
+   "format": "Jury Statements",
+   "winners": [
+    "Monte"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Monte wins Final HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Joseph Abdin",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kyle Capener",
+     "chosen_by": null
+    },
+    {
+     "guest": "Michael Bruner",
+     "chosen_by": null
+    },
+    {
+     "guest": "Monte Taylor",
+     "chosen_by": null
+    }
+   ],
+   "2": [
+    {
+     "guest": "Daniel Durston",
+     "chosen_by": "Kyle"
+    },
+    {
+     "guest": "Nicole Layog",
+     "chosen_by": "Joseph"
+    },
+    {
+     "guest": "Terrance Higgins",
+     "chosen_by": "Michael"
+    },
+    {
+     "guest": "Pooch Pucciarelli",
+     "chosen_by": "Monte"
+    }
+   ],
+   "3": [
+    {
+     "guest": "Alyssa Snider",
+     "chosen_by": null
+    },
+    {
+     "guest": "Indy Santos",
+     "chosen_by": null
+    }
+   ],
+   "4": [
+    {
+     "guest": "Jasmine Davis",
+     "chosen_by": "A&I"
+    },
+    {
+     "guest": "Matt Turner",
+     "chosen_by": "A&I"
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Daniel Durston"
+   ],
+   "2": [
+    "Jasmine Davis"
+   ],
+   "3": [
+    "Matt Turner"
+   ],
+   "4": [
+    "Monte Taylor"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Pooch"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Alyssa",
+    "Brittany",
+    "Paloma"
+   ],
+   "evicted": [
+    "Paloma"
+   ],
+   "vote": "Walked Day 8",
+   "finish": "Walked Day 8",
+   "other": {}
+  },
+  {
+   "week": 1,
+   "hoh": [
+    "Daniel"
+   ],
+   "nominees_initial": [
+    "Michael",
+    "Terrance"
+   ],
+   "veto_holders": [
+    "Michael"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Taylor",
+    "Terrance"
+   ],
+   "evicted": [
+    "Paloma"
+   ],
+   "vote": "Walked Day 8",
+   "finish": "Walked Day 8",
+   "other": {}
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Jasmine"
+   ],
+   "nominees_initial": [
+    "Pooch",
+    "Taylor"
+   ],
+   "veto_holders": [
+    "Michael"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Pooch",
+    "Taylor"
+   ],
+   "evicted": [
+    "Pooch"
+   ],
+   "vote": "12-0",
+   "finish": "1st Evicted Day 16",
+   "other": {}
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Turner"
+   ],
+   "nominees_initial": [
+    "Brittany",
+    "Michael"
+   ],
+   "veto_holders": [
+    "Brittany",
+    "Michael"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ameerah",
+    "Terrance"
+   ],
+   "evicted": [
+    "Ameerah"
+   ],
+   "vote": "7-4",
+   "finish": "2nd Evicted Day 23",
+   "other": {
+    "Bestie Immunity": [
+     "Jasmine"
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Monte"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Indy"
+   ],
+   "veto_holders": [
+    "Daniel",
+    "Kyle"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Nicole",
+    "Taylor"
+   ],
+   "evicted": [
+    "Nicole"
+   ],
+   "vote": "9-1",
+   "finish": "3rd Evicted Day 30",
+   "other": {
+    "Bestie Immunity": [
+     "Joseph",
+     "Terrance"
+    ]
+   }
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Michael"
+   ],
+   "nominees_initial": [
+    "Joseph",
+    "Monte",
+    "Terrance"
+   ],
+   "veto_holders": [
+    "Brittany",
+    "Michael"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Daniel",
+    "Kyle"
+   ],
+   "evicted": [
+    "Daniel"
+   ],
+   "vote": "8-1",
+   "finish": "4th Evicted Day 37",
+   "other": {
+    "Bestie Immunity": [
+     "Brittany"
+    ]
+   }
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Taylor"
+   ],
+   "nominees_initial": [
+    "Indy",
+    "Terrance"
+   ],
+   "veto_holders": [
+    "Kyle"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Indy",
+    "Terrance"
+   ],
+   "evicted": [
+    "Indy"
+   ],
+   "vote": "7-1",
+   "finish": "5th Evicted 1st Jury Member Day 44",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Michael"
+   ],
+   "nominees_initial": [
+    "Jasmine",
+    "Monte"
+   ],
+   "veto_holders": [
+    "Brittany"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Jasmine",
+    "Monte"
+   ],
+   "evicted": [
+    "Jasmine"
+   ],
+   "vote": "2-0",
+   "finish": "6th Evicted 2nd Jury Member Day 51",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Terrance"
+   ],
+   "nominees_initial": [
+    "Joseph",
+    "Turner"
+   ],
+   "veto_holders": [
+    "Terrance"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Joseph",
+    "Kyle"
+   ],
+   "evicted": [
+    "Joseph"
+   ],
+   "vote": "2-0",
+   "finish": "7th Evicted 3rd Jury Member Day 51",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Turner"
+   ],
+   "nominees_initial": [
+    "Brittany",
+    "Taylor"
+   ],
+   "veto_holders": [
+    "Michael"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kyle",
+    "Taylor"
+   ],
+   "evicted": [
+    "Kyle"
+   ],
+   "vote": "5-0",
+   "finish": "8th Evicted 4th Jury Member Day 58",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Michael"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Terrance"
+   ],
+   "veto_holders": [
+    "Michael"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Alyssa",
+    "Terrance"
+   ],
+   "evicted": [
+    "Terrance"
+   ],
+   "vote": "4-0",
+   "finish": "9th Evicted 5th Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Turner"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Brittany"
+   ],
+   "veto_holders": [
+    "Monte"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Brittany",
+    "Michael"
+   ],
+   "evicted": [
+    "Michael"
+   ],
+   "vote": "3-0",
+   "finish": "10th Evicted 6th Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Monte"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Brittany"
+   ],
+   "veto_holders": [
+    "Brittany"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Alyssa",
+    "Taylor"
+   ],
+   "evicted": [
+    "Alyssa"
+   ],
+   "vote": "2-1",
+   "finish": "11th Evicted 7th Jury Member Day 72",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Taylor"
+   ],
+   "nominees_initial": [
+    "Brittany",
+    "Turner"
+   ],
+   "veto_holders": [
+    "Monte"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Brittany",
+    "Turner"
+   ],
+   "evicted": [
+    "Brittany"
+   ],
+   "vote": "1-0",
+   "finish": "12th Evicted 8th Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Monte"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Taylor",
+    "Turner"
+   ],
+   "evicted": [
+    "Turner"
+   ],
+   "vote": "1-0",
+   "finish": "13th Evicted 9th Jury Member Day 82",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Monte"
+   ],
+   "vote": "8-1",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Taylor"
+   ],
+   "vote": "8-1",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Taylor Hale": {
+   "page": "Taylor Hale",
+   "full_name": "Taylor Mackenzie Dickens Hale",
+   "birth_date": "1994-12-31",
+   "age": 27,
+   "hometown": [
+    "West Bloomfield, MI",
+    "Detroit, MI"
+   ],
+   "occupation": "Motivational speaker",
+   "nickname": [
+    "The Sword"
+   ],
+   "place": "1st",
+   "days": "82",
+   "alliances": [
+    "The Leftovers",
+    "Jaylor"
+   ],
+   "other_prizes": [
+    "$50,000 & 7-Day Cruise (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 24 (US)",
+    "Big Brother Reindeer Games"
+   ],
+   "revid": 697380
+  },
+  "Monte Taylor": {
+   "page": "Monte Taylor",
+   "full_name": "Monte Taylor",
+   "birth_date": "1995-05-20",
+   "age": 27,
+   "hometown": [
+    "Bear, DE"
+   ],
+   "occupation": "Personal trainer",
+   "nickname": [],
+   "place": "2nd",
+   "days": "82",
+   "alliances": [
+    "The Leftovers",
+    "The Pound",
+    "Po’s Pack",
+    "Oasis"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 691537
+  },
+  "Matt Turner": {
+   "page": "Matt Turner",
+   "full_name": "Matthew \"Matt\" Turner",
+   "birth_date": "1999-05-21",
+   "age": 23,
+   "hometown": [
+    "North Attleborough, MA",
+    "New Bedford, MA"
+   ],
+   "occupation": "Thrift store owner",
+   "nickname": [
+    "Turner"
+   ],
+   "place": "3rd",
+   "days": "82",
+   "alliances": [
+    "The Leftovers",
+    "The Afterparty",
+    "The Pound",
+    "Oasis"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670155
+  },
+  "Brittany Hoopes": {
+   "page": "Brittany Hoopes",
+   "full_name": "Brittany Nicole Hoopes",
+   "birth_date": "1989-12-03",
+   "age": 32,
+   "hometown": [
+    "Atlanta, GA",
+    "Austin, TX"
+   ],
+   "occupation": "Hypnotherapist",
+   "nickname": [],
+   "place": "4th",
+   "days": "79",
+   "alliances": [
+    "The Chenbots",
+    "Girls Girls",
+    "The Leftovers"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670154
+  },
+  "Alyssa Snider": {
+   "page": "Alyssa Snider",
+   "full_name": "Alyssa Nicole Snider",
+   "birth_date": "1997-11-03",
+   "age": 24,
+   "hometown": [
+    "Sarasota, FL"
+   ],
+   "occupation": "Marketing representative",
+   "nickname": [],
+   "place": "5th",
+   "days": "72",
+   "alliances": [
+    "Girls Girls",
+    "The Five Swatters",
+    "Scorpio Sisters",
+    "The Afterparty",
+    "Old Skool",
+    "Po’s Pack"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670153
+  },
+  "Michael Bruner": {
+   "page": "Michael Bruner",
+   "full_name": "Michael Brian Bruner",
+   "birth_date": "1993-08-01",
+   "age": 28,
+   "hometown": [
+    "Saint Michael, MN",
+    "Rochester, MN"
+   ],
+   "occupation": "Attorney",
+   "nickname": [],
+   "place": "6th",
+   "days": "65",
+   "alliances": [
+    "The Chenbots",
+    "The Leftovers",
+    "Po’s Pack"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 696211
+  },
+  "Terrance Higgins": {
+   "page": "Terrance Higgins",
+   "full_name": "Terrance Lamont Higgins",
+   "birth_date": "1975-05-20",
+   "age": 47,
+   "hometown": [
+    "Chicago, IL"
+   ],
+   "occupation": "Bus operator and DJ",
+   "nickname": [
+    "DJ Showtime",
+    "Sweet T"
+   ],
+   "place": "7th",
+   "days": "65",
+   "alliances": [
+    "Old Skool",
+    "The Night Shift",
+    "The Afterparty"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670150
+  },
+  "Kyle Capener": {
+   "page": "Kyle Capener",
+   "full_name": "Kyle Joseph Capener",
+   "birth_date": "1993-05-17",
+   "age": 29,
+   "hometown": [
+    "Bountiful, UT"
+   ],
+   "occupation": "Unemployed",
+   "nickname": [],
+   "place": "8th",
+   "days": "58",
+   "alliances": [
+    "The Leftovers",
+    "The Five Swatters",
+    "The Afterparty",
+    "The Pound",
+    "Po’s Pack",
+    "Oasis"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670148
+  },
+  "Joseph Abdin": {
+   "page": "Joseph Abdin",
+   "full_name": "Joseph Ammar Abdin",
+   "birth_date": "1997-07-23",
+   "age": 24,
+   "hometown": [
+    "Lake Worth, FL"
+   ],
+   "occupation": "Lawyer",
+   "nickname": [],
+   "place": "9th",
+   "days": "51",
+   "alliances": [
+    "The Leftovers",
+    "The Five Swatters",
+    "The Pound",
+    "Jaylor",
+    "Oasis"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670147
+  },
+  "Jasmine Davis": {
+   "page": "Jasmine Davis",
+   "full_name": "Jasmine Denise Davis",
+   "birth_date": "1992-08-16",
+   "age": 29,
+   "hometown": [
+    "Terry, MS",
+    "Atlanta, GA"
+   ],
+   "occupation": "Entrepreneur",
+   "nickname": [],
+   "place": "10th",
+   "days": "51",
+   "alliances": [
+    "Girls Girls",
+    "The Five Swatters",
+    "Old Skool"
+   ],
+   "other_prizes": [
+    "London Trip"
+   ],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670145
+  },
+  "Indy Santos": {
+   "page": "Indy Santos",
+   "full_name": "Indiana \"Indy\" Santos",
+   "birth_date": "1991-03-12",
+   "age": 31,
+   "hometown": [
+    "São Paulo, Brazil",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Corporate flight attendant",
+   "nickname": [],
+   "place": "11th",
+   "days": "44",
+   "alliances": [
+    "Girls Girls",
+    "The Five Swatters"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 682475
+  },
+  "Daniel Durston": {
+   "page": "Daniel Durston",
+   "full_name": "Daniel Willard Durston",
+   "birth_date": "1987-06-22",
+   "age": 35,
+   "hometown": [
+    "Ontario, CA",
+    "Las Vegas, NV"
+   ],
+   "occupation": "Vegas performer",
+   "nickname": [],
+   "place": "12th",
+   "days": "37",
+   "alliances": [
+    "Rogue Rats",
+    "Oasis",
+    "Old Skool",
+    "The Night Shift"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670143
+  },
+  "Nicole Layog": {
+   "page": "Nicole Layog",
+   "full_name": "Nicole Layog",
+   "birth_date": "1981-06-07",
+   "age": 41,
+   "hometown": [
+    "Fort Lauderdale, FL"
+   ],
+   "occupation": "Private chef",
+   "nickname": [],
+   "place": "13th",
+   "days": "30",
+   "alliances": [
+    "Rogue Rats",
+    "Old Skool",
+    "Po’s Pack",
+    "The Night Shift"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 616122
+  },
+  "Ameerah Jones": {
+   "page": "Ameerah Jones",
+   "full_name": "Ameerah Shay Jones",
+   "birth_date": "1990-09-19",
+   "age": 31,
+   "hometown": [
+    "Westminster, MD"
+   ],
+   "occupation": "Content designer",
+   "nickname": [],
+   "place": "14th",
+   "days": "23",
+   "alliances": [
+    "Girls Girls",
+    "Old Skool",
+    "Po’s Pack"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 581612
+  },
+  "Pooch Pucciarelli": {
+   "page": "Pooch Pucciarelli",
+   "full_name": "Joseph 'Joe' \"Pooch\" Pucciarelli",
+   "birth_date": "1998-07-01",
+   "age": 24,
+   "hometown": [
+    "Staten Island, NY",
+    "Boca Raton, FL"
+   ],
+   "occupation": "Assistant football coach",
+   "nickname": [],
+   "place": "15th",
+   "days": "16",
+   "alliances": [
+    "Oasis"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 670137
+  },
+  "Paloma Aguilar": {
+   "page": "Paloma Aguilar",
+   "full_name": "Paloma Angeliki Aguilar",
+   "birth_date": "1999-11-13",
+   "age": 22,
+   "hometown": [
+    "San Marcos, CA"
+   ],
+   "occupation": "Interior designer",
+   "nickname": [
+    "Po"
+   ],
+   "place": "16th",
+   "days": "8",
+   "alliances": [
+    "Girls Girls",
+    "Scorpio Sisters"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 24 (US)"
+   ],
+   "revid": 494504
+  }
+ }
+}

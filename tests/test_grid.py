@@ -75,3 +75,15 @@ def test_finds_table_by_section_heading_when_no_caption():
 def test_missing_table_raises():
     with pytest.raises(TableNotFound):
         build_grid("<table><caption>Something else</caption></table>")
+
+
+def test_cell_links_and_images():
+    g = build_grid(table(
+        "<tr><th></th><th>Week 1</th></tr>"
+        '<tr><th>HOH</th><td><a href="/wiki/A_B" title="A B"><img alt="pic"></a> <a href="/wiki/C" title="C">C</a>'
+        '<a href="https://x.org" title="ext">x</a><img alt="Yes!"></td></tr>'
+    ))
+    cell = g.body_rows[0][1]
+    assert cell.links == ["C"]  # image links and external links left out
+    assert cell.images == ["pic", "Yes!"]
+    assert cell.text == "Cx"  # text is unchanged by the new fields

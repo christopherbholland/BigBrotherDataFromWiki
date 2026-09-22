@@ -7,7 +7,7 @@ in another site, or read the data yourself. All three rely on the two files in `
 |---|---|
 | `web/index.html` | The page. One self-contained file with no dependencies, which loads `weeks.json` from next to itself. |
 | `web/weeks.json` | The main data: one record per season-week, plus source and attribution info. |
-| `web/details.json` | Detail-view data: votes, what was different, episodes, and player stats. Loaded only when a detail view is opened. |
+| `web/details.json` | Detail-view data: votes, what was different, episodes, player stats, and the Big Brother Wiki additions (competitions, Have-Nots, bios, season facts). Loaded only when a detail view is opened. |
 
 Keeping `weeks.json` up to date is covered at the end.
 
@@ -29,7 +29,7 @@ fetch workflow, and by hand from the Actions tab. To turn it on:
 
 **Staying current.** The fetch workflow runs every day at 14:00 UTC. When a Wikipedia page
 has changed, it commits the new data, and the Pages workflow republishes. You can also run
-**Fetch Wikipedia pages** by hand from the Actions tab, including from the GitHub mobile app.
+**Fetch wiki pages** by hand from the Actions tab, including from the GitHub mobile app.
 
 **On your phone.** Open the Pages address in Safari or Chrome. To open it like an app
 (full screen, no browser bar), use **Share → Add to Home Screen** in Safari, or **⋮ → Add
@@ -78,11 +78,13 @@ The file has this shape:
 ```jsonc
 {
   "generated_at": "2026-09-22T18:20:46+00:00",
-  "license": "Wikipedia content, CC BY-SA 4.0",
+  "license": "Wikipedia content, CC BY-SA 4.0; Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0",
   "sources": [
     { "season": 26, "title": "Big Brother 26 (American season)",
       "url": "https://en.wikipedia.org/wiki/…", "revid": 1234, "fetched_at": "…",
-      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1234" }
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1234",
+      "fandom": { "title": "Big Brother 26 (US)", "url": "https://bigbrother.fandom.com/wiki/…",
+                  "revid": 674463, "permalink": "https://bigbrother.fandom.com/?oldid=674463", "fetched_at": "…" } }
   ],
   "weeks": [
     {
@@ -120,7 +122,9 @@ Things to know:
   text as shown.
 - **Attribution.** If you publish anything built on this data, credit Wikipedia under
   CC BY-SA 4.0 and link the source pages. They're in `sources`, with `permalink` pointing
-  at the exact revision used.
+  at the exact revision used. If you use the Big Brother Wiki fields (everything under
+  `fandom` and `seasons` in details.json), also credit the Big Brother Wiki under
+  CC BY-SA 3.0; its pages are in `sources[].fandom`.
 
 ### details.json
 
@@ -153,8 +157,25 @@ Things to know:
         "number_overall": "909", "number": "12", "title": "Episode 12",
         "days": "Days 24–25", "air_date": "2024-08-11", "air_date_text": "August 11, 2024",
         "viewers_millions": 2.2, "summary": "…"
-      }]
+      }],
+      "fandom": {                                  // from the Big Brother Wiki; absent if not fetched
+        "comps": [{                                // every row of its Competition History this week
+          "kind": "hoh",                           // "hoh" | "veto" | "twist"
+          "type": "HOH", "name": "Bad AI", "format": "Knockout",  // format: the recurring comp, or null
+          "day": "24", "winners": ["Angela"], "outcome": "wins HOH", "won": true,
+          "round": 1,                              // round whose HOH/veto winner it is; null otherwise
+          "extra": {}                              // other columns, e.g. BB25's {"Multiverse": "…"}
+        }],
+        "have_nots": [{ "name": "Kimo", "chosen_by": null }],
+        "checks": [{ "round": 1, "field": "Initial nominations",   // where the two wikis disagree
+                     "wikipedia": ["…"], "fandom": ["…"] }]
+      }
     }
+  },
+  "seasons": {
+    "26": { "premiere": "2024-07-17", "finale": "2024-10-13", "days": "90", "houseguests": "16",
+            "episodes": "39", "prize": "$750,000", "winner": "Chelsie Baham", "host": "Julie Chen-Moonves",
+            "title": "Big Brother 26 (US)", "url": "…", "revid": 674463, "permalink": "…", "…": "…" }
   },
   "players": [{
     "season": 26, "name": "Angela", "result": "Evicted (Day 73)",  // null while still in the game
@@ -162,7 +183,16 @@ Things to know:
     "nominated": ["Week 2", "…"], "on_block": ["…"], "evicted": "Week 10 (Day 73)",
     "votes_against": [{ "week": "Week 2", "voters": ["Kenney"] }],
     "votes_cast": [{ "week": "Week 3", "vote": "Kenney", "with_house": true }],
-    "twist": [{ "week": "…", "label": "AI Arena winner" }]
+    "twist": [{ "week": "…", "label": "AI Arena winner" }],
+    "fandom": {                                    // null when no Big Brother Wiki page matched
+      "page": "Angela Murray", "url": "https://bigbrother.fandom.com/wiki/Angela_Murray",
+      "full_name": "Angela Lorraine Murray", "birth_date": "1973-08-17", "age": 50,  // age at the premiere
+      "hometown": ["Long Beach, CA", "Syracuse, UT"], "occupation": "Realtor", "nickname": ["Mama"],
+      "place": "6th", "days": "73", "alliances": ["BB Guns", "…"], "other_prizes": [],
+      "seasons": ["Big Brother 26 (US)", "Big Brother 28 (US)"],
+      "have_not": ["Week 5"],
+      "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…" }]
+    }
   }]
 }
 ```
@@ -181,6 +211,10 @@ Things to know:
   show) have `winner: null`. `source` is the sentence the name came from.
 - **`episodes`.** From the season page's episode table, grouped by the week headings
   already in that table.
+- **`fandom`.** Read from the Big Brother Wiki. Names are translated to Wikipedia's (the
+  wiki says "Jackson" where Wikipedia says "Michie"). A name that can't be matched is kept
+  as the wiki writes it and listed in `report.txt`. The page prefers `fandom.comps` over
+  `comps` for competition names.
 
 Example: every HOH in BB26.
 
@@ -193,11 +227,11 @@ const hohs = data.weeks
 
 ## Keeping it up to date
 
-The **Fetch Wikipedia pages** GitHub Action refetches the pages. If any page changed, it
+The **Fetch wiki pages** GitHub Action refetches the pages. If any page changed, it
 rebuilds `web/weeks.json`, `web/details.json` and `report.txt` and commits them. To run it from a phone or
 browser:
 
-1. Open the repo's **Actions** tab and choose **Fetch Wikipedia pages**. (GitHub only
+1. Open the repo's **Actions** tab and choose **Fetch wiki pages**. (GitHub only
    shows the **Run workflow** button once the workflow file is on the repo's default
    branch. Until then, it runs when `seasons.yaml` or the workflow file changes.)
 2. Tap **Run workflow**. Pick the branch, and optionally enter season numbers (e.g. `28`).

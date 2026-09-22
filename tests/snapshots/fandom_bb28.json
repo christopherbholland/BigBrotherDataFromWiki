@@ -1,0 +1,2164 @@
+{
+ "info": {
+  "season_run": "July 9, 2026 - October 1, 2026",
+  "premiere": "2026-07-09",
+  "finale": "2026-10-01",
+  "days": "87",
+  "houseguests": "17",
+  "episodes": "41",
+  "prize": "$750,000",
+  "winner": null,
+  "runner_up": null,
+  "host": "Julie Chen-Moonves",
+  "average_viewers": null
+ },
+ "roster": [
+  [
+   "Dee Valladares",
+   "Dee"
+  ],
+  [
+   "Rick Devens",
+   "Devens"
+  ],
+  [
+   "Drew Campbell",
+   "Drew"
+  ],
+  [
+   "Taylor Brown",
+   "Taylor"
+  ],
+  [
+   "Melody Morris",
+   "Melody"
+  ],
+  [
+   "Yash Patel",
+   "Yash"
+  ],
+  [
+   "Barrett Pfeiffer",
+   "Barrett"
+  ],
+  [
+   "Angela Murray",
+   "Angela"
+  ],
+  [
+   "LaTrice Verrett",
+   "LaTrice"
+  ],
+  [
+   "Haley Thogmartin",
+   "Haley"
+  ],
+  [
+   "Mallory Aurichio",
+   "Mallory"
+  ],
+  [
+   "Kamu Kirk",
+   "Kamu"
+  ],
+  [
+   "Chuk Anyanwu",
+   "Chuk"
+  ],
+  [
+   "Lyric Medeiros",
+   "Lyric"
+  ],
+  [
+   "Jason De Puy",
+   "Jason"
+  ],
+  [
+   "Rome Seymour",
+   "Rome"
+  ],
+  [
+   "Ashley Trail",
+   "Ashley"
+  ],
+  [
+   "Enzo Palumbo",
+   "Enzo Palumbo"
+  ],
+  [
+   "Rachel Reilly",
+   "Rachel Reilly"
+  ],
+  [
+   "Howie Gordon",
+   "Howie Gordon"
+  ],
+  [
+   "Will Kirby",
+   "Will Kirby"
+  ],
+  [
+   "Jessie Godderz",
+   "Jessie Godderz"
+  ],
+  [
+   "Morgan Pope",
+   "Morgan Pope"
+  ],
+  [
+   "Paul Abrahamian",
+   "Paul Abrahamian"
+  ],
+  [
+   "Britney Haynes",
+   "Britney Haynes"
+  ],
+  [
+   "Cody Calafiore",
+   "Cody Calafiore"
+  ],
+  [
+   "Tiffany Mitchell",
+   "Tiffany Mitchell"
+  ],
+  [
+   "Keanu Soto",
+   "Keanu Soto"
+  ],
+  [
+   "Vince Panaro",
+   "Vince Panaro"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "Find the BB-tonium",
+   "format": "Reclaim the Relic",
+   "winners": [
+    "Ashley",
+    "Barrett"
+   ],
+   "outcome": "fail to advance",
+   "result": "Ashley & Barrett fail to advance",
+   "extra": {
+    "Description": "Hidden throughout the house were sticks of \"BB-tonium\". Twelve sticks have Enzo's correct corresponding number on the screen. The first twelve houseguests that would arrive back with the correct stick would advance to the Immunity Competitions."
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "1988 Long Beach, CA",
+   "format": "In The Balance",
+   "winners": [
+    "Rome"
+   ],
+   "outcome": "wins Safety",
+   "result": "Rome wins Safety",
+   "extra": {
+    "Description": "Each houseguest was given a mobile hanging structure and various objects with different weights. The first houseguest to balance all the objects, hit their buzzer, and have the objects hold for ten seconds would win Immunity for the week."
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "2018 Fiji",
+   "format": "Build the Bridge",
+   "winners": [
+    "Chuk"
+   ],
+   "outcome": "wins Safety",
+   "result": "Chuk wins Safety",
+   "extra": {
+    "Description": "Before each houseguest was a maze from one platform to the other. In order to get from one to the other, each houseguest must use two planks to solve their maze puzzle. The first houseguest to cross the maze would win Immunity for the week."
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "2010 Las Vegas, NV",
+   "format": "Sequence Explosion",
+   "winners": [
+    "Jason"
+   ],
+   "outcome": "wins Safety",
+   "result": "Jason wins Safety",
+   "extra": {
+    "Description": "In front of each houseguest was three buttons with three different phases. During each round, the houseguests must listen to the taped sequence and count which phrase was said the most. The houseguest who pressed the incorrect button or the slowest correct push would be eliminated. The last remaining houseguest would win Immunity for the week."
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "175 Million BC",
+   "format": "Pyramid",
+   "winners": [
+    "Dee"
+   ],
+   "outcome": "wins HOH",
+   "result": "Dee wins HOH",
+   "extra": {
+    "Description": "The three reality icons were separated by the three groups that \"entered\" them into the game. Each group of new houseguests would each hold a rope that would balance a platform in the middle. The reality icon would create a flame puzzle onto of that platform. The first icon to correctly solve and balance the puzzle would win HOH."
+   }
+  },
+  {
+   "week": 1,
+   "day": "5",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Back From the Future",
+   "format": "Pipeline",
+   "winners": [
+    "Mallory"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Mallory wins the Veto",
+   "extra": {
+    "Description": "Each houseguest is given a set of pipes and various rings. Throughout the course each houseguest must create a path from one side of the course to the other passing through all the rings. The first houseguest to pass through all the rings will win the Veto."
+   }
+  },
+  {
+   "week": 1,
+   "day": "10",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Do Over",
+   "format": "Living Art",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "is saved",
+   "result": "Yash is saved",
+   "extra": {
+    "Description": "Throughout the arena, the different screens will be flashing images of the houseguests in different wigs. The each competing houseguest would need to figure out which of the houseguests in the photos appears the most. The first houseguest to lock in the correct answer the quickest wins safety from the night's eviction."
+   }
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Achy Breaky HOH",
+   "format": "Shootout",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins HOH",
+   "result": "Devens wins HOH",
+   "extra": {
+    "Description": "In front of the houseguests is a large shuffleboard with corresponding numbers to different positions on the board. Each round, the houseguests would group up in pairs to compete for the round. In each round, a different rule on how the scoring system would work to determine the winners of each round. The final houseguest survive all the rounds would win HOH."
+   }
+  },
+  {
+   "week": 2,
+   "day": "11",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Angela"
+   ],
+   "outcome": "is punished",
+   "result": "Angela is punished",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 2,
+   "day": "12",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Flower Power",
+   "format": "Fitting In",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Devens wins the Veto",
+   "extra": {
+    "Description": "Scattered throughout the backyard are various puzzle pieces for each houseguest's puzzle. The first houseguest to assemble their puzzle on the their puzzle board in the correct way and press their buzzer would win the Veto"
+   }
+  },
+  {
+   "week": 2,
+   "day": "17",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Pirate's Booty",
+   "format": "Tower of Hanoi",
+   "winners": [
+    "Jason"
+   ],
+   "outcome": "is saved",
+   "result": "Jason is saved",
+   "extra": {
+    "Description": "In front of each houseguest is a set of four spools of different shaped treasures. Each treasure must be moved so each spool has three of a kind of each treasure on it. The houseguests are not allowed to set any treasures on the ground and must add it to a spool before picking up another one. The first houseguest to complete the puzzle would win safety from the night's eviction."
+   }
+  },
+  {
+   "week": 3,
+   "day": "17",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Wrestlegasm 85",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Kamu"
+   ],
+   "outcome": "wins HOH",
+   "result": "Kamu wins HOH",
+   "extra": {
+    "Description": "Before the competition, a wrestling match would take place. The objective for each houseguest is to memorize aspects of the match. Afterwards, each houseguest competed in a true/false booth competition about the match elements. The one houseguests who corrected answered the most questions would win HOH."
+   }
+  },
+  {
+   "week": 3,
+   "day": "18",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "is rewarded",
+   "result": "Devens is rewarded",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 3,
+   "day": "19",
+   "type": "POV",
+   "kind": "veto",
+   "name": "The Pickle Ball",
+   "format": "Bowlerina",
+   "winners": [
+    "Lyric"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Lyric wins the Veto",
+   "extra": {
+    "Description": "In a twist on the classic competition Bowlerina, each houseguest will spin on a pickle and then will use a large pickle shaped paddle to hit balls towards a wall. On the wall there are different slots with different point values. The houseguest that collects the most points in their head to head matchup wins the round, with the winner of the final round winning the Power of Veto."
+   }
+  },
+  {
+   "week": 3,
+   "day": "24",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Video Tape Tumble",
+   "format": null,
+   "winners": [
+    "Mallory"
+   ],
+   "outcome": "is saved",
+   "result": "Mallory is saved",
+   "extra": {
+    "Description": "In front of each houseguest is a Jenga-like structure made up of videotapes on thin platforms. The object for each houseguest is to remove a videotape, without the structure falling, and return it to the start line. The houseguest to collect the most tapes in two minutes without their tower falling would win safety from the night's eviction."
+   }
+  },
+  {
+   "week": 4,
+   "day": "24",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Jack the Ripper",
+   "format": "Hide and Seek",
+   "winners": [
+    "Haley"
+   ],
+   "outcome": "wins HOH",
+   "result": "Haley wins HOH",
+   "extra": {
+    "Description": "The houseguests are transported inside a model replica of a house to study for clues. After a brief study session, the houseguests would be asked a question about a certain item in each room such as a clock. In order to pass the round, the houseguests would have to hide in a room that would not have that object, or they would be eliminated. The last remaining houseguest would win HOH."
+   }
+  },
+  {
+   "week": 4,
+   "day": "25",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Dee"
+   ],
+   "outcome": "is rewarded",
+   "result": "Dee is rewarded",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 4,
+   "day": "26",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Murder at the Masquerade",
+   "format": "To Drink or to Bluff",
+   "winners": [
+    "Taylor"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Taylor wins the Veto",
+   "extra": {
+    "Description": "Among each houseguest is two glasses of wine, one red and one white. One of those two glasses is marked as \"poisoned\". The object of the game is to select another houseguest and convince them to drink from the poisonous glass while you drink from the safe glass. If a houseguest drinks the poison twice, they are eliminated. The last houseguest remaining would win the Veto."
+   }
+  },
+  {
+   "week": 4,
+   "day": "31",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "The Paw Patrol Dino Puzzle",
+   "format": "Fitting In",
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "is saved",
+   "result": "Drew is saved",
+   "extra": {
+    "Description": "In front of each houseguest is pieces to a Paw Patrol themed puzzle. The objective is to construct the two level puzzle and hit the buzzer the fastest. The first houseguest to do so would win safety from the night's eviction."
+   }
+  },
+  {
+   "week": 5,
+   "day": "31",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Sasquatch Watch",
+   "format": "The Wall",
+   "winners": [
+    "LaTrice"
+   ],
+   "outcome": "wins HOH",
+   "result": "LaTrice wins HOH",
+   "extra": {
+    "Description": "Each houseguest is up on the iconic wall hanging on to a bar on top of the wall that hangs in front of each houseguest. During random intervals, the wall would be tipped forward and back with slime shot between moving. The last houseguest to stay up on the wall would win HOH."
+   }
+  },
+  {
+   "week": 5,
+   "day": "32",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Mallory"
+   ],
+   "outcome": "is punished",
+   "result": "Mallory is punished",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 5,
+   "day": "33",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Saturday Night Veto",
+   "format": "Binary Bridge",
+   "winners": [
+    "Kamu"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kamu wins the Veto",
+   "extra": {
+    "Description": "In front of each houseguest is a set of tiles that light up when stepped on. When stepping on each tile, it will either turn red or green. Green means the houseguest can advance, and red would indicate an incorrect step and head back to the beginning. The set of tiles that the houseguests are stepping on are not shown to the houseguests beforehand so the houseguest must experiment to figure out which tiles are correct and which are incorrect while remembering the pattern when it resets. The first houseguest to solve their tile puzzle and make it to the end wins their match. After all the matches, the remaining houseguest would win the veto."
+   }
+  },
+  {
+   "week": 5,
+   "day": "38",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Newton's Apples",
+   "format": "Carnival Quick Shot",
+   "winners": [
+    "Haley"
+   ],
+   "outcome": "is saved",
+   "result": "Haley is saved",
+   "extra": {
+    "Description": "In front of each houseguest is a two-way ramp that has a carpet platform on the top. The objective for each houseguest is to land five balls on top of the platform from either side of the two-way ramp. Once that was completed, each houseguest must use a different set of balls to knock all five balls off. The first to knock their five balls off the platform would win safety from the night's eviction."
+   }
+  },
+  {
+   "week": 6,
+   "day": "38",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Bugs in the System",
+   "format": "Knockout",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins HOH",
+   "result": "Yash wins HOH",
+   "extra": {
+    "Description": "In a knockout style competition, two houseguests are viewing a screen of bugs. Each houseguest must count the bugs and press the button of the that has the most bugs. If the houseguest is correct, they advance and select the next two houseguests to face-off. If they are not correct, they are eliminated and their opponent gets to select the next two houseguest. The last houseguest remaining after all of the rounds would win HOH."
+   }
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Melody"
+   ],
+   "outcome": "is punished",
+   "result": "Melody is punished",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 6,
+   "day": "40",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Belligerent B-Movie Blob",
+   "format": "OTEV",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Yash wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "45",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Space Race",
+   "format": "Niagara Balls",
+   "winners": [
+    "Angela"
+   ],
+   "outcome": "is saved",
+   "result": "Angela is saved",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "45",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Norse By Norsewest",
+   "format": "Only One Path",
+   "winners": [
+    "Dee"
+   ],
+   "outcome": "wins HOH",
+   "result": "Dee wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "46",
+   "type": "Time Capsule",
+   "kind": "twist",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "is rewarded",
+   "result": "Drew is rewarded",
+   "extra": {
+    "Description": "Inside the Time Capsule, press a button to randomly collect a punishment or reward."
+   }
+  },
+  {
+   "week": 7,
+   "day": "47",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Feel The Burn",
+   "format": null,
+   "winners": [
+    "LaTrice"
+   ],
+   "outcome": "wins the Veto",
+   "result": "LaTrice wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "BB Grand Cliptacular",
+   "format": "Getting Loopy",
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "is saved",
+   "result": "Drew is saved",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52-53",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "Stones of Safety",
+   "format": "In The Balance",
+   "winners": [
+    "Dee"
+   ],
+   "outcome": "wins Safety",
+   "result": "Dee wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52-53",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "Fit the Crops",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "wins Safety",
+   "result": "Drew wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52-53",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "Deliver the Grapes",
+   "format": "Berry Balanced",
+   "winners": [
+    "Barrett"
+   ],
+   "outcome": "wins Safety",
+   "result": "Barrett wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52-53",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "Adorn the Crown",
+   "format": "Hourglass",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins Safety",
+   "result": "Yash wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "53",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "2026: A Zing Odyssey",
+   "format": "Zingbot Competition",
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "wins HOH",
+   "result": "Drew wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "54",
+   "type": "POV",
+   "kind": "veto",
+   "name": "The Gold, the Bad, and the Ugly",
+   "format": "Seesaw",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Yash wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "59",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Your Game in Ruins",
+   "format": "Big Top Drop",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "is saved",
+   "result": "Devens is saved",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "59",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Rainbow Rollers",
+   "format": "Perfect Shot",
+   "winners": [
+    "Barrett"
+   ],
+   "outcome": "wins HOH",
+   "result": "Barrett wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "61",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Yash wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "66",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Reinvent The Wheel",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "is saved",
+   "result": "Devens is saved",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "66",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Wet and Wild West",
+   "format": "Slippery Slope",
+   "winners": [
+    "Yash"
+   ],
+   "outcome": "wins HOH",
+   "result": "Yash wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "68",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Circle of Trust",
+   "format": "What's The Hold Up",
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Drew wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Crash Site Cover-Up",
+   "format": "Roll It Down",
+   "winners": [
+    "Melody"
+   ],
+   "outcome": "is saved",
+   "result": "Melody is saved",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Bleeping Through Time",
+   "format": "What The Bleep?",
+   "winners": [
+    "Melody"
+   ],
+   "outcome": "wins HOH",
+   "result": "Melody wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Great Ball of China",
+   "format": "Fitting In",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Devens wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "Temptation",
+   "kind": "twist",
+   "name": "The Pharaoh's Treasure",
+   "format": null,
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins $10,000",
+   "result": "Devens wins $10,000",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Reverse the Curse",
+   "format": "Microbrews",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins HOH",
+   "result": "Devens wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "75",
+   "type": "POV",
+   "kind": "veto",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Drew wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "77",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Taylor"
+   ],
+   "outcome": "wins HOH",
+   "result": "Taylor wins HOH",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Rick Devens",
+     "chosen_by": null
+    },
+    {
+     "guest": "Drew Campbell",
+     "chosen_by": null
+    },
+    {
+     "guest": "Taylor Brown",
+     "chosen_by": null
+    },
+    {
+     "guest": "Haley Thogmartin",
+     "chosen_by": null
+    },
+    {
+     "guest": "Chuk Anyanwu",
+     "chosen_by": null
+    }
+   ],
+   "2": [
+    {
+     "guest": "Barrett Pfeiffer",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kamu Kirk",
+     "chosen_by": null
+    },
+    {
+     "guest": "Lyric Medeiros",
+     "chosen_by": null
+    },
+    {
+     "guest": "Jason De Puy",
+     "chosen_by": null
+    },
+    {
+     "guest": "Rome Seymour",
+     "chosen_by": null
+    }
+   ],
+   "3": [
+    {
+     "guest": "Dee Valladares",
+     "chosen_by": null
+    },
+    {
+     "guest": "Melody Morris",
+     "chosen_by": null
+    },
+    {
+     "guest": "Yash Patel",
+     "chosen_by": null
+    },
+    {
+     "guest": "Mallory Aurichio",
+     "chosen_by": null
+    }
+   ],
+   "4": [
+    {
+     "guest": "Rick Devens",
+     "chosen_by": null
+    },
+    {
+     "guest": "Angela Murray",
+     "chosen_by": null
+    },
+    {
+     "guest": "LaTrice Verrett",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kamu Kirk",
+     "chosen_by": null
+    }
+   ],
+   "5": [
+    {
+     "guest": "Barrett Pfeiffer",
+     "chosen_by": null
+    },
+    {
+     "guest": "Drew Campbell",
+     "chosen_by": null
+    },
+    {
+     "guest": "Haley Thogmartin",
+     "chosen_by": null
+    },
+    {
+     "guest": "Chuk Anyanwu",
+     "chosen_by": null
+    }
+   ],
+   "7": [
+    {
+     "guest": "Taylor Brown",
+     "chosen_by": null
+    },
+    {
+     "guest": "LaTrice Verrett",
+     "chosen_by": null
+    },
+    {
+     "guest": "Mallory Aurichio",
+     "chosen_by": null
+    }
+   ],
+   "9": [
+    {
+     "guest": "Dee Valladares",
+     "chosen_by": null
+    },
+    {
+     "guest": "Melody Morris",
+     "chosen_by": null
+    }
+   ],
+   "10": [
+    {
+     "guest": "Barrett Pfeiffer",
+     "chosen_by": null
+    },
+    {
+     "guest": "Rick Devens",
+     "chosen_by": null
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Dee Valladares"
+   ],
+   "2": [
+    "Rick Devens"
+   ],
+   "3": [
+    "Kamu Kirk"
+   ],
+   "4": [
+    "Haley Thogmartin"
+   ],
+   "5": [
+    "LaTrice Verrett"
+   ],
+   "6": [
+    "Yash Patel"
+   ],
+   "7": [
+    "Dee Valladares"
+   ],
+   "8": [
+    "Drew Campbell"
+   ],
+   "9": [
+    "Barrett Pfeiffer"
+   ],
+   "10": [
+    "Yash Patel"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Dee"
+   ],
+   "nominees_initial": [
+    "Mallory",
+    "Taylor",
+    "Yash"
+   ],
+   "veto_holders": [
+    "Mallory"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ashley",
+    "Taylor",
+    "Yash"
+   ],
+   "evicted": [
+    "Ashley"
+   ],
+   "vote": "14-0",
+   "finish": "1st Evicted Day 10",
+   "other": {}
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Devens"
+   ],
+   "nominees_initial": [
+    "Jason",
+    "Lyric",
+    "Melody"
+   ],
+   "veto_holders": [
+    "Devens"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Jason",
+    "Melody",
+    "Rome"
+   ],
+   "evicted": [
+    "Rome"
+   ],
+   "vote": "12-1",
+   "finish": "2nd Evicted Day 17",
+   "other": {}
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Kamu"
+   ],
+   "nominees_initial": [
+    "LaTrice",
+    "Lyric",
+    "Mallory"
+   ],
+   "veto_holders": [
+    "Lyric"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Jason",
+    "LaTrice",
+    "Mallory"
+   ],
+   "evicted": [
+    "Jason"
+   ],
+   "vote": "12-0",
+   "finish": "3rd Evicted Day 24",
+   "other": {}
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Haley"
+   ],
+   "nominees_initial": [
+    "Drew",
+    "Melody",
+    "Taylor"
+   ],
+   "veto_holders": [
+    "Taylor"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Drew",
+    "Lyric",
+    "Melody"
+   ],
+   "evicted": [
+    "Lyric"
+   ],
+   "vote": "8-3",
+   "finish": "4th Evicted Day 31",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "LaTrice"
+   ],
+   "nominees_initial": [
+    "Barrett",
+    "Chuk",
+    "Haley"
+   ],
+   "veto_holders": [
+    "Kamu"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Barrett",
+    "Chuk",
+    "Haley"
+   ],
+   "evicted": [
+    "Chuk"
+   ],
+   "vote": "9-1",
+   "finish": "5th Evicted Day 38",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Yash"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Dee",
+    "Haley"
+   ],
+   "veto_holders": [
+    "Yash",
+    "Devens"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Angela",
+    "Haley",
+    "Kamu"
+   ],
+   "evicted": [
+    "Kamu"
+   ],
+   "vote": "8-1",
+   "finish": "6th Evicted Day 45",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Dee"
+   ],
+   "nominees_initial": [
+    "Drew",
+    "LaTrice",
+    "Taylor"
+   ],
+   "veto_holders": [
+    "LaTrice"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Drew",
+    "Mallory",
+    "Taylor"
+   ],
+   "evicted": [
+    "Mallory"
+   ],
+   "vote": "6-2",
+   "finish": "7th Evicted Day 52",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Haley",
+    "LaTrice"
+   ],
+   "evicted": [
+    "Haley"
+   ],
+   "vote": "1-0",
+   "finish": "8th Evicted Day 53",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Drew"
+   ],
+   "nominees_initial": [
+    "LaTrice",
+    "Taylor",
+    "Yash"
+   ],
+   "veto_holders": [
+    "Yash"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Devens",
+    "LaTrice",
+    "Taylor"
+   ],
+   "evicted": [
+    "LaTrice"
+   ],
+   "vote": "4-2",
+   "finish": "9th Evicted 1st Jury Member Day 59",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Barrett"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Dee",
+    "Devens"
+   ],
+   "veto_holders": [
+    "Yash"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Angela",
+    "Dee",
+    "Devens"
+   ],
+   "evicted": [
+    "Angela"
+   ],
+   "vote": "3-2",
+   "finish": "10th Evicted 2nd Jury Member Day 66",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Yash"
+   ],
+   "nominees_initial": [
+    "Barrett",
+    "Drew",
+    "Melody"
+   ],
+   "veto_holders": [
+    "Drew"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Barrett",
+    "Melody",
+    "Taylor"
+   ],
+   "evicted": [
+    "Barrett"
+   ],
+   "vote": "3-1",
+   "finish": "11th Evicted 3rd Jury Member Day 73",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Melody"
+   ],
+   "nominees_initial": [
+    "Dee",
+    "Devens"
+   ],
+   "veto_holders": [
+    "Devens"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Dee",
+    "Yash"
+   ],
+   "evicted": [
+    "Yash"
+   ],
+   "vote": "2-1",
+   "finish": "12th Evicted 4th Jury Member Day 73",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Devens"
+   ],
+   "nominees_initial": [
+    "Drew",
+    "Melody"
+   ],
+   "veto_holders": [
+    "Drew"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Melody",
+    "Taylor"
+   ],
+   "evicted": [
+    "Melody"
+   ],
+   "vote": "2-1",
+   "finish": "13th Evicted 5th Jury Member Day 77",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Taylor"
+   ],
+   "nominees_initial": [
+    "Dee",
+    "Drew"
+   ],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": "1-0",
+   "finish": "14th Evicted 6th Jury Member Day 80",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": "1-0",
+   "finish": "15th Evicted 7th Jury Member Day 87",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": "?-?",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": "?-?",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Dee Valladares": {
+   "page": "Dee Valladares",
+   "full_name": "Dianelys Maria \"Dee\" Valladares",
+   "birth_date": "1996-10-02",
+   "age": 29,
+   "hometown": [
+    "Havana, Cuba",
+    "Miami, FL"
+   ],
+   "occupation": "Entrepreneur",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [
+    "Café con Leche",
+    "Mosh Pit",
+    "The Crossovers",
+    "The Culture",
+    "The Honor Society",
+    "The Icons",
+    "The Red Corner",
+    "The Toolshed",
+    "The Wolfpack"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 699154
+  },
+  "Rick Devens": {
+   "page": "Rick Devens",
+   "full_name": "Patrick William \"Rick\" Devens",
+   "birth_date": "1984-04-05",
+   "age": 42,
+   "hometown": [
+    "Blacksburg, VA",
+    "Macon, GA"
+   ],
+   "occupation": "Communications director",
+   "nickname": [
+    "Devens"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [
+    "Bermuda Triangle",
+    "Mosh Pit",
+    "The Crossovers",
+    "The Culture",
+    "The Dapper Dans",
+    "The Icons",
+    "The Primaries",
+    "The Red Corner",
+    "The Toolshed",
+    "The Wolfpack"
+   ],
+   "other_prizes": [
+    "$10,000"
+   ],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 698742
+  },
+  "Drew Campbell": {
+   "page": "Drew Campbell",
+   "full_name": "Drew Campbell",
+   "birth_date": "2004-02-04",
+   "age": 22,
+   "hometown": [
+    "Temecula, CA"
+   ],
+   "occupation": "Surgical dental assistant",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [
+    "4 Seasons",
+    "F.A.P.",
+    "Melodrew",
+    "Mosh Pit",
+    "The Ceasefire",
+    "The Court Jesters",
+    "The Crossovers",
+    "The Dapper Dans",
+    "The Handymen",
+    "The Jugglers",
+    "The Toolshed"
+   ],
+   "other_prizes": [
+    "Never-Not Pass"
+   ],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 699155
+  },
+  "Taylor Brown": {
+   "page": "Taylor Brown",
+   "full_name": "Taylor Brown",
+   "birth_date": "1998-09-29",
+   "age": 27,
+   "hometown": [
+    "Deerfield Beach, FL"
+   ],
+   "occupation": "Elementary school counselor",
+   "nickname": [],
+   "place": null,
+   "days": "87",
+   "alliances": [
+    "The Ceasefire",
+    "The Covenant",
+    "The Culture",
+    "The Honor Society",
+    "The Primaries"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 699152
+  },
+  "Melody Morris": {
+   "page": "Melody Morris",
+   "full_name": "Melody Morris",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Thornton, CO",
+    "Maricopa, AZ"
+   ],
+   "occupation": "Corporate game show host",
+   "nickname": [
+    "'Ody"
+   ],
+   "place": "5th",
+   "days": "77",
+   "alliances": [
+    "4 Seasons",
+    "F.A.P.",
+    "Giggle Girls",
+    "Melodrew",
+    "Mosh Pit",
+    "Sirens",
+    "The Ceasefire",
+    "The Court Jesters"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 698741
+  },
+  "Yash Patel": {
+   "page": "Yash Patel",
+   "full_name": "Yash Patel",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Monroe Township, NJ"
+   ],
+   "occupation": "Financial analyst",
+   "nickname": [
+    "YP"
+   ],
+   "place": "6th",
+   "days": "73",
+   "alliances": [
+    "Bermuda Triangle",
+    "The Ceasefire",
+    "The Covenant",
+    "The Culture",
+    "The Dapper Dans",
+    "The Wolfpack"
+   ],
+   "other_prizes": [
+    "$5,000 (BB Bribe)"
+   ],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 697014
+  },
+  "Barrett Pfeiffer": {
+   "page": "Barrett Pfeiffer",
+   "full_name": "Barrett Pfeiffer",
+   "birth_date": "1998-09-09",
+   "age": 27,
+   "hometown": [
+    "Benton, AR",
+    "Austin, TX"
+   ],
+   "occupation": "Jumbotron engineer",
+   "nickname": [],
+   "place": "7th",
+   "days": "73",
+   "alliances": [
+    "F.A.P.",
+    "Mosh Pit",
+    "The Ceasefire",
+    "The Crossovers",
+    "The Dapper Dans",
+    "The Jugglers",
+    "The Toolshed"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 696898
+  },
+  "Angela Murray": {
+   "page": "Angela Murray",
+   "full_name": "Angela Lorraine Murray",
+   "birth_date": "1973-08-17",
+   "age": 52,
+   "hometown": [
+    "Long Beach, CA",
+    "Syracuse, UT"
+   ],
+   "occupation": "Realtor",
+   "nickname": [
+    "Mama"
+   ],
+   "place": "8th",
+   "days": "66",
+   "alliances": [
+    "Mosh Pit",
+    "The Crossovers",
+    "The Honor Society",
+    "The Icons",
+    "The Toolshed"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)",
+    "Big Brother 28 (US)"
+   ],
+   "revid": 694233
+  },
+  "LaTrice Verrett": {
+   "page": "LaTrice Verrett",
+   "full_name": "LaTrice Verrett",
+   "birth_date": "1968-07-14",
+   "age": 57,
+   "hometown": [
+    "Kankakee, IL",
+    "Maplewood, NJ"
+   ],
+   "occupation": "Boutique salesperson",
+   "nickname": [
+    "Lala"
+   ],
+   "place": "9th",
+   "days": "59",
+   "alliances": [
+    "Mama's Angels",
+    "The Covenant",
+    "The Honor Society"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 691686
+  },
+  "Haley Thogmartin": {
+   "page": "Haley Thogmartin",
+   "full_name": "Haley Jordan Thogmartin",
+   "birth_date": "1996-09-12",
+   "age": 29,
+   "hometown": [
+    "Neosho, MO",
+    "Wildwood, MO"
+   ],
+   "occupation": "Telemedicine executive",
+   "nickname": [
+    "Thog"
+   ],
+   "place": "10th",
+   "days": "53",
+   "alliances": [
+    "The Red Corner",
+    "The Toolshed"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 690046
+  },
+  "Mallory Aurichio": {
+   "page": "Mallory Aurichio",
+   "full_name": "Mallory Aurichio",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Township of Washington, NJ"
+   ],
+   "occupation": "Rocket scientist",
+   "nickname": [
+    "Pipe Queen",
+    "PQ"
+   ],
+   "place": "11th",
+   "days": "52",
+   "alliances": [
+    "F.A.P.",
+    "Giggle Girls",
+    "Mosh Pit"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 694845
+  },
+  "Kamu Kirk": {
+   "page": "Kamu Kirk",
+   "full_name": "Gabriel Xavier Kamuela \"Kamu\" Kirk",
+   "birth_date": "1994-04-13",
+   "age": 32,
+   "hometown": [
+    "Phoenix, AZ"
+   ],
+   "occupation": "MMA fighter",
+   "nickname": [],
+   "place": "12th",
+   "days": "45",
+   "alliances": [
+    "Bermuda Triangle",
+    "The Covenant",
+    "The Handymen",
+    "The Primaries",
+    "The Red Corner",
+    "The Toolshed",
+    "The Wolfpack"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 689987
+  },
+  "Chuk Anyanwu": {
+   "page": "Chuk Anyanwu",
+   "full_name": "Chukwuemeka \"Chuk\" Anyanwu",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Dallas, TX"
+   ],
+   "occupation": "Supply chain analyst",
+   "nickname": [],
+   "place": "13th",
+   "days": "38",
+   "alliances": [
+    "The Red Corner",
+    "The Toolshed"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 689975
+  },
+  "Lyric Medeiros": {
+   "page": "Lyric Medeiros",
+   "full_name": "Lyric Leolani Medeiros",
+   "birth_date": "2001-05-01",
+   "age": 25,
+   "hometown": [
+    "Honolulu, HI"
+   ],
+   "occupation": "Attorney",
+   "nickname": [],
+   "place": "14th",
+   "days": "31",
+   "alliances": [
+    "4 Seasons",
+    "Giggle Girls",
+    "Sirens",
+    "The Love Triangle"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 683564
+  },
+  "Jason De Puy": {
+   "page": "Jason De Puy",
+   "full_name": "Jason De Puy",
+   "birth_date": "1990-10-08",
+   "age": 35,
+   "hometown": [
+    "San Francisco, CA",
+    "West Hollywood, CA"
+   ],
+   "occupation": "Drag queen",
+   "nickname": [],
+   "place": "15th",
+   "days": "24",
+   "alliances": [
+    "Café con Leche",
+    "Mama's Angels",
+    "The Court Jesters",
+    "The Love Triangle"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 694298
+  },
+  "Rome Seymour": {
+   "page": "Rome Seymour",
+   "full_name": "Jack \"Rome\" Seymour",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Traverse City, MI",
+    "Delray Beach, FL"
+   ],
+   "occupation": "Pickleball coach",
+   "nickname": [],
+   "place": "16th",
+   "days": "17",
+   "alliances": [
+    "4 Seasons",
+    "Mama's Angels",
+    "The Love Triangle"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 679948
+  },
+  "Ashley Trail": {
+   "page": "Ashley Trail",
+   "full_name": "Ashley Trail",
+   "birth_date": "2002-01-23",
+   "age": 24,
+   "hometown": [
+    "Alton, IL",
+    "Chicago, IL"
+   ],
+   "occupation": "Bartender",
+   "nickname": [],
+   "place": "17th",
+   "days": "10",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 676576
+  },
+  "Enzo Palumbo": {
+   "page": "Enzo Palumbo",
+   "full_name": "Vincenzo \"Enzo\" Palumbo",
+   "birth_date": "1978-01-16",
+   "age": 48,
+   "hometown": [
+    "Bayonne, NJ"
+   ],
+   "occupation": "Insurance Adjuster",
+   "nickname": [
+    "The Meow Meow"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 12 (US)"
+   ],
+   "revid": 675074
+  },
+  "Rachel Reilly": {
+   "page": "Rachel Reilly",
+   "full_name": "Rachel Eileen Villegas",
+   "birth_date": "1984-10-16",
+   "age": 41,
+   "hometown": [
+    "Concord, NC",
+    "Hoover, AL"
+   ],
+   "occupation": "TV personality",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 12 (US)",
+    "Big Brother 13 (US)",
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697391
+  },
+  "Howie Gordon": {
+   "page": "Howie Gordon",
+   "full_name": "Howard \"Howie\" Gordon",
+   "birth_date": "1971-01-07",
+   "age": 55,
+   "hometown": [
+    "Chicago, IL"
+   ],
+   "occupation": "Meteorology Student",
+   "nickname": [
+    "Hurricane Howie",
+    "Beefcake Howie",
+    "Jedi Howie",
+    "Big Boy"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 7 (US)",
+    "Big Brother 6 (US)"
+   ],
+   "revid": 686608
+  },
+  "Will Kirby": {
+   "page": "Will Kirby",
+   "full_name": "Dr. William \"Dr. Will\" Kirby",
+   "birth_date": "1973-01-02",
+   "age": 53,
+   "hometown": [
+    "Miami, FL"
+   ],
+   "occupation": "Physician",
+   "nickname": [
+    "Dr. Will",
+    "Dr. Delicious",
+    "The Puppet Master"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 7 (US)",
+    "Big Brother 2 (US)"
+   ],
+   "revid": 677459
+  },
+  "Jessie Godderz": {
+   "page": "Jessie Godderz",
+   "full_name": "Jessie Godderz",
+   "birth_date": "1986-04-23",
+   "age": 40,
+   "hometown": [
+    "Rudd, IA"
+   ],
+   "occupation": "Bodybuilder",
+   "nickname": [
+    "Mr. PEC-Tacular"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 11 (US)",
+    "Big Brother 10 (US)"
+   ],
+   "revid": 679609
+  },
+  "Morgan Pope": {
+   "page": "Morgan Pope",
+   "full_name": "Morgan Leigh Pope",
+   "birth_date": "1991-09-21",
+   "age": 34,
+   "hometown": [
+    "Palm Springs, CA",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Gamer",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 681334
+  },
+  "Paul Abrahamian": {
+   "page": "Paul Abrahamian",
+   "full_name": "Paul Raffi Abrahamian",
+   "birth_date": "1993-06-13",
+   "age": 33,
+   "hometown": [
+    "Tarzana, CA"
+   ],
+   "occupation": "Clothing designer",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 18 (US)",
+    "Big Brother 19 (US)"
+   ],
+   "revid": 687748
+  },
+  "Britney Haynes": {
+   "page": "Britney Haynes",
+   "full_name": "Britney Elizabeth Godwin",
+   "birth_date": "1987-08-23",
+   "age": 38,
+   "hometown": [
+    "Huntington, AR",
+    "Tulsa, OK"
+   ],
+   "occupation": "Real estate agent",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 14 (US)",
+    "Big Brother 12 (US)",
+    "Big Brother Reindeer Games"
+   ],
+   "revid": 697439
+  },
+  "Cody Calafiore": {
+   "page": "Cody Calafiore",
+   "full_name": "Cody Christopher Calafiore",
+   "birth_date": "1990-12-13",
+   "age": 35,
+   "hometown": [
+    "Howell, NJ",
+    "Hackensack, NJ"
+   ],
+   "occupation": "Software sales representative",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother Reindeer Games",
+    "Big Brother 22 (US)",
+    "Big Brother 16 (US)"
+   ],
+   "revid": 697440
+  },
+  "Tiffany Mitchell": {
+   "page": "Tiffany Mitchell",
+   "full_name": "Tiffany Monique Mitchell",
+   "birth_date": "1980-08-05",
+   "age": 45,
+   "hometown": [
+    "Detroit, MI"
+   ],
+   "occupation": "Phlebotomist",
+   "nickname": [
+    "Tiff",
+    "Tippy Toes",
+    "Silk"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 697441
+  },
+  "Keanu Soto": {
+   "page": "Keanu Soto",
+   "full_name": "Keanu Rey Soto",
+   "birth_date": "1992-05-18",
+   "age": 34,
+   "hometown": [
+    "Miami, FL",
+    "McKinney, TX"
+   ],
+   "occupation": "Dungeon master",
+   "nickname": [],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697442
+  },
+  "Vince Panaro": {
+   "page": "Vince Panaro",
+   "full_name": "Vincent Frank \"Vince\" Panaro",
+   "birth_date": "1991-04-12",
+   "age": 35,
+   "hometown": [
+    "West Hills, CA"
+   ],
+   "occupation": "Unemployed",
+   "nickname": [
+    "Vinny",
+    "Vinny the Lip",
+    "Vincenzo"
+   ],
+   "place": null,
+   "days": null,
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697438
+  }
+ }
+}

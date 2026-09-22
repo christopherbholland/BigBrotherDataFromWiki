@@ -4,7 +4,7 @@ This file records choices made while building v1 and what the real tables showed
 
 ## What the real tables showed (fetched 2026-09-22)
 
-All eight pages were fetched by the "Fetch Wikipedia pages" GitHub Action, because the
+All eight pages were fetched by the "Fetch wiki pages" (then called "Fetch Wikipedia pages") GitHub Action, because the
 Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 15 `note`,
 0 `error`. The vote-count check passed on every `ok` round.
 
@@ -161,3 +161,65 @@ footnote text itself isn't extracted in v1.
   Escape or clicking outside closes it.
 - Light and dark themes are supported.
 - The page fetches `weeks.json`, so serve it over HTTP. `file://` won't work.
+
+## Big Brother Wiki (fetched 2026-09-22)
+
+The fan-run Big Brother Wiki (bigbrother.fandom.com) runs MediaWiki 1.43, so it has the same API
+as Wikipedia. The sandbox can't reach it either. A one-off GitHub Action first dumped the
+eight season pages and every page they link to, so the reader could be written against the
+real markup. The regular fetch workflow now fetches both wikis.
+
+**What's fetched** (`bbgrid/fetch.py`, into `cache/fandom/`)
+- Each season page, as rendered HTML (tables) and as wikitext (the `{{Season}}` infobox).
+- The *lead section* of each houseguest's page, for the `{{Houseguest}}` infobox. The rest
+  of each page (biography, game history) isn't kept. The pages come from the season page's
+  Houseguests section, 50 per API query, with redirects followed.
+- A failed Big Brother Wiki fetch prints a warning and doesn't stop the Wikipedia refresh.
+
+**What's read** (`bbgrid/fandom.py`). Each table is found by its h2 section heading, and
+its columns by their header labels, not by position.
+
+| Section | Read as |
+|---|---|
+| Houseguests | roster: page title + short name ("Jackson Michie" / "Jackson") from each card's bold link |
+| Competition History | one row per competition: week, day, type, name, the linked format page, result |
+| Have/Have-Not History | Have-Not = a cell with the key's "Have-Not" colour; "+" = HOH; a name in the cell = who gave them the status (the page's own note says so) |
+| Game History | HOH, initial noms, veto holder, "Used?" (a Yes!/No! icon's alt text), final noms, evicted |
+| `{{Season}}` / `{{Houseguest}}` | infobox fields via `bbgrid/wikitext.py`; a returnee's per-season fields are numbered (`Place2`, `Days2`), matched by `SeasonFullName2` or `Season2` |
+
+- Results read "winners / verb phrase" ("Makensy / wins HOH", "Ashley & Barrett / fail to
+  advance"). `won` is true for wins, saves, upgrades, awards and returns.
+- `TBA`/`TBD` names and placeholder rows (BB28's unplayed weeks) are dropped.
+- BB28's Competition History starts with a row made only of header cells, so the header is
+  found by its "Name" label instead of `split_header`.
+- BB21 marks weeks before the Have-Not phase "Phase Not Active"; they're skipped.
+
+**Matching names** (`bbgrid/enrich.py`). Each Wikipedia houseguest is matched to one wiki
+page in three steps:
+1. The same short name, ignoring case, accents, dots, spaces, hyphens and apostrophes
+   ("Nicole A." = "Nicole A", "La Trice" = "LaTrice", "Azäh" = "Azah").
+2. Otherwise, one whole word of the page title ("Michie" → "Jackson Michie").
+3. Otherwise, the start of the page title.
+
+All 131 houseguests match. Every wiki name is then translated through that page. The
+initials in BB24's "A&I" (who made a Have-Not) can't be resolved, so they're kept as
+written.
+
+**Cross-check.** Each week's Game History rows are paired with Wikipedia's rounds by who
+was evicted, or by order when the counts match. HOH, initial noms, veto winner and final
+noms are compared as sets. The veto's use is compared with what `details.py` works out.
+- In BB26–28, the wiki's final nominations still include the nominee a twist saved (the
+  AI Arena or Block Buster winner), while Wikipedia's come after the twist. Names in the
+  round's twist rows are left out of that comparison, which removed 25 false alarms.
+- 7 disagreements remain, all listed in `report.txt` and under "Sources disagree" on the
+  page:
+  - BB22 Week 6 and BB23 Week 7: a third initial nominee.
+  - BB23 Week 8: two HOHs on Wikipedia.
+  - BB25 Week 1: the four Multiverse nominees, and so veto use.
+  - BB26 Week 3: America's Veto and the re-nomination.
+
+  They reflect how each wiki records a twist, not parser errors. The grid follows Wikipedia.
+
+**Coverage.** 326 competitions across the eight seasons. Competition names now cover 210 of
+the 213 HOH and veto rounds; the episode summaries alone covered about 75%. There are 142
+Have-Not entries, and all 131 houseguests have a bio.

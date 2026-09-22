@@ -40,7 +40,7 @@ def section_tables(soup, prefix):
             for el in anchor.find_all_next():
                 if not isinstance(el, Tag):
                     continue
-                if el.name == "h2":
+                if el.name == "h2" and el is not h:
                     break
                 if el.name == "table" and el.find_parent("table") is None:
                     tables.append(el)

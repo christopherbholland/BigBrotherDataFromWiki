@@ -1,0 +1,1562 @@
+{
+ "info": {
+  "season_run": "August 5, 2020 - October 28, 2020",
+  "premiere": "2020-08-05",
+  "finale": "2020-10-28",
+  "days": "85",
+  "houseguests": "16",
+  "episodes": "37",
+  "prize": "$500,000",
+  "winner": "Cody Calafiore",
+  "runner_up": "Enzo Palumbo",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "3.94m"
+ },
+ "roster": [
+  [
+   "Cody Calafiore",
+   "Cody"
+  ],
+  [
+   "Enzo Palumbo",
+   "Enzo"
+  ],
+  [
+   "Nicole Franzel",
+   "Nicole F"
+  ],
+  [
+   "Christmas Abbott",
+   "Christmas"
+  ],
+  [
+   "Memphis Garrett",
+   "Memphis"
+  ],
+  [
+   "Tyler Crispen",
+   "Tyler"
+  ],
+  [
+   "Daniele Briones",
+   "Dani"
+  ],
+  [
+   "David Alexander",
+   "David"
+  ],
+  [
+   "Kevin Campbell",
+   "Kevin"
+  ],
+  [
+   "Da'Vonne Rogers",
+   "Da'Vonne"
+  ],
+  [
+   "Ian Terry",
+   "Ian"
+  ],
+  [
+   "Bayleigh Dayton",
+   "Bayleigh"
+  ],
+  [
+   "Kaysar Ridha",
+   "Kaysar"
+  ],
+  [
+   "Janelle Pierzina",
+   "Janelle"
+  ],
+  [
+   "Nicole Anthony",
+   "Nicole A"
+  ],
+  [
+   "Keesha Smith",
+   "Keesha"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Star Steppin'",
+   "format": "Only One Path",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cody wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "2",
+   "type": "Safety Suite",
+   "kind": "twist",
+   "name": "Don't Miss A Beat",
+   "format": null,
+   "winners": [
+    "Kaysar"
+   ],
+   "outcome": "wins Safety",
+   "result": "Kaysar wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "4",
+   "type": "POV",
+   "kind": "veto",
+   "name": "It's Bananas",
+   "format": "Giddy Up",
+   "winners": [
+    "Enzo"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Enzo wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "9",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Big Brother Watch Party",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Memphis"
+   ],
+   "outcome": "wins HOH",
+   "result": "Memphis wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "Safety Suite",
+   "kind": "twist",
+   "name": "Gettin' Tipsy",
+   "format": "In The Balance",
+   "winners": [
+    "Christmas"
+   ],
+   "outcome": "wins Safety",
+   "result": "Christmas wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "11",
+   "type": "POV",
+   "kind": "veto",
+   "name": "All-Starry Night",
+   "format": "Rollerball",
+   "winners": [
+    "Memphis"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Memphis wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "16",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Mug Shots",
+   "format": "As Close As You Can",
+   "winners": [
+    "Tyler"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tyler wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "17",
+   "type": "Safety Suite",
+   "kind": "twist",
+   "name": "Stealing Safety",
+   "format": "Laser Maze",
+   "winners": [
+    "Enzo"
+   ],
+   "outcome": "wins Safety",
+   "result": "Enzo wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "18",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Cupcake Clash",
+   "format": "Tower of Hanoi",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cody wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "23",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Carnival Quick Shot",
+   "format": null,
+   "winners": [
+    "Enzo"
+   ],
+   "outcome": "wins HOH",
+   "result": "Enzo wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "25",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Face the Puppetmaster",
+   "format": "Pose In Ivy",
+   "winners": [
+    "Kevin"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kevin wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "30",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Filter Face-Off",
+   "format": "Knockout",
+   "winners": [
+    "Christmas"
+   ],
+   "outcome": "wins HOH",
+   "result": "Christmas wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "31",
+   "type": "BB Basement",
+   "kind": "twist",
+   "name": "The Basement of Power",
+   "format": "The Black Box",
+   "winners": [
+    "Christmas",
+    "Dani",
+    "David"
+   ],
+   "outcome": "win a Power",
+   "result": "Christmas, Dani, & David win a Power",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "32",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Mathcathalon",
+   "format": "Yankee Swap",
+   "winners": [
+    "Christmas"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Christmas wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "37",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Power Trip",
+   "format": "The Wall",
+   "winners": [
+    "Dani"
+   ],
+   "outcome": "wins HOH",
+   "result": "Dani wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Microbrews",
+   "format": null,
+   "winners": [
+    "Da'Vonne"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Da'Vonne wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Hydrant Hustle",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Memphis"
+   ],
+   "outcome": "wins HOH",
+   "result": "Memphis wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "46",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Tiger Zing",
+   "format": "The Maze",
+   "winners": [
+    "Tyler"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tyler wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "51",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Going for the Green",
+   "format": "Golf Invitational",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cody wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "53",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Psychedelic Salamander",
+   "format": "OTEV",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cody wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "It's All About Will",
+   "format": "Will Kirby",
+   "winners": [
+    "Memphis"
+   ],
+   "outcome": "wins HOH",
+   "result": "Memphis wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Ice in Your Veins",
+   "format": "Berry Balanced",
+   "winners": [
+    "Christmas"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Christmas wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "It's All About You",
+   "format": null,
+   "winners": [
+    "Tyler"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tyler wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Feet to the Fire",
+   "format": "Berry Balanced",
+   "winners": [
+    "Tyler"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tyler wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Namaste Off the Block",
+   "format": "Take It Off",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cody wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "60",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Snapshot Shuffle",
+   "format": null,
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cody wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Stashing Pumpkins",
+   "format": "Seesaw",
+   "winners": [
+    "Nicole F"
+   ],
+   "outcome": "wins HOH",
+   "result": "Nicole F wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "67",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Nicole F"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Nicole F wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "72",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Knight Moves",
+   "format": null,
+   "winners": [
+    "Enzo"
+   ],
+   "outcome": "wins HOH",
+   "result": "Enzo wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "73",
+   "type": "Luxury",
+   "kind": "twist",
+   "name": "Clash of the Comics",
+   "format": "BB Comics",
+   "winners": [
+    "Nicole F"
+   ],
+   "outcome": "wins $10,000",
+   "result": "Nicole F wins $10,000",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "The Fast and the Furriest",
+   "format": "Cover Your Days",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cody wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "79",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Scary Go Round",
+   "format": "Dizzy Discs",
+   "winners": [
+    "Nicole F"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Nicole F wins Final HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Camera Hogs",
+   "format": "Who Did What?",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Cody wins Final HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "85",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Vinyl Exam",
+   "format": "Jury Statements",
+   "winners": [
+    "Cody"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Cody wins Final HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Memphis Garrett",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kevin Campbell",
+     "chosen_by": null
+    },
+    {
+     "guest": "Ian Terry",
+     "chosen_by": null
+    },
+    {
+     "guest": "Nicole Anthony",
+     "chosen_by": null
+    }
+   ],
+   "2": [
+    {
+     "guest": "Christmas Abbott",
+     "chosen_by": "Nicole A"
+    },
+    {
+     "guest": "Nicole Franzel",
+     "chosen_by": "Ian"
+    },
+    {
+     "guest": "David Alexander",
+     "chosen_by": "Memphis"
+    },
+    {
+     "guest": "Kaysar Ridha",
+     "chosen_by": "Kevin"
+    }
+   ],
+   "3": [
+    {
+     "guest": "Cody Calafiore",
+     "chosen_by": "Kaysar"
+    },
+    {
+     "guest": "Enzo Palumbo",
+     "chosen_by": "David"
+    },
+    {
+     "guest": "Bayleigh Dayton",
+     "chosen_by": "Christmas"
+    },
+    {
+     "guest": "Janelle Pierzina",
+     "chosen_by": "Nicole F"
+    }
+   ],
+   "4": [
+    {
+     "guest": "Tyler Crispen",
+     "chosen_by": "Enzo"
+    },
+    {
+     "guest": "Daniele Briones",
+     "chosen_by": "Bayleigh"
+    },
+    {
+     "guest": "Da'Vonne Rogers",
+     "chosen_by": "Cody"
+    }
+   ],
+   "6": [
+    {
+     "guest": "David Alexander",
+     "chosen_by": null
+    },
+    {
+     "guest": "Da'Vonne Rogers",
+     "chosen_by": null
+    },
+    {
+     "guest": "Ian Terry",
+     "chosen_by": null
+    }
+   ],
+   "7": [
+    {
+     "guest": "Christmas Abbott",
+     "chosen_by": "Da'Vonne"
+    },
+    {
+     "guest": "Cody Calafiore",
+     "chosen_by": "David"
+    }
+   ],
+   "8": [
+    {
+     "guest": "Enzo Palumbo",
+     "chosen_by": "Cody"
+    },
+    {
+     "guest": "Kevin Campbell",
+     "chosen_by": "Christmas"
+    }
+   ],
+   "9": [
+    {
+     "guest": "Nicole Franzel",
+     "chosen_by": "Enzo"
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Cody Calafiore"
+   ],
+   "2": [
+    "Memphis Garrett"
+   ],
+   "3": [
+    "Tyler Crispen"
+   ],
+   "4": [
+    "Enzo Palumbo"
+   ],
+   "5": [
+    "Christmas Abbott"
+   ],
+   "6": [
+    "Daniele Briones"
+   ],
+   "7": [
+    "Memphis Garrett"
+   ],
+   "8": [
+    "Cody Calafiore"
+   ],
+   "9": [
+    "Cody Calafiore"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Cody"
+   ],
+   "nominees_initial": [
+    "Keesha",
+    "Kevin"
+   ],
+   "veto_holders": [
+    "Enzo"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Keesha",
+    "Kevin"
+   ],
+   "evicted": [
+    "Keesha"
+   ],
+   "vote": "13-0",
+   "finish": "1st Evicted Day 9",
+   "other": {
+    "Room Twist Winners (+1s)": [
+     "Kaysar",
+     "Janelle"
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Memphis"
+   ],
+   "nominees_initial": [
+    "David",
+    "Nicole A"
+   ],
+   "veto_holders": [
+    "Memphis"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "David",
+    "Nicole A"
+   ],
+   "evicted": [
+    "Nicole A"
+   ],
+   "vote": "10-2",
+   "finish": "2nd Evicted Day 16",
+   "other": {
+    "Room Twist Winners (+1s)": [
+     "Christmas",
+     "Ian"
+    ]
+   }
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Tyler"
+   ],
+   "nominees_initial": [
+    "Janelle",
+    "Kaysar"
+   ],
+   "veto_holders": [
+    "Cody"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Janelle",
+    "Kaysar"
+   ],
+   "evicted": [
+    "Janelle"
+   ],
+   "vote": "9-2",
+   "finish": "3rd Evicted Day 23",
+   "other": {
+    "Room Twist Winners (+1s)": [
+     "Enzo",
+     "Christmas"
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Enzo"
+   ],
+   "nominees_initial": [
+    "Kaysar",
+    "Kevin"
+   ],
+   "veto_holders": [
+    "Kevin"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Christmas",
+    "Kaysar"
+   ],
+   "evicted": [
+    "Kaysar"
+   ],
+   "vote": "10-0",
+   "finish": "4th Evicted Day 30",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Christmas"
+   ],
+   "nominees_initial": [
+    "Bayleigh",
+    "Da'Vonne"
+   ],
+   "veto_holders": [
+    "Christmas"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Bayleigh",
+    "Da'Vonne"
+   ],
+   "evicted": [
+    "Bayleigh"
+   ],
+   "vote": "9-0",
+   "finish": "5th Evicted Day 37",
+   "other": {
+    "Room Twist Winners (+1s)": [
+     "David",
+     "Dani",
+     "Christmas"
+    ]
+   }
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Dani"
+   ],
+   "nominees_initial": [
+    "David",
+    "Kevin"
+   ],
+   "veto_holders": [
+    "Nominations Void"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Nominations Void"
+   ],
+   "evicted": [
+    "Nominations Void"
+   ],
+   "vote": "Nominations Void",
+   "finish": "Nominations Void",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Dani"
+   ],
+   "nominees_initial": [
+    "Kevin",
+    "Tyler"
+   ],
+   "veto_holders": [
+    "Da'Vonne"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ian",
+    "Tyler"
+   ],
+   "evicted": [
+    "Ian"
+   ],
+   "vote": "5-3",
+   "finish": "6th Evicted 1st Jury Member Day 44",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Memphis"
+   ],
+   "nominees_initial": [
+    "Da'Vonne",
+    "Kevin"
+   ],
+   "veto_holders": [
+    "Tyler"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Da'Vonne",
+    "Kevin"
+   ],
+   "evicted": [
+    "Da'Vonne"
+   ],
+   "vote": "5-2",
+   "finish": "7th Evicted 2nd Jury Member Day 51",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Cody"
+   ],
+   "nominees_initial": [
+    "David",
+    "Kevin"
+   ],
+   "veto_holders": [
+    "Cody"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "David",
+    "Kevin"
+   ],
+   "evicted": [
+    "Kevin"
+   ],
+   "vote": "6-0",
+   "finish": "8th Evicted 3rd Jury Member Day 58",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Memphis"
+   ],
+   "nominees_initial": [
+    "David",
+    "Nicole F"
+   ],
+   "veto_holders": [
+    "Christmas"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "David",
+    "Nicole F"
+   ],
+   "evicted": [
+    "David"
+   ],
+   "vote": "3-2",
+   "finish": "9th Evicted 4th Jury Member Day 58",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Tyler"
+   ],
+   "nominees_initial": [
+    "Dani",
+    "Nicole F"
+   ],
+   "veto_holders": [
+    "Tyler"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Dani",
+    "Nicole F"
+   ],
+   "evicted": [
+    "Dani"
+   ],
+   "vote": "4-0",
+   "finish": "10th Evicted 5th Jury Member Day 58",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Cody"
+   ],
+   "nominees_initial": [
+    "Christmas",
+    "Tyler"
+   ],
+   "veto_holders": [
+    "Cody"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Christmas",
+    "Tyler"
+   ],
+   "evicted": [
+    "Tyler"
+   ],
+   "vote": "3-0",
+   "finish": "11th Evicted 6th Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Nicole F"
+   ],
+   "nominees_initial": [
+    "Christmas",
+    "Memphis"
+   ],
+   "veto_holders": [
+    "Nicole F"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Christmas",
+    "Memphis"
+   ],
+   "evicted": [
+    "Memphis"
+   ],
+   "vote": "2-0",
+   "finish": "12th Evicted 7th Jury Member Day 72",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Enzo"
+   ],
+   "nominees_initial": [
+    "Christmas",
+    "Nicole F"
+   ],
+   "veto_holders": [
+    "Cody"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Christmas",
+    "Nicole F"
+   ],
+   "evicted": [
+    "Christmas"
+   ],
+   "vote": "1-0",
+   "finish": "13th Evicted 8th Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Cody"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Enzo",
+    "Nicole F"
+   ],
+   "evicted": [
+    "Nicole F"
+   ],
+   "vote": "1-0",
+   "finish": "14th Evicted 9th Jury Member Day 85",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Enzo"
+   ],
+   "vote": "9-0",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Cody"
+   ],
+   "vote": "9-0",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Cody Calafiore": {
+   "page": "Cody Calafiore",
+   "full_name": "Cody Christopher Calafiore",
+   "birth_date": "1990-12-13",
+   "age": 29,
+   "hometown": [
+    "Howell, NJ",
+    "Hackensack, NJ"
+   ],
+   "occupation": "Software sales representative",
+   "nickname": [],
+   "place": "1st",
+   "days": "85",
+   "alliances": [
+    "The Root",
+    "The Connect",
+    "The Core Four",
+    "The Committee",
+    "The Commission",
+    "Downlowmance",
+    "Slick Six",
+    "Triple Threat",
+    "Four Prime"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother Reindeer Games",
+    "Big Brother 22 (US)",
+    "Big Brother 16 (US)"
+   ],
+   "revid": 697440
+  },
+  "Enzo Palumbo": {
+   "page": "Enzo Palumbo",
+   "full_name": "Vincenzo \"Enzo\" Palumbo",
+   "birth_date": "1978-01-16",
+   "age": 42,
+   "hometown": [
+    "Bayonne, NJ"
+   ],
+   "occupation": "Insurance Adjuster",
+   "nickname": [
+    "The Meow Meow"
+   ],
+   "place": "2nd",
+   "days": "85",
+   "alliances": [
+    "The Root",
+    "The Connect",
+    "Slick Six",
+    "Team Freeze",
+    "The Core Four"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 12 (US)"
+   ],
+   "revid": 675074
+  },
+  "Nicole Franzel": {
+   "page": "Nicole Franzel",
+   "full_name": "Nicole Ann Franzel-Arroyo",
+   "birth_date": "1992-06-30",
+   "age": 28,
+   "hometown": [
+    "Ubly, MI"
+   ],
+   "occupation": "Boutique owner",
+   "nickname": [
+    "Coconuts",
+    "Froot Loop Dingus",
+    "Snake",
+    "Snacole",
+    "Nicobra",
+    "Ratcole",
+    "Nic",
+    "Nikki Ann",
+    "Nickles",
+    "Coco"
+   ],
+   "place": "3rd",
+   "days": "85",
+   "alliances": [
+    "Four Prime",
+    "Million Club",
+    "The Core Four",
+    "The Committee"
+   ],
+   "other_prizes": [
+    "$10,000"
+   ],
+   "seasons": [
+    "Big Brother 16 (US)",
+    "Big Brother 18 (US)",
+    "Big Brother 22 (US)",
+    "Big Brother Reindeer Games"
+   ],
+   "revid": 686685
+  },
+  "Christmas Abbott": {
+   "page": "Christmas Abbott",
+   "full_name": "Christmas Joye Garrett",
+   "birth_date": "1981-12-20",
+   "age": 38,
+   "hometown": [
+    "Lynchburg, VA",
+    "Raleigh, NC"
+   ],
+   "occupation": "Fitness Entrepreneur",
+   "nickname": [
+    "Creepy Christmas",
+    "Christmas Joye",
+    "Halloween",
+    "Felonymas",
+    "Krampus"
+   ],
+   "place": "4th",
+   "days": "79",
+   "alliances": [
+    "The Committee",
+    "The Carolinas"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 19 (US)"
+   ],
+   "revid": 698351
+  },
+  "Memphis Garrett": {
+   "page": "Memphis Garrett",
+   "full_name": "Robert \"Memphis\" Garrett",
+   "birth_date": "1982-12-06",
+   "age": 37,
+   "hometown": [
+    "Denver, CO",
+    "Ft. Lauderdale, FL"
+   ],
+   "occupation": "Restauranteur",
+   "nickname": [],
+   "place": "5th",
+   "days": "72",
+   "alliances": [
+    "The Committee",
+    "The Commission"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 10 (US)"
+   ],
+   "revid": 669195
+  },
+  "Tyler Crispen": {
+   "page": "Tyler Crispen",
+   "full_name": "Tyler Ross Crispen",
+   "birth_date": "1995-02-17",
+   "age": 25,
+   "hometown": [
+    "Rossford, OH",
+    "Hilton Head Island, SC"
+   ],
+   "occupation": "Entrepreneur/Social media influencer",
+   "nickname": [
+    "Ty",
+    "The Green-Eyed Bandit",
+    "The Bandit"
+   ],
+   "place": "6th",
+   "days": "65",
+   "alliances": [
+    "Slick Six",
+    "The Carolinas",
+    "The Committee",
+    "Team Freeze",
+    "Triple Threat"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 20 (US)"
+   ],
+   "revid": 669640
+  },
+  "Daniele Briones": {
+   "page": "Daniele Briones",
+   "full_name": "Daniele \"Dani\" Briones",
+   "birth_date": "1986-08-20",
+   "age": 33,
+   "hometown": [
+    "Huntington Beach, CA"
+   ],
+   "occupation": "Stay-at-home mom",
+   "nickname": [
+    "Dani"
+   ],
+   "place": "7th",
+   "days": "58",
+   "alliances": [
+    "The Core Four",
+    "The Committee",
+    "Slick Six",
+    "Four Prime"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 8 (US)",
+    "Big Brother 13 (US)",
+    "Big Brother 22 (US)"
+   ],
+   "revid": 696204
+  },
+  "David Alexander": {
+   "page": "David Alexander",
+   "full_name": "David Alexander",
+   "birth_date": "1990-01-01",
+   "age": 30,
+   "hometown": [
+    "Atlanta, GA",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Senior sales rep",
+   "nickname": [],
+   "place": "8th",
+   "days": "58",
+   "alliances": [
+    "Team Freeze"
+   ],
+   "other_prizes": [
+    "$10,000"
+   ],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 21 (US)"
+   ],
+   "revid": 669495
+  },
+  "Kevin Campbell": {
+   "page": "Kevin Campbell",
+   "full_name": "Kevin Campbell",
+   "birth_date": "1979-09-18",
+   "age": 40,
+   "hometown": [
+    "Chula Vista, CA",
+    "San Diego, CA"
+   ],
+   "occupation": "Ad agency executive",
+   "nickname": [
+    "KC",
+    "Anita Veto"
+   ],
+   "place": "9th",
+   "days": "58",
+   "alliances": [
+    "Adorkables",
+    "Downlowmance"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 11 (US)"
+   ],
+   "revid": 673769
+  },
+  "Da'Vonne Rogers": {
+   "page": "Da'Vonne Rogers",
+   "full_name": "Da'Vonne Dianne Rogers",
+   "birth_date": "1988-05-10",
+   "age": 32,
+   "hometown": [
+    "Inglewood, CA"
+   ],
+   "occupation": "Acting coach",
+   "nickname": [
+    "Day",
+    "Momma Day"
+   ],
+   "place": "10th",
+   "days": "51",
+   "alliances": [
+    "Black Girl Magic (BB22)",
+    "The Connect",
+    "Slick Six"
+   ],
+   "other_prizes": [
+    "$5,000",
+    "$25,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 17 (US)",
+    "Big Brother 18 (US)",
+    "Big Brother 22 (US)"
+   ],
+   "revid": 697392
+  },
+  "Ian Terry": {
+   "page": "Ian Terry",
+   "full_name": "Ian Patrick Terry",
+   "birth_date": "1991-03-19",
+   "age": 29,
+   "hometown": [
+    "Pittsburgh, PA",
+    "Houston, TX"
+   ],
+   "occupation": "Management consultant",
+   "nickname": [],
+   "place": "11th",
+   "days": "44",
+   "alliances": [
+    "Adorkables",
+    "Four Prime",
+    "Million Club"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 14 (US)"
+   ],
+   "revid": 694706
+  },
+  "Bayleigh Dayton": {
+   "page": "Bayleigh Dayton",
+   "full_name": "Bayleigh Amethyst Dayton",
+   "birth_date": "1993-05-25",
+   "age": 27,
+   "hometown": [
+    "Lees Summit, MO",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Model",
+   "nickname": [
+    "Bay",
+    "Queen Bee",
+    "Bales",
+    "Mrs. Williams"
+   ],
+   "place": "12th",
+   "days": "37",
+   "alliances": [
+    "Black Girl Magic (BB22)",
+    "The Connect",
+    "Slick Six"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 20 (US)"
+   ],
+   "revid": 669636
+  },
+  "Kaysar Ridha": {
+   "page": "Kaysar Ridha",
+   "full_name": "Kaysar Mohamad Ridha",
+   "birth_date": "1980-08-10",
+   "age": 39,
+   "hometown": [
+    "Irvine, CA"
+   ],
+   "occupation": "Biotech executive",
+   "nickname": [],
+   "place": "13th",
+   "days": "30",
+   "alliances": [
+    "Jaysar"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 7 (US)",
+    "Big Brother 6 (US)"
+   ],
+   "revid": 672069
+  },
+  "Janelle Pierzina": {
+   "page": "Janelle Pierzina",
+   "full_name": "Janelle Marie DeSanto",
+   "birth_date": "1980-01-10",
+   "age": 40,
+   "hometown": [
+    "Miami Beach, FL",
+    "Minneapolis, MN"
+   ],
+   "occupation": "Real estate agent",
+   "nickname": [
+    "Janie",
+    "Jedi Janie",
+    "The Buxom Blonde",
+    "Mean Girl"
+   ],
+   "place": "14th",
+   "days": "23",
+   "alliances": [
+    "Jaysar"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 14 (US)",
+    "Big Brother 7 (US)",
+    "Big Brother 6 (US)"
+   ],
+   "revid": 688782
+  },
+  "Nicole Anthony": {
+   "page": "Nicole Anthony",
+   "full_name": "Nicole Mary Frances Anthony-Fontanez",
+   "birth_date": "1994-12-26",
+   "age": 25,
+   "hometown": [
+    "Long Island, NY"
+   ],
+   "occupation": "Podcast host",
+   "nickname": [],
+   "place": "15th",
+   "days": "16",
+   "alliances": [
+    "Adorkables"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 21 (US)"
+   ],
+   "revid": 661813
+  },
+  "Keesha Smith": {
+   "page": "Keesha Smith",
+   "full_name": "Keesha Marie Smith",
+   "birth_date": "1978-08-01",
+   "age": 42,
+   "hometown": [
+    "Burbank, CA",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Waitress",
+   "nickname": [],
+   "place": "16th",
+   "days": "9",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 10 (US)"
+   ],
+   "revid": 669633
+  }
+ }
+}

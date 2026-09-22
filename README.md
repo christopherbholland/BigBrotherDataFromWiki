@@ -2,21 +2,26 @@
 
 A week-by-week grid of US Big Brother seasons 21–28. Each cell is one week of one season.
 Hovering shows that week's HOH, noms, veto winner(s), final noms, who was evicted, and the
-vote tally. The season currently airing (BB28) is on top. The data comes from the "Voting history" table on each season's
-Wikipedia page.
+vote tally. The season currently airing (BB28) is on top. The grid comes from the "Voting history" table on each season's
+Wikipedia page. The detail views add data from the fan-run
+[Big Brother Wiki](https://bigbrother.fandom.com/) (Fandom): every competition's name,
+weekly Have-Nots, houseguest bios and season facts. It's also used to cross-check Wikipedia.
 
 ```
-Wikipedia API -> fetch -> cache/ -> grid builder -> interpreter -> validator/exporter
-              -> web/weeks.json + report.txt -> web/index.html
+Wikipedia API ---------> fetch -> cache/        -> grid builder -> interpreter -> validator/exporter
+Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader --------------> merge (details.json)
+                                                -> web/weeks.json, details.json, report.txt -> web/index.html
 ```
 
 | Step | Module | Knows about |
 |---|---|---|
-| 1. Fetcher | `bbgrid/fetch.py` | the MediaWiki API (the only network code) |
+| 1. Fetcher | `bbgrid/fetch.py` | the MediaWiki API, for both wikis (the only network code) |
 | 2. Grid builder | `bbgrid/grid.py` | HTML only: finds the table, expands rowspan/colspan |
 | 3. Interpreter | `bbgrid/interpret.py` | Big Brother only: row labels, weeks, rounds, statuses |
 | 4. Validator + exporter | `bbgrid/validate.py`, `bbgrid/export.py` | checks each round, writes the outputs |
 | 5. Web page | `web/index.html` | static page that reads `weeks.json` |
+| Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
+| Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
 
 - **Hosting, embedding, or using the data elsewhere:** see
   [`docs/integration.md`](docs/integration.md).
@@ -70,10 +75,20 @@ The main cards stay short. More detail sits behind two options:
 
 ![Week details for BB26 Week 4: competitions, veto, votes and the Deepfake HoH twist](docs/screenshots/details-week.png)
 
+**Competitions** name every HOH and veto competition (210 of 213 rounds) from the Big
+Brother Wiki's Competition History, with the recurring format where the wiki gives one
+(e.g. "Bad AI", format: Knockout). The same table lists the week's other competitions:
+AI Arena, Block Buster, Safety Suite, final HOH parts and so on. Episode summaries fill in
+the few names the wiki doesn't have. **Have-Nots** lists each week's Have-Nots, with who
+picked them where the wiki says. **Sources disagree** appears only when the wiki's Game
+History differs from Wikipedia on that week's HOH, nominations, veto winner or veto use.
+
 **Players**: a table for each season showing HOHs, vetoes, twist wins, noms, final noms,
 votes against, and votes cast (with how many went with the house). Click a player for a
 week-by-week timeline that names the competitions they won and says whether they were
-saved by the veto or by a twist.
+saved by the veto or by a twist. From the Big Brother Wiki it adds each player's full
+name, age at the premiere, hometown, occupation, alliances and Have-Not weeks. The table
+also gets a line of season facts: premiere, days, cast size, prize and host.
 
 ![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
 
@@ -92,20 +107,24 @@ Every view has its own link, e.g. `#week=26/Week%204`, `#players=28` or
 ```sh
 pip install -r requirements.txt
 
-python -m bbgrid fetch            # fetch all seasons in seasons.yaml into cache/
-                                  # (or run the "Fetch Wikipedia pages" GitHub Action)
+python -m bbgrid fetch            # fetch all seasons in seasons.yaml into cache/, from both wikis
+                                  # (or run the "Fetch wiki pages" GitHub Action)
 python -m bbgrid inspect 21 26    # print table headers and row-label mapping (for checking)
 python -m bbgrid build            # cache/ -> web/weeks.json, web/details.json, report.txt
 python -m bbgrid refresh 28       # refetch one season, then build
 python -m bbgrid proofread        # web/*.json -> proofread.xlsx, a sheet for checking every fact
+python -m bbgrid inspect-fandom 26  # what was read from the cached Big Brother Wiki page
 
 python -m http.server -d web      # then open http://localhost:8000
 pytest
 ```
 
-`report.txt` lists every week that isn't `ok`. It's the main acceptance check.
+`report.txt` lists every week that isn't `ok`. It's the main acceptance check. A "Big Brother
+Wiki" block near the top lists anything that didn't line up: disagreements with Wikipedia,
+houseguests with no wiki page, and names the reader couldn't match.
 
-To add a season, add a line to `seasons.yaml`.
+To add a season, add a line to each list in `seasons.yaml`: the Wikipedia article under
+`seasons`, and the Big Brother Wiki page (e.g. `Big Brother 29 (US)`) under `fandom`.
 
 ## Integrating
 
@@ -120,8 +139,8 @@ The page is one static HTML file plus `weeks.json`, so it can go anywhere:
   ```
 - **Use the data**: `web/weeks.json` has one record per season-week, with every field
   documented.
-- **Keep it fresh** by running the **Fetch Wikipedia pages** action. It refetches the
-  pages, rebuilds `weeks.json`, and commits the changes.
+- **Keep it fresh** by running the **Fetch wiki pages** action. It refetches the
+  pages from both wikis, rebuilds `weeks.json` and `details.json`, and commits the changes.
 
 Step-by-step instructions, including GitHub Pages setup and the full data
 format, are in [`docs/integration.md`](docs/integration.md).
@@ -134,11 +153,17 @@ format, are in [`docs/integration.md`](docs/integration.md).
   events are made up. It copies the structure the design doc describes for BB26.
 - `tests/test_details.py`: votes, what was different, player stats, footnote text and
   episode parsing.
+- `tests/test_fandom.py`, `tests/test_wikitext.py`: the Big Brother Wiki reader and
+  merge on `tests/fixtures/fandom_season.html`, a **synthetic** page (made-up houseguests)
+  that copies the real pages' structure; name matching; the cross-check.
+- `tests/test_fandom_snapshots.py`: one snapshot per cached Big Brother Wiki season
+  (`tests/snapshots/fandom_bbNN.json`), updated the same way as below.
 - `tests/test_snapshots.py`: one snapshot per cached season in `tests/snapshots/`. A season
   with no cache file is skipped. The first run writes the snapshot. After an intended
   change, update with `UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
 
 ## Attribution
 
-The data comes from Wikipedia under CC BY-SA 4.0. The page credits each source article
-and links to the exact revision used.
+The grid's data comes from Wikipedia under CC BY-SA 4.0. The detail views also use the
+Big Brother Wiki (bigbrother.fandom.com) under CC BY-SA 3.0. The page credits each source
+article on both wikis and links to the exact revision used.

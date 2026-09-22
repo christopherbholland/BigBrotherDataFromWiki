@@ -1,0 +1,1813 @@
+{
+ "info": {
+  "season_run": "July 10, 2025 - September 28, 2025",
+  "premiere": "2025-07-10",
+  "finale": "2025-09-28",
+  "days": "83",
+  "houseguests": "17",
+  "episodes": "39",
+  "prize": "$750,000",
+  "winner": "Ashley Hollis",
+  "runner_up": "Vince Panaro",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "3.09m"
+ },
+ "roster": [
+  [
+   "Ashley Hollis",
+   "Ashley"
+  ],
+  [
+   "Vince Panaro",
+   "Vince"
+  ],
+  [
+   "Morgan Pope",
+   "Morgan"
+  ],
+  [
+   "Ava Pearl",
+   "Ava"
+  ],
+  [
+   "Keanu Soto",
+   "Keanu"
+  ],
+  [
+   "Lauren Domingue",
+   "Lauren"
+  ],
+  [
+   "Kelley Jorgensen",
+   "Kelley"
+  ],
+  [
+   "Will Williams",
+   "Will"
+  ],
+  [
+   "Rachel Reilly",
+   "Rachel"
+  ],
+  [
+   "Mickey Lee",
+   "Mickey"
+  ],
+  [
+   "Katherine Woodman",
+   "Katherine"
+  ],
+  [
+   "Rylie Jeffries",
+   "Rylie"
+  ],
+  [
+   "Zach Cornell",
+   "Zach"
+  ],
+  [
+   "Jimmy Heagerty",
+   "Jimmy"
+  ],
+  [
+   "Adrian Rocha",
+   "Adrian"
+  ],
+  [
+   "Amy Bingham",
+   "Amy"
+  ],
+  [
+   "Zae Frederich",
+   "Zae"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Advantage (BB Buy-Off)",
+   "kind": "twist",
+   "name": "Save Julie",
+   "format": "Build the Bridge",
+   "winners": [
+    "Zach"
+   ],
+   "outcome": "wins a Power",
+   "result": "Zach wins a Power",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Advantage (Comp Selection)",
+   "kind": "twist",
+   "name": "Reclaim the Relic",
+   "format": null,
+   "winners": [
+    "Jimmy"
+   ],
+   "outcome": "wins a Power",
+   "result": "Jimmy wins a Power",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Destroy the Lair",
+   "format": "In The Balance",
+   "winners": [
+    "Vince"
+   ],
+   "outcome": "wins HOH",
+   "result": "Vince wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "5",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Campsite Caper",
+   "format": "HouseguestsOnly.com",
+   "winners": [
+    "Ashley"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Ashley wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "10",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Ransom Note",
+   "format": "Digital Decryption",
+   "winners": [
+    "Kelley"
+   ],
+   "outcome": "is saved",
+   "result": "Kelley is saved",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Break In",
+   "format": "The Black Box",
+   "winners": [
+    "Jimmy"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jimmy wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "Advantage (Mystery Competitor)",
+   "kind": "twist",
+   "name": "BB Break In",
+   "format": "The Black Box",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "wins a Power",
+   "result": "Keanu wins a Power",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "Advantage (Mystery Veto)",
+   "kind": "twist",
+   "name": "BB Break In",
+   "format": "The Black Box",
+   "winners": [
+    "Kelley"
+   ],
+   "outcome": "wins a Power",
+   "result": "Kelley wins a Power",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "Advantage (HOH Interrogation)",
+   "kind": "twist",
+   "name": "BB Break In",
+   "format": "The Black Box",
+   "winners": [
+    "Mickey"
+   ],
+   "outcome": "wins a Power",
+   "result": "Mickey wins a Power",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "12",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Caught Creepin",
+   "format": "Ready, Set, Woah",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "is awarded the Veto",
+   "result": "Keanu is awarded the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "14",
+   "type": "Mystery POV",
+   "kind": "veto",
+   "name": "The Case of the Mystery Veto",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Kelley"
+   ],
+   "outcome": "wins the Mystery Veto",
+   "result": "Kelley wins the Mystery Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "17",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Puzzling Prints",
+   "format": "Fitting In",
+   "winners": [
+    "Adrian"
+   ],
+   "outcome": "is saved",
+   "result": "Adrian is saved",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "17",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Twin Witness News",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Lauren"
+   ],
+   "outcome": "wins HOH",
+   "result": "Lauren wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "19",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Basement Break In",
+   "format": "Laser Maze",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Keanu wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "24",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Study The Study",
+   "format": "Living Art",
+   "winners": [
+    "Kelley"
+   ],
+   "outcome": "is saved",
+   "result": "Kelley is saved",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "24",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Killer Carnival",
+   "format": "Only One Path",
+   "winners": [
+    "Rylie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Rylie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "26",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Flee the Scene",
+   "format": "Binary Bridge",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Keanu wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "31",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Safe Crackers",
+   "format": "Roll It Down",
+   "winners": [
+    "Rylie"
+   ],
+   "outcome": "is saved",
+   "result": "Rylie is saved",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "31",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Jack the Dipper",
+   "format": "Knockout",
+   "winners": [
+    "Ava"
+   ],
+   "outcome": "wins HOH",
+   "result": "Ava wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "33",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Elusive Target",
+   "format": "Shootout",
+   "winners": [
+    "Katherine"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Katherine wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "38",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Jumbo Gemstones",
+   "format": "Tower of Hanoi",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "is saved",
+   "result": "Keanu is saved",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "38",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Party Slasher",
+   "format": "Hide and Seek",
+   "winners": [
+    "Rachel"
+   ],
+   "outcome": "wins HOH",
+   "result": "Rachel wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "40",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Hog Father",
+   "format": "OTEV",
+   "winners": [
+    "Lauren"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Lauren wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "45",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Settle the Score",
+   "format": "Perfect Shot",
+   "winners": [
+    "Mickey"
+   ],
+   "outcome": "is saved",
+   "result": "Mickey is saved",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "45",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Mystere Express",
+   "format": "The Wall",
+   "winners": [
+    "Vince"
+   ],
+   "outcome": "wins HOH",
+   "result": "Vince wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "47",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Wine to Die For",
+   "format": "To Drink or to Bluff",
+   "winners": [
+    "Mickey"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Mickey wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Hilltop Heist",
+   "format": "Block and Roll",
+   "winners": [
+    "Kelley"
+   ],
+   "outcome": "is saved",
+   "result": "Kelley is saved",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Mystere Moments",
+   "format": "Getting Loopy",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "wins HOH",
+   "result": "Keanu wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "54",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Charcuterie Protection Agency",
+   "format": "Hourglass",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Morgan wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "59",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Forensic Frenzy",
+   "format": "Niagara Balls",
+   "winners": [
+    "Vince"
+   ],
+   "outcome": "is saved",
+   "result": "Vince is saved",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "59",
+   "type": "Immunity",
+   "kind": "twist",
+   "name": "Survive the White Locust",
+   "format": "As Close As You Can",
+   "winners": [
+    "Ava"
+   ],
+   "outcome": "wins Safety",
+   "result": "Ava wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "59-60",
+   "type": "Hit The Road/HOH",
+   "kind": "hoh",
+   "name": "Mastermind's Maniacal Maze",
+   "format": "Item Maze",
+   "winners": [
+    "Rachel"
+   ],
+   "outcome": "is evicted",
+   "result": "Rachel is evicted",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "59-60",
+   "type": "Hit The Road/HOH",
+   "kind": "hoh",
+   "name": "Mastermind's Maniacal Maze",
+   "format": "Item Maze",
+   "winners": [
+    "Lauren"
+   ],
+   "outcome": "wins HOH",
+   "result": "Lauren wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "61",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Morgan wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "66",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Key to Safety",
+   "format": "Feeling Knotty",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "is saved",
+   "result": "Keanu is saved",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "66",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Last Zing: The True Story of Zingbot's Demise",
+   "format": "Zingbot Competition",
+   "winners": [
+    "Vince"
+   ],
+   "outcome": "wins HOH",
+   "result": "Vince wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "68",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB CSI",
+   "format": "Seesaw",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Morgan wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "Block Buster",
+   "kind": "twist",
+   "name": "Steal Power Orbs for the Mastermind So He Can Bring His Lair On-Line",
+   "format": "Big Top Drop",
+   "winners": [
+    "Lauren"
+   ],
+   "outcome": "is saved",
+   "result": "Lauren is saved",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Wretched Reactor",
+   "format": "Carnival Quick Shot",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins HOH",
+   "result": "Morgan wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Masterfind",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Keanu"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Keanu wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "73",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Torturous Trial",
+   "format": "What's The Hold Up",
+   "winners": [
+    "Vince"
+   ],
+   "outcome": "wins HOH",
+   "result": "Vince wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Masterpieces",
+   "format": "Microbrews",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Morgan wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "77",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "ForensiScope",
+   "format": "Tumblin' Dice",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins HOH",
+   "result": "Morgan wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "78",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Organized Crime",
+   "format": "Cover Your Days",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Morgan wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "80",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Locate the Lair",
+   "format": "Jetpack Attack",
+   "winners": [
+    "Morgan"
+   ],
+   "outcome": "wins HOH Part 1",
+   "result": "Morgan wins HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Unmask the Mastermind",
+   "format": "Blockbusters",
+   "winners": [
+    "Ashley"
+   ],
+   "outcome": "wins HOH Part 2",
+   "result": "Ashley wins HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "83",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Perjury Duty",
+   "format": "Jury Statements",
+   "winners": [
+    "Ashley"
+   ],
+   "outcome": "wins HOH Part 3",
+   "result": "Ashley wins HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Ava Pearl",
+     "chosen_by": "Zach"
+    },
+    {
+     "guest": "Rachel Reilly",
+     "chosen_by": null
+    },
+    {
+     "guest": "Will Williams",
+     "chosen_by": "Rachel"
+    },
+    {
+     "guest": "Zach Cornell",
+     "chosen_by": "Will"
+    }
+   ],
+   "2": [
+    {
+     "guest": "Mickey Lee",
+     "chosen_by": null
+    },
+    {
+     "guest": "Rachel Reilly",
+     "chosen_by": null
+    },
+    {
+     "guest": "Amy Bingham",
+     "chosen_by": null
+    }
+   ],
+   "3": [
+    {
+     "guest": "Katherine Woodman",
+     "chosen_by": "Rachel"
+    },
+    {
+     "guest": "Jimmy Heagerty",
+     "chosen_by": "Mickey"
+    }
+   ],
+   "7": [
+    {
+     "guest": "Ashley Hollis",
+     "chosen_by": null
+    },
+    {
+     "guest": "Morgan Pope",
+     "chosen_by": null
+    },
+    {
+     "guest": "Will Williams",
+     "chosen_by": null
+    }
+   ],
+   "8": [
+    {
+     "guest": "Ava Pearl",
+     "chosen_by": "Ashley"
+    },
+    {
+     "guest": "Lauren Domingue",
+     "chosen_by": "Morgan"
+    },
+    {
+     "guest": "Vince Panaro",
+     "chosen_by": "Will"
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Vince Panaro"
+   ],
+   "2": [
+    "Jimmy Heagerty"
+   ],
+   "3": [
+    "Lauren Domingue"
+   ],
+   "4": [
+    "Mickey Lee"
+   ],
+   "5": [
+    "Ava Pearl"
+   ],
+   "6": [
+    "Rachel Reilly"
+   ],
+   "7": [
+    "Vince Panaro"
+   ],
+   "8": [
+    "Keanu Soto"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Vince"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Amy"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Amy",
+     "11-5",
+     "Entered",
+     "Day 1"
+    ]
+   }
+  },
+  {
+   "week": 1,
+   "hoh": [
+    "Vince"
+   ],
+   "nominees_initial": [
+    "Amy",
+    "Ashley",
+    "Zae"
+   ],
+   "veto_holders": [
+    "Ashley"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Amy",
+    "Kelley",
+    "Zae"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Zae",
+     "9-5",
+     "1st Evicted",
+     "Day 10"
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Jimmy"
+   ],
+   "nominees_initial": [
+    "Adrian",
+    "Keanu",
+    "Kelley"
+   ],
+   "veto_holders": [
+    "Keanu",
+    "Kelley"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Adrian",
+    "Amy",
+    "Will"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Amy",
+     "13-0",
+     "2nd Evicted",
+     "Day 17"
+    ]
+   }
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Lauren"
+   ],
+   "nominees_initial": [
+    "Keanu",
+    "Kelley",
+    "Will"
+   ],
+   "veto_holders": [
+    "Keanu"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Adrian",
+    "Kelley",
+    "Will"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Adrian",
+     "8-4",
+     "3rd Evicted",
+     "Day 24"
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Rylie",
+    "Mickey"
+   ],
+   "nominees_initial": [
+    "Keanu",
+    "Kelley",
+    "Rylie"
+   ],
+   "veto_holders": [
+    "Keanu"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Jimmy",
+    "Kelley",
+    "Rylie"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Jimmy",
+     "9-2",
+     "4th Evicted",
+     "Day 31"
+    ]
+   }
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Ava"
+   ],
+   "nominees_initial": [
+    "Keanu",
+    "Vince",
+    "Zach"
+   ],
+   "veto_holders": [
+    "Katherine"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Keanu",
+    "Vince",
+    "Zach"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Zach",
+     "8-2",
+     "5th Evicted",
+     "Day 38"
+    ]
+   }
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Rachel"
+   ],
+   "nominees_initial": [
+    "Mickey",
+    "Morgan",
+    "Vince"
+   ],
+   "veto_holders": [
+    "Lauren"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Mickey",
+    "Morgan",
+    "Rylie"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Rylie",
+     "5-4",
+     "6th Evicted",
+     "Day 45"
+    ]
+   }
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Vince"
+   ],
+   "nominees_initial": [
+    "Ava",
+    "Kelley",
+    "Mickey"
+   ],
+   "veto_holders": [
+    "Mickey"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ava",
+    "Katherine",
+    "Kelley"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Katherine",
+     "7-1",
+     "7th Evicted",
+     "Day 52"
+    ]
+   }
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Keanu"
+   ],
+   "nominees_initial": [
+    "Mickey",
+    "Morgan",
+    "Vince"
+   ],
+   "veto_holders": [
+    "Morgan"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ashley",
+    "Mickey",
+    "Vince"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Mickey",
+     "6-1",
+     "8th Evicted",
+     "Day 59"
+    ]
+   }
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Ava"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Vince",
+    "Lauren"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Rachel",
+     "9th Evicted",
+     "1st Jury Member",
+     "Day 60"
+    ]
+   }
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Ava"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Morgan",
+    "Rachel"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Rachel",
+     "9th Evicted",
+     "1st Jury Member",
+     "Day 60"
+    ]
+   }
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Lauren"
+   ],
+   "nominees_initial": [
+    "Ashley",
+    "Morgan",
+    "Will"
+   ],
+   "veto_holders": [
+    "Morgan"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ashley",
+    "Keanu",
+    "Will"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Will",
+     "3-2",
+     "10th Evicted",
+     "2nd Jury Member",
+     "Day 66"
+    ]
+   }
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Vince"
+   ],
+   "nominees_initial": [
+    "Ava",
+    "Keanu",
+    "Kelley"
+   ],
+   "veto_holders": [
+    "Morgan"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Keanu",
+    "Kelley",
+    "Lauren"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Kelley",
+     "3-2",
+     "11th Evicted",
+     "3rd Jury Member",
+     "Day 73"
+    ]
+   }
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Morgan"
+   ],
+   "nominees_initial": [
+    "Keanu",
+    "Lauren"
+   ],
+   "veto_holders": [
+    "Keanu"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Ava",
+    "Lauren"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Lauren",
+     "2-1",
+     "12th Evicted",
+     "4th Jury Member",
+     "Day 73"
+    ]
+   }
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Vince"
+   ],
+   "nominees_initial": [
+    "Ava",
+    "Keanu"
+   ],
+   "veto_holders": [
+    "Morgan"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Ava",
+    "Keanu"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Keanu",
+     "2-0",
+     "13th Evicted",
+     "5th Jury Member",
+     "Day 77"
+    ]
+   }
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Morgan"
+   ],
+   "nominees_initial": [
+    "Ashley",
+    "Ava"
+   ],
+   "veto_holders": [
+    "Morgan"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Ashley",
+    "Ava"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Ava",
+     "1-0",
+     "14th Evicted",
+     "6th Jury Member",
+     "Day 80"
+    ]
+   }
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Ashley"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Morgan",
+    "Vince"
+   ],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Morgan",
+     "1-0",
+     "15th Evicted",
+     "7th Jury Member",
+     "Day 83"
+    ]
+   }
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Vince",
+     "6-1",
+     "Runner-Up"
+    ]
+   }
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [],
+   "vote": null,
+   "finish": null,
+   "other": {
+    "Result": [
+     "Ashley",
+     "6-1",
+     "Winner"
+    ]
+   }
+  }
+ ],
+ "bios": {
+  "Ashley Hollis": {
+   "page": "Ashley Hollis",
+   "full_name": "Ashley Diane Hollis",
+   "birth_date": "1999-12-03",
+   "age": 25,
+   "hometown": [
+    "Chicago, IL",
+    "New York, NY"
+   ],
+   "occupation": "Attorney",
+   "nickname": [],
+   "place": "1st",
+   "days": "83",
+   "alliances": [
+    "Girls Girls (BB27)",
+    "Peach Cobbler",
+    "The Judges",
+    "Will's Daughters"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 681224
+  },
+  "Vince Panaro": {
+   "page": "Vince Panaro",
+   "full_name": "Vincent Frank \"Vince\" Panaro",
+   "birth_date": "1991-04-12",
+   "age": 34,
+   "hometown": [
+    "West Hills, CA"
+   ],
+   "occupation": "Unemployed",
+   "nickname": [
+    "Vinny",
+    "Vinny the Lip",
+    "Vincenzo"
+   ],
+   "place": "2nd",
+   "days": "83",
+   "alliances": [
+    "Burger Boys",
+    "Heavy Hitters",
+    "Strong Side",
+    "The Bond",
+    "The Judges",
+    "The Melting Pot",
+    "The Night Owls",
+    "The Unexpendables",
+    "Triplets"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697438
+  },
+  "Morgan Pope": {
+   "page": "Morgan Pope",
+   "full_name": "Morgan Leigh Pope",
+   "birth_date": "1991-09-21",
+   "age": 33,
+   "hometown": [
+    "Palm Springs, CA",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Gamer",
+   "nickname": [],
+   "place": "3rd",
+   "days": "83",
+   "alliances": [
+    "Heavy Hitters",
+    "Strong Side",
+    "Tea Party",
+    "The Judges",
+    "The Melting Pot",
+    "The Night Owls",
+    "Triple Threat (BB27)"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 681334
+  },
+  "Ava Pearl": {
+   "page": "Ava Pearl",
+   "full_name": "Ava Marie Pearl",
+   "birth_date": "2001-06-06",
+   "age": 24,
+   "hometown": [
+    "Long Island, NY",
+    "New York, NY"
+   ],
+   "occupation": "Aura painter",
+   "nickname": [],
+   "place": "4th",
+   "days": "80",
+   "alliances": [
+    "Bond Girls",
+    "Double the Fun",
+    "Flower Power",
+    "The Bond",
+    "Will's Daughters"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 678284
+  },
+  "Keanu Soto": {
+   "page": "Keanu Soto",
+   "full_name": "Keanu Rey Soto",
+   "birth_date": "1992-05-18",
+   "age": 33,
+   "hometown": [
+    "Miami, FL",
+    "McKinney, TX"
+   ],
+   "occupation": "Dungeon master",
+   "nickname": [],
+   "place": "5th",
+   "days": "77",
+   "alliances": [
+    "The Frenemies",
+    "The Unexpendables"
+   ],
+   "other_prizes": [
+    "$50,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697442
+  },
+  "Lauren Domingue": {
+   "page": "Lauren Domingue",
+   "full_name": "Lauren Elizabeth Domingue",
+   "birth_date": "2002-08-24",
+   "age": 22,
+   "hometown": [
+    "Lafayette, LA"
+   ],
+   "occupation": "Bridal consultant",
+   "nickname": [],
+   "place": "6th",
+   "days": "73",
+   "alliances": [
+    "Bond Girls",
+    "Flower Power",
+    "The Bond"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 690768
+  },
+  "Kelley Jorgensen": {
+   "page": "Kelley Jorgensen",
+   "full_name": "Kelley Anna-Noreen Jorgensen",
+   "birth_date": "1995-08-05",
+   "age": 29,
+   "hometown": [
+    "Burbank, SD"
+   ],
+   "occupation": "Web designer",
+   "nickname": [],
+   "place": "7th",
+   "days": "73",
+   "alliances": [
+    "Flower Power"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 683426
+  },
+  "Will Williams": {
+   "page": "Will Williams",
+   "full_name": "Cliffton Leonard \"Will\" Williams",
+   "birth_date": "1975-06-05",
+   "age": 50,
+   "hometown": [
+    "Wallace, SC",
+    "Charlotte, NC"
+   ],
+   "occupation": "College sports podcaster",
+   "nickname": [
+    "Captain Will"
+   ],
+   "place": "8th",
+   "days": "66",
+   "alliances": [
+    "Burger Boys",
+    "Peach Cobbler",
+    "The Bond",
+    "The Judges"
+   ],
+   "other_prizes": [
+    "Trip to London"
+   ],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 679228
+  },
+  "Rachel Reilly": {
+   "page": "Rachel Reilly",
+   "full_name": "Rachel Eileen Villegas",
+   "birth_date": "1984-10-16",
+   "age": 40,
+   "hometown": [
+    "Concord, NC",
+    "Hoover, AL"
+   ],
+   "occupation": "TV personality",
+   "nickname": [],
+   "place": "9th",
+   "days": "60",
+   "alliances": [
+    "Double the Fun",
+    "Girls Girls (BB27)",
+    "Heavy Hitters",
+    "The Frenemies",
+    "The Judges",
+    "The Mom Squad (BB27)",
+    "Triplets"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 12 (US)",
+    "Big Brother 13 (US)",
+    "Big Brother 27 (US)"
+   ],
+   "revid": 697391
+  },
+  "Mickey Lee": {
+   "page": "Mickey Lee",
+   "full_name": "Michaela Chalon \"Mickey\" Lee",
+   "birth_date": null,
+   "age": null,
+   "hometown": [
+    "Jacksonville, FL",
+    "Atlanta, GA"
+   ],
+   "occupation": "Event curator",
+   "nickname": [
+    "The Micktator"
+   ],
+   "place": "10th",
+   "days": "59",
+   "alliances": [
+    "Peach Cobbler",
+    "Tea Party",
+    "The Melting Pot",
+    "Triple Threat (BB27)"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 675415
+  },
+  "Katherine Woodman": {
+   "page": "Katherine Woodman",
+   "full_name": "Katherine Elizabeth Woodman",
+   "birth_date": "2002-01-25",
+   "age": 23,
+   "hometown": [
+    "Gwinnett County, GA",
+    "Columbia, SC"
+   ],
+   "occupation": "Fine dining server",
+   "nickname": [],
+   "place": "11th",
+   "days": "52",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 691304
+  },
+  "Rylie Jeffries": {
+   "page": "Rylie Jeffries",
+   "full_name": "Rylie Don Jeffries",
+   "birth_date": "1998-02-09",
+   "age": 27,
+   "hometown": [
+    "Luther, OK"
+   ],
+   "occupation": "Professional bull rider",
+   "nickname": [],
+   "place": "12th",
+   "days": "45",
+   "alliances": [
+    "Burger Boys",
+    "Heavy Hitters",
+    "The Unexpendables"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 694735
+  },
+  "Zach Cornell": {
+   "page": "Zach Cornell",
+   "full_name": "Zachary Senot \"Zach\" Cornell",
+   "birth_date": "1997-12-18",
+   "age": 27,
+   "hometown": [
+    "Cartersville, GA"
+   ],
+   "occupation": "Marketing manager",
+   "nickname": [],
+   "place": "13th",
+   "days": "38",
+   "alliances": [
+    "Burger Boys",
+    "Heavy Hitters",
+    "Strong Side",
+    "The Bond",
+    "The Melting Pot"
+   ],
+   "other_prizes": [
+    "$10,000"
+   ],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 690769
+  },
+  "Jimmy Heagerty": {
+   "page": "Jimmy Heagerty",
+   "full_name": "James Jude \"Jimmy\" Heagerty III",
+   "birth_date": "1999-10-04",
+   "age": 25,
+   "hometown": [
+    "Sarasota, FL",
+    "Washington, DC"
+   ],
+   "occupation": "AI consultant",
+   "nickname": [],
+   "place": "14th",
+   "days": "31",
+   "alliances": [
+    "Heavy Hitters",
+    "Triple Threat (BB27)",
+    "Triplets"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 692706
+  },
+  "Adrian Rocha": {
+   "page": "Adrian Rocha",
+   "full_name": "Adrian Rocha",
+   "birth_date": "2001-08-08",
+   "age": 23,
+   "hometown": [
+    "San Antonio, TX"
+   ],
+   "occupation": "Carpenter",
+   "nickname": [],
+   "place": "15th",
+   "days": "24",
+   "alliances": [
+    "The Bond"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 694733
+  },
+  "Amy Bingham": {
+   "page": "Amy Bingham",
+   "full_name": "Amy Marian Bingham",
+   "birth_date": "1982-03-03",
+   "age": 43,
+   "hometown": [
+    "Stockton, CA"
+   ],
+   "occupation": "Insurance agent",
+   "nickname": [],
+   "place": "16th",
+   "days": "17",
+   "alliances": [
+    "Girls Girls (BB27)",
+    "The Mom Squad (BB27)"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 694726
+  },
+  "Zae Frederich": {
+   "page": "Zae Frederich",
+   "full_name": "Isaiah Montgomery \"Zae\" Frederich",
+   "birth_date": "2002-05-08",
+   "age": 23,
+   "hometown": [
+    "Paducah, KY",
+    "Provo, UT"
+   ],
+   "occupation": "Salesperson",
+   "nickname": [],
+   "place": "17th",
+   "days": "10",
+   "alliances": [
+    "Burger Boys"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 27 (US)"
+   ],
+   "revid": 628675
+  }
+ }
+}
