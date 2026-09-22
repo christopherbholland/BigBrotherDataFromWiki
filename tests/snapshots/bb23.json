@@ -1,0 +1,665 @@
+[
+ {
+  "season": 23,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Frenchie"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Kyland"
+    ],
+    "veto_winners": [
+     "Derek X."
+    ],
+    "nominees_final": [
+     "Alyssa",
+     "Travis"
+    ],
+    "evicted": "Travis",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 11,
+     "votes_cast": 13
+    },
+    "extras": {
+     "Wild Card winner": [
+      "Christian"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f",
+   "g"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Kyland"
+    ],
+    "nominees_initial": [
+     "Britini",
+     "Frenchie"
+    ],
+    "veto_winners": [
+     "Derek X."
+    ],
+    "nominees_final": [
+     "Britini",
+     "Frenchie"
+    ],
+    "evicted": "Frenchie",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 11,
+     "votes_cast": 12
+    },
+    "extras": {
+     "Wild Card winner": [
+      "Sarah Beth"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Xavier"
+    ],
+    "nominees_initial": [
+     "Brent",
+     "Britini"
+    ],
+    "veto_winners": [
+     "Christian"
+    ],
+    "nominees_final": [
+     "Brent",
+     "Britini"
+    ],
+    "evicted": "Brent",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 11,
+     "votes_cast": 11
+    },
+    "extras": {
+     "Wild Card winner": [
+      "Tiffany"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Christian"
+    ],
+    "nominees_initial": [
+     "Hannah",
+     "Whitney"
+    ],
+    "veto_winners": [
+     "Christian"
+    ],
+    "nominees_final": [
+     "Hannah",
+     "Whitney"
+    ],
+    "evicted": "Whitney",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 10,
+     "votes_cast": 10
+    },
+    "extras": {
+     "Wild Card winner": [
+      "Claire"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g",
+   "i"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Derek X."
+    ],
+    "nominees_initial": [
+     "Britini",
+     "Sarah Beth"
+    ],
+    "veto_winners": [
+     "Britini"
+    ],
+    "nominees_final": [
+     "Christian",
+     "Sarah Beth"
+    ],
+    "evicted": "Christian",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 7,
+     "votes_cast": 9
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "i"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Kyland"
+    ],
+    "nominees_initial": [
+     "Claire",
+     "Derek F."
+    ],
+    "veto_winners": [
+     "Alyssa",
+     "Kyland"
+    ],
+    "nominees_final": [
+     "Britini",
+     "Derek F."
+    ],
+    "evicted": "Britini",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 7,
+     "votes_cast": 8
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "e"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Sarah Beth"
+    ],
+    "nominees_initial": [
+     "Claire",
+     "Derek F.",
+     "Xavier"
+    ],
+    "veto_winners": [
+     "Xavier"
+    ],
+    "nominees_final": [
+     "Claire",
+     "Derek X."
+    ],
+    "evicted": "Derek X.",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 7
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "c"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Tiffany",
+     "Claire"
+    ],
+    "nominees_initial": [
+     "Kyland",
+     "Sarah Beth",
+     "Xavier"
+    ],
+    "veto_winners": [
+     "Hannah"
+    ],
+    "nominees_final": [
+     "Kyland",
+     "Sarah Beth"
+    ],
+    "evicted": "Sarah Beth",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 6
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "b",
+   "d"
+  ]
+ },
+ {
+  "season": 23,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 59",
+    "hoh": [
+     "Tiffany"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Xavier"
+    ],
+    "veto_winners": [
+     "Alyssa"
+    ],
+    "nominees_final": [
+     "Claire",
+     "Xavier"
+    ],
+    "evicted": "Claire",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 5
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 65",
+    "hoh": [
+     "Hannah"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Xavier"
+    ],
+    "veto_winners": [
+     "Xavier"
+    ],
+    "nominees_final": [
+     "Alyssa",
+     "Kyland"
+    ],
+    "evicted": "Alyssa",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 4
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 23,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 66",
+    "hoh": [
+     "Kyland"
+    ],
+    "nominees_initial": [
+     "Hannah",
+     "Tiffany"
+    ],
+    "veto_winners": [
+     "Kyland"
+    ],
+    "nominees_final": [
+     "Hannah",
+     "Tiffany"
+    ],
+    "evicted": "Tiffany",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 3
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 71",
+    "hoh": [
+     "Azah"
+    ],
+    "nominees_initial": [
+     "Hannah",
+     "Xavier"
+    ],
+    "veto_winners": [
+     "Kyland"
+    ],
+    "nominees_final": [
+     "Derek F.",
+     "Hannah"
+    ],
+    "evicted": "Hannah",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 23,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Xavier"
+    ],
+    "nominees_initial": [
+     "Azah",
+     "Kyland"
+    ],
+    "veto_winners": [
+     "Xavier"
+    ],
+    "nominees_final": [
+     "Azah",
+     "Kyland"
+    ],
+    "evicted": "Kyland",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Derek F."
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 23,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "note",
+  "note": "Finale",
+  "rounds": [
+   {
+    "sub_label": "Day 85",
+    "hoh": [
+     "Xavier"
+    ],
+    "nominees_initial": [],
+    "veto_winners": [],
+    "nominees_final": [
+     "Azah",
+     "Derek F."
+    ],
+    "evicted": "Azah",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Xavier"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 85",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Xavier",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Wild Card winner",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Azah\nDerek F.",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Xavier",
+     "cells": [
+      "Azah",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Derek F.",
+     "cells": [
+      "Nominated",
+      "Runner-up"
+     ]
+    },
+    {
+     "label": "Azah",
+     "cells": [
+      "Evicted\n(Day 85)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Kyland",
+     "cells": [
+      "Evicted\n(Day 79)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Hannah",
+     "cells": [
+      "Evicted\n(Day 71)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Tiffany",
+     "cells": [
+      "Evicted\n(Day 71)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Alyssa",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Claire",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Sarah Beth",
+     "cells": [
+      "Evicted\n(Day 58)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Derek X.",
+     "cells": [
+      "Evicted\n(Day 51)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Britini",
+     "cells": [
+      "Evicted\n(Day 44)",
+      "Xavier"
+     ]
+    },
+    {
+     "label": "Christian",
+     "cells": [
+      "Evicted\n(Day 37)",
+      "Evicted\n(Day 37)"
+     ]
+    },
+    {
+     "label": "Whitney",
+     "cells": [
+      "Evicted\n(Day 30)",
+      "Evicted\n(Day 30)"
+     ]
+    },
+    {
+     "label": "Brent",
+     "cells": [
+      "Evicted\n(Day 23)",
+      "Evicted\n(Day 23)"
+     ]
+    },
+    {
+     "label": "Frenchie",
+     "cells": [
+      "Evicted\n(Day 16)",
+      "Evicted\n(Day 16)"
+     ]
+    },
+    {
+     "label": "Travis",
+     "cells": [
+      "Evicted\n(Day 9)",
+      "Evicted\n(Day 9)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Azah\nXavier's\nchoice\nto evict",
+      "Xavier\n9 votes\nto win"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "h"
+  ]
+ }
+]

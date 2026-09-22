@@ -1,0 +1,967 @@
+[
+ {
+  "season": 28,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Dee"
+    ],
+    "nominees_initial": [
+     "Mallory",
+     "Taylor",
+     "Yash"
+    ],
+    "veto_winners": [
+     "Mallory"
+    ],
+    "nominees_final": [
+     "Ashley",
+     "Taylor"
+    ],
+    "evicted": "Ashley",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 14,
+     "votes_cast": 14
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Yash"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f",
+   "h"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Devens"
+    ],
+    "nominees_initial": [
+     "Jason",
+     "Lyric",
+     "Melody"
+    ],
+    "veto_winners": [
+     "Devens"
+    ],
+    "nominees_final": [
+     "Melody",
+     "Rome"
+    ],
+    "evicted": "Rome",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 12,
+     "votes_cast": 13
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Jason"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Kamu"
+    ],
+    "nominees_initial": [
+     "La Trice",
+     "Lyric",
+     "Mallory"
+    ],
+    "veto_winners": [
+     "Lyric"
+    ],
+    "nominees_final": [
+     "Jason",
+     "La Trice"
+    ],
+    "evicted": "Jason",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 12,
+     "votes_cast": 12
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Mallory"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Haley"
+    ],
+    "nominees_initial": [
+     "Drew",
+     "Melody",
+     "Taylor"
+    ],
+    "veto_winners": [
+     "Taylor"
+    ],
+    "nominees_final": [
+     "Lyric",
+     "Melody"
+    ],
+    "evicted": "Lyric",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 11
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Drew"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "La Trice"
+    ],
+    "nominees_initial": [
+     "Barrett",
+     "Chuk",
+     "Haley"
+    ],
+    "veto_winners": [
+     "Kamu"
+    ],
+    "nominees_final": [
+     "Barrett",
+     "Chuk"
+    ],
+    "evicted": "Chuk",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 9,
+     "votes_cast": 10
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Haley"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Yash"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Dee",
+     "Haley"
+    ],
+    "veto_winners": [
+     "Yash",
+     "Devens"
+    ],
+    "nominees_final": [
+     "Haley",
+     "Kamu"
+    ],
+    "evicted": "Kamu",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 9
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Angela"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "d",
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Dee"
+    ],
+    "nominees_initial": [
+     "Drew",
+     "La Trice",
+     "Taylor"
+    ],
+    "veto_winners": [
+     "La Trice"
+    ],
+    "nominees_final": [
+     "Mallory",
+     "Taylor"
+    ],
+    "evicted": "Mallory",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 8
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Drew"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "note",
+  "note": "Double eviction; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate",
+  "rounds": [
+   {
+    "sub_label": "Day 53",
+    "hoh": [
+     "Drew"
+    ],
+    "nominees_initial": [
+     "La Trice",
+     "Taylor",
+     "Yash"
+    ],
+    "veto_winners": [
+     "Yash"
+    ],
+    "nominees_final": [
+     "La Trice",
+     "Taylor"
+    ],
+    "evicted": "La Trice",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 6
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Devens"
+     ]
+    }
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 52",
+    "Day 53"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "(None)",
+      "Drew"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "La Trice\nTaylor\nYash"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)",
+      "Yash"
+     ]
+    },
+    {
+     "label": "Block Buster winner",
+     "cells": [
+      "(None)",
+      "Devens"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Drew\nBarrett\nYash\nLa Trice\nHaley",
+      "La Trice\nTaylor"
+     ]
+    },
+    {
+     "label": "Dee",
+     "cells": [
+      "Drew\nHaley",
+      "La Trice"
+     ]
+    },
+    {
+     "label": "Devens",
+     "cells": [
+      "Saved",
+      "La Trice"
+     ]
+    },
+    {
+     "label": "Drew",
+     "cells": [
+      "Barrett",
+      "Head of\nHousehold"
+     ]
+    },
+    {
+     "label": "Taylor",
+     "cells": [
+      "Saved",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Melody",
+     "cells": [
+      "Saved",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Yash",
+     "cells": [
+      "Haley",
+      "La Trice"
+     ]
+    },
+    {
+     "label": "Barrett",
+     "cells": [
+      "La Trice\nYash",
+      "La Trice"
+     ]
+    },
+    {
+     "label": "Angela",
+     "cells": [
+      "Saved",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "La Trice",
+     "cells": [
+      "Nominated",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Haley",
+     "cells": [
+      "Nominated",
+      "Eliminated\n(Day 53)"
+     ]
+    },
+    {
+     "label": "Mallory",
+     "cells": [
+      "Evicted\n(Day 52)",
+      "Evicted\n(Day 52)"
+     ]
+    },
+    {
+     "label": "Kamu",
+     "cells": [
+      "Evicted\n(Day 45)",
+      "Evicted\n(Day 45)"
+     ]
+    },
+    {
+     "label": "Chuk",
+     "cells": [
+      "Evicted\n(Day 38)",
+      "Evicted\n(Day 38)"
+     ]
+    },
+    {
+     "label": "Lyric",
+     "cells": [
+      "Evicted\n(Day 31)",
+      "Evicted\n(Day 31)"
+     ]
+    },
+    {
+     "label": "Jason",
+     "cells": [
+      "Evicted\n(Day 24)",
+      "Evicted\n(Day 24)"
+     ]
+    },
+    {
+     "label": "Rome",
+     "cells": [
+      "Evicted\n(Day 17)",
+      "Evicted\n(Day 17)"
+     ]
+    },
+    {
+     "label": "Ashley",
+     "cells": [
+      "Evicted\n(Day 10)",
+      "Evicted\n(Day 10)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Haley\nYash's\nchoice\nto eliminate",
+      "La Trice\n4 of 6\nvotes\nto evict"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "b",
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Barrett"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Dee",
+     "Devens"
+    ],
+    "veto_winners": [
+     "Yash"
+    ],
+    "nominees_final": [
+     "Angela",
+     "Dee"
+    ],
+    "evicted": "Angela",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 5
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Devens"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 67",
+    "hoh": [
+     "Yash"
+    ],
+    "nominees_initial": [
+     "Barrett",
+     "Drew",
+     "Melody"
+    ],
+    "veto_winners": [
+     "Drew"
+    ],
+    "nominees_final": [
+     "Barrett",
+     "Taylor"
+    ],
+    "evicted": "Barrett",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 4
+    },
+    "extras": {
+     "Block Buster winner": [
+      "Melody"
+     ]
+    }
+   },
+   {
+    "sub_label": "Day 73",
+    "hoh": [
+     "Melody"
+    ],
+    "nominees_initial": [
+     "Dee",
+     "Devens"
+    ],
+    "veto_winners": [
+     "Devens"
+    ],
+    "nominees_final": [
+     "Dee",
+     "Yash"
+    ],
+    "evicted": "Yash",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "e",
+   "f"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "note",
+  "note": "Double eviction; Round 2 (Day 77): No eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 74",
+    "hoh": [
+     "Devens"
+    ],
+    "nominees_initial": [
+     "Drew",
+     "Melody"
+    ],
+    "veto_winners": [
+     "Drew"
+    ],
+    "nominees_final": [
+     "Melody",
+     "Taylor"
+    ],
+    "evicted": "Melody",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 74",
+    "Day 77"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Devens",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Drew\nMelody",
+      "Dee\nDrew"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "Drew",
+      ""
+     ]
+    },
+    {
+     "label": "Block Buster winner",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Melody\nTaylor",
+      ""
+     ]
+    },
+    {
+     "label": "Dee",
+     "cells": [
+      "Melody",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Devens",
+     "cells": [
+      "Melody",
+      ""
+     ]
+    },
+    {
+     "label": "Drew",
+     "cells": [
+      "Taylor",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Taylor",
+     "cells": [
+      "Nominated",
+      "Head of\nHousehold"
+     ]
+    },
+    {
+     "label": "Melody",
+     "cells": [
+      "Nominated",
+      "Evicted\n(Day 77)"
+     ]
+    },
+    {
+     "label": "Yash",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Evicted\n(Day 73)"
+     ]
+    },
+    {
+     "label": "Barrett",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Evicted\n(Day 73)"
+     ]
+    },
+    {
+     "label": "Angela",
+     "cells": [
+      "Evicted\n(Day 66)",
+      "Evicted\n(Day 66)"
+     ]
+    },
+    {
+     "label": "La Trice",
+     "cells": [
+      "Evicted\n(Day 59)",
+      "Evicted\n(Day 59)"
+     ]
+    },
+    {
+     "label": "Haley",
+     "cells": [
+      "Eliminated\n(Day 53)",
+      "Eliminated\n(Day 53)"
+     ]
+    },
+    {
+     "label": "Mallory",
+     "cells": [
+      "Evicted\n(Day 52)",
+      "Evicted\n(Day 52)"
+     ]
+    },
+    {
+     "label": "Kamu",
+     "cells": [
+      "Evicted\n(Day 45)",
+      "Evicted\n(Day 45)"
+     ]
+    },
+    {
+     "label": "Chuk",
+     "cells": [
+      "Evicted\n(Day 38)",
+      "Evicted\n(Day 38)"
+     ]
+    },
+    {
+     "label": "Lyric",
+     "cells": [
+      "Evicted\n(Day 31)",
+      "Evicted\n(Day 31)"
+     ]
+    },
+    {
+     "label": "Jason",
+     "cells": [
+      "Evicted\n(Day 24)",
+      "Evicted\n(Day 24)"
+     ]
+    },
+    {
+     "label": "Rome",
+     "cells": [
+      "Evicted\n(Day 17)",
+      "Evicted\n(Day 17)"
+     ]
+    },
+    {
+     "label": "Ashley",
+     "cells": [
+      "Evicted\n(Day 10)",
+      "Evicted\n(Day 10)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Melody\n2 of 3\nvotes\nto evict",
+      ""
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 28,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "note",
+  "note": "Finale; No eviction",
+  "rounds": [],
+  "raw": {
+   "columns": [
+    "Day 87",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Block Buster winner",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Melody",
+     "cells": [
+      "Evicted\n(Day 77)",
+      "Jury Member"
+     ]
+    },
+    {
+     "label": "Yash",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Jury Member"
+     ]
+    },
+    {
+     "label": "Barrett",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Jury Member"
+     ]
+    },
+    {
+     "label": "Angela",
+     "cells": [
+      "Evicted\n(Day 66)",
+      "Jury Member"
+     ]
+    },
+    {
+     "label": "La Trice",
+     "cells": [
+      "Evicted\n(Day 59)",
+      "Jury Member"
+     ]
+    },
+    {
+     "label": "Haley",
+     "cells": [
+      "Eliminated\n(Day 53)",
+      "Eliminated\n(Day 53)"
+     ]
+    },
+    {
+     "label": "Mallory",
+     "cells": [
+      "Evicted\n(Day 52)",
+      "Evicted\n(Day 52)"
+     ]
+    },
+    {
+     "label": "Kamu",
+     "cells": [
+      "Evicted\n(Day 45)",
+      "Evicted\n(Day 45)"
+     ]
+    },
+    {
+     "label": "Chuk",
+     "cells": [
+      "Evicted\n(Day 38)",
+      "Evicted\n(Day 38)"
+     ]
+    },
+    {
+     "label": "Lyric",
+     "cells": [
+      "Evicted\n(Day 31)",
+      "Evicted\n(Day 31)"
+     ]
+    },
+    {
+     "label": "Jason",
+     "cells": [
+      "Evicted\n(Day 24)",
+      "Evicted\n(Day 24)"
+     ]
+    },
+    {
+     "label": "Rome",
+     "cells": [
+      "Evicted\n(Day 17)",
+      "Evicted\n(Day 17)"
+     ]
+    },
+    {
+     "label": "Ashley",
+     "cells": [
+      "Evicted\n(Day 10)",
+      "Evicted\n(Day 10)"
+     ]
+    }
+   ]
+  },
+  "footnotes": []
+ }
+]

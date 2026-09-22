@@ -1,0 +1,694 @@
+[
+ {
+  "season": 26,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Angela"
+    ],
+    "nominees_initial": [
+     "Kenney",
+     "Kimo",
+     "Lisa"
+    ],
+    "veto_winners": [
+     "Lisa"
+    ],
+    "nominees_final": [
+     "Kenney",
+     "Matt"
+    ],
+    "evicted": "Matt",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 11
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Kimo"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "e",
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Chelsie"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kenney",
+     "Lisa"
+    ],
+    "veto_winners": [
+     "Kenney"
+    ],
+    "nominees_final": [
+     "Angela",
+     "Lisa"
+    ],
+    "evicted": "Lisa",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 11,
+     "votes_cast": 12
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Tucker"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Cedric"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kenney",
+     "Tucker"
+    ],
+    "veto_winners": [
+     "Tucker",
+     "Makensy"
+    ],
+    "nominees_final": [
+     "Kenney",
+     "Quinn"
+    ],
+    "evicted": "Kenney",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 10,
+     "votes_cast": 11
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Tucker"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "c",
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Angela",
+     "Quinn"
+    ],
+    "nominees_initial": [
+     "Cedric",
+     "Makensy",
+     "Tucker"
+    ],
+    "veto_winners": [
+     "Tucker"
+    ],
+    "nominees_final": [
+     "Cedric",
+     "Rubina"
+    ],
+    "evicted": "Cedric",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 9
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Makensy"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "b",
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Tucker"
+    ],
+    "nominees_initial": [
+     "Brooklyn",
+     "Cam",
+     "Quinn"
+    ],
+    "veto_winners": [
+     "Tucker"
+    ],
+    "nominees_final": [
+     "Brooklyn",
+     "Cam"
+    ],
+    "evicted": "Brooklyn",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 9
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Chelsie"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "T'kor"
+    ],
+    "nominees_initial": [
+     "Cam",
+     "Makensy",
+     "Tucker"
+    ],
+    "veto_winners": [
+     "Cam"
+    ],
+    "nominees_final": [
+     "Angela",
+     "Tucker"
+    ],
+    "evicted": "Tucker",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 8
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Makensy"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Quinn"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kimo",
+     "Rubina"
+    ],
+    "veto_winners": [
+     "Leah"
+    ],
+    "nominees_final": [
+     "Joseph",
+     "Kimo"
+    ],
+    "evicted": "Joseph",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 7
+    },
+    "extras": {
+     "AI Arena winner": [
+      "Rubina"
+     ]
+    }
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Chelsie"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kimo"
+    ],
+    "veto_winners": [
+     "Makensy"
+    ],
+    "nominees_final": [
+     "Kimo",
+     "Quinn"
+    ],
+    "evicted": "Quinn",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 6
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 26,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Leah"
+    ],
+    "nominees_initial": [
+     "Kimo",
+     "Rubina"
+    ],
+    "veto_winners": [
+     "Angela",
+     "Leah"
+    ],
+    "nominees_final": [
+     "Rubina",
+     "T'kor"
+    ],
+    "evicted": "T'kor",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 5
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "d"
+  ]
+ },
+ {
+  "season": 26,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 67",
+    "hoh": [
+     "Makensy"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kimo"
+    ],
+    "veto_winners": [
+     "Makensy"
+    ],
+    "nominees_final": [
+     "Angela",
+     "Leah"
+    ],
+    "evicted": "Leah",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 4
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 73",
+    "hoh": [
+     "Chelsie"
+    ],
+    "nominees_initial": [
+     "Angela",
+     "Kimo"
+    ],
+    "veto_winners": [
+     "Kimo"
+    ],
+    "nominees_final": [
+     "Angela",
+     "Rubina"
+    ],
+    "evicted": "Angela",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 26,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Makensy"
+    ],
+    "nominees_initial": [
+     "Kimo",
+     "Rubina"
+    ],
+    "veto_winners": [
+     "Makensy"
+    ],
+    "nominees_final": [
+     "Kimo",
+     "Rubina"
+    ],
+    "evicted": "Kimo",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 26,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Chelsie"
+    ],
+    "nominees_initial": [
+     "Cam",
+     "Makensy"
+    ],
+    "veto_winners": [
+     "Makensy"
+    ],
+    "nominees_final": [
+     "Cam",
+     "Rubina"
+    ],
+    "evicted": "Rubina",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Makensy"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 26,
+  "week": 13,
+  "week_label": "Week 13",
+  "status": "note",
+  "note": "Finale",
+  "rounds": [
+   {
+    "sub_label": "Day 90",
+    "hoh": [
+     "Makensy"
+    ],
+    "nominees_initial": [],
+    "veto_winners": [],
+    "nominees_final": [
+     "Cam",
+     "Chelsie"
+    ],
+    "evicted": "Cam",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Makensy"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 90",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Makensy",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "AI Arena winner",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Cam\nChelsie",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Chelsie",
+     "cells": [
+      "Nominated",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Makensy",
+     "cells": [
+      "Cam",
+      "Runner-up"
+     ]
+    },
+    {
+     "label": "Cam",
+     "cells": [
+      "Evicted\n(Day 90)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Rubina",
+     "cells": [
+      "Evicted\n(Day 87)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Kimo",
+     "cells": [
+      "Evicted\n(Day 80)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Angela",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Leah",
+     "cells": [
+      "Evicted\n(Day 73)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "T'kor",
+     "cells": [
+      "Evicted\n(Day 66)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Quinn",
+     "cells": [
+      "Evicted\n(Day 59)",
+      "Chelsie"
+     ]
+    },
+    {
+     "label": "Joseph",
+     "cells": [
+      "Evicted\n(Day 52)",
+      "Evicted\n(Day 52)"
+     ]
+    },
+    {
+     "label": "Tucker",
+     "cells": [
+      "Evicted\n(Day 45)",
+      "Evicted\n(Day 45)"
+     ]
+    },
+    {
+     "label": "Brooklyn",
+     "cells": [
+      "Evicted\n(Day 38)",
+      "Evicted\n(Day 38)"
+     ]
+    },
+    {
+     "label": "Cedric",
+     "cells": [
+      "Evicted\n(Day 31)",
+      "Evicted\n(Day 31)"
+     ]
+    },
+    {
+     "label": "Kenney",
+     "cells": [
+      "Evicted\n(Day 24)",
+      "Evicted\n(Day 24)"
+     ]
+    },
+    {
+     "label": "Lisa",
+     "cells": [
+      "Evicted\n(Day 17)",
+      "Evicted\n(Day 17)"
+     ]
+    },
+    {
+     "label": "Matt",
+     "cells": [
+      "Evicted\n(Day 10)",
+      "Evicted\n(Day 10)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Cam\nMakensy's\nchoice\nto evict",
+      "Chelsie\n7 votes\nto win"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "g"
+  ]
+ }
+]

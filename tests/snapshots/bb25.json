@@ -1,0 +1,870 @@
+[
+ {
+  "season": 25,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Reilly"
+    ],
+    "nominees_initial": [
+     "Cory",
+     "Felicia",
+     "Jared",
+     "Kirsten"
+    ],
+    "veto_winners": [
+     "Hisam"
+    ],
+    "nominees_final": [
+     "Felicia",
+     "Kirsten"
+    ],
+    "evicted": "Kirsten",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 13,
+     "votes_cast": 13
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Hisam"
+    ],
+    "nominees_initial": [
+     "Cameron",
+     "Reilly"
+    ],
+    "veto_winners": [
+     "Hisam"
+    ],
+    "nominees_final": [
+     "Cameron",
+     "Reilly"
+    ],
+    "evicted": "Reilly",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 12,
+     "votes_cast": 12
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "f"
+  ]
+ },
+ {
+  "season": 25,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Felicia"
+    ],
+    "nominees_initial": [
+     "Cameron",
+     "Jag"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "Cameron",
+     "Hisam"
+    ],
+    "evicted": "Hisam",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 11,
+     "votes_cast": 11
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Cameron"
+    ],
+    "nominees_initial": [
+     "Blue",
+     "Jag"
+    ],
+    "veto_winners": [
+     "Red"
+    ],
+    "nominees_final": [
+     "Blue",
+     "Jag"
+    ],
+    "evicted": "Jag",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 10,
+     "votes_cast": 10
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "h"
+  ]
+ },
+ {
+  "season": 25,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Jared"
+    ],
+    "nominees_initial": [
+     "Cameron",
+     "Red"
+    ],
+    "veto_winners": [
+     "Cameron"
+    ],
+    "nominees_final": [
+     "Jag",
+     "Red"
+    ],
+    "evicted": "Red",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 10
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Cameron"
+    ],
+    "nominees_initial": [
+     "Felicia",
+     "Izzy"
+    ],
+    "veto_winners": [
+     "Jared"
+    ],
+    "nominees_final": [
+     "Felicia",
+     "Izzy"
+    ],
+    "evicted": "Izzy",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 9
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 45",
+    "hoh": [
+     "Jared"
+    ],
+    "nominees_initial": [
+     "America",
+     "Cory"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "America",
+     "Cameron"
+    ],
+    "evicted": "Cameron",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 8
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 51",
+    "hoh": [
+     "Cory"
+    ],
+    "nominees_initial": [
+     "Blue",
+     "Jared"
+    ],
+    "veto_winners": [
+     "Matt"
+    ],
+    "nominees_final": [
+     "Blue",
+     "Jared"
+    ],
+    "evicted": "Jared",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 7
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "d"
+  ]
+ },
+ {
+  "season": 25,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "note",
+  "note": "Non-standard outcome: Cameron Won re-entry into game",
+  "rounds": [],
+  "raw": {
+   "columns": [
+    "Week 8"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Cameron\nJared"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "(None)"
+     ]
+    },
+    {
+     "label": "Jag",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Matt",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Bowie Jane",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Felicia",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Cirie",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "America",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Blue",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Cory",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Cameron",
+     "cells": [
+      "Zombie\n(Day 51)"
+     ]
+    },
+    {
+     "label": "Mecole",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Jared",
+     "cells": [
+      "Zombie\n(Day 51)"
+     ]
+    },
+    {
+     "label": "Izzy",
+     "cells": [
+      "Evicted\n(Day 44)"
+     ]
+    },
+    {
+     "label": "Red",
+     "cells": [
+      "Evicted\n(Day 37)"
+     ]
+    },
+    {
+     "label": "Hisam",
+     "cells": [
+      "Evicted\n(Day 23)"
+     ]
+    },
+    {
+     "label": "Reilly",
+     "cells": [
+      "Evicted\n(Day 16)"
+     ]
+    },
+    {
+     "label": "Kirsten",
+     "cells": [
+      "Evicted\n(Day 9)"
+     ]
+    },
+    {
+     "label": "Luke",
+     "cells": [
+      "Expelled\n(Day 8)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Cameron\nWon re-entry\ninto game"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "d"
+  ]
+ },
+ {
+  "season": 25,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Cameron"
+    ],
+    "nominees_initial": [
+     "Felicia",
+     "Mecole"
+    ],
+    "veto_winners": [
+     "Cameron"
+    ],
+    "nominees_final": [
+     "Felicia",
+     "Mecole"
+    ],
+    "evicted": "Mecole",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 7,
+     "votes_cast": 7
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Bowie Jane"
+    ],
+    "nominees_initial": [
+     "Cirie",
+     "Felicia"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "Cameron",
+     "Cirie"
+    ],
+    "evicted": "Cameron",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 6
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Jag"
+    ],
+    "nominees_initial": [
+     "Blue",
+     "Felicia"
+    ],
+    "veto_winners": [
+     "Blue",
+     "Jag"
+    ],
+    "nominees_final": [
+     "America",
+     "Cory"
+    ],
+    "evicted": "Cory",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 5
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "c",
+   "e"
+  ]
+ },
+ {
+  "season": 25,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 80",
+    "hoh": [
+     "Jag"
+    ],
+    "nominees_initial": [
+     "America",
+     "Blue"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "America",
+     "Blue"
+    ],
+    "evicted": "Blue",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 4
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 86",
+    "hoh": [
+     "Bowie Jane"
+    ],
+    "nominees_initial": [
+     "America",
+     "Felicia"
+    ],
+    "veto_winners": [
+     "Matt"
+    ],
+    "nominees_final": [
+     "America",
+     "Felicia"
+    ],
+    "evicted": "America",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 13,
+  "week_label": "Week 13",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Matt"
+    ],
+    "nominees_initial": [
+     "Cirie",
+     "Felicia"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "Cirie",
+     "Felicia"
+    ],
+    "evicted": "Cirie",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 25,
+  "week": 14,
+  "week_label": "Week 14",
+  "status": "note",
+  "note": "Finale; Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 94",
+    "hoh": [
+     "Bowie Jane"
+    ],
+    "nominees_initial": [
+     "Felicia",
+     "Matt"
+    ],
+    "veto_winners": [
+     "Jag"
+    ],
+    "nominees_final": [
+     "Felicia",
+     "Matt"
+    ],
+    "evicted": "Felicia",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Jag"
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 100",
+    "hoh": [
+     "Jag"
+    ],
+    "nominees_initial": [],
+    "veto_winners": [],
+    "nominees_final": [
+     "Bowie Jane",
+     "Matt"
+    ],
+    "evicted": "Bowie Jane",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Jag"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 94",
+    "Day 100",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Bowie Jane",
+      "Jag",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Felicia\nMatt",
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "Jag",
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Felicia\nMatt",
+      "Bowie Jane\nMatt",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Jag",
+     "cells": [
+      "Felicia",
+      "Bowie Jane",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Matt",
+     "cells": [
+      "Nominated",
+      "Nominated",
+      "Runner-up"
+     ]
+    },
+    {
+     "label": "Bowie Jane",
+     "cells": [
+      "Head of\nHousehold",
+      "Evicted\n(Day 100)",
+      "Jag"
+     ]
+    },
+    {
+     "label": "Felicia",
+     "cells": [
+      "Nominated",
+      "Evicted\n(Day 96)",
+      "Matt"
+     ]
+    },
+    {
+     "label": "Cirie",
+     "cells": [
+      "Evicted\n(Day 93)",
+      "Evicted\n(Day 93)",
+      "Matt"
+     ]
+    },
+    {
+     "label": "America",
+     "cells": [
+      "Evicted\n(Day 86)",
+      "Evicted\n(Day 86)",
+      "Jag"
+     ]
+    },
+    {
+     "label": "Blue",
+     "cells": [
+      "Evicted\n(Day 86)",
+      "Evicted\n(Day 86)",
+      "Jag"
+     ]
+    },
+    {
+     "label": "Cory",
+     "cells": [
+      "Evicted\n(Day 79)",
+      "Evicted\n(Day 79)",
+      "Jag"
+     ]
+    },
+    {
+     "label": "Cameron",
+     "cells": [
+      "Re-evicted\n(Day 72)",
+      "Re-evicted\n(Day 72)",
+      "Jag"
+     ]
+    },
+    {
+     "label": "Mecole",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Evicted\n(Day 65)",
+      "Evicted\n(Day 65)"
+     ]
+    },
+    {
+     "label": "Jared",
+     "cells": [
+      "Evicted\n(Day 58)",
+      "Evicted\n(Day 58)",
+      "Evicted\n(Day 58)"
+     ]
+    },
+    {
+     "label": "Izzy",
+     "cells": [
+      "Evicted\n(Day 44)",
+      "Evicted\n(Day 44)",
+      "Evicted\n(Day 44)"
+     ]
+    },
+    {
+     "label": "Red",
+     "cells": [
+      "Evicted\n(Day 37)",
+      "Evicted\n(Day 37)",
+      "Evicted\n(Day 37)"
+     ]
+    },
+    {
+     "label": "Hisam",
+     "cells": [
+      "Evicted\n(Day 23)",
+      "Evicted\n(Day 23)",
+      "Evicted\n(Day 23)"
+     ]
+    },
+    {
+     "label": "Reilly",
+     "cells": [
+      "Evicted\n(Day 16)",
+      "Evicted\n(Day 16)",
+      "Evicted\n(Day 16)"
+     ]
+    },
+    {
+     "label": "Kirsten",
+     "cells": [
+      "Evicted\n(Day 9)",
+      "Evicted\n(Day 9)",
+      "Evicted\n(Day 9)"
+     ]
+    },
+    {
+     "label": "Luke",
+     "cells": [
+      "Expelled\n(Day 8)",
+      "Expelled\n(Day 8)",
+      "Expelled\n(Day 8)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Felicia\nJag's\nchoice\nto evict",
+      "Bowie Jane\nJag's\nchoice\nto evict",
+      "Jag\n5 votes\nto win"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "g"
+  ]
+ }
+]

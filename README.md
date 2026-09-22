@@ -22,23 +22,21 @@ Implementation choices and open assumptions are in `docs/implementation-notes.md
 
 ## Screenshots
 
-> These screenshots show **synthetic data**: made-up houseguests from
-> `tests/fixtures/synthetic_season.html`, loaded as two fake seasons. The real grid has
-> one row per season, BB21–BB28.
+These use the real data: all eight seasons as fetched on 2026-09-22.
 
-Hovering over a double-eviction week shows both rounds stacked:
+Hovering over BB26 Week 10 shows the double eviction's two rounds stacked:
 
-![Grid in light mode with the Week 3 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
+![Light-mode grid of BB21–BB28 with the BB26 Week 10 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
 
-An `error` week (here the vote count disagrees with the tally) shows the failed check
-and the week's raw table text. Dark mode:
+A `note` week (marked `!`) shows why it isn't fully modeled, plus that week's raw table
+text. This is BB21 Week 3, where the second column is the Camp Comeback re-entry. Dark mode:
 
-![Grid in dark mode with an error-week tooltip](docs/screenshots/grid-error-dark.png)
+![Dark-mode grid with the BB21 Week 3 note tooltip](docs/screenshots/grid-note-dark.png)
 
-At phone width, tapping a cell pins its details. This is a Finale week, whose regular
-column is modeled and whose Finale column is shown as raw text:
+At phone width the grid scrolls sideways and tapping a cell pins its details. This is
+BB26 Week 4, with two HOHs and the AI Arena twist row:
 
-![Phone-width view with a Finale-week tooltip](docs/screenshots/mobile-finale.png)
+![Phone-width view with the BB26 Week 4 tooltip](docs/screenshots/mobile-week.png)
 
 ## Usage
 
@@ -46,6 +44,7 @@ column is modeled and whose Finale column is shown as raw text:
 pip install -r requirements.txt
 
 python -m bbgrid fetch            # fetch all seasons in seasons.yaml into cache/
+                                  # (or run the "Fetch Wikipedia pages" GitHub Action)
 python -m bbgrid inspect 21 26    # print table headers and row-label mapping (for checking)
 python -m bbgrid build            # cache/ -> web/weeks.json + report.txt
 python -m bbgrid refresh 28       # refetch one season, then build
