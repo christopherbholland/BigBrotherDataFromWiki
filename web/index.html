@@ -71,8 +71,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 24px 16px 48px; }
 h1 { font-size: 22px; font-weight: 600; margin: 2px 0 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pill { font-size: 11px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 4px; background: var(--accent); color: var(--accent-text, #fff); letter-spacing: .02em; }
 .sub { color: var(--text-secondary); margin: 0 0 16px; }
-.legend { display: flex; flex-wrap: wrap; gap: 16px; color: var(--text-secondary); font-size: 12px; margin-bottom: 12px; }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--text-secondary); font-size: 12px; }
+.legend > span { display: inline-flex; align-items: center; gap: 6px; }
 .swatch { width: 18px; height: 14px; border-radius: 2px; background: var(--cell); border: 1px solid var(--line); display: inline-grid; }
 .swatch.split { grid-template-rows: 1fr 1fr; gap: 1px; background: var(--line); }
 .swatch.split i { background: var(--cell); }
@@ -80,7 +81,7 @@ h1 { font-size: 22px; font-weight: 600; margin: 2px 0 6px; display: flex; align-
 table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
 .grid th { font-weight: 700; color: var(--text-secondary); font-size: 11px; padding: 8px 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: .1em; }
 .grid thead th { text-align: center; border-bottom: 1px solid var(--line); }
-.grid thead th:first-child { text-align: left; color: var(--text-primary); font-size: 14px; letter-spacing: .12em; padding-left: 12px; }
+.grid thead th:first-child { text-align: left; padding-left: 12px; }
 .grid tbody th { text-align: left; font-size: 13px; letter-spacing: .02em; color: var(--text-primary); padding: 0 12px; position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
 .grid thead th:first-child { position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
 .grid tbody tr + tr > * { border-top: 1px solid var(--line); }
@@ -123,7 +124,7 @@ table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
 #tip h3 { margin: 0 0 2px; font-size: 14px; }
 #tip .status { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
 #tip .round + .round { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; }
-#tip .round h4 { margin: 0 0 4px; font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+#tip .round h4 { margin: 0 0 4px; font-size: 12px; font-weight: 600; color: var(--text-secondary); }
 #tip dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin: 0; }
 #tip dt { color: var(--text-secondary); }
 #tip dd { margin: 0; }
@@ -134,20 +135,22 @@ table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
 #tip .raw td:first-child { color: var(--text-secondary); }
 #tip .fn { margin-top: 6px; color: var(--text-muted); font-size: 12px; }
 .msg { padding: 24px; color: var(--text-secondary); }
-footer { margin-top: 16px; color: var(--text-muted); font-size: 12px; }
-footer a { color: var(--text-secondary); }
+footer { margin-top: 16px; color: var(--text-muted); font-size: 12px; line-height: 1.7; }
+footer p { margin: 0; }
+footer a { color: var(--text-secondary); white-space: nowrap; }
 /* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
 .embed main { padding-top: 8px; }
 .embed .kicker, .embed h1, .embed .sub { display: none; }
 /* View tabs */
-.toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
 .tabs { display: inline-flex; gap: 2px; padding: 3px; background: var(--cell); border: 1px solid var(--line); border-radius: 8px; }
 .tabs button {
   border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600;
   padding: 6px 14px; border-radius: 6px; cursor: pointer;
 }
+.tabs button:hover { color: var(--text-primary); }
 .tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
-.tabs button:focus-visible, .chips button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tabs button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* Details drawer: a side panel, or a bottom sheet on phones */
 #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 20; }
 #drawer {
@@ -164,37 +167,33 @@ footer a { color: var(--text-secondary); }
 .drawer-head .status { color: var(--text-secondary); font-size: 13px; font-weight: 400; margin-top: 2px; }
 #drawer-close { flex: none; border: 0; background: var(--cell); color: var(--text-primary); width: 32px; height: 32px; border-radius: 8px; font-size: 18px; cursor: pointer; }
 #drawer-body { overflow: auto; padding: 4px 16px 32px; font-size: 14px; }
-#drawer-body h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-secondary); margin: 22px 0 8px; }
-#drawer-body h4 { font-size: 13px; margin: 12px 0 4px; }
+#drawer-body h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-primary); margin: 20px 0 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+#drawer-body h4 { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin: 12px 0 4px; }
 #drawer-body dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; }
 #drawer-body dt { color: var(--text-secondary); }
 #drawer-body dd { margin: 0; }
 #drawer-body dt.result, #drawer-body dd.result { margin-top: 8px; }
 .round + .round { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
-.round h4 { color: var(--text-secondary); font-size: 12px !important; text-transform: uppercase; letter-spacing: .04em; }
 .muted { color: var(--text-muted); }
 a.plink { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
 a.plink:hover { text-decoration-color: currentColor; }
 dl.votes { grid-template-columns: minmax(90px, max-content) 1fr !important; row-gap: 6px !important; }
 dl.votes dt { color: var(--text-primary) !important; }
 .voters { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.src { font-size: 12px; color: var(--text-muted); margin: 8px 0 0; }
+.src a { color: inherit; }
 .tag { display: inline-block; font-size: 11px; line-height: 16px; border: 1px solid var(--line); border-radius: 8px; padding: 0 6px; margin-left: 6px; color: var(--text-secondary); font-weight: 400; }
 ul.plain { margin: 0; padding-left: 18px; }
 ul.plain li { margin: 3px 0; }
 blockquote.wnote { margin: 8px 0; padding: 8px 10px; border-left: 3px solid var(--line); background: var(--surface-0); border-radius: 0 6px 6px 0; font-size: 13px; }
 blockquote.wnote cite { display: block; font-style: normal; color: var(--text-muted); font-size: 11px; margin-top: 4px; }
 .ep { border-top: 1px solid var(--line); padding: 8px 0; }
+h3 + .ep { border-top: 0; padding-top: 0; }
 .ep summary { cursor: pointer; }
 .ep-meta { color: var(--text-secondary); font-size: 12px; }
 .ep p { margin: 8px 0 0; font-size: 13px; line-height: 1.5; }
 .ep p + p { margin-top: 10px; }
 /* Players view */
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chips button {
-  border: 1px solid var(--line); background: var(--surface-1); color: var(--text-secondary); font: inherit; font-size: 13px;
-  font-weight: 600; padding: 4px 10px; border-radius: 14px; cursor: pointer;
-}
-.chips button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
 table.players { border-collapse: collapse; font-size: 13px; min-width: 100%; }
 table.players th, table.players td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 table.players th { color: var(--text-secondary); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
@@ -204,12 +203,12 @@ table.players tr:last-child td { border-bottom: 0; }
 table.players .grp th { font-size: 10px; font-weight: 600; color: var(--text-muted); padding-bottom: 0; border-bottom: 0; text-align: center; }
 table.players .gs { border-left: 1px solid var(--line); }
 /* Who they are (age, hometown, job) reads apart from the game stats. */
-table.players td.bio { font-family: ui-serif, Georgia, "Times New Roman", serif; font-size: 13px; color: var(--text-secondary); text-align: left; }
+table.players td.bio { color: var(--text-secondary); text-align: left; }
 table.players td.bio.num { text-align: right; }
 table.players th.bio { text-align: left; }
 table.players th abbr { text-decoration: none; cursor: help; }
-table.comps td { text-align: left; }
-table.comps td.day { text-align: right; color: var(--text-secondary); }
+table.comps th, table.comps td { text-align: left; }
+table.comps th.day, table.comps td.day { text-align: right; color: var(--text-secondary); }
 .cat { font-size: 11px; border-radius: 8px; padding: 1px 7px; background: var(--cell); color: var(--text-secondary); white-space: nowrap; }
 .cat-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 10px 12px 4px; font-size: 13px; color: var(--text-secondary); }
 .cat-bar b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
@@ -218,13 +217,14 @@ table.plays th { text-align: left; font-size: 10px; font-weight: 700; letter-spa
 table.plays td { padding: 5px 8px 5px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
 table.plays td.n { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
 table.plays tr:last-child td { border-bottom: 0; }
-.pager { display: flex; justify-content: space-between; gap: 8px; margin: 10px 0 2px; }
+.pager { display: flex; justify-content: space-between; gap: 8px; margin: 12px 0 4px; }
 .pager a, .pager span { font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: 6px; background: var(--cell); color: var(--text-primary); text-decoration: none; }
 .pager a:hover { background: var(--cell-hover); }
 .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .pager span { visibility: hidden; }
-.seg { display: inline-flex; gap: 2px; padding: 2px; background: var(--cell); border: 1px solid var(--line); border-radius: 7px; font-size: 12px; }
-.seg button { border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; padding: 3px 10px; border-radius: 5px; cursor: pointer; }
+.seg { display: inline-flex; gap: 2px; padding: 2px; max-width: 100%; overflow-x: auto; background: var(--cell); border: 1px solid var(--line); border-radius: 7px; font-size: 13px; }
+.seg button { flex: none; border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; padding: 4px 12px; border-radius: 5px; cursor: pointer; }
+.seg button:hover { color: var(--text-primary); }
 .seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
 .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .zero { color: var(--text-muted); }
@@ -233,7 +233,7 @@ table.plays tr:last-child td { border-bottom: 0; }
 .stat b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
 .stat span { font-size: 12px; color: var(--text-secondary); }
 .timeline { list-style: none; margin: 0; padding: 0; }
-.timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
+.timeline li { display: grid; grid-template-columns: 116px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
 .timeline li > a, .timeline li > span:first-child { color: var(--text-secondary); font-size: 12px; padding-top: 1px; }
 .season-info { margin: 10px 12px 4px; color: var(--text-secondary); font-size: 13px; }
 .season-info a { color: inherit; }
@@ -245,8 +245,8 @@ dl.bio { margin-top: 12px !important; }
 <body>
 <main>
   <p class="kicker" id="kicker">Big Brother US</p>
-  <h1>Week by week <span class="pill" id="now-pill" hidden></span></h1>
-  <p class="sub">Each cell names who was evicted that week, or who was HOH. Hover for a summary; click or tap a week for competitions, votes, Have-Nots, twists and episodes.</p>
+  <h1><span id="view-title">Week by week</span> <span class="pill" id="now-pill" hidden></span></h1>
+  <p class="sub" id="view-sub">Who was evicted each week, or who was HOH. Click or tap a week for the full story.</p>
   <div class="toolbar">
     <div class="tabs" role="tablist" aria-label="View">
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
@@ -255,23 +255,25 @@ dl.bio { margin-top: 12px !important; }
     </div>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
-  <div class="legend">
+  <div class="controls">
     <span class="seg" role="group" aria-label="Show in each week" id="grid-mode">
       <button data-mode="evicted" aria-pressed="true">Evicted</button>
       <button data-mode="hoh" aria-pressed="false">HOH</button>
     </span>
-    <span aria-hidden="true"><i class="swatch split"><i></i><i></i></i> Two evictions in one week (stacked)</span>
-    <span aria-hidden="true"><i class="flag-swatch"><i class="flag"></i></i> Not fully modeled (twist week)</span>
-    <span aria-hidden="true"><i class="flag-swatch"><i class="flag error"></i></i> Failed a check</span>
+    <span class="legend" aria-hidden="true">
+      <span><i class="swatch split"><i></i><i></i></i> Two rounds</span>
+      <span><i class="flag-swatch"><i class="flag"></i></i> Twist week (not fully modeled)</span>
+      <span id="legend-error" hidden><i class="flag-swatch"><i class="flag error"></i></i> Failed a check</span>
+    </span>
   </div>
   <div class="panel" id="panel"><div class="msg">Loading weeks.json…</div></div>
   </section>
   <section id="players-view" role="tabpanel" aria-labelledby="tab-players" hidden>
-    <div class="chips" id="season-pick" role="group" aria-label="Season" style="margin-bottom:12px"></div>
+    <div class="controls"><span class="seg" id="season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="players-panel"></div>
   </section>
   <section id="comps-view" role="tabpanel" aria-labelledby="tab-comps" hidden>
-    <div class="chips" id="comps-season-pick" role="group" aria-label="Season" style="margin-bottom:12px"></div>
+    <div class="controls"><span class="seg" id="comps-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="comps-panel"></div>
   </section>
   <footer id="footer"></footer>
@@ -349,7 +351,7 @@ function rawHtml(raw) {
   if (!raw) return "";
   const head = raw.columns.length > 1 ? `<tr><td></td>${raw.columns.map(c => `<td><strong>${esc(c)}</strong></td>`).join("")}</tr>` : "";
   const body = raw.rows.map(r => `<tr><td>${esc(r.label)}</td>${r.cells.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
-  return `<div class="raw"><h4 style="margin:0 0 4px;font-size:12px;color:var(--text-secondary)">Table text for this week</h4><table>${head}${body}</table></div>`;
+  return `<div class="raw"><h4>Table text for this week</h4><table>${head}${body}</table></div>`;
 }
 
 function tipHtml(w) {
@@ -425,19 +427,22 @@ function renderGrid(data) {
   }
   html += "</tbody></table>";
   document.getElementById("panel").innerHTML = html;
+  document.getElementById("legend-error").hidden = !weeks.some(w => w.status === "error");
   document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
 }
 
 function renderFooter(data) {
   // Sources: each season's article on both wikis, linked to the revision used.
   const missing = (data.sources || []).filter(s => s.error).map(s => `BB${s.season} (${esc(s.error)})`);
-  const links = (list, pick) => list.map(s => `<a href="${esc(pick(s))}">BB${s.season}</a>`).join(" ");
+  const links = (list, pick) => [...list].sort((a, b) => a.season - b.season)
+    .map(s => `<a href="${esc(pick(s))}" title="BB${s.season}">${s.season}</a>`).join(" ");
+  const sources = data.sources || [];
   document.getElementById("footer").innerHTML =
-    `Sources: Wikipedia ${links((data.sources || []).filter(s => !s.error), s => s.permalink || s.url)} `
-    + `(<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>) · `
-    + `<a href="https://bigbrother.fandom.com/">Big Brother Wiki</a> ${links((data.sources || []).filter(s => s.fandom), s => s.fandom.permalink || s.fandom.url) || "(not fetched yet)"} `
-    + `(<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>) · Updated ${esc((data.generated_at || "").slice(0, 10))}`
-    + (missing.length ? ` · Missing: ${missing.join(", ")}` : "");
+    `<p>Wikipedia, seasons ${links(sources.filter(s => !s.error), s => s.permalink || s.url)} `
+    + `· <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>`
+    + `<p><a href="https://bigbrother.fandom.com/">Big Brother Wiki</a>, seasons ${links(sources.filter(s => s.fandom), s => s.fandom.permalink || s.fandom.url) || "(not fetched yet)"} `
+    + `· <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>`
+    + `<p>Updated ${esc((data.generated_at || "").slice(0, 10))}${missing.length ? ` · Missing: ${missing.join(", ")}` : ""}</p>`;
 }
 
 function wireTooltip(weeks) {
@@ -555,11 +560,11 @@ async function showWeek(season, label) {
   openDrawer(title, statusText(w),
     pagerHtml(season, label)
     + `<h3>Summary</h3>${summary}`
+    + (different ? `<h3>What was different</h3>${different}` : "")
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
     + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
     + (d.fandom && d.fandom.have_nots.length ? `<h3>Have-Nots</h3>${haveNotsHtml(w, d)}` : "")
-    + (different ? `<h3>What was different</h3>${different}` : "")
     + checksHtml(w, d)
     + `<h3>Episodes</h3>${episodesHtml(d)}`);
 }
@@ -641,9 +646,9 @@ function compsHtml(w, d) {
       }).join("") + `</dl>`;
   }
   if (d.fandom && d.fandom.comps.length) {
-    html += `<p class="voters" style="margin-top:8px">Big Brother Wiki</p>`;
+    html += `<p class="src">Source: Big Brother Wiki</p>`;
   } else if (others.length) {
-    html += `<p class="voters" style="margin-top:8px">Also mentioned in this week’s episodes: `
+    html += `<p class="src">Also mentioned in this week’s episodes: `
       + others.map(c => `“${esc(c.name)}” (${kindName[c.kind]})`).join(", ") + `</p>`;
   }
   if (!w.rounds.some((_, i) => roundComp(d, i + 1, "hoh") || roundComp(d, i + 1, "veto")) && !others.length && !extra.length) {
@@ -690,7 +695,7 @@ function vetoHtml(w, d) {
 function haveNotsHtml(w, d) {
   return `<ul class="plain">` + d.fandom.have_nots.map(h => `<li>${plink(w.season, h.name)}`
     + (h.chosen_by ? ` <span class="muted">(made a Have-Not by ${esc(h.chosen_by)})</span>` : "") + `</li>`).join("")
-    + `</ul><p class="voters">Big Brother Wiki</p>`;
+    + `</ul><p class="src">Source: Big Brother Wiki</p>`;
 }
 
 // Where the Big Brother Wiki's Game History table disagrees with Wikipedia.
@@ -700,7 +705,7 @@ function checksHtml(w, d) {
   const multi = w.rounds.length > 1;
   return `<h3>Sources disagree</h3><dl>` + checks.map(c => `<dt>${multi ? `Round ${c.round} · ` : ""}${esc(c.field)}</dt>`
     + `<dd>Wikipedia: ${esc(c.wikipedia.join(", "))}<br>Big Brother Wiki: ${esc(c.fandom.join(", "))}</dd>`).join("")
-    + `</dl><p class="voters">The grid follows Wikipedia.</p>`;
+    + `</dl><p class="src">The grid follows Wikipedia.</p>`;
 }
 
 // "" when nothing was different. A Block Buster alone is routine for its seasons, so it doesn't count.
@@ -739,8 +744,16 @@ function seasonList() {
   return [...new Set(DATA.weeks.map(w => w.season))].sort((a, b) => b - a);
 }
 
+const VIEW_TEXT = {
+  weeks: ["Week by week", "Who was evicted each week, or who was HOH. Click or tap a week for the full story."],
+  players: ["Players", "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline."],
+  comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
+};
+
 function setView(view) {
   currentView = view;
+  $("view-title").textContent = VIEW_TEXT[view][0];
+  $("view-sub").textContent = VIEW_TEXT[view][1];
   for (const v of ["weeks", "players", "comps"]) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
@@ -921,11 +934,11 @@ async function showPlayer(season, name) {
        <div class="stat"><b>${s.noms}</b><span>Noms</span></div>
        <div class="stat"><b>${s.against}</b><span>Votes against</span></div>
      </div>
-     <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${pct(s.withHouse, s.cast)} with the house` : ""}${s.arena ? ` · ${s.arena} ${esc(arenaLabel(season) || "")}` : ""}${s.twists ? ` · ${plural(s.twists, "twist")}` : ""}</p>
+     <p class="voters" style="margin-top:8px">Final noms ${plural(s.block, "time")} · voted ${plural(s.cast, "time")}${s.cast ? `, ${pct(s.withHouse, s.cast)} with the house` : ""}${s.arena ? ` · ${s.arena} ${esc(arenaLabel(season) || "")}` : ""}${s.twists ? ` · ${plural(s.twists, "twist")}` : ""}</p>
      ${byCat.length ? `<p class="voters">Comp wins by type: ${esc(byCat.join(" · "))}</p>` : ""}
      <h3>Week by week</h3>
      ${timeline ? `<ul class="timeline">${timeline}</ul>` : `<p class="muted">Nothing recorded in the modeled weeks.</p>`}
-     <p class="voters" style="margin-top:12px">Twist weeks the grid doesn’t model aren’t counted.</p>`);
+     <p class="src">Twist weeks the grid doesn’t model aren’t counted.</p>`);
 }
 
 function bioHtml(p, season) {
@@ -941,7 +954,7 @@ function bioHtml(p, season) {
   ].filter(([, v]) => v);
   if (!rows.length) return "";
   return `<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`
-    + (f.url ? `<p class="voters"><a href="${esc(f.url)}" target="_blank" rel="noopener">Big Brother Wiki</a></p>` : "");
+    + (f.url ? `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">Profile on the Big Brother Wiki</a></p>` : "");
 }
 
 // ---------- Comps: every HOH and veto competition, and a page per format ----------
@@ -968,7 +981,7 @@ async function showComps(season) {
   const unknown = rows.filter(({ c }) => !c.category).length;
   panel.innerHTML = `<div class="cat-bar">${CATEGORY_NAMES.map(c => `<span title="${esc(help[c] || "")}"><b>${counts[c]}</b> ${esc(c)}</span>`).join("")}`
     + (unknown ? `<span class="muted">${unknown} not typed</span>` : "") + `</div>`
-    + `<table class="players comps"><thead><tr><th scope="col">Week</th><th scope="col">Day</th><th scope="col">Comp</th><th scope="col">Name</th>`
+    + `<table class="players comps"><thead><tr><th scope="col">Week</th><th scope="col" class="day">Day</th><th scope="col">Comp</th><th scope="col">Name</th>`
     + `<th scope="col">Format</th><th scope="col">Type</th><th scope="col">Won by</th></tr></thead><tbody>`
     + rows.map(({ w, c }) => `<tr><td><a class="plink" href="${weekHash(season, w.week_label)}">${esc(w.week_label)}</a></td>`
       + `<td class="day">${esc(c.day || "")}</td><td>${esc(c.type)}</td><td>${c.name ? `“${esc(c.name)}”` : `<span class="zero">–</span>`}</td>`
@@ -1003,7 +1016,7 @@ async function showFormat(format) {
       + `<td>${x.name ? esc(x.name) : `<span class="zero">–</span>`}</td>`
       + `<td>${x.winners.map(n => plink(x.season, n)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
     + `</tbody></table>` + (repeat.length ? `<p class="voters" style="margin-top:10px">Won more than once: ${repeat.join(", ")}</p>` : "")
-    + `<p class="voters" style="margin-top:12px"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
+    + `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
 }
 
 // ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall ----------
