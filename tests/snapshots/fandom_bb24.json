@@ -1100,7 +1100,8 @@
     "Big Brother 24 (US)",
     "Big Brother Reindeer Games"
    ],
-   "revid": 697380
+   "revid": 697380,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f5/US24_Taylor_Large.jpg/revision/latest"
   },
   "Monte Taylor": {
    "page": "Monte Taylor",
@@ -1124,7 +1125,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 691537
+   "revid": 691537,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/6/63/US24_Monte_Large.jpg/revision/latest"
   },
   "Matt Turner": {
    "page": "Matt Turner",
@@ -1151,7 +1153,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670155
+   "revid": 670155,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/8/83/US24_Turner_Large.jpg/revision/latest"
   },
   "Brittany Hoopes": {
    "page": "Brittany Hoopes",
@@ -1175,7 +1178,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670154
+   "revid": 670154,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/5/59/US24_Brittany_Large.jpg/revision/latest"
   },
   "Alyssa Snider": {
    "page": "Alyssa Snider",
@@ -1203,7 +1207,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670153
+   "revid": 670153,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2a/US24_Alyssa_Large.jpg/revision/latest"
   },
   "Michael Bruner": {
    "page": "Michael Bruner",
@@ -1227,7 +1232,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 696211
+   "revid": 696211,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/7/74/US24_Michael_Large.jpg/revision/latest"
   },
   "Terrance Higgins": {
    "page": "Terrance Higgins",
@@ -1253,7 +1259,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670150
+   "revid": 670150,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/9/94/US24_Terrance_Large.jpg/revision/latest"
   },
   "Kyle Capener": {
    "page": "Kyle Capener",
@@ -1279,7 +1286,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670148
+   "revid": 670148,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a8/US24_Kyle_Large.jpg/revision/latest"
   },
   "Joseph Abdin": {
    "page": "Joseph Abdin",
@@ -1304,7 +1312,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670147
+   "revid": 670147,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/e/ed/US24_Joseph_Large.jpg/revision/latest"
   },
   "Jasmine Davis": {
    "page": "Jasmine Davis",
@@ -1330,7 +1339,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670145
+   "revid": 670145,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a5/US24_Jasmine_Large.jpg/revision/latest"
   },
   "Indy Santos": {
    "page": "Indy Santos",
@@ -1353,7 +1363,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 682475
+   "revid": 682475,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/8/8c/US24_Indy_Large.jpg/revision/latest"
   },
   "Daniel Durston": {
    "page": "Daniel Durston",
@@ -1378,7 +1389,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670143
+   "revid": 670143,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2d/US24_Daniel_Large.jpg/revision/latest"
   },
   "Nicole Layog": {
    "page": "Nicole Layog",
@@ -1402,7 +1414,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 616122
+   "revid": 616122,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/14/US24_Nicole_Large.jpg/revision/latest"
   },
   "Ameerah Jones": {
    "page": "Ameerah Jones",
@@ -1425,7 +1438,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 581612
+   "revid": 581612,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/30/US24_Ameerah_Large.jpg/revision/latest"
   },
   "Pooch Pucciarelli": {
    "page": "Pooch Pucciarelli",
@@ -1447,7 +1461,8 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 670137
+   "revid": 670137,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/24/US24_Pooch_Large.jpg/revision/latest"
   },
   "Paloma Aguilar": {
    "page": "Paloma Aguilar",
@@ -1471,7 +1486,26 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 494504
+   "revid": 494504,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/fb/US24_Paloma_Large.jpg/revision/latest"
   }
+ },
+ "photos": {
+  "Taylor Hale": "https://static.wikia.nocookie.net/bigbrother/images/a/aa/US24_Small_Taylor.jpg/revision/latest?cb=20220705200833",
+  "Monte Taylor": "https://static.wikia.nocookie.net/bigbrother/images/5/5e/US24_Small_Monte.jpg/revision/latest?cb=20220705200205",
+  "Matt Turner": "https://static.wikia.nocookie.net/bigbrother/images/b/bb/US24_Small_Turner.jpg/revision/latest?cb=20220705201239",
+  "Brittany Hoopes": "https://static.wikia.nocookie.net/bigbrother/images/4/4d/US24_Small_Brittany.jpg/revision/latest?cb=20220705194936",
+  "Alyssa Snider": "https://static.wikia.nocookie.net/bigbrother/images/c/c2/US24_Small_Alyssa.jpg/revision/latest?cb=20220705194505",
+  "Michael Bruner": "https://static.wikia.nocookie.net/bigbrother/images/6/63/US24_Small_Michael.jpg/revision/latest?cb=20220705200037",
+  "Terrance Higgins": "https://static.wikia.nocookie.net/bigbrother/images/1/13/US24_Small_Terrance.jpg/revision/latest?cb=20220705200957",
+  "Kyle Capener": "https://static.wikia.nocookie.net/bigbrother/images/3/3e/US24_Small_Kyle.jpg/revision/latest?cb=20220705195625",
+  "Joseph Abdin": "https://static.wikia.nocookie.net/bigbrother/images/c/cf/US24_Small_Joseph.jpg/revision/latest?cb=20220706022752",
+  "Jasmine Davis": "https://static.wikia.nocookie.net/bigbrother/images/c/c9/US24_Small_Jasmine.jpg/revision/latest?cb=20220705195452",
+  "Indy Santos": "https://static.wikia.nocookie.net/bigbrother/images/c/c8/US24_Small_Indy.jpg/revision/latest?cb=20220705195315",
+  "Daniel Durston": "https://static.wikia.nocookie.net/bigbrother/images/e/ec/US24_Small_Daniel.jpg/revision/latest?cb=20220705195108",
+  "Nicole Layog": "https://static.wikia.nocookie.net/bigbrother/images/5/53/US24_Small_Nicole.jpg/revision/latest?cb=20220705200424",
+  "Ameerah Jones": "https://static.wikia.nocookie.net/bigbrother/images/7/79/US24_Small_Ameerah.jpg/revision/latest?cb=20220705194729",
+  "Pooch Pucciarelli": "https://static.wikia.nocookie.net/bigbrother/images/1/1d/US24_Small_Pooch.jpg/revision/latest?cb=20220705200701",
+  "Paloma Aguilar": "https://static.wikia.nocookie.net/bigbrother/images/8/86/US24_Small_Paloma.jpg/revision/latest?cb=20220705200538"
  }
 }

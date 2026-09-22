@@ -1334,7 +1334,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 697449
+   "revid": 697449,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/36/US26_Chelsie_Large.jpg/revision/latest"
   },
   "Makensy Manbeck": {
    "page": "Makensy Manbeck",
@@ -1360,7 +1361,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 693262
+   "revid": 693262,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/46/US26_Makensy_Large.jpg/revision/latest"
   },
   "Cam Sullivan-Brown": {
    "page": "Cam Sullivan-Brown",
@@ -1386,7 +1388,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 681487
+   "revid": 681487,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/1d/US26_Cam_Large.jpg/revision/latest"
   },
   "Rubina Bernabe": {
    "page": "Rubina Bernabe",
@@ -1413,7 +1416,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 682875
+   "revid": 682875,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/b/b3/US26_Rubina_Large.jpg/revision/latest"
   },
   "Kimo Apaka": {
    "page": "Kimo Apaka",
@@ -1440,7 +1444,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 687991
+   "revid": 687991,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/5/5c/US26_Kimo_Large.jpg/revision/latest"
   },
   "Angela Murray": {
    "page": "Angela Murray",
@@ -1468,7 +1473,8 @@
     "Big Brother 26 (US)",
     "Big Brother 28 (US)"
    ],
-   "revid": 694233
+   "revid": 694233,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/3b/US26_Angela_Large.jpg/revision/latest"
   },
   "Leah Peters": {
    "page": "Leah Peters",
@@ -1492,7 +1498,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 634391
+   "revid": 634391,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/fd/US26_Leah_Large.jpg/revision/latest"
   },
   "T'kor Clottey": {
    "page": "T'kor Clottey",
@@ -1523,7 +1530,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 671554
+   "revid": 671554,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/03/US26_T%27kor_Large.jpg/revision/latest"
   },
   "Quinn Martin": {
    "page": "Quinn Martin",
@@ -1552,7 +1560,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 681845
+   "revid": 681845,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/19/US26_Quinn_Large.jpg/revision/latest"
   },
   "Joseph Rodriguez": {
    "page": "Joseph Rodriguez",
@@ -1576,7 +1585,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 677452
+   "revid": 677452,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/7/73/US26_Joseph_Large.jpg/revision/latest"
   },
   "Tucker Des Lauriers": {
    "page": "Tucker Des Lauriers",
@@ -1605,7 +1615,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 687986
+   "revid": 687986,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/1c/US26_Tucker_Large.jpg/revision/latest"
   },
   "Brooklyn Rivera": {
    "page": "Brooklyn Rivera",
@@ -1631,7 +1642,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 687988
+   "revid": 687988,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2f/US26_Brooklyn_Large.jpg/revision/latest"
   },
   "Cedric Hodges": {
    "page": "Cedric Hodges",
@@ -1659,7 +1671,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 684376
+   "revid": 684376,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d1/US26_Cedric_Large.jpg/revision/latest"
   },
   "Kenney Kelley": {
    "page": "Kenney Kelley",
@@ -1681,7 +1694,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 677099
+   "revid": 677099,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/39/US26_Kenney_Large.jpg/revision/latest"
   },
   "Lisa Weintraub": {
    "page": "Lisa Weintraub",
@@ -1702,7 +1716,8 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 688004
+   "revid": 688004,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c4/US26_Lisa_Large.jpg/revision/latest"
   },
   "Matt Hardeman": {
    "page": "Matt Hardeman",
@@ -1726,7 +1741,26 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 688003
+   "revid": 688003,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/45/US26_Matt_Large.jpg/revision/latest"
   }
+ },
+ "photos": {
+  "Chelsie Baham": "https://static.wikia.nocookie.net/bigbrother/images/d/d4/US26_Small_Chelsie.jpg/revision/latest?cb=20240715172343",
+  "Makensy Manbeck": "https://static.wikia.nocookie.net/bigbrother/images/4/47/US26_Small_Makensy.jpg/revision/latest?cb=20240715174033",
+  "Cam Sullivan-Brown": "https://static.wikia.nocookie.net/bigbrother/images/c/c7/US26_Small_Cam.jpg/revision/latest?cb=20240715171834",
+  "Rubina Bernabe": "https://static.wikia.nocookie.net/bigbrother/images/0/0b/US26_Small_Rubina.jpg/revision/latest?cb=20240715175315",
+  "Kimo Apaka": "https://static.wikia.nocookie.net/bigbrother/images/f/fe/US26_Small_Kimo.jpg/revision/latest?cb=20240715173210",
+  "Angela Murray": "https://static.wikia.nocookie.net/bigbrother/images/2/27/US26_Small_Angela.jpg/revision/latest?cb=20240715171442",
+  "Leah Peters": "https://static.wikia.nocookie.net/bigbrother/images/c/c5/US26_Small_Leah.jpg/revision/latest?cb=20240715173605",
+  "T'kor Clottey": "https://static.wikia.nocookie.net/bigbrother/images/6/68/US26_Small_T%27kor.jpg/revision/latest?cb=20240715174917",
+  "Quinn Martin": "https://static.wikia.nocookie.net/bigbrother/images/0/05/US26_Small_Quinn.jpg/revision/latest?cb=20240715174440",
+  "Joseph Rodriguez": "https://static.wikia.nocookie.net/bigbrother/images/9/9a/US26_Small_Joseph.jpg/revision/latest?cb=20240715172815",
+  "Tucker Des Lauriers": "https://static.wikia.nocookie.net/bigbrother/images/8/8f/US26_Small_Tucker.jpg/revision/latest?cb=20240715175115",
+  "Brooklyn Rivera": "https://static.wikia.nocookie.net/bigbrother/images/b/bc/US26_Small_Brooklyn.jpg/revision/latest?cb=20240715171617",
+  "Cedric Hodges": "https://static.wikia.nocookie.net/bigbrother/images/d/dd/US26_Small_Cedric.jpg/revision/latest?cb=20240715172623",
+  "Kenney Kelley": "https://static.wikia.nocookie.net/bigbrother/images/7/71/US26_Small_Kenney.jpg/revision/latest?cb=20240715173008",
+  "Lisa Weintraub": "https://static.wikia.nocookie.net/bigbrother/images/e/e4/US26_Small_Lisa.jpg/revision/latest?cb=20240715173756",
+  "Matt Hardeman": "https://static.wikia.nocookie.net/bigbrother/images/a/a7/US26_Small_Matt.jpg/revision/latest?cb=20240715174230"
  }
 }

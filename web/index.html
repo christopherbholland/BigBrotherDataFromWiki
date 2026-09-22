@@ -27,6 +27,10 @@
   --critical: #d03b3b;
   --tip-bg: #ffffff;
   --tip-shadow: 0 6px 24px rgba(10,16,36,.14);
+  --good: #17784f;
+  --gold: #f5b82e;
+  --silver: #c9ced8;
+  --bronze: #f08a24;
 }
 /* Dark: the navy "stock watch" board look. */
 @media (prefers-color-scheme: dark) {
@@ -44,6 +48,7 @@
     --now: #8a96b8;
     --tip-bg: #101a38;
     --tip-shadow: 0 8px 32px rgba(0,0,0,.6);
+    --good: #0f5c45;
   }
 }
 :root[data-theme="dark"] {
@@ -60,6 +65,7 @@
   --now: #8a96b8;
   --tip-bg: #101a38;
   --tip-shadow: 0 8px 32px rgba(0,0,0,.6);
+  --good: #0f5c45;
 }
 * { box-sizing: border-box; }
 body {
@@ -239,6 +245,53 @@ table.plays tr:last-child td { border-bottom: 0; }
 .season-info a { color: inherit; }
 dl.bio { margin-top: 12px !important; }
 .voters a { color: var(--text-secondary); }
+/* Houseguest photos: the Big Brother Wiki's 4:5 headshots. Initials stand in when there's none. */
+.face {
+  flex: none; display: inline-grid; place-items: center; width: 36px; aspect-ratio: 4 / 5; border-radius: 6px;
+  object-fit: cover; object-position: 50% 15%; background: var(--cell-hover); color: var(--text-secondary);
+  font-size: 12px; font-weight: 700; line-height: 1; overflow: hidden; vertical-align: middle;
+}
+.face.out { filter: grayscale(1); opacity: .75; }
+.face.live { box-shadow: 0 0 0 2px var(--accent); }
+.face.won { box-shadow: 0 0 0 2px var(--gold); }
+.cell .part.faces { flex-direction: column; gap: 4px; padding: 6px 4px; }
+.cell .part .who { display: flex; gap: 3px; justify-content: center; }
+.cell .part .face { width: 34px; }
+.cell .part.wrap .who .face { width: 28px; }
+.cell .part .nm { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.cell.multi .part.faces { flex-direction: row; gap: 5px; padding: 3px 5px; justify-content: flex-start; }
+.cell:has(.faces) { min-width: 92px; }
+.cell.multi .part .face, .cell.multi .part.wrap .who .face { width: 20px; border-radius: 4px; }
+.cell .part.faces.wrap .nm { white-space: normal; }
+.pl { display: flex; align-items: center; gap: 10px; }
+.pl .face { width: 32px; }
+.pl small { display: block; color: var(--text-muted); font-size: 11px; }
+.leaders { margin: 12px 12px 4px; }
+.leaders h2 { margin: 0 0 8px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-secondary); }
+.leaders ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 10px; }
+.leaders li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-0); }
+.leaders li:nth-child(1) { border-color: var(--gold); }
+.leaders li:nth-child(2) { border-color: var(--silver); }
+.leaders li:nth-child(3) { border-color: var(--bronze); }
+.leaders .rank { flex: none; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 12px; font-weight: 800; background: var(--cell); color: var(--text-secondary); }
+.leaders li:nth-child(1) .rank { background: var(--gold); color: #1a1200; }
+.leaders li:nth-child(2) .rank { background: var(--silver); color: #111; }
+.leaders li:nth-child(3) .rank { background: var(--bronze); color: #1a0c00; }
+.leaders .face { width: 36px; }
+.leaders .who { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+.leaders .who > * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.leaders .who a { font-weight: 700; }
+.leaders .who span { font-size: 11px; color: var(--text-secondary); }
+.leaders .n { flex: none; font-size: 17px; font-weight: 800; padding: 4px 9px; border-radius: 6px; background: var(--good); color: #fff; font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .leaders ol { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 230px; overflow-x: auto; padding-bottom: 4px; } }
+/* Phones: the pinned name column stays narrow enough to leave room for the numbers. */
+@media (max-width: 640px) { .pl small { display: none; } .pl { gap: 8px; } .pl .face { width: 26px; } }
+.bio-head { display: flex; gap: 16px; align-items: flex-start; margin-top: 12px; }
+.bio-head > .face { width: 104px; border-radius: 10px; font-size: 28px; }
+.bio-head dl.bio { margin-top: 0 !important; flex: 1; min-width: 0; }
+@media (max-width: 400px) { .bio-head > .face { width: 84px; } }
+dl.votes dt { display: flex; align-items: center; gap: 8px; }
+dl.votes dt .face { width: 24px; border-radius: 4px; font-size: 10px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -260,6 +313,7 @@ dl.bio { margin-top: 12px !important; }
       <button data-mode="evicted" aria-pressed="true">Evicted</button>
       <button data-mode="hoh" aria-pressed="false">HOH</button>
     </span>
+    <span class="seg" role="group" aria-label="Photos"><button id="faces-btn" aria-pressed="true">Photos</button></span>
     <span class="legend" aria-hidden="true">
       <span><i class="swatch split"><i></i><i></i></i> Two rounds</span>
       <span><i class="flag-swatch"><i class="flag"></i></i> Twist week (not fully modeled)</span>
@@ -311,6 +365,40 @@ function tallyText(t) {
 }
 
 const nkey = s => String(s).replace(/\s+/g, " ").trim().toLowerCase();
+
+// ---------- Houseguest photos: the Big Brother Wiki's headshots (weeks.json "photos") ----------
+
+const initials = name => String(name).split(/\s+/).map(w => (w.match(/[A-Za-z]/) || [""])[0]).join("").slice(0, 2).toUpperCase();
+// The wiki resizes on request: .../revision/latest/scale-to-width-down/80?cb=...
+const sized = (url, w) => url.replace(/\/revision\/latest(?=\?|$)/, `/revision/latest/scale-to-width-down/${w}`);
+const photoOf = (season, name) => (((DATA && DATA.photos) || {})[season] || {})[name] || null;
+
+// An <img> of a houseguest's headshot, or their initials when there's none. The
+// name always sits next to it, so the picture itself is decorative (alt="").
+// large: a bigger portrait to try first, falling back to the headshot.
+function faceHtml(season, name, cls = "", large = null) {
+  const small = photoOf(season, name);
+  const ini = esc(initials(name));
+  if (!small && !large) return `<span class="face ${cls}" aria-hidden="true">${ini}</span>`;
+  const src = large ? sized(large, 240) : sized(small, 80);
+  const fallback = large && small ? ` data-fallback="${esc(sized(small, 80))}"` : "";
+  return `<img class="face ${cls}" src="${esc(src)}"${fallback} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-ini="${ini}">`;
+}
+
+// A picture that fails to load becomes the next one down, then initials.
+document.addEventListener("error", e => {
+  const img = e.target;
+  if (!(img instanceof HTMLImageElement) || !img.classList.contains("face")) return;
+  if (img.dataset.fallback) { img.src = img.dataset.fallback; delete img.dataset.fallback; return; }
+  const span = document.createElement("span");
+  span.className = img.className;
+  span.setAttribute("aria-hidden", "true");
+  span.textContent = img.dataset.ini || "";
+  img.replaceWith(span);
+}, true);
+
+// Out of the game: grey. Still playing: an accent ring. The winner: a gold ring.
+const faceState = p => !p.result ? "live" : /^winner/i.test(p.result) ? "won" : /^runner/i.test(p.result) ? "" : "out";
 
 // What the veto did, from the nominations before and after it (like details.py's veto_use).
 function vetoUse(r) {
@@ -375,11 +463,20 @@ function cellLabel(w) {
 let gridMode = "evicted";
 try { if (localStorage.getItem("gridMode") === "hoh") gridMode = "hoh"; } catch (e) {}
 
-function partHtml(r) {
+// Grid cells show a face above each name unless photos are switched off.
+let showFaces = true;
+try { if (localStorage.getItem("faces") === "off") showFaces = false; } catch (e) {}
+
+function partHtml(r, season) {
   const text = gridMode === "hoh" ? r.hoh.join(" & ") : r.evicted;
+  const names = gridMode === "hoh" ? r.hoh : (r.evicted ? [r.evicted] : []);
   // Co-HOHs wrap onto two lines rather than being cut off.
-  return `<span class="part${gridMode === "hoh" && r.hoh.length > 1 ? " wrap" : ""}">`
-    + esc(text || "—") + `</span>`;
+  const wrap = gridMode === "hoh" && r.hoh.length > 1 ? " wrap" : "";
+  if (showFaces && names.length) {
+    return `<span class="part faces${wrap}"><span class="who">${names.map(n => faceHtml(season, n)).join("")}</span>`
+      + `<span class="nm">${esc(text)}</span></span>`;
+  }
+  return `<span class="part${wrap}">` + esc(text || "—") + `</span>`;
 }
 
 function render(data) {
@@ -418,7 +515,7 @@ function renderGrid(data) {
       if (!w) { html += `<td${now(l)}></td>`; continue; }
       const idx = weeks.indexOf(w);
       const parts = w.rounds.length
-        ? w.rounds.map(partHtml).join("")
+        ? w.rounds.map(r => partHtml(r, s)).join("")
         : `<span class="part empty">—</span>`;
       const badge = w.status === "ok" ? "" : `<i class="flag ${w.status}" aria-hidden="true"></i>`;
       html += `<td${now(l)}><button class="cell${w.rounds.length > 1 ? " multi" : ""}" data-i="${idx}" aria-label="${esc(cellLabel(w))}">${parts}${badge}</button></td>`;
@@ -429,6 +526,7 @@ function renderGrid(data) {
   document.getElementById("panel").innerHTML = html;
   document.getElementById("legend-error").hidden = !weeks.some(w => w.status === "error");
   document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
+  $("faces-btn").setAttribute("aria-pressed", showFaces);
 }
 
 function renderFooter(data) {
@@ -442,6 +540,7 @@ function renderFooter(data) {
     + `· <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>`
     + `<p><a href="https://bigbrother.fandom.com/">Big Brother Wiki</a>, seasons ${links(sources.filter(s => s.fandom), s => s.fandom.permalink || s.fandom.url) || "(not fetched yet)"} `
     + `· <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>`
+    + (data.photos ? `<p>Houseguest photos: CBS, via the Big Brother Wiki</p>` : "")
     + `<p>Updated ${esc((data.generated_at || "").slice(0, 10))}${missing.length ? ` · Missing: ${missing.join(", ")}` : ""}</p>`;
 }
 
@@ -594,7 +693,7 @@ function votesHtml(w, d) {
     }
     // One line per nominee: who voted to evict them (the count is in the summary's tally).
     html += `<dl class="votes">` + v.by_nominee.map(n =>
-      `<dt>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</dt>`
+      `<dt>${faceHtml(w.season, n.nominee, n.nominee === r.evicted ? "out" : "")}${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</dt>`
       + `<dd>${n.voters.length ? [...n.voters].sort((a, b) => a.localeCompare(b)).map(x => plink(w.season, x)).join(", ") : `<span class="muted">No votes</span>`}</dd>`).join("") + `</dl>`;
     return html;
   }).join("");
@@ -833,7 +932,7 @@ async function showPlayers(season) {
   const groups = [["", 2], ...(hasBio ? [["", 3]] : []), ["Comps", arena ? 4 : 3], ["Nominations", 2], ["Votes", 3],
                   ...(hasHaveNots ? [["", 1]] : [])];
   const grp = groups.map(([label, n], i) => `<th colspan="${n}"${i > (hasBio ? 1 : 0) ? ` class="gs"` : ""}>${esc(label)}</th>`).join("");
-  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + `<table class="players"><thead>
+  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + leadersHtml(season, rows) + `<table class="players"><thead>
     <tr class="grp">${grp}</tr><tr>
       <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
       ${hasBio ? th("Age", "", "bio num") + th("Hometown", "", "bio") + th("Occupation", "", "bio") : ""}
@@ -844,13 +943,30 @@ async function showPlayers(season) {
     </tr></thead><tbody>` + rows.map(p => {
       const s = playerStats(p);
       const b = playerBio(p);
-      return `<tr><td>${plink(season, p.name)}</td><td class="result">${esc(p.result || "In the game")}</td>`
+      const full = b.full_name && b.full_name !== p.name ? `<small>${esc(b.full_name)}</small>` : "";
+      return `<tr><td><div class="pl">${faceHtml(season, p.name, faceState(p))}<span>${plink(season, p.name)}${full}</span></div></td><td class="result">${esc(p.result || "In the game")}</td>`
         + (hasBio ? `<td class="bio num">${b.age != null ? b.age : dash}</td><td class="bio">${b.hometown ? esc(b.hometown) : dash}</td><td class="bio">${b.occupation ? esc(b.occupation) : dash}</td>` : "")
         + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td>${num(s.arena)}</td>` : ""}<td>${num(s.twists)}</td>`
         + `<td class="gs">${num(s.noms)}</td><td>${num(s.block)}</td>`
         + `<td class="gs">${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? pct(s.withHouse, s.cast) : dash}</td>`
         + (hasHaveNots ? `<td class="gs">${num(((p.fandom || {}).have_not || []).length)}</td>` : "") + `</tr>`;
     }).join("") + `</tbody></table>`;
+}
+
+// The season's top five by HOH and veto wins, like the broadcast board's "highest rated" strip.
+function leadersHtml(season, rows) {
+  const top = rows.map((p, i) => ({ p, i, s: playerStats(p) }))
+    .map(x => ({ ...x, wins: x.s.hoh + x.s.veto }))
+    .filter(x => x.wins > 0)
+    .sort((a, b) => b.wins - a.wins || b.s.hoh - a.s.hoh || a.i - b.i)
+    .slice(0, 5);
+  if (top.length < 3) return "";
+  return `<section class="leaders" aria-labelledby="leaders-h"><h2 id="leaders-h">Most competition wins</h2><ol>`
+    + top.map(({ p, s, wins }, i) => `<li><span class="rank" aria-label="Rank ${i + 1}">${i + 1}</span>`
+      + faceHtml(season, p.name, faceState(p))
+      + `<span class="who">${plink(season, p.name)}<span>${plural(s.hoh, "HOH")} · ${plural(s.veto, "veto", "vetoes")}</span></span>`
+      + `<span class="n" title="HOH and veto wins">${wins}</span></li>`).join("")
+    + `</ol></section>`;
 }
 
 function seasonInfoHtml(info) {
@@ -952,8 +1068,9 @@ function bioHtml(p, season) {
     ["Alliances", (f.alliances || []).join(", ")],
     ["Other seasons", (f.seasons || []).filter(x => x !== `Big Brother ${season} (US)`).join(", ")],
   ].filter(([, v]) => v);
-  if (!rows.length) return "";
-  return `<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`
+  const face = faceHtml(season, p.name, faceState(p), f.portrait || null);
+  if (!rows.length) return `<div class="bio-head">${face}</div>`;
+  return `<div class="bio-head">${face}<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>`
     + (f.url ? `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">Profile on the Big Brother Wiki</a></p>` : "");
 }
 
@@ -1064,6 +1181,12 @@ $("grid-mode").addEventListener("click", e => {
   if (!b || !DATA) return;
   gridMode = b.dataset.mode;
   try { localStorage.setItem("gridMode", gridMode); } catch (err) {}
+  renderGrid(DATA);
+});
+$("faces-btn").addEventListener("click", () => {
+  if (!DATA) return;
+  showFaces = !showFaces;
+  try { localStorage.setItem("faces", showFaces ? "on" : "off"); } catch (err) {}
   renderGrid(DATA);
 });
 $("drawer-close").addEventListener("click", closeDrawer);

@@ -90,8 +90,20 @@ def comp_index(details):
     return dict(sorted(index.items(), key=lambda kv: kv[0].casefold()))
 
 
+def photo_index(people):
+    """{"28": {"Dee": headshot URL}}: each houseguest's Big Brother Wiki headshot,
+    keyed by season and Wikipedia name, so the grid can show faces without details.json."""
+    out = {}
+    for p in people:
+        url = (p.get("fandom") or {}).get("photo")
+        if url:
+            out.setdefault(str(p["season"]), {})[p["name"]] = url
+    return dict(sorted(out.items(), key=lambda kv: -int(kv[0])))
+
+
 LICENSE = ("Wikipedia content, CC BY-SA 4.0; "
-           "Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0")
+           "Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; "
+           "houseguest photos are CBS promotional images, linked from the Big Brother Wiki")
 
 
 def add_fandom(fandom_seasons, fandom_dir, sources, weeks, details, people, season_errors):
@@ -159,6 +171,7 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         "license": LICENSE,
         "sources": sources,
         "weeks": weeks,
+        "photos": photo_index(people),
     }
     (out_dir / "weeks.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     # Detail views load this separately, so the main grid stays light.

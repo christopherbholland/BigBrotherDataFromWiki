@@ -1398,7 +1398,8 @@
     "Big Brother 23 (US)",
     "Big Brother Reindeer Games"
    ],
-   "revid": 696152
+   "revid": 696152,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/9/9e/BB23_Xavier_Large.jpg/revision/latest"
   },
   "Derek Frazier": {
    "page": "Derek Frazier",
@@ -1426,7 +1427,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 693265
+   "revid": 693265,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/1d/BB23_Derek_F_Large.jpg/revision/latest"
   },
   "Azah Awasum": {
    "page": "Azah Awasum",
@@ -1449,7 +1451,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 691581
+   "revid": 691581,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/39/BB23_Azah_Large.jpg/revision/latest"
   },
   "Kyland Young": {
    "page": "Kyland Young",
@@ -1481,7 +1484,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 673625
+   "revid": 673625,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/fe/BB23_Kyland_Large.jpg/revision/latest"
   },
   "Hannah Chaddha": {
    "page": "Hannah Chaddha",
@@ -1508,7 +1512,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 694142
+   "revid": 694142,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/9/94/BB23_Hannah_Large.jpg/revision/latest"
   },
   "Tiffany Mitchell": {
    "page": "Tiffany Mitchell",
@@ -1545,7 +1550,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 697441
+   "revid": 697441,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/47/BB23_Tiffany_Large.jpg/revision/latest"
   },
   "Alyssa Lopez": {
    "page": "Alyssa Lopez",
@@ -1568,7 +1574,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 669649
+   "revid": 669649,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/31/BB23_Alyssa_Large.jpg/revision/latest"
   },
   "Claire Rehfuss": {
    "page": "Claire Rehfuss",
@@ -1594,7 +1601,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 693944
+   "revid": 693944,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/38/BB23_Claire_Large.jpg/revision/latest"
   },
   "Sarah Beth Steagall": {
    "page": "Sarah Beth Steagall",
@@ -1624,7 +1632,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 669645
+   "revid": 669645,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c3/BB23_Sarah_Beth_Large.jpg/revision/latest"
   },
   "Derek Xiao": {
    "page": "Derek Xiao",
@@ -1654,7 +1663,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 693947
+   "revid": 693947,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/cd/BB23_Derek_X_Large.jpg/revision/latest"
   },
   "Britini D'Angelo": {
    "page": "Britini D'Angelo",
@@ -1678,7 +1688,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 669643
+   "revid": 669643,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/9/90/BB23_Britini_Large.jpg/revision/latest"
   },
   "Christian Birkenberger": {
    "page": "Christian Birkenberger",
@@ -1701,7 +1712,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 668571
+   "revid": 668571,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f6/BB23_Christian_Large.jpg/revision/latest"
   },
   "Whitney Williams": {
    "page": "Whitney Williams",
@@ -1728,7 +1740,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 693946
+   "revid": 693946,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f4/BB23_Whitney_Large.jpg/revision/latest"
   },
   "Brent Champagne": {
    "page": "Brent Champagne",
@@ -1751,7 +1764,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 669642
+   "revid": 669642,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/5/56/BB23_Brent_Large.jpg/revision/latest"
   },
   "Frenchie French": {
    "page": "Frenchie French",
@@ -1775,7 +1789,8 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 668578
+   "revid": 668578,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/8/89/BB23_Frenchie_Large.jpg/revision/latest"
   },
   "Travis Long": {
    "page": "Travis Long",
@@ -1795,7 +1810,26 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 668572
+   "revid": 668572,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a3/BB23_Travis_Large.jpg/revision/latest"
   }
+ },
+ "photos": {
+  "Xavier Prather": "https://static.wikia.nocookie.net/bigbrother/images/9/9b/BB23_Xavier_Small.jpg/revision/latest?cb=20210706024443",
+  "Derek Frazier": "https://static.wikia.nocookie.net/bigbrother/images/b/b8/BB23_Derek_F_Small.jpg/revision/latest?cb=20210705222735",
+  "Azah Awasum": "https://static.wikia.nocookie.net/bigbrother/images/d/df/BB23_Azah_Small.jpg/revision/latest?cb=20210705221429",
+  "Kyland Young": "https://static.wikia.nocookie.net/bigbrother/images/1/15/BB23_Kyland_Small.jpg/revision/latest?cb=20210705223826",
+  "Hannah Chaddha": "https://static.wikia.nocookie.net/bigbrother/images/1/19/BB23_Hannah_Small.jpg/revision/latest?cb=20210705223609",
+  "Tiffany Mitchell": "https://static.wikia.nocookie.net/bigbrother/images/9/96/BB23_Tiffany_Small.jpg/revision/latest?cb=20210705224510",
+  "Alyssa Lopez": "https://static.wikia.nocookie.net/bigbrother/images/9/99/BB23_Alyssa_Small.jpg/revision/latest?cb=20210705220847",
+  "Claire Rehfuss": "https://static.wikia.nocookie.net/bigbrother/images/2/28/BB23_Claire_Small.jpg/revision/latest?cb=20210705222153",
+  "Sarah Beth Steagall": "https://static.wikia.nocookie.net/bigbrother/images/0/02/BB23_Sarah_Beth_Small.jpg/revision/latest?cb=20210705224254",
+  "Derek Xiao": "https://static.wikia.nocookie.net/bigbrother/images/e/e1/BB23_Derek_X_Small.jpg/revision/latest?cb=20210705223102",
+  "Britini D'Angelo": "https://static.wikia.nocookie.net/bigbrother/images/e/eb/BB23_Britini_Small.jpg/revision/latest?cb=20210705221733",
+  "Christian Birkenberger": "https://static.wikia.nocookie.net/bigbrother/images/1/16/BB23_Christian_Small.jpg/revision/latest?cb=20210705222005",
+  "Whitney Williams": "https://static.wikia.nocookie.net/bigbrother/images/8/85/BB23_Whitney_Small.jpg/revision/latest?cb=20210705224819",
+  "Brent Champagne": "https://static.wikia.nocookie.net/bigbrother/images/6/67/BB23_Brent_Small.jpg/revision/latest?cb=20210705221259",
+  "Frenchie French": "https://static.wikia.nocookie.net/bigbrother/images/1/11/BB23_Frenchie_Small.jpg/revision/latest?cb=20210705224032",
+  "Travis Long": "https://static.wikia.nocookie.net/bigbrother/images/0/0c/BB23_Travis_Small.jpg/revision/latest?cb=20210705224657"
  }
 }

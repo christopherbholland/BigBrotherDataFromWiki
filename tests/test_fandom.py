@@ -35,6 +35,34 @@ def test_roster(soup):
         ("Sam Ortiz", "Sam O"), ("Jordan Kay", "Jordan")]
 
 
+def test_photos(soup):
+    # Lazy-loaded (data-src) or not; the size is dropped; no picture, no entry.
+    assert fandom.houseguest_photos(soup) == {
+        "Alex Stone": "https://static.wikia.nocookie.net/bigbrother/images/a/a1/US1_Small_Alex.jpg/revision/latest?cb=1",
+        "Robin Park": "https://static.wikia.nocookie.net/bigbrother/images/b/b2/US1_Small_Robin.jpg/revision/latest?cb=2",
+    }
+
+
+def test_file_url():
+    # The hash path matches the wiki's own URL for this file (images/1/11/).
+    assert fandom.file_url("US28 Small Dee.jpg") == (
+        "https://static.wikia.nocookie.net/bigbrother/images/1/11/US28_Small_Dee.jpg/revision/latest")
+
+
+@pytest.mark.parametrize("image, expected", [
+    ("US27 Vince Large.jpg", "US27 Vince Large.jpg"),
+    ("[[File:BB21 Cliff Large.jpg|250px]]", None),
+    ("<gallery>\nUS28 Angela Large.jpg|BB28\nUS26 Angela Large.jpg|BB26\n</gallery>", "US26 Angela Large.jpg"),
+    ("<tabber>BB22=[[File:BB22 Large Enzo.jpg|250px]]\n|-|BB26=[[File:Enzo Returns.jpg|250px]]\n</tabber>",
+     "Enzo Returns.jpg"),
+    ("<gallery>\nAngela Promo.jpg|US26\nUS28 Angela Large.jpg|BB28\n</gallery>", "Angela Promo.jpg"),
+])
+def test_season_portrait(image, expected):
+    lead = f"{{{{Houseguest\n|Image = {image}\n|hometown = X\n}}}}"
+    season = 27 if "Vince" in image else 26
+    assert fandom.season_portrait(lead, season) == expected
+
+
 def test_competitions(soup):
     comps = fandom.competitions(soup)
     assert [(c["week"], c["kind"], c["name"], c["winners"]) for c in comps] == [
@@ -119,6 +147,7 @@ def test_enrich_season(soup):
         "have_nots": fandom.have_nots(soup),
         "game": fandom.game_history(soup),
         "bios": {"Alex Stone": {**fandom.houseguest_bio("Alex Stone", LEAD, 1, "2020-07-19"), "revid": 5}},
+        "photos": fandom.houseguest_photos(soup),
     }
     weeks = [_record([{"hoh": ["Alex"], "nominees_initial": ["Sam L.", "Sam O."], "veto_winners": ["Robin"],
                        "nominees_final": ["Sam O."], "evicted": "Sam O.", "extras": {"Arena winner": ["Jordan"]}}])]
@@ -134,6 +163,8 @@ def test_enrich_season(soup):
     alex = players[0]["fandom"]
     assert alex["full_name"] == "Alex Quinn Stone" and alex["url"].endswith("/wiki/Alex_Stone")
     assert players[1]["fandom"]["have_not"] == ["Week 1"]
+    assert alex["photo"].endswith("/US1_Small_Alex.jpg/revision/latest?cb=1")
+    assert players[4]["fandom"]["photo"] is None
     assert f["comps"][0]["about"] == ('In the "Hold On Tight" HOH competition, HouseGuests had to hang on to '
                                       'a rope. Alex won.')
     assert players[4]["fandom"]["twist_wins"] == [

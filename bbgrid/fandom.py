@@ -5,15 +5,17 @@ houseguests' pages (see fetch.py). Output uses the wiki's own names ("Jackson",
 "Nicole A", "Derek X"); enrich.py matches them to Wikipedia's houseguests.
 
 Tables read, each found by its section heading:
-  Houseguests            roster: each houseguest's page title and short name
+  Houseguests            roster: each houseguest's page title, short name and headshot
   Competition History    every competition: week, day, type, name, result
   Have/Have-Not History  who was a Have-Not each week (cell colour), and who picked them
   Game History           HOH, noms, veto holder, "Used?", final noms, evicted, vote
 Infoboxes read from wikitext: {{Season}}, each houseguest's {{Houseguest}}, and
 each recurring competition's {{Recurring Competition}} with its opening sentence.
 """
+import hashlib
 import re
 from datetime import date, datetime
+from urllib.parse import quote
 
 from bs4 import BeautifulSoup, Tag
 
@@ -94,6 +96,68 @@ def houseguest_links(html):
                 seen.add(title)
                 out.append((title, short))
     return out
+
+
+# Fandom serves images at .../revision/latest/scale-to-width-down/N?cb=...;
+# the stored URL drops the size so the page can ask for the one it needs.
+SCALE_RE = re.compile(r"/scale-to-width-down/\d+")
+IMAGE_BASE = "https://static.wikia.nocookie.net/bigbrother/images"
+
+
+def houseguest_photos(html):
+    """{page title: headshot URL} from the Houseguests section's cards.
+
+    Each card's picture links to the houseguest's page:
+    <a title="Dee Valladares"><img data-src=".../US28_Small_Dee.jpg/revision/latest/scale-to-width-down/100?cb=..."></a>.
+    The image is lazy-loaded, so the URL is in data-src (src is a placeholder).
+    """
+    soup = BeautifulSoup(html, "lxml") if isinstance(html, str) else html
+    out = {}
+    for table in section_tables(soup, "houseguests"):
+        for a in table.find_all("a", title=True):
+            img = a.find("img")
+            src = img and (img.get("data-src") or img.get("src") or "")
+            if src and src.startswith("https://") and a["title"] not in out:
+                out[a["title"]] = SCALE_RE.sub("", src)
+    return out
+
+
+def file_url(name):
+    """The image URL for a wiki file name, e.g. "US28 Angela Large.jpg".
+
+    MediaWiki stores uploads under the MD5 of the underscored name:
+    images/<h[0]>/<h[:2]>/<name>.
+    """
+    key = name.strip().replace(" ", "_")
+    h = hashlib.md5(key.encode("utf-8")).hexdigest()
+    return f"{IMAGE_BASE}/{h[0]}/{h[:2]}/{quote(key)}/revision/latest"
+
+
+def season_portrait(lead, season):
+    """The file name of a houseguest's large portrait for this season, or None.
+
+    The infobox's Image comes in several shapes: one file ("US27 Vince
+    Large.jpg", "[[File:BB21 Cliff Large.jpg|250px]]"), a gallery with a
+    caption per season ("US28 Angela Large.jpg|BB28") or tabs
+    ("<tabber>BB22=[[File:BB22 Large Enzo.jpg]]|-|BB28=..."). A file name
+    with US28/BB28 in it wins; else the file whose caption or tab names the season.
+    """
+    m = re.search(r"\|\s*Image\s*=(.*?)(?:\n\s*\|\s*\w+\s*=|\n\}\})", lead or "", re.S)
+    if not m:
+        return None
+    tag = re.compile(rf"(?:US|BB)\s*{season}(?!\d)", re.I)
+    # (file, the text just before it, the text just after it) for each picture.
+    found = [(f.group(1).strip(), m.group(1)[max(0, f.start() - 12):f.start()], m.group(1)[f.end():f.end() + 12])
+             for f in re.finditer(r"(?:File:|Image:|^|\n|>|=)\s*([^\n\[\]|=<>]+?\.(?:jpe?g|png|webp|gif))",
+                                  m.group(1), re.I)]
+    for file, _, _ in found:
+        if tag.search(file.replace("_", " ")):
+            return file
+    for file, before, after in found:
+        if re.search(rf"(?:US|BB)\s*{season}\s*=\s*(?:\[\[)?\s*(?:File:|Image:)?\s*$", before, re.I) \
+                or re.match(rf"\s*\|\s*(?:US|BB)\s*{season}(?!\d)", after, re.I):
+            return file
+    return None
 
 
 # --- Competition History ----------------------------------------------------
@@ -475,6 +539,8 @@ def parse_season(cached, season):
         bio = houseguest_bio(title, entry["lead"], season, premiere) if entry else None
         if bio:
             bio["revid"] = entry.get("revid")
+            portrait = season_portrait(entry["lead"], season)
+            bio["portrait"] = file_url(portrait) if portrait else None
             bios[title] = bio
     formats = {}
     for title, entry in (cached.get("formats") or {}).items():
@@ -489,4 +555,5 @@ def parse_season(cached, season):
         "have_nots": have_nots(soup),
         "game": game_history(soup),
         "bios": bios,
+        "photos": houseguest_photos(soup),
     }
