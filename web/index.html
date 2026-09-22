@@ -105,16 +105,18 @@ table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
   display: flex; align-items: center; justify-content: center; min-height: 23px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
 .cell.multi .part { font-size: 12px; }
+.cell .part.wrap { white-space: normal; font-size: 12px; line-height: 1.15; }
 .cell:not(.multi) .part { min-height: 48px; }
 .cell:hover .part, .cell:focus-visible .part { background: var(--cell-hover); }
 .cell:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .cell .empty { color: var(--text-muted); font-weight: 400; }
-.badge {
-  position: absolute; top: 3px; right: 3px; width: 14px; height: 14px; border-radius: 50%;
-  font-size: 10px; line-height: 14px; text-align: center; font-weight: 700; color: #0b0b0b;
-  }
-.badge.note { background: var(--warning); }
-.badge.error { background: var(--critical); color: #fff; }
+/* A folded corner marks a week that isn't fully modeled (note) or failed a check (error). */
+.flag { position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 10px 10px 0; border-color: transparent var(--warning) transparent transparent; }
+.flag.error { border-right-color: var(--critical); }
+.legend .flag-swatch { position: relative; width: 18px; height: 14px; border-radius: 2px; background: var(--cell); border: 1px solid var(--line); overflow: hidden; display: inline-block; }
+.legend .flag-swatch .flag { border-width: 0 8px 8px 0; }
+/* A true (same-night) double eviction round. */
+.de { font-size: 9px; font-weight: 700; letter-spacing: .06em; color: var(--text-muted); margin-right: 5px; }
 #tip {
   position: fixed; z-index: 10; max-width: min(380px, calc(100vw - 32px)); pointer-events: none;
   background: var(--tip-bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--tip-shadow);
@@ -127,6 +129,7 @@ table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
 #tip dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin: 0; }
 #tip dt { color: var(--text-secondary); }
 #tip dd { margin: 0; }
+#tip dt.result, #tip dd.result { margin-top: 6px; }
 #tip .raw { margin-top: 8px; font-size: 12px; max-height: 260px; overflow: auto; }
 #tip .raw table { border-collapse: collapse; }
 #tip .raw td { border-top: 1px solid var(--line); padding: 2px 6px 2px 0; vertical-align: top; white-space: pre-line; }
@@ -168,6 +171,7 @@ footer a { color: var(--text-secondary); }
 #drawer-body dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; }
 #drawer-body dt { color: var(--text-secondary); }
 #drawer-body dd { margin: 0; }
+#drawer-body dt.result, #drawer-body dd.result { margin-top: 8px; }
 .round + .round { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
 .round h4 { color: var(--text-secondary); font-size: 12px !important; text-transform: uppercase; letter-spacing: .04em; }
 .muted { color: var(--text-muted); }
@@ -184,7 +188,8 @@ blockquote.wnote cite { display: block; font-style: normal; color: var(--text-mu
 .ep { border-top: 1px solid var(--line); padding: 8px 0; }
 .ep summary { cursor: pointer; }
 .ep-meta { color: var(--text-secondary); font-size: 12px; }
-.ep p { margin: 6px 0 0; white-space: pre-line; font-size: 13px; }
+.ep p { margin: 8px 0 0; font-size: 13px; line-height: 1.5; }
+.ep p + p { margin-top: 10px; }
 /* Players view */
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chips button {
@@ -198,6 +203,22 @@ table.players th { color: var(--text-secondary); font-size: 11px; font-weight: 7
 table.players th:first-child, table.players td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface-1); }
 table.players td.result { text-align: left; color: var(--text-secondary); }
 table.players tr:last-child td { border-bottom: 0; }
+table.players .grp th { font-size: 10px; font-weight: 600; color: var(--text-muted); padding-bottom: 0; border-bottom: 0; text-align: center; }
+table.players .gs { border-left: 1px solid var(--line); }
+/* Who they are (age, hometown, job) reads apart from the game stats. */
+table.players td.bio { font-family: ui-serif, Georgia, "Times New Roman", serif; font-size: 13px; color: var(--text-secondary); text-align: left; }
+table.players td.bio.num { text-align: right; }
+table.players th.bio { text-align: left; }
+table.players th abbr { text-decoration: none; cursor: help; }
+table.comps td { text-align: left; }
+table.comps td.day { text-align: right; color: var(--text-secondary); }
+.cat { font-size: 11px; border-radius: 8px; padding: 1px 7px; background: var(--cell); color: var(--text-secondary); white-space: nowrap; }
+.cat-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 10px 12px 4px; font-size: 13px; color: var(--text-secondary); }
+.cat-bar b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.seg { display: inline-flex; gap: 2px; padding: 2px; background: var(--cell); border: 1px solid var(--line); border-radius: 7px; font-size: 12px; }
+.seg button { border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; padding: 3px 10px; border-radius: 5px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .zero { color: var(--text-muted); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
 .stat { background: var(--surface-0); border-radius: 8px; padding: 8px 10px; }
@@ -217,25 +238,34 @@ dl.bio { margin-top: 12px !important; }
 <main>
   <p class="kicker" id="kicker">Big Brother US</p>
   <h1>Week by week <span class="pill" id="now-pill" hidden></span></h1>
-  <p class="sub">Each cell names who was evicted that week. Hover for a summary; click or tap a week for competitions, votes, Have-Nots, twists and episodes.</p>
+  <p class="sub">Each cell names who was evicted that week, or who was HOH. Hover for a summary; click or tap a week for competitions, votes, Have-Nots, twists and episodes.</p>
   <div class="toolbar">
     <div class="tabs" role="tablist" aria-label="View">
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
       <button role="tab" id="tab-players" aria-selected="false" aria-controls="players-view">Players</button>
+      <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
     </div>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
-  <div class="legend" aria-hidden="true">
-    <span><i class="swatch"></i> One eviction</span>
-    <span><i class="swatch split"><i></i><i></i></i> Two rounds in one week, e.g. a double eviction (stacked)</span>
-    <span><i class="badge note" style="position:static">!</i> Note: not fully modeled</span>
-    <span><i class="badge error" style="position:static">×</i> Error: failed a check</span>
+  <div class="legend">
+    <span class="seg" role="group" aria-label="Show in each week" id="grid-mode">
+      <button data-mode="evicted" aria-pressed="true">Evicted</button>
+      <button data-mode="hoh" aria-pressed="false">HOH</button>
+    </span>
+    <span aria-hidden="true"><i class="swatch split"><i></i><i></i></i> Two evictions in one week (stacked)</span>
+    <span aria-hidden="true"><b class="de" style="margin:0">DE</b> Double eviction: a whole week played in one night</span>
+    <span aria-hidden="true"><i class="flag-swatch"><i class="flag"></i></i> Not fully modeled (twist week)</span>
+    <span aria-hidden="true"><i class="flag-swatch"><i class="flag error"></i></i> Failed a check</span>
   </div>
   <div class="panel" id="panel"><div class="msg">Loading weeks.json…</div></div>
   </section>
   <section id="players-view" role="tabpanel" aria-labelledby="tab-players" hidden>
     <div class="chips" id="season-pick" role="group" aria-label="Season" style="margin-bottom:12px"></div>
     <div class="panel" id="players-panel"></div>
+  </section>
+  <section id="comps-view" role="tabpanel" aria-labelledby="tab-comps" hidden>
+    <div class="chips" id="comps-season-pick" role="group" aria-label="Season" style="margin-bottom:12px"></div>
+    <div class="panel" id="comps-panel"></div>
   </section>
   <footer id="footer"></footer>
 </main>
@@ -263,24 +293,50 @@ const FIELDS = [
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
+// "9–3": votes to evict against votes to keep.
 function tallyText(t) {
   if (!t) return "";
-  if (t.type === "vote") return `${t.votes_to_evict} of ${t.votes_cast} votes to evict`;
+  if (t.type === "vote") return `${t.votes_to_evict}–${t.votes_cast - t.votes_to_evict}`;
   if (t.type === "sole_vote") return `${t.by}’s choice to evict`;
   return "";
 }
 
+const nkey = s => String(s).replace(/\s+/g, " ").trim().toLowerCase();
+
+// What the veto did, from the nominations before and after it (like details.py's veto_use).
+function vetoUse(r) {
+  if (!r.veto_winners.length || !r.nominees_initial.length || !r.nominees_final.length) return null;
+  const finals = new Set(r.nominees_final.map(nkey)), initial = new Set(r.nominees_initial.map(nkey));
+  const twist = new Set(Object.values(r.extras || {}).flat().map(nkey));
+  const removed = r.nominees_initial.filter(n => !finals.has(nkey(n)));
+  const on = removed.filter(n => !twist.has(nkey(n)));
+  return { used: on.length > 0, on, replacements: r.nominees_final.filter(n => !initial.has(nkey(n))) };
+}
+
+// "not used", "used on Kimo; Leah renominated", "self-save; Taylor renominated".
+function vetoBrief(r) {
+  const u = vetoUse(r);
+  if (!u) return "";
+  if (!u.used) return "not used";
+  const self = u.on.length === 1 && r.veto_winners.map(nkey).includes(nkey(u.on[0]));
+  return (self ? "self-save" : `used on ${u.on.join(", ")}`) + (u.replacements.length ? `; ${u.replacements.join(", ")} renominated` : "");
+}
+
 function roundHtml(r, label) {
-  const row = (name, names) => `<dt>${esc(name)}</dt><dd>${esc(names.join(", "))}</dd>`;
+  const row = (name, names, extra) => `<dt>${esc(name)}</dt><dd>${esc(names.join(", "))}${extra || ""}</dd>`;
   const rows = [];
   for (const [k, name] of FIELDS) {
     // Twist rows (AI Arena, Block Buster, …) go before Final noms: they can take someone off the block.
     if (k === "nominees_final") for (const [label, v] of Object.entries(r.extras || {})) rows.push(row(label, v));
-    if (r[k] && r[k].length) rows.push(row(name, r[k]));
+    const brief = k === "veto_winners" ? vetoBrief(r) : "";
+    if (r[k] && r[k].length) rows.push(row(name, r[k], brief ? ` <span class="muted">· ${esc(brief)}</span>` : ""));
   }
-  if (r.evicted) rows.push(`<dt>Evicted</dt><dd><strong>${esc(r.evicted)}</strong>${r.tally ? `<br><span style="color:var(--text-secondary)">${esc(tallyText(r.tally))}</span>` : ""}</dd>`);
+  if (r.evicted) rows.push(`<dt class="result">Evicted</dt><dd class="result"><strong>${esc(r.evicted)}</strong>${r.tally ? ` <span class="muted">${esc(tallyText(r.tally))}</span>` : ""}</dd>`);
   return `<div class="round">${label ? `<h4>${esc(label)}</h4>` : ""}<dl>${rows.join("")}</dl></div>`;
 }
+
+const roundLabel = (w, i) => w.rounds.length > 1
+  ? `Round ${i + 1}${w.rounds[i].sub_label ? " · " + w.rounds[i].sub_label : ""}${w.rounds[i].double_eviction ? " · Double eviction" : ""}` : "";
 
 function rawHtml(raw) {
   if (!raw) return "";
@@ -290,22 +346,41 @@ function rawHtml(raw) {
 }
 
 function tipHtml(w) {
-  const multi = w.rounds.length > 1;
   const status = w.status === "ok" ? (w.note || "") : `${w.status === "error" ? "Error" : "Note"}: ${w.note || ""}`;
   return `<h3>BB${w.season} · ${esc(w.week_label)}</h3>`
     + (status ? `<div class="status">${esc(status)}</div>` : "")
-    + w.rounds.map((r, i) => roundHtml(r, multi ? `Round ${i + 1}${r.sub_label ? " · " + r.sub_label : ""}` : "")).join("")
-    + (w.status !== "ok" ? rawHtml(w.raw) : "")
-    + (w.footnotes && w.footnotes.length ? `<div class="fn">Wikipedia footnotes: ${w.footnotes.map(f => `[${esc(f)}]`).join(" ")}</div>` : "");
+    + w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
+    + (w.status !== "ok" ? rawHtml(w.raw) : "");
 }
 
 function cellLabel(w) {
   const names = w.rounds.map(r => r.evicted).filter(Boolean);
-  return `BB${w.season} ${w.week_label}: ` + (names.length ? `evicted ${names.join(" and ")}` : "no modeled eviction")
+  const hohs = w.rounds.map(r => r.hoh.join(" & ")).filter(Boolean);
+  return `BB${w.season} ${w.week_label}: `
+    + (gridMode === "hoh" ? (hohs.length ? `HOH ${hohs.join(", then ")}` : "no modeled HOH")
+       : (names.length ? `evicted ${names.join(" and ")}` : "no modeled eviction"))
+    + (w.rounds.some(r => r.double_eviction) ? ", double eviction" : "")
     + (w.status !== "ok" ? `, ${w.status}` : "");
 }
 
+// What each grid cell shows: who was evicted (default) or whose HOH week it was.
+let gridMode = "evicted";
+try { if (localStorage.getItem("gridMode") === "hoh") gridMode = "hoh"; } catch (e) {}
+
+function partHtml(r) {
+  const text = gridMode === "hoh" ? r.hoh.join(" & ") : r.evicted;
+  // Co-HOHs wrap onto two lines rather than being cut off.
+  return `<span class="part${gridMode === "hoh" && r.hoh.length > 1 ? " wrap" : ""}">`
+    + (r.double_eviction ? `<b class="de" title="Double eviction">DE</b>` : "") + esc(text || "—") + `</span>`;
+}
+
 function render(data) {
+  renderGrid(data);
+  renderFooter(data);
+  wireTooltip(data.weeks);
+}
+
+function renderGrid(data) {
   const weeks = data.weeks;
   // Newest season first, so the season currently airing is on top.
   const seasons = [...new Set(weeks.map(w => w.season))].sort((a, b) => b - a);
@@ -335,26 +410,28 @@ function render(data) {
       if (!w) { html += `<td${now(l)}></td>`; continue; }
       const idx = weeks.indexOf(w);
       const parts = w.rounds.length
-        ? w.rounds.map(r => `<span class="part">${esc(r.evicted || "—")}</span>`).join("")
+        ? w.rounds.map(partHtml).join("")
         : `<span class="part empty">—</span>`;
-      const badge = w.status === "ok" ? "" : `<span class="badge ${w.status}" aria-hidden="true">${w.status === "error" ? "×" : "!"}</span>`;
+      const badge = w.status === "ok" ? "" : `<i class="flag ${w.status}" aria-hidden="true"></i>`;
       html += `<td${now(l)}><button class="cell${w.rounds.length > 1 ? " multi" : ""}" data-i="${idx}" aria-label="${esc(cellLabel(w))}">${parts}${badge}</button></td>`;
     }
     html += "</tr>";
   }
   html += "</tbody></table>";
   document.getElementById("panel").innerHTML = html;
+  document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
+}
 
+function renderFooter(data) {
+  // Sources: each season's article on both wikis, linked to the revision used.
   const missing = (data.sources || []).filter(s => s.error).map(s => `BB${s.season} (${esc(s.error)})`);
+  const links = (list, pick) => list.map(s => `<a href="${esc(pick(s))}">BB${s.season}</a>`).join(" ");
   document.getElementById("footer").innerHTML =
-    `Data from the “voting history” tables on Wikipedia, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>: `
-    + (data.sources || []).filter(s => !s.error).map(s => `<a href="${esc(s.permalink || s.url)}">${esc(s.title)}</a>`).join(", ")
-    + `. Competition names, Have-Nots and houseguest bios from the <a href="https://bigbrother.fandom.com/">Big Brother Wiki</a>, used under <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>: `
-    + ((data.sources || []).filter(s => s.fandom).map(s => `<a href="${esc(s.fandom.permalink || s.fandom.url)}">${esc(s.fandom.title)}</a>`).join(", ") || "not fetched yet")
-    + `. Generated ${esc(data.generated_at)}.`
-    + (missing.length ? ` Missing: ${missing.join(", ")}.` : "");
-
-  wireTooltip(weeks);
+    `Sources: Wikipedia ${links((data.sources || []).filter(s => !s.error), s => s.permalink || s.url)} `
+    + `(<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>) · `
+    + `<a href="https://bigbrother.fandom.com/">Big Brother Wiki</a> ${links((data.sources || []).filter(s => s.fandom), s => s.fandom.permalink || s.fandom.url) || "(not fetched yet)"} `
+    + `(<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>) · Updated ${esc((data.generated_at || "").slice(0, 10))}`
+    + (missing.length ? ` · Missing: ${missing.join(", ")}` : "");
 }
 
 function wireTooltip(weeks) {
@@ -401,12 +478,12 @@ function wireTooltip(weeks) {
 
 // ---------- Detail views (loaded on demand from details.json) ----------
 
-let DATA = null, DETAILS = null, detailsPromise = null;
+let DATA = null, DETAILS = null, detailsPromise = null, CATEGORY_NAMES = [];
 function loadDetails() {
   if (!detailsPromise) {
     detailsPromise = fetch("details.json")
       .then(r => { if (!r.ok) throw new Error(r.status + " " + r.statusText); return r.json(); })
-      .then(d => (DETAILS = d))
+      .then(d => { CATEGORY_NAMES = (d.categories || []).map(c => c.name); return (DETAILS = d); })
       .catch(err => { detailsPromise = null; throw err; });
   }
   return detailsPromise;
@@ -440,7 +517,7 @@ function hideDrawer() {
 
 // Closing returns to the current view's own address.
 function closeDrawer() {
-  location.hash = currentView === "players" ? `#players=${currentSeason}` : "";
+  location.hash = currentView === "weeks" ? "" : `#${currentView}=${currentSeason}`;
 }
 
 function errorHtml(err) {
@@ -465,17 +542,17 @@ async function showWeek(season, label) {
   try { d = (await loadDetails()).weeks[`${season}|${label}`]; }
   catch (err) { return openDrawer(title, statusText(w), errorHtml(err)); }
   if (location.hash !== weekHash(season, label)) return;  // moved on while loading
-  const multi = w.rounds.length > 1;
   const summary = w.rounds.length
-    ? w.rounds.map((r, i) => roundHtml(r, multi ? `Round ${i + 1}${r.sub_label ? " · " + r.sub_label : ""}` : "")).join("")
+    ? w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
+  const different = specialHtml(d);
   openDrawer(title, statusText(w),
     `<h3>Summary</h3>${summary}`
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
     + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
     + (d.fandom && d.fandom.have_nots.length ? `<h3>Have-Nots</h3>${haveNotsHtml(w, d)}` : "")
-    + `<h3>What was different</h3>${specialHtml(d)}`
+    + (different ? `<h3>What was different</h3>${different}` : "")
     + checksHtml(w, d)
     + `<h3>Episodes</h3>${episodesHtml(d)}`);
 }
@@ -485,7 +562,7 @@ function votesHtml(w, d) {
   const multi = d.rounds.length > 1;
   return d.rounds.map((v, i) => {
     const r = w.rounds[i];
-    let html = multi ? `<h4>Round ${i + 1}${v.sub_label ? " · " + esc(v.sub_label) : ""}</h4>` : "";
+    let html = multi ? `<h4>${esc(roundLabel(w, i))}</h4>` : "";
     if (r.tally && r.tally.type === "sole_vote") {
       html += `<p>${plink(w.season, r.tally.by)} cast the sole vote to evict.</p>`;
     }
@@ -493,20 +570,19 @@ function votesHtml(w, d) {
     html += `<dl class="votes">` + v.by_nominee.map(n =>
       `<dt>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</dt>`
       + `<dd>${n.voters.length ? n.voters.map(x => plink(w.season, x)).join(", ") : `<span class="muted">No votes</span>`}</dd>`).join("") + `</dl>`;
-    if (v.not_voting.length) {
-      html += `<p class="voters" style="margin-top:10px">Didn’t vote: ${v.not_voting.map(x => `${plink(w.season, x.voter)} (${esc(x.reason)})`).join(", ")}</p>`;
-    }
     return html;
   }).join("");
 }
 
-const roundTitle = (w, i) => w.rounds.length > 1 ? `Round ${i + 1}${w.rounds[i].sub_label ? " · " + w.rounds[i].sub_label : ""}` : "";
+const roundTitle = roundLabel;
+const compHash = format => `#comp=${encodeURIComponent(format)}`;
+const catTag = c => c && c.category ? ` <span class="cat">${esc(c.category)}</span>` : "";
 
 // The competition that decided a round's HOH or veto: the Big Brother Wiki's
 // Competition History first, then a name found in Wikipedia's episode summaries.
 function roundComp(d, round, kind) {
   const f = d.fandom && d.fandom.comps.find(c => c.kind === kind && c.round === round && c.name);
-  if (f) return { name: f.name, format: f.format, winner: f.winners[0], fandom: true };
+  if (f) return { name: f.name, format: f.format, category: f.category, winner: f.winners[0], fandom: true };
   const e = d.comps.find(c => c.winner && c.kind === kind && c.round === round);
   return e ? { name: e.name, winner: e.winner } : null;
 }
@@ -514,7 +590,7 @@ function roundComp(d, round, kind) {
 function compsHtml(w, d) {
   const others = d.comps.filter(c => !c.winner);
   const kindName = { hoh: "HOH", veto: "Veto" };
-  const fmt = c => c.format ? ` <span class="muted">(format: ${esc(c.format)})</span>` : "";
+  const fmt = c => (c.format ? ` <span class="muted">(<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>)</span>` : "") + catTag(c);
   let html = "";
   w.rounds.forEach((r, i) => {
     const line = kind => {
@@ -538,7 +614,7 @@ function compsHtml(w, d) {
         + `${c.day ? ` <span class="muted">(Day ${esc(c.day)})</span>` : ""}</dd>`).join("") + `</dl>`;
   }
   if (d.fandom && d.fandom.comps.length) {
-    html += `<p class="voters" style="margin-top:8px">Competition names from the Big Brother Wiki’s Competition History.</p>`;
+    html += `<p class="voters" style="margin-top:8px">Big Brother Wiki</p>`;
   } else if (others.length) {
     html += `<p class="voters" style="margin-top:8px">Also mentioned in this week’s episodes: `
       + others.map(c => `“${esc(c.name)}” (${kindName[c.kind]})`).join(", ") + `</p>`;
@@ -574,7 +650,6 @@ function vetoHtml(w, d) {
     }
     return (title ? `<h4>${esc(title)}</h4>` : "") + body;
   }).join("");
-  html += `<p class="voters">Worked out from the nominations before and after the veto.</p>`;
   if (d.veto_notes.length) {
     html += `<details class="ep"><summary>From the episode summaries</summary>`
       + d.veto_notes.map(x => `<blockquote class="wnote">${esc(x)}</blockquote>`).join("") + `</details>`;
@@ -585,7 +660,7 @@ function vetoHtml(w, d) {
 function haveNotsHtml(w, d) {
   return `<ul class="plain">` + d.fandom.have_nots.map(h => `<li>${plink(w.season, h.name)}`
     + (h.chosen_by ? ` <span class="muted">(made a Have-Not by ${esc(h.chosen_by)})</span>` : "") + `</li>`).join("")
-    + `</ul><p class="voters">From the Big Brother Wiki’s Have/Have-Not History.</p>`;
+    + `</ul><p class="voters">Big Brother Wiki</p>`;
 }
 
 // Where the Big Brother Wiki's Game History table disagrees with Wikipedia.
@@ -598,12 +673,14 @@ function checksHtml(w, d) {
     + `</dl><p class="voters">The grid follows Wikipedia.</p>`;
 }
 
+// "" when nothing was different. A Block Buster alone is routine for its seasons, so it doesn't count.
 function specialHtml(d) {
   if (!d) return "";
-  const items = d.special.items.map(x => `<li>${esc(x)}</li>`).join("");
-  const notes = d.special.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia note [${esc(n.label)}]</cite></blockquote>`).join("");
-  if (!items && !notes) return `<p class="muted">Nothing unusual recorded for this week.</p>`;
-  return (items ? `<ul class="plain">${items}</ul>` : "") + notes;
+  let items = d.special.items;
+  if (items.every(x => /Block Buster/i.test(x))) items = [];
+  const notes = d.special.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia</cite></blockquote>`).join("");
+  if (!items.length && !notes) return "";
+  return (items.length ? `<ul class="plain">${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "") + notes;
 }
 
 function fmtDate(ep) {
@@ -616,8 +693,9 @@ function episodesHtml(d) {
   return d.episodes.map(ep => {
     const meta = [ep.days, fmtDate(ep), ep.viewers_millions != null ? `${ep.viewers_millions}M viewers` : ""].filter(Boolean).join(" · ");
     const head = `<strong>${esc(ep.title)}</strong> <span class="ep-meta">${esc(meta)}</span>`;
-    return ep.summary
-      ? `<details class="ep"><summary>${head}</summary><p>${esc(ep.summary)}</p></details>`
+    const paras = (ep.summary || "").split(/\n+/).map(x => x.trim()).filter(Boolean);
+    return paras.length
+      ? `<details class="ep"><summary>${head}</summary>${paras.map(x => `<p>${esc(x)}</p>`).join("")}</details>`
       : `<div class="ep">${head}</div>`;
   }).join("");
 }
@@ -632,18 +710,61 @@ function seasonList() {
 
 function setView(view) {
   currentView = view;
-  $("weeks-view").hidden = view !== "weeks";
-  $("players-view").hidden = view !== "players";
-  $("tab-weeks").setAttribute("aria-selected", view === "weeks");
-  $("tab-players").setAttribute("aria-selected", view === "players");
+  for (const v of ["weeks", "players", "comps"]) {
+    $(`${v}-view`).hidden = view !== v;
+    $(`tab-${v}`).setAttribute("aria-selected", view === v);
+  }
+}
+
+// Twist rows a season runs every week get their own column.
+const ARENA_RE = /AI Arena|Block Buster/i;
+const MONEY_RE = /\$/;
+const weekOf = key => key.replace(/ \((?:Day \d+|Inside|Outside|[^)]*)\)$/, "");
+
+function arenaLabel(season) {
+  for (const w of DATA.weeks) {
+    if (w.season !== season) continue;
+    for (const r of w.rounds) for (const k of Object.keys(r.extras || {})) {
+      const m = k.match(ARENA_RE);
+      if (m) return m[0];
+    }
+  }
+  return null;
+}
+
+// Twists: powers, safety and other twist wins. The Big Brother Wiki's twist
+// wins first (without money prizes), then any Wikipedia twist row in a week the
+// wiki has none for. AI Arena / Block Buster wins are counted on their own.
+function playerTwists(p) {
+  const f = p.fandom || {};
+  const wiki = (f.twist_wins || []).filter(t => !ARENA_RE.test(t.type) && !MONEY_RE.test(t.outcome || "") && !/luxury/i.test(t.type))
+    .map(t => ({ week: t.week, label: t.type + (t.name ? ` (“${t.name}”)` : ""), outcome: t.outcome }));
+  const weeks = new Set(wiki.map(t => t.week));
+  const table = p.twist.filter(t => !ARENA_RE.test(t.label) && !weeks.has(weekOf(t.week)))
+    .map(t => ({ week: weekOf(t.week), label: t.label.replace(/ winner$/i, "") }));
+  return [...wiki, ...table];
 }
 
 function playerStats(p) {
   const against = p.votes_against.reduce((n, x) => n + x.voters.length, 0);
   const withHouse = p.votes_cast.filter(v => v.with_house).length;
   return { hoh: p.hoh.length, veto: p.veto.length, noms: p.nominated.length, block: p.on_block.length,
-           against, cast: p.votes_cast.length, withHouse, twist: p.twist.length };
+           against, cast: p.votes_cast.length, withHouse,
+           arena: p.twist.filter(t => ARENA_RE.test(t.label)).length, twists: playerTwists(p).length };
 }
+
+// Age, hometown and occupation: Wikipedia's cast table, else the Big Brother Wiki.
+function playerBio(p) {
+  const b = p.bio || {}, f = p.fandom || {};
+  return {
+    full_name: f.full_name || b.full_name,
+    age: b.age != null ? b.age : f.age,
+    hometown: b.hometown || (f.hometown || []).join(" / ") || null,
+    occupation: b.occupation || f.occupation || null,
+  };
+}
+
+const pct = (n, d) => d ? `${Math.round(100 * n / d)}%` : "";
 
 async function showPlayers(season) {
   setView("players");
@@ -657,20 +778,33 @@ async function showPlayers(season) {
   if (currentSeason !== season) return;
   const rows = d.players.filter(p => p.season === season);
   const num = n => n ? n : `<span class="zero">0</span>`;
-  const hasBio = rows.some(p => p.fandom);
+  const dash = `<span class="zero">–</span>`;
+  const hasBio = rows.some(p => p.bio || p.fandom);
+  const hasHaveNots = rows.some(p => p.fandom);
+  const arena = arenaLabel(season);
   const info = (d.seasons || {})[season];
-  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + `<table class="players"><thead><tr>
-      <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>${hasBio ? `<th scope="col">Age</th>` : ""}
-      <th scope="col">HOHs</th><th scope="col">Vetoes</th><th scope="col">Twist wins</th><th scope="col">Noms</th><th scope="col">Final noms</th>
-      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th>${hasBio ? `<th scope="col">Have-Not wks</th>` : ""}
+  const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
+  // Column groups: who they are, then comps, nominations and votes.
+  const groups = [["", 2], ...(hasBio ? [["", 3]] : []), ["Comps", arena ? 4 : 3], ["Nominations", 2], ["Votes", 3],
+                  ...(hasHaveNots ? [["", 1]] : [])];
+  const grp = groups.map(([label, n], i) => `<th colspan="${n}"${i > (hasBio ? 1 : 0) ? ` class="gs"` : ""}>${esc(label)}</th>`).join("");
+  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + `<table class="players"><thead>
+    <tr class="grp">${grp}</tr><tr>
+      <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
+      ${hasBio ? th("Age", "", "bio num") + th("Hometown", "", "bio") + th("Occupation", "", "bio") : ""}
+      ${th("HOHs", "", "gs")}${th("Vetoes")}${arena ? th(arena, `${arena} wins`) : ""}${th("Twists", "Powers, safety and other twist wins")}
+      ${th("Noms", "Nominated", "gs")}${th("Final noms", "On the block at the vote")}
+      ${th("VTE", "Votes to evict them", "gs")}${th("Cast", "Votes cast")}${th("With house", "Votes cast with the majority")}
+      ${hasHaveNots ? th("Have-Not wks", "", "gs") : ""}
     </tr></thead><tbody>` + rows.map(p => {
       const s = playerStats(p);
-      const f = p.fandom || {};
+      const b = playerBio(p);
       return `<tr><td>${plink(season, p.name)}</td><td class="result">${esc(p.result || "In the game")}</td>`
-        + (hasBio ? `<td>${f.age != null ? f.age : `<span class="zero">–</span>`}</td>` : "")
-        + `<td>${num(s.hoh)}</td><td>${num(s.veto)}</td><td>${num(s.twist)}</td><td>${num(s.noms)}</td><td>${num(s.block)}</td>`
-        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td>`
-        + (hasBio ? `<td>${num((f.have_not || []).length)}</td>` : "") + `</tr>`;
+        + (hasBio ? `<td class="bio num">${b.age != null ? b.age : dash}</td><td class="bio">${b.hometown ? esc(b.hometown) : dash}</td><td class="bio">${b.occupation ? esc(b.occupation) : dash}</td>` : "")
+        + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td>${num(s.arena)}</td>` : ""}<td>${num(s.twists)}</td>`
+        + `<td class="gs">${num(s.noms)}</td><td>${num(s.block)}</td>`
+        + `<td class="gs">${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? pct(s.withHouse, s.cast) : dash}</td>`
+        + (hasHaveNots ? `<td class="gs">${num(((p.fandom || {}).have_not || []).length)}</td>` : "") + `</tr>`;
     }).join("") + `</tbody></table>`;
 }
 
@@ -708,6 +842,7 @@ async function showPlayer(season, name) {
   const p = d.players.find(x => x.season === season && x.name === name);
   if (!p) return openDrawer(title, status, `<p class="muted">No player by that name in BB${season}.</p>`);
   const s = playerStats(p);
+  const f = p.fandom || {};
   const events = new Map();
   const add = (week, html) => { if (!events.has(week)) events.set(week, []); events.get(week).push(html); };
   // Look up a round's details from its timeline key, e.g. "Week 10 (Day 67)".
@@ -717,9 +852,11 @@ async function showPlayer(season, name) {
     const wd = d.weeks[`${season}|${at.label}`];
     return wd ? { comp: kind => roundComp(wd, at.i + 1, kind), veto: (wd.rounds[at.i] || {}).veto } : {};
   };
+  const wins = Object.fromEntries(CATEGORY_NAMES.map(c => [c, 0]));
   const compName = (k, kind) => {
     const info = roundInfo(k), c = info.comp && info.comp(kind);
-    return c ? ` <span class="muted">(“${esc(c.name)}”)</span>` : "";
+    if (c && c.category) wins[c.category]++;
+    return c ? ` <span class="muted">(“${esc(c.name)}”${c.format ? `, <a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : ""})</span>${catTag(c)}` : "";
   };
   p.hoh.forEach(w => add(w, "Won HOH" + compName(w, "hoh")));
   p.veto.forEach(w => add(w, "Won the veto" + compName(w, "veto")));
@@ -734,70 +871,151 @@ async function showPlayer(season, name) {
   p.votes_against.forEach(v => add(v.week, `${plural(v.voters.length, "vote")} to evict them (${v.voters.map(x => plink(season, x)).join(", ")})`));
   p.votes_cast.forEach(v => add(v.week, `Voted to evict ${plink(season, v.vote)}${v.with_house ? "" : " <span class=\"tag\">against the house</span>"}`));
   if (p.evicted) add(p.evicted, "<strong>Evicted</strong>");
-  const f = p.fandom || {};
   // Have-Not weeks and twist wins are per week, so they go on the week's first round.
   const firstKey = new Map();
   roundKeys(season).forEach(([k, label]) => { if (!firstKey.has(label)) firstKey.set(label, k); });
   (f.have_not || []).forEach(label => firstKey.has(label) && add(firstKey.get(label), "Have-Not"));
   const wikiTwistWeeks = new Set(p.twist.map(t => keys.has(t.week) ? keys.get(t.week).label : t.week));
   (f.twist_wins || []).filter(t => !wikiTwistWeeks.has(t.week)).forEach(t =>
-    firstKey.has(t.week) && add(firstKey.get(t.week), `Won ${esc(t.type)}${t.name ? ` <span class="muted">(“${esc(t.name)}”)</span>` : ""}`));
+    firstKey.has(t.week) && add(firstKey.get(t.week), `${esc(t.type)}: ${esc(t.outcome || "won")}${t.name ? ` <span class="muted">(“${esc(t.name)}”)</span>` : ""}`));
+  const byCat = CATEGORY_NAMES.filter(c => wins[c]).map(c => `${c} ${wins[c]}`);
   const timeline = roundKeys(season).filter(([k]) => events.has(k)).map(([k, label]) =>
     `<li><a class="plink" href="${weekHash(season, label)}">${esc(k)}</a><div>${events.get(k).join("<br>")}</div></li>`).join("");
   openDrawer(title, `BB${season} · ${p.result || "In the game"}`,
-    bioHtml(f, season)
+    bioHtml(p, season)
     + `<div class="stats">
        <div class="stat"><b>${s.hoh}</b><span>HOHs</span></div>
        <div class="stat"><b>${s.veto}</b><span>Vetoes</span></div>
        <div class="stat"><b>${s.noms}</b><span>Noms</span></div>
        <div class="stat"><b>${s.against}</b><span>Votes against</span></div>
      </div>
-     <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${s.withHouse} with the house` : ""}${s.twist ? ` · ${plural(s.twist, "twist win")}` : ""}</p>
+     <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${pct(s.withHouse, s.cast)} with the house` : ""}${s.arena ? ` · ${s.arena} ${esc(arenaLabel(season) || "")}` : ""}${s.twists ? ` · ${plural(s.twists, "twist")}` : ""}</p>
+     ${byCat.length ? `<p class="voters">Comp wins by type: ${esc(byCat.join(" · "))}</p>` : ""}
      <h3>Week by week</h3>
      ${timeline ? `<ul class="timeline">${timeline}</ul>` : `<p class="muted">Nothing recorded in the modeled weeks.</p>`}
-     <p class="voters" style="margin-top:12px">Counted from the weeks the grid models; twist rounds shown as notes aren’t included.${(f.have_not || []).length || (f.twist_wins || []).length ? " Have-Not weeks and other twist wins are from the Big Brother Wiki." : ""}</p>`);
+     <p class="voters" style="margin-top:12px">Twist weeks the grid doesn’t model aren’t counted.</p>`);
 }
 
-function bioHtml(f, season) {
-  if (!f || !f.page) return "";
+function bioHtml(p, season) {
+  const f = p.fandom || {}, b = playerBio(p);
   const rows = [
-    ["Full name", f.full_name],
-    ["Age", f.age != null ? `${f.age} at the premiere` : null],
-    ["Hometown", (f.hometown || []).join(" / ")],
-    ["Occupation", f.occupation],
+    ["Full name", b.full_name],
+    ["Age", b.age != null ? String(b.age) : null],
+    ["Hometown", b.hometown],
+    ["Occupation", b.occupation],
     ["Days", f.days],
     ["Alliances", (f.alliances || []).join(", ")],
     ["Other seasons", (f.seasons || []).filter(x => x !== `Big Brother ${season} (US)`).join(", ")],
   ].filter(([, v]) => v);
+  if (!rows.length) return "";
   return `<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`
-    + `<p class="voters">${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.page)} on the Big Brother Wiki</a>` : ""}</p>`;
+    + (f.url ? `<p class="voters"><a href="${esc(f.url)}" target="_blank" rel="noopener">Big Brother Wiki</a></p>` : "");
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela ----------
+// ---------- Comps: every HOH and veto competition, and a page per format ----------
+
+async function showComps(season) {
+  setView("comps");
+  currentSeason = season;
+  $("comps-season-pick").innerHTML = seasonList().map(s =>
+    `<button aria-pressed="${s === season}" data-season="${s}">BB${s}</button>`).join("");
+  const panel = $("comps-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading competitions…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentSeason !== season) return;
+  const rows = [];
+  DATA.weeks.filter(w => w.season === season).forEach(w => {
+    const wd = d.weeks[`${season}|${w.week_label}`];
+    ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => c.kind !== "twist").forEach(c => rows.push({ w, c }));
+  });
+  if (!rows.length) { panel.innerHTML = `<div class="msg">No competitions listed for BB${season}.</div>`; return; }
+  const counts = Object.fromEntries(CATEGORY_NAMES.map(c => [c, 0]));
+  rows.forEach(({ c }) => { if (c.category) counts[c.category]++; });
+  const help = Object.fromEntries((d.categories || []).map(c => [c.name, c.help]));
+  const unknown = rows.filter(({ c }) => !c.category).length;
+  panel.innerHTML = `<div class="cat-bar">${CATEGORY_NAMES.map(c => `<span title="${esc(help[c] || "")}"><b>${counts[c]}</b> ${esc(c)}</span>`).join("")}`
+    + (unknown ? `<span class="muted">${unknown} not typed</span>` : "") + `</div>`
+    + `<table class="players comps"><thead><tr><th scope="col">Week</th><th scope="col">Day</th><th scope="col">Comp</th><th scope="col">Name</th>`
+    + `<th scope="col">Format</th><th scope="col">Type</th><th scope="col">Won by</th></tr></thead><tbody>`
+    + rows.map(({ w, c }) => `<tr><td><a class="plink" href="${weekHash(season, w.week_label)}">${esc(w.week_label)}</a></td>`
+      + `<td class="day">${esc(c.day || "")}</td><td>${esc(c.type)}</td><td>${c.name ? `“${esc(c.name)}”` : `<span class="zero">–</span>`}</td>`
+      + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : `<span class="zero">–</span>`}</td>`
+      + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
+      + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+    + `</tbody></table><p class="season-info">Types are worked out from each format and the episode summaries.</p>`;
+}
+
+async function showFormat(format) {
+  openDrawer(format, "Competition format", `<p class="muted">Loading…</p>`);
+  let d;
+  try { d = await loadDetails(); } catch (err) { return openDrawer(format, "", errorHtml(err)); }
+  if (location.hash !== compHash(format)) return;
+  const f = (d.formats || {})[format];
+  if (!f) return openDrawer(format, "Competition format", `<p class="muted">No competition by that format in these seasons.</p>`);
+  const help = Object.fromEntries((d.categories || []).map(c => [c.name, c.help]));
+  const about = f.about;
+  const kinds = [...new Set(f.plays.map(x => x.kind === "hoh" ? "HOH" : "Veto"))].join(" and ");
+  const winners = new Map();
+  f.plays.forEach(x => x.winners.forEach(n => { const k = `${x.season}|${n}`; winners.set(k, (winners.get(k) || 0) + 1); }));
+  const repeat = [...winners].filter(([, n]) => n > 1).map(([k, n]) => { const [season, name] = k.split("|"); return `${plink(+season, name)} (BB${season}) ×${n}`; });
+  openDrawer(format, `${plural(f.plays.length, "play")} · ${kinds}${f.category ? ` · ${f.category}` : ""}`,
+    (f.category ? `<p><span class="cat">${esc(f.category)}</span> <span class="muted">${esc(help[f.category] || "")}</span></p>` : "")
+    + (about ? `<h3>How it works</h3><blockquote class="wnote">${esc(about.text)}<cite>BB${about.season} ${esc(about.week)} · Wikipedia</cite></blockquote>` : "")
+    + `<h3>Every play</h3><ul class="timeline">` + f.plays.map(x =>
+      `<li><a class="plink" href="${weekHash(x.season, x.week)}">BB${x.season} · ${esc(x.week.replace(/^Week\s*/i, "Wk "))}</a>`
+      + `<div>${x.kind === "hoh" ? "HOH" : "Veto"}${x.name ? `: “${esc(x.name)}”` : ""}`
+      + `${x.winners.length ? ` · won by ${x.winners.map(n => plink(x.season, n)).join(" & ")}` : ""}${x.day ? ` <span class="muted">(Day ${esc(x.day)})</span>` : ""}</div></li>`).join("")
+    + `</ul>` + (repeat.length ? `<p class="voters" style="margin-top:10px">Won more than once: ${repeat.join(", ")}</p>` : "")
+    + `<p class="voters" style="margin-top:12px"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
+}
+
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall ----------
 
 function route() {
   if (!DATA) return;
-  const m = location.hash.match(/^#(week|players|player)=(\d+)(?:\/(.*))?$/);
   const newest = seasonList()[0];
+  const fm = location.hash.match(/^#comp=(.+)$/);
+  if (fm) {
+    if (currentView === "weeks" && !currentSeason) currentSeason = newest;
+    return showFormat(decodeURIComponent(fm[1]));
+  }
+  const m = location.hash.match(/^#(week|players|player|comps)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
   if (kind === "week") {
-    if (currentView !== "players") setView("weeks");
+    if (currentView === "weeks") setView("weeks");
     showWeek(season, rest);
+  } else if (kind === "comps") {
+    hideDrawer();
+    showComps(season || newest);
   } else if (kind === "players") {
     hideDrawer();
     showPlayers(season || newest);
   } else {
-    if (currentView !== "players" || currentSeason !== season) showPlayers(season);
+    // A player opened from the Comps view keeps that view behind the drawer.
+    if (!(["players", "comps"].includes(currentView) && currentSeason === season)) showPlayers(season);
     showPlayer(season, rest);
   }
 }
 
 $("tab-weeks").addEventListener("click", () => { location.hash = ""; });
 $("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
+$("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
+$("comps-season-pick").addEventListener("click", e => {
+  const b = e.target.closest("button[data-season]");
+  if (b) location.hash = `#comps=${b.dataset.season}`;
+});
 $("season-pick").addEventListener("click", e => {
   const b = e.target.closest("button[data-season]");
   if (b) location.hash = `#players=${b.dataset.season}`;
+});
+$("grid-mode").addEventListener("click", e => {
+  const b = e.target.closest("button[data-mode]");
+  if (!b || !DATA) return;
+  gridMode = b.dataset.mode;
+  try { localStorage.setItem("gridMode", gridMode); } catch (err) {}
+  renderGrid(DATA);
 });
 $("drawer-close").addEventListener("click", closeDrawer);
 $("scrim").addEventListener("click", closeDrawer);

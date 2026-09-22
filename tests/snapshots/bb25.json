@@ -30,7 +30,8 @@
      "votes_to_evict": 13,
      "votes_cast": 13
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -67,7 +68,8 @@
      "votes_to_evict": 12,
      "votes_cast": 12
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -104,7 +106,8 @@
      "votes_to_evict": 11,
      "votes_cast": 11
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -139,7 +142,8 @@
      "votes_to_evict": 10,
      "votes_cast": 10
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -176,7 +180,8 @@
      "votes_to_evict": 8,
      "votes_cast": 10
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -211,7 +216,8 @@
      "votes_to_evict": 8,
      "votes_cast": 9
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -246,7 +252,8 @@
      "votes_to_evict": 8,
      "votes_cast": 8
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 51",
@@ -270,7 +277,8 @@
      "votes_to_evict": 6,
      "votes_cast": 7
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -458,7 +466,8 @@
      "votes_to_evict": 7,
      "votes_cast": 7
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -493,7 +502,8 @@
      "votes_to_evict": 6,
      "votes_cast": 6
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -529,7 +539,8 @@
      "votes_to_evict": 5,
      "votes_cast": 5
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -567,7 +578,8 @@
      "votes_to_evict": 4,
      "votes_cast": 4
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 86",
@@ -591,7 +603,8 @@
      "votes_to_evict": 3,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -628,7 +641,8 @@
      "votes_to_evict": 2,
      "votes_cast": 2
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -639,7 +653,7 @@
   "week": 14,
   "week_label": "Week 14",
   "status": "note",
-  "note": "Finale; Double eviction",
+  "note": "Finale; Two evictions",
   "rounds": [
    {
     "sub_label": "Day 94",
@@ -662,7 +676,8 @@
      "type": "sole_vote",
      "by": "Jag"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 100",
@@ -680,7 +695,8 @@
      "type": "sole_vote",
      "by": "Jag"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {

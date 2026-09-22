@@ -2,8 +2,10 @@
 import json
 from datetime import datetime, timezone
 
-from .config import CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, load_fandom_seasons, load_seasons, page_url
+from .comps import CATEGORIES, CATEGORY_HELP, categorize, explains
+from .config import CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, fandom_url, load_fandom_seasons, load_seasons, page_url
 from .fetch import load_cached, load_fandom_cached
+from .cast import bios
 from .details import players, week_details
 from .enrich import enrich_season
 from .fandom import parse_season as parse_fandom_season
@@ -20,6 +22,7 @@ def finalize(record):
     for rnd in record["rounds"]:
         rnd.pop("_vote_cells", None)
         rnd.pop("_voters", None)
+        rnd.pop("_col", None)
     return record
 
 
@@ -32,6 +35,7 @@ def process_season_full(season, html):
     """Week records plus the detail-view data for one season.
 
     Returns {"weeks", "details", "players", "unmatched"}; see details.py.
+    Each player also gets "bio" from the cast table (see cast.py), or None.
     """
     grid = build_grid(html)
     records = interpret(grid, season)
@@ -40,12 +44,49 @@ def process_season_full(season, html):
     # Details need the interpreter's internal keys, so build them before finalize().
     detail = week_details(records, grid.notes, episodes_by_week(build_episode_grid(html)))
     people, unmatched = players(season, records, houseguests(grid))
+    # Age, occupation and hometown from the season's cast table.
+    cast = bios(html, [p["name"] for p in people])
+    for p in people:
+        p["bio"] = cast.get(p["name"])
     return {
         "weeks": [finalize(r) for r in records],
         "details": detail,
         "players": people,
         "unmatched": unmatched,
     }
+
+
+def comp_index(details):
+    """Categorize every HOH and veto competition in place; return the format index.
+
+    Returns {format: {"url", "category", "about", "plays": [...]}}, each play being
+    {"season", "week", "kind", "name", "winners", "day", "category", "about"},
+    oldest first. Competitions with no format are categorized but not indexed.
+    """
+    plays = []
+    for key, d in details.items():
+        season, week = key.split("|", 1)
+        for c in (d.get("fandom") or {}).get("comps", []):
+            if c["kind"] in ("hoh", "veto"):
+                plays.append((int(season), week, c))
+    categorize([c for _, _, c in plays])
+    index = {}
+    for season, week, c in plays:
+        if not c["format"]:
+            continue
+        entry = index.setdefault(c["format"], {"url": fandom_url(c["format"]), "plays": []})
+        entry["plays"].append({"season": season, "week": week, "kind": c["kind"], "name": c["name"],
+                               "winners": c["winners"], "day": c["day"], "category": c["category"],
+                               "about": c["about"]})
+    for entry in index.values():
+        entry["plays"].sort(key=lambda p: (p["season"], int(p["day"].split("-")[0]) if (p["day"] or "").split("-")[0].isdigit() else 0))
+        cats = [p["category"] for p in entry["plays"] if p["category"]]
+        entry["category"] = max(set(cats), key=cats.count) if cats else None
+        # The newest description that says how it's played, else the newest one.
+        about = [p for p in entry["plays"] if p["about"]]
+        best = ([p for p in about if explains(p["about"])] or about)[-1:]
+        entry["about"] = {"text": best[0]["about"], "season": best[0]["season"], "week": best[0]["week"]} if best else None
+    return dict(sorted(index.items(), key=lambda kv: kv[0].casefold()))
 
 
 LICENSE = ("Wikipedia content, CC BY-SA 4.0; "
@@ -120,9 +161,11 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
     }
     (out_dir / "weeks.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     # Detail views load this separately, so the main grid stays light.
+    formats = comp_index(details)
     detail_doc = {"generated_at": doc["generated_at"], "license": doc["license"],
                   "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
-                  "weeks": details, "players": people}
+                  "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
+                  "formats": formats, "weeks": details, "players": people}
     (out_dir / "details.json").write_text(json.dumps(detail_doc, ensure_ascii=False, separators=(",", ":")) + "\n",
                                           encoding="utf-8")
     report = make_report(weeks, season_errors, unmatched, fandom_lines)

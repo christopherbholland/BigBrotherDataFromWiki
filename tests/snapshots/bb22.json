@@ -33,7 +33,8 @@
       "Kaysar",
       "(Janelle)"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -75,7 +76,8 @@
       "Christmas",
       "(Ian)"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -117,7 +119,8 @@
       "Enzo",
       "(Christmas)"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -154,7 +157,8 @@
      "votes_to_evict": 10,
      "votes_cast": 10
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -195,7 +199,8 @@
       "Dani",
       "David"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -231,7 +236,8 @@
      "votes_to_evict": 5,
      "votes_cast": 8
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -268,7 +274,8 @@
      "votes_to_evict": 5,
      "votes_cast": 7
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -303,7 +310,8 @@
      "votes_to_evict": 6,
      "votes_cast": 6
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 58",
@@ -327,7 +335,8 @@
      "votes_to_evict": 3,
      "votes_cast": 5
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -364,7 +373,8 @@
      "votes_to_evict": 3,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -399,7 +409,8 @@
      "votes_to_evict": 2,
      "votes_cast": 2
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -433,7 +444,8 @@
      "type": "sole_vote",
      "by": "Cody"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -462,7 +474,8 @@
      "type": "sole_vote",
      "by": "Cody"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {

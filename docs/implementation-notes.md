@@ -17,7 +17,8 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
 - The top-row labels are the same in every season: `Head of Household`,
   `Nominations (initial)`, `Veto winner` (BB21–22) or `Veto winner(s)` (BB23+), and
   `Nominations (final)`. No mapping changes were needed.
-- Tally text is always `X of Y votes to evict` or `<name>'s choice to evict`.
+- Tally text is always `X of Y votes to evict` or `<name>'s choice to evict`. (The page
+  shows a vote as `X–(Y−X)`, e.g. `12–0`.)
 
 **Twist rows, which land in `extras` without any code for them**
 
@@ -50,6 +51,13 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
   "Inside" and "Outside" (the split house), and BB21 Weeks 1 and 3, BB27 Week 9 and BB28
   Week 8 pair an ordinary eviction with a twist round. These get the note
   `Two rounds: <column> / <column>` instead of `Double eviction` (see Status rules).
+- Two evictions in one Wikipedia week aren't always a double eviction either. A round's
+  "Day N" column label is its nomination day. In a true (fast-forward) double eviction
+  that is also the day its evictee left, since the whole round is played in one night;
+  their vote row reads "Evicted (Day N)" (BB25's "Zombie (Day 51)" counts too). BB27
+  Week 11's second round was nominated on Day 77 but evicted on Day 80, so that week is
+  `Two evictions`. The Big Brother Wiki's competition days agree on every season:
+  each double-eviction round's HOH and veto are on the same day.
 - BB25's last week has three columns (Day 94, Day 100, Finale): two sole-vote rounds plus
   the Finale.
 - BB28 was still airing when fetched. Week 11's second round and Week 12 have no
@@ -123,9 +131,12 @@ the first.
 ## Status rules as implemented
 
 - One non-Finale sub-column: one round, `ok` if it passes validation.
-- Two non-Finale sub-columns: two rounds, `ok`. The note is `Double eviction` only when
-  both sub-labels are "Day N" and neither round has a non-standard outcome. Otherwise it
-  is `Two rounds: <label> / <label>`, e.g. BB24's split house, `Two rounds: Inside / Outside`.
+- Two non-Finale sub-columns: two rounds, `ok`. The note is `Double eviction` when a round
+  after the first has `double_eviction` (its "Day N" label is its evictee's exit day, and
+  it had a veto, so a final-HOH round never counts). It is `Two evictions` when both
+  sub-labels are "Day N" and both rounds are ordinary evictions. Otherwise it is
+  `Two rounds: <label> / <label>`, e.g. BB24's split house, `Two rounds: Inside / Outside`,
+  or a round still to be played.
 - A Finale sub-column is never a round. It sets `note` / `Finale`, and the week's regular
   column is still modeled as a round and validated.
 - Three or more non-Finale sub-columns: `note`, no rounds, raw text kept.

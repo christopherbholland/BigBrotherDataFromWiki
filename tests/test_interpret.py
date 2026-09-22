@@ -38,6 +38,16 @@ def test_double_eviction():
     assert [r["sub_label"] for r in w["rounds"]] == ["Day 20", "Day 23"]
     assert [r["evicted"] for r in w["rounds"]] == ["Gus", "Dana"]
     assert w["rounds"][1]["hoh"] == ["Hana"]
+    # Round 2 was played the night of round 1's eviction: Dana left on its column's day.
+    assert [r["double_eviction"] for r in w["rounds"]] == [False, True]
+
+
+def test_two_evictions_days_apart_are_not_a_double_eviction():
+    # Round 2's label is its nomination day; its evictee left three days later.
+    html = FIXTURE.replace("Evicted (Day 23)", "Evicted (Day 26)")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["status"] == "ok" and w["note"] == "Two evictions"
+    assert [r["double_eviction"] for r in w["rounds"]] == [False, False]
 
 
 def test_finale_column_is_not_a_round():
@@ -77,7 +87,7 @@ def test_double_eviction_with_one_round_unfinished_keeps_the_finished_round():
     html = FIXTURE.replace("<td>Dana<br /><small>2 of 2 votes<br />to evict</small></td>", "<td></td>")
     w = {w["week"]: w for w in process_season(99, html)}[3]
     assert w["status"] == "note"
-    assert w["note"] == "Double eviction; Round 2 (Day 23): No eviction"
+    assert w["note"] == "Two rounds: Day 20 / Day 23; Round 2 (Day 23): No eviction"
     assert [r["evicted"] for r in w["rounds"]] == ["Gus"]
 
 
