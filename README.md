@@ -97,6 +97,7 @@ python -m bbgrid fetch            # fetch all seasons in seasons.yaml into cache
 python -m bbgrid inspect 21 26    # print table headers and row-label mapping (for checking)
 python -m bbgrid build            # cache/ -> web/weeks.json, web/details.json, report.txt
 python -m bbgrid refresh 28       # refetch one season, then build
+python -m bbgrid proofread        # web/*.json -> proofread.xlsx, a sheet for checking every fact
 
 python -m http.server -d web      # then open http://localhost:8000
 pytest
