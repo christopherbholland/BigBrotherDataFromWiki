@@ -2,12 +2,15 @@ name: Fetch Wikipedia pages
 
 # Fetches each season's page into cache/, rebuilds web/weeks.json, details.json and
 # report.txt, and commits them back to the branch if any page changed.
-# Runs when this file or seasons.yaml changes, or by hand from the Actions tab.
+# Runs daily, when this file or seasons.yaml changes, or by hand from the Actions tab.
 on:
   push:
     paths:
       - .github/workflows/fetch.yml
       - seasons.yaml
+  schedule:
+    # Daily at 14:00 UTC, so the hosted page picks up last night's episode.
+    - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
       seasons:

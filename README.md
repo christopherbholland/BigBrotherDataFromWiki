@@ -111,7 +111,7 @@ To add a season, add a line to `seasons.yaml`.
 
 The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 
-- **Host it** on GitHub Pages or any static host. Serve `web/` over HTTP.
+- **Host it** on GitHub Pages: `.github/workflows/pages.yml` publishes `web/`, so you can use it from a phone. See the integration guide for setup.
 - **Embed it** in another site with an iframe; `?embed=1` hides the page's title:
   ```html
   <iframe src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
@@ -123,7 +123,7 @@ The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 - **Keep it fresh** by running the **Fetch Wikipedia pages** action. It refetches the
   pages, rebuilds `weeks.json`, and commits the changes.
 
-Step-by-step instructions, including a ready-made GitHub Pages workflow and the full data
+Step-by-step instructions, including GitHub Pages setup and the full data
 format, are in [`docs/integration.md`](docs/integration.md).
 
 ## Tests
