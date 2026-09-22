@@ -49,7 +49,7 @@ jobs:
           git add cache/ web/weeks.json web/details.json report.txt proofread.xlsx
           # Only the fetch timestamps change when a page hasn't been edited, so compare
           # the pages themselves. Staged, so newly added pages count too.
-          if git diff --cached --quiet -- 'cache/*.html' 'cache/*.wikitext' 'cache/*.houseguests.json'; then
+          if git diff --cached --quiet -- 'cache/*.html' 'cache/*.wikitext' 'cache/*.houseguests.json' 'cache/*.formats.json'; then
             echo "Wiki pages unchanged; nothing to commit"
           else
             git commit -m "Update wiki page cache and weeks.json"

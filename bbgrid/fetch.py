@@ -5,8 +5,9 @@ cache/ only; refetching is an explicit command (`python -m bbgrid fetch`).
 
 Two wikis, both MediaWiki:
   Wikipedia          cache/bbNN.html + bbNN.meta.json (the grid's source)
-  Big Brother Wiki   cache/fandom/bbNN.html, .wikitext, .meta.json, and
-                     .houseguests.json (the lead section of each houseguest's page)
+  Big Brother Wiki   cache/fandom/bbNN.html, .wikitext, .meta.json,
+                     .houseguests.json (the lead section of each houseguest's page) and
+                     .formats.json (the lead of each recurring competition's page)
 """
 import json
 import time
@@ -91,6 +92,7 @@ def fandom_paths(season, cache_dir=FANDOM_CACHE_DIR):
         "wikitext": base.with_suffix(".wikitext"),
         "meta": base.with_suffix(".meta.json"),
         "houseguests": base.with_suffix(".houseguests.json"),
+        "formats": base.with_suffix(".formats.json"),
     }
 
 
@@ -134,26 +136,33 @@ def fetch_leads(titles, session=None, api_url=FANDOM_API_URL):
 
 
 def fetch_fandom_season(season, title, cache_dir=FANDOM_CACHE_DIR, session=None):
-    """Fetch a season's Big Brother Wiki page, then its houseguests' pages."""
-    from .fandom import houseguest_links  # parsing lives in fandom.py
+    """Fetch a season's Big Brother Wiki page, then its houseguests' and competition formats' pages."""
+    from bs4 import BeautifulSoup
+
+    from .fandom import competitions, houseguest_links  # parsing lives in fandom.py
 
     session = session or requests.Session()
     html, revid, wikitext = fetch_page(title, session=session, api_url=FANDOM_API_URL, wikitext=True)
     time.sleep(PAUSE)
     links = houseguest_links(html)
     leads = fetch_leads([t for t, _ in links], session=session)
+    formats = sorted({c["format"] for c in competitions(BeautifulSoup(html, "lxml")) if c["format"]})
+    format_leads = fetch_leads(formats, session=session)
     cache_dir.mkdir(parents=True, exist_ok=True)
     paths = fandom_paths(season, cache_dir)
     paths["html"].write_text(html, encoding="utf-8")
     paths["wikitext"].write_text(wikitext, encoding="utf-8")
     paths["houseguests"].write_text(json.dumps(leads, indent=1, ensure_ascii=False, sort_keys=True) + "\n",
                                     encoding="utf-8")
+    paths["formats"].write_text(json.dumps(format_leads, indent=1, ensure_ascii=False, sort_keys=True) + "\n",
+                                encoding="utf-8")
     meta = {
         "season": season,
         "title": title,
         "revid": revid,
         "houseguest_pages": len(leads),
         "missing_pages": sorted(t for t, _ in links if t not in leads),
+        "format_pages": len(format_leads),
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
     paths["meta"].write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
@@ -161,7 +170,7 @@ def fetch_fandom_season(season, title, cache_dir=FANDOM_CACHE_DIR, session=None)
 
 
 def load_fandom_cached(season, cache_dir=FANDOM_CACHE_DIR):
-    """Return {"html", "wikitext", "houseguests", "meta"}, or None if the season isn't cached."""
+    """Return {"html", "wikitext", "houseguests", "formats", "meta"}, or None if the season isn't cached."""
     paths = fandom_paths(season, cache_dir)
     if not paths["html"].exists():
         return None
@@ -173,5 +182,6 @@ def load_fandom_cached(season, cache_dir=FANDOM_CACHE_DIR):
         "html": read("html", ""),
         "wikitext": read("wikitext", ""),
         "houseguests": json.loads(read("houseguests", "{}")),
+        "formats": json.loads(read("formats", "{}")),
         "meta": json.loads(read("meta", "{}")),
     }

@@ -90,7 +90,8 @@ The file has this shape:
     {
       "season": 26, "week": 10, "week_label": "Week 10",
       "status": "ok",                  // "ok" | "note" | "error"
-      "note": "Double eviction",       // why it isn't plain; null for an ordinary week
+      "note": "Double eviction",       // why it isn't plain; null for an ordinary week.
+                                       // "Two evictions" when both rounds are ordinary weeks
       "rounds": [
         {
           "sub_label": "Day 67",       // null for a one-round week
@@ -101,7 +102,8 @@ The file has this shape:
           "evicted": "Leah",
           "tally": { "type": "vote", "votes_to_evict": 4, "votes_cast": 4 },
           // or { "type": "sole_vote", "by": "Makensy" }
-          "extras": { "AI Arena winner": ["Kimo"] }   // twist rows, keyed by table label
+          "extras": { "AI Arena winner": ["Kimo"] },  // twist rows, keyed by table label
+          "double_eviction": false     // true for a round played in one night (see below)
         }
       ],
       "raw": null,                     // for note/error weeks: the week's table text
@@ -116,6 +118,11 @@ Things to know:
 - **`rounds` can be empty or partial.** A `note` week may leave out rounds it can't
   model: a twist, a week still airing, or a Finale column. `note` explains why, and
   `raw` has the table text.
+- **Double evictions.** Wikipedia lists both of a week's evictions under one week header,
+  but only a fast-forward round is a double eviction: HOH, nominations, veto and eviction
+  all on the night of the previous eviction. That round has `double_eviction: true`
+  (e.g. BB28 Week 10's second round, Yash). A week whose two rounds were both ordinary,
+  a few days apart, has the note `Two evictions`.
 - **`raw` shape.** `{columns: [...], rows: [{label, cells: [...]}]}`, with one cell per
   sub-column.
 - **Week keys.** `week` is the number from the table header; `week_label` is the header
@@ -150,7 +157,7 @@ Things to know:
       ],
       "veto_notes": ["At the Veto Meeting, Makensy … used the Veto on Kimo."],
       "special": {
-        "items": ["AI Arena winner: Makensy"],     // twist rows and unusual outcomes
+        "items": ["AI Arena: Makensy"],     // twist rows and unusual outcomes
         "notes": [{ "label": "b", "text": "Quinn activated the Deepfake HoH, …" }]
       },
       "episodes": [{
@@ -164,13 +171,28 @@ Things to know:
           "type": "HOH", "name": "Bad AI", "format": "Knockout",  // format: the recurring comp, or null
           "day": "24", "winners": ["Angela"], "outcome": "wins HOH", "won": true,
           "round": 1,                              // round whose HOH/veto winner it is; null otherwise
-          "extra": {}                              // other columns, e.g. BB25's {"Multiverse": "…"}
+          "extra": {},                             // other columns, e.g. BB25's {"Multiverse": "…"}
+          "about": "In the \"Bad A.I.\" Head of Household competition, …",  // episode-summary sentence, or null
+          "category": "Mental",                    // Endurance | Physical | Mental | Puzzle | Crapshoot | null
+          "category_from": "summary",              // "wiki" | "format" | "summary" | "other plays" | null
+          "wiki_category": null,                   // the format page's own type, when fetched
+          "format_description": null,              // the format page's one-line summary
+          "prize": { "name": "Diamond Power of Veto", "kind": "power" }  // twists only: the named power or
+                                                   // punishment, from the type or the summaries; else null
         }],
         "have_nots": [{ "name": "Kimo", "chosen_by": null }],
         "checks": [{ "round": 1, "field": "Initial nominations",   // where the two wikis disagree
                      "wikipedia": ["…"], "fandom": ["…"] }]
       }
     }
+  },
+  "categories": [{ "name": "Endurance", "help": "last one standing" }, "…"],
+  "formats": {                                     // one entry per recurring competition format
+    "Knockout": { "url": "https://bigbrother.fandom.com/wiki/Knockout", "category": "Mental",
+                  "description": "…",              // the wiki's one-line summary, or null
+                  "about": { "text": "…", "season": 26, "week": "Week 4" },  // how it's played, or null
+                  "plays": [{ "season": 26, "week": "Week 4", "kind": "hoh", "name": "Bad AI",
+                              "winners": ["Angela"], "day": "24", "category": "Mental", "about": "…" }] }
   },
   "seasons": {
     "26": { "premiere": "2024-07-17", "finale": "2024-10-13", "days": "90", "houseguests": "16",
@@ -184,6 +206,8 @@ Things to know:
     "votes_against": [{ "week": "Week 2", "voters": ["Kenney"] }],
     "votes_cast": [{ "week": "Week 3", "vote": "Kenney", "with_house": true }],
     "twist": [{ "week": "…", "label": "AI Arena winner" }],
+    "bio": { "full_name": "Angela Murray", "age": 50,   // Wikipedia's cast table; null if unmatched
+             "occupation": "Real estate agent", "hometown": "Syracuse, Utah" },
     "fandom": {                                    // null when no Big Brother Wiki page matched
       "page": "Angela Murray", "url": "https://bigbrother.fandom.com/wiki/Angela_Murray",
       "full_name": "Angela Lorraine Murray", "birth_date": "1973-08-17", "age": 50,  // age at the premiere
@@ -191,7 +215,8 @@ Things to know:
       "place": "6th", "days": "73", "alliances": ["BB Guns", "…"], "other_prizes": [],
       "seasons": ["Big Brother 26 (US)", "Big Brother 28 (US)"],
       "have_not": ["Week 5"],
-      "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…" }]
+      "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…", "outcome": "is saved", "prize": null }]
+                                                   // twist wins, plus punishments that have a name
     }
   }]
 }
@@ -205,6 +230,15 @@ Things to know:
 - **`veto`.** Worked out from the nominations before and after the veto. The table
   doesn't state who the veto was used on, but it shows who came off the block and who
   replaced them.
+- **Competition categories.** `category` is worked out in `bbgrid/comps.py`: first the
+  Big Brother Wiki's page for the format, whose opening sentence names its type ("a
+  recurring endurance Head of Household competition"), then a list of recurring formats
+  whose type is settled, then keywords in the format page's one-line description ("Hang
+  on to a moving wall as long as you can"), then in the competition's episode-summary
+  sentence, then the most common type among the format's other plays. About five in six
+  HOH and veto competitions get one.
+- **`bio` vs `fandom`.** The page shows age, hometown and occupation from `bio`
+  (Wikipedia, age as listed there) and falls back to `fandom`.
 - **`comps`.** Competition names found in the episode summaries. A competition has a
   `winner` and `round` only when that round's HOH or veto winner is named in the same or
   the next sentence. Unmatched names (often the next week's HOH, which starts on the live

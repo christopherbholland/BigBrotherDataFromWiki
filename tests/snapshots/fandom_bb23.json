@@ -12,6 +12,143 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "3.72m"
  },
+ "formats": {
+  "As Close As You Can": {
+   "description": "Shoot as close to the target as possible.",
+   "category": null,
+   "revid": 675092
+  },
+  "Ball Roll": {
+   "description": "Roll a ball from one side to the other a certain amount of times without dropping it.",
+   "category": null,
+   "revid": 666849
+  },
+  "Bowlerina": {
+   "description": "Spin around to lower a barrier to roll down a set of pins.",
+   "category": null,
+   "revid": 694508
+  },
+  "Caged Eggs": {
+   "description": "Get eggs through a wire cage to their destination.",
+   "category": null,
+   "revid": 645084
+  },
+  "Carnival Quick Shot": {
+   "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
+   "category": null,
+   "revid": 691915
+  },
+  "Dizzy Discs": {
+   "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
+   "category": null,
+   "revid": 521301
+  },
+  "Getting Loopy": {
+   "description": "View a certain amount of video, then answer questions about them.",
+   "category": null,
+   "revid": 688794
+  },
+  "HouseguestsOnly.com": {
+   "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
+   "category": null,
+   "revid": 666850
+  },
+  "How Bad Do You Want It?": {
+   "description": "Add points to your score/Continue playing by facing punishments",
+   "category": null,
+   "revid": 674809
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Microbrews": {
+   "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
+   "category": null,
+   "revid": 699088
+  },
+  "Microchip Mayhem": {
+   "description": "Put balls into other houseguests' tube to eliminate them.",
+   "category": null,
+   "revid": 690074
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Perfect Shot": {
+   "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
+   "category": null,
+   "revid": 692023
+  },
+  "Roll It Down": {
+   "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
+   "category": null,
+   "revid": 696882
+  },
+  "Seesaw": {
+   "description": "Balance on a large seesaw to transport balls from one end to the other.",
+   "category": null,
+   "revid": 691144
+  },
+  "Sequence Explosion": {
+   "description": "A competition where houseguests watch a sequence of patterns to complete a task.",
+   "category": null,
+   "revid": 681456
+  },
+  "Shootout": {
+   "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
+   "category": null,
+   "revid": 694509
+  },
+  "Slippery Slope": {
+   "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
+   "category": null,
+   "revid": 695415
+  },
+  "Snapshot Shuffle": {
+   "description": "Arrange the photos in chronological order in the fastest time.",
+   "category": null,
+   "revid": 666843
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "Who Did What?": {
+   "description": "Pair phrases with the person that accomplished/did the phrase.",
+   "category": null,
+   "revid": 643648
+  },
+  "Yankee Swap": {
+   "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
+   "category": null,
+   "revid": 697394
+  }
+ },
  "roster": [
   [
    "Xavier Prather",

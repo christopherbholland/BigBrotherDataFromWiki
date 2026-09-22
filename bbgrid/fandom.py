@@ -9,7 +9,8 @@ Tables read, each found by its section heading:
   Competition History    every competition: week, day, type, name, result
   Have/Have-Not History  who was a Have-Not each week (cell colour), and who picked them
   Game History           HOH, noms, veto holder, "Used?", final noms, evicted, vote
-Infoboxes read from wikitext: {{Season}} and each houseguest's {{Houseguest}}.
+Infoboxes read from wikitext: {{Season}}, each houseguest's {{Houseguest}}, and
+each recurring competition's {{Recurring Competition}} with its opening sentence.
 """
 import re
 from datetime import date, datetime
@@ -424,6 +425,41 @@ def houseguest_bio(title, lead, season, premiere=None):
     }
 
 
+# --- Recurring competition (format) pages ----------------------------------
+
+# The opening sentence names the type: "... is a recurring endurance [[Head of Household]] ...".
+FORMAT_TYPE_WORDS = [
+    ("Endurance", re.compile(r"\bendurance\b", re.I)),
+    ("Puzzle", re.compile(r"\bpuzzle\b", re.I)),
+    ("Mental", re.compile(r"\b(mental|trivia|memory|quiz|knowledge|question|counting)\b", re.I)),
+    ("Crapshoot", re.compile(r"\b(luck|luck-based|chance|crapshoot|random)\b", re.I)),
+    ("Physical", re.compile(r"\b(physical|skill|speed|agility|aim|obstacle|athletic)\b", re.I)),
+]
+OPENING_RE = re.compile(r"\bis (?:a|an|the)\b(.*?)(?:\[\[|\bcompetition\b|\.)", re.I | re.S)
+
+
+def format_info(lead):
+    """{"description", "category"} from a competition format page's lead, or None.
+
+    description: the infobox's one-line summary ("Hang on to a moving wall as
+    long as you can."). category: from the type word in the opening sentence,
+    one of comps.CATEGORIES, or None when the sentence names none.
+    """
+    if not lead:
+        return None
+    p = wt.template_params(lead, "Recurring Competition") or {}
+    body = lead
+    m = re.search(r"\{\{\s*Recurring Competition", lead, re.I)
+    if m:
+        inner = wt._template_body(lead, m.start())
+        if inner is not None:
+            body = lead[m.start() + len(inner) + 4:]
+    opening = OPENING_RE.search(wt.COMMENT_RE.sub("", body))
+    words = opening.group(1) if opening else ""
+    category = next((cat for cat, pat in FORMAT_TYPE_WORDS if pat.search(words)), None)
+    return {"description": wt.plain(p.get("description", "")) or None, "category": category}
+
+
 # --- Everything for one season ----------------------------------------------
 
 def parse_season(cached, season):
@@ -440,8 +476,14 @@ def parse_season(cached, season):
         if bio:
             bio["revid"] = entry.get("revid")
             bios[title] = bio
+    formats = {}
+    for title, entry in (cached.get("formats") or {}).items():
+        info_ = format_info(entry.get("lead"))
+        if info_:
+            formats[title] = {**info_, "revid": entry.get("revid")}
     return {
         "info": info,
+        "formats": formats,
         "roster": roster,
         "competitions": competitions(soup),
         "have_nots": have_nots(soup),

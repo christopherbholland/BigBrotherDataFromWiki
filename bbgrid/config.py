@@ -1,5 +1,6 @@
 """Season list and shared paths."""
 from pathlib import Path
+from urllib.parse import quote
 
 import yaml
 
@@ -32,7 +33,8 @@ def page_url(title):
 
 
 def fandom_url(title):
-    return f"{FANDOM_BASE}/wiki/" + title.replace(" ", "_")
+    # "?" and "#" occur in titles ("What Did They Just Do?") and must be escaped.
+    return f"{FANDOM_BASE}/wiki/" + quote(title.replace(" ", "_"), safe="/:,()'!&$*+;=@")
 
 
 def fandom_permalink(revid):

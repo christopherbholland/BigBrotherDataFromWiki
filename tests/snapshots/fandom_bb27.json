@@ -12,6 +12,208 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "3.09m"
  },
+ "formats": {
+  "As Close As You Can": {
+   "description": "Shoot as close to the target as possible.",
+   "category": null,
+   "revid": 675092
+  },
+  "Big Top Drop": {
+   "description": "Aim balls down a tube in a predetermined amount of time or balls",
+   "category": null,
+   "revid": 693873
+  },
+  "Binary Bridge": {
+   "description": "Try to guess the correct path of tiles to reach the end.",
+   "category": null,
+   "revid": 683422
+  },
+  "Block and Roll": {
+   "description": "Move blocks around to guide the ball towards the end goal",
+   "category": null,
+   "revid": 606964
+  },
+  "Blockbusters": {
+   "description": "Knock down the giant billboards and then reconstruct the puzzle.",
+   "category": null,
+   "revid": 615939
+  },
+  "Build the Bridge": {
+   "description": "Build a bridge using two planks of different length",
+   "category": null,
+   "revid": 684639
+  },
+  "Carnival Quick Shot": {
+   "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
+   "category": null,
+   "revid": 691915
+  },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 614907
+  },
+  "Digital Decryption": {
+   "description": "Contestants must unscramble words to identify a hidden phrase which will reveal how to win.",
+   "category": null,
+   "revid": 606839
+  },
+  "Feeling Knotty": {
+   "description": "Untie a series of knots",
+   "category": null,
+   "revid": 696397
+  },
+  "Fitting In": {
+   "description": "Take a series of shapes and fit them into a certain shape",
+   "category": null,
+   "revid": 696993
+  },
+  "Getting Loopy": {
+   "description": "View a certain amount of video, then answer questions about them.",
+   "category": null,
+   "revid": 688794
+  },
+  "Hide and Seek": {
+   "description": "Figure out which of the given hiding spots is safe to hide at to avoid elimination.",
+   "category": null,
+   "revid": 684486
+  },
+  "Hourglass": {
+   "description": "Stack objects/solve a puzzle while refilling their timer.",
+   "category": null,
+   "revid": 691061
+  },
+  "HouseguestsOnly.com": {
+   "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
+   "category": null,
+   "revid": 666850
+  },
+  "In The Balance": {
+   "description": "Competitors compete to balance a set of objects without touching the ground",
+   "category": null,
+   "revid": 689941
+  },
+  "Item Maze": {
+   "description": "Maneuver an object through a maze to release it.",
+   "category": null,
+   "revid": 649744
+  },
+  "Jetpack Attack": {
+   "description": "Hold onto a moving object that swings back and forth",
+   "category": null,
+   "revid": 691900
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Laser Maze": {
+   "description": "Navigate through a series of lasers while guiding an object to the finish.",
+   "category": null,
+   "revid": 698647
+  },
+  "Living Art": {
+   "description": "Houseguests race to find discrepancies in artwork or imagery and tape in the correct answer on their podium.",
+   "category": null,
+   "revid": 676628
+  },
+  "Microbrews": {
+   "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
+   "category": null,
+   "revid": 699088
+  },
+  "Niagara Balls": {
+   "description": "Get a specific number of colored balls into your container the quickest.",
+   "category": null,
+   "revid": 686600
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Perfect Shot": {
+   "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
+   "category": null,
+   "revid": 692023
+  },
+  "Ready, Set, Woah": {
+   "description": "Contestants must wait for the word go and not be the last one across the finish.",
+   "category": null,
+   "revid": 605549
+  },
+  "Roll It Down": {
+   "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
+   "category": null,
+   "revid": 696882
+  },
+  "Seesaw": {
+   "description": "Balance on a large seesaw to transport balls from one end to the other.",
+   "category": null,
+   "revid": 691144
+  },
+  "Shootout": {
+   "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
+   "category": null,
+   "revid": 694509
+  },
+  "The Black Box": {
+   "description": "Inside a black box, search for objects and have the most after time runs out.",
+   "category": null,
+   "revid": 639395
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "To Drink or to Bluff": {
+   "description": "Houseguests guess who drank the \"poisoned\" drink.",
+   "category": null,
+   "revid": 682374
+  },
+  "Tower of Hanoi": {
+   "description": "Rearrange disc so that they are matching and are in order.",
+   "category": null,
+   "revid": 678024
+  },
+  "Tumblin' Dice": {
+   "description": "Competitors roll a dice to land on a specific face on the final platform",
+   "category": null,
+   "revid": 614834
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "What's The Hold Up": {
+   "description": "By using a long flexible structure, hold up object against a plaque.",
+   "category": null,
+   "revid": 696359
+  },
+  "Zingbot Competition": {
+   "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
+   "category": null,
+   "revid": 691511
+  }
+ },
  "roster": [
   [
    "Ashley Hollis",

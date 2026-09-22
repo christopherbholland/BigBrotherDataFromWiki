@@ -32,7 +32,8 @@
      "Wild Card winner": [
       "Christian"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -74,7 +75,8 @@
      "Wild Card winner": [
       "Sarah Beth"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -115,7 +117,8 @@
      "Wild Card winner": [
       "Tiffany"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -156,7 +159,8 @@
      "Wild Card winner": [
       "Claire"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -194,7 +198,8 @@
      "votes_to_evict": 7,
      "votes_cast": 9
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -232,7 +237,8 @@
      "votes_to_evict": 7,
      "votes_cast": 8
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -270,7 +276,8 @@
      "votes_to_evict": 5,
      "votes_cast": 7
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -309,7 +316,8 @@
      "votes_to_evict": 5,
      "votes_cast": 6
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -347,7 +355,8 @@
      "votes_to_evict": 4,
      "votes_cast": 5
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 65",
@@ -371,7 +380,8 @@
      "votes_to_evict": 3,
      "votes_cast": 4
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -408,7 +418,8 @@
      "votes_to_evict": 3,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 71",
@@ -432,7 +443,8 @@
      "votes_to_evict": 2,
      "votes_cast": 2
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -468,7 +480,8 @@
      "type": "sole_vote",
      "by": "Derek F."
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -497,7 +510,8 @@
      "type": "sole_vote",
      "by": "Xavier"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {

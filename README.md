@@ -33,7 +33,9 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 These show the real data: all eight seasons as fetched from Wikipedia on 2026-09-22.
 
 **A double eviction.** BB26 Week 10's two rounds are stacked in both the cell and the
-tooltip:
+tooltip. Only the second round (Angela, played in one night) is the double eviction, and
+the week card says so; a week with two ordinary evictions days apart (BB27 Week 11) is
+just "Two evictions":
 
 ![Light-mode grid of BB21–BB28 with the BB26 Week 10 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
 
@@ -43,7 +45,7 @@ columns instead of calling it a double eviction. Dark mode:
 
 ![Dark-mode grid with the BB24 Week 7 "Two rounds: Inside / Outside" tooltip](docs/screenshots/grid-split-house-dark.png)
 
-**A twist week.** Weeks marked `!` aren't fully modeled. The tooltip gives the reason and
+**A twist week.** Weeks with a folded yellow corner aren't fully modeled. The tooltip gives the reason and
 the week's table text as Wikipedia shows it. In BB21 Week 3 the regular eviction is
 modeled, and the Camp Comeback column (Cliff winning re-entry) is flagged:
 
@@ -59,17 +61,22 @@ its details (see below).
 The main cards stay short. More detail sits behind two options:
 
 **Click or tap a week** to open its details:
+- **Summary**: the round as in the hover card: HOH, noms, the veto (used or not), twist
+  rows like the Block Buster, final noms, and who was evicted by how much (`3–1`).
+  Previous / next buttons (or ← →) step through the season's weeks.
 - **Competitions**: the names of the HOH and veto competitions (e.g. "Eye Candy",
   "OTEV the Psychic Salamander", "The Wall"), taken from the episode summaries and tied
   to each round's winner. The summaries name them in about three weeks out of four.
 - **Veto**: what was done with it (not used, used on whom, who was named as the
   replacement, or who came off the block through a twist instead), plus the episode
   summaries' own lines about the veto meeting.
-- **Votes to evict**: each nominee with the houseguests who voted to evict them, plus
-  who didn't vote and why (HOH, nominated, not eligible).
-- **What was different**: the week's twist rows (e.g. "AI Arena winner: Makensy"),
+- **Votes to evict**: each nominee with the houseguests who voted to evict them, A–Z.
+- **Other competitions**: twists such as BB28's Time Capsule, with the power or
+  punishment it gave when the episode summaries name it ("the “Diamond Power of Veto”
+  power").
+- **What was different**: the week's twist rows (e.g. "AI Arena: Makensy"),
   anything unusual about the eviction, and the explanatory notes Wikipedia attaches to
-  that week, quoted as written.
+  that week, quoted as written. Left out when there's nothing but a Block Buster.
 - **Episodes**: that week's episodes from the season's episode table, with days, air
   date, viewers, and each episode's summary (tap to expand).
 
@@ -77,18 +84,34 @@ The main cards stay short. More detail sits behind two options:
 
 **Competitions** name every HOH and veto competition (210 of 213 rounds) from the Big
 Brother Wiki's Competition History, with the recurring format where the wiki gives one
-(e.g. "Bad AI", format: Knockout). The same table lists the week's other competitions:
+(e.g. "Bad AI" (Knockout)), linked to a page for the format, and its type. The same table lists the week's other competitions:
 AI Arena, Block Buster, Safety Suite, final HOH parts and so on. Episode summaries fill in
 the few names the wiki doesn't have. **Have-Nots** lists each week's Have-Nots, with who
 picked them where the wiki says. **Sources disagree** appears only when the wiki's Game
 History differs from Wikipedia on that week's HOH, nominations, veto winner or veto use.
 
-**Players**: a table for each season showing HOHs, vetoes, twist wins, noms, final noms,
-votes against, and votes cast (with how many went with the house). Click a player for a
-week-by-week timeline that names the competitions they won and says whether they were
-saved by the veto or by a twist. From the Big Brother Wiki it adds each player's full
-name, age at the premiere, hometown, occupation, alliances and Have-Not weeks. The table
-also gets a line of season facts: premiere, days, cast size, prize and host.
+**HOH view.** The Evicted / HOH switch above the grid shows whose HOH week each one was.
+
+**Players**: a table for each season with each houseguest's age, hometown and occupation
+(from Wikipedia's cast table), then comps (HOHs, vetoes, AI Arena or Block Buster wins in
+the seasons that have them, and twists: powers, safety and other twist wins), nominations,
+and votes: VTE (votes to evict them), votes cast and the share cast with the house. Click
+a player for a week-by-week timeline that names the competitions they won, their comp
+wins by type, and whether they were saved by the veto or by a twist. From the Big Brother
+Wiki it adds each player's full name, alliances and Have-Not weeks. The table also gets a
+line of season facts: premiere, days, cast size, prize and host.
+
+**Comps**: every HOH and veto competition of a season with its format and type
+(Endurance, Physical, Mental, Puzzle or Crapshoot), with a count of each type. Click a
+format (e.g. `#comp=The%20Wall`) for its page: the Big Brother Wiki's one-line summary,
+how it played out (from an episode summary), a table of every play across the seasons and who won,
+and a link to it on the Big Brother Wiki. Types come from the format's Big Brother Wiki
+page ("a recurring endurance competition") where it names one, otherwise from the
+episode summaries.
+
+![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
+
+![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
 
 ![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
 
@@ -98,8 +121,8 @@ On a phone, details open as a bottom sheet:
 
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
-Every view has its own link, e.g. `#week=26/Week%204`, `#players=28` or
-`#player=26/Angela`, so it can be shared or embedded directly. The detail data lives in
+Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
+`#player=26/Angela`, `#comps=28` or `#comp=The%20Wall`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage
@@ -151,6 +174,8 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_interpret.py`: interpreter and validator on
   `tests/fixtures/synthetic_season.html`. That table is **synthetic**: the houseguests and
   events are made up. It copies the structure the design doc describes for BB26.
+- `tests/test_comps.py`: Wikipedia's cast table, competition descriptions and types, and
+  matching a competition to its round.
 - `tests/test_details.py`: votes, what was different, player stats, footnote text and
   episode parsing.
 - `tests/test_fandom.py`, `tests/test_wikitext.py`: the Big Brother Wiki reader and

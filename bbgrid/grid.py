@@ -217,3 +217,20 @@ def build_episode_grid(html):
     expanded, width = expand_table(table)
     header, body = split_header(expanded)
     return Grid(header_rows=header, body_rows=body, width=width)
+
+
+def build_table_with_columns(html, required):
+    """Expand the first wikitable whose header row names every column in required
+    (case-insensitive, whole cell text), or return None. Returned as a Grid."""
+    soup = BeautifulSoup(html, "lxml")
+    want = {r.casefold() for r in required}
+    for table in soup.find_all("table", class_="wikitable"):
+        first = table.find("tr")
+        if first is None:
+            continue
+        labels = {th.get_text(" ", strip=True).casefold() for th in first.find_all(["th", "td"], recursive=False)}
+        if want <= labels:
+            expanded, width = expand_table(table)
+            header, body = split_header(expanded)
+            return Grid(header_rows=header, body_rows=body, width=width)
+    return None

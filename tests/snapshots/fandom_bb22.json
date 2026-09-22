@@ -12,6 +12,138 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "3.94m"
  },
+ "formats": {
+  "As Close As You Can": {
+   "description": "Shoot as close to the target as possible.",
+   "category": null,
+   "revid": 675092
+  },
+  "BB Comics": {
+   "description": null,
+   "category": null,
+   "revid": 694169
+  },
+  "Berry Balanced": {
+   "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
+   "category": null,
+   "revid": 690155
+  },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 614907
+  },
+  "Dizzy Discs": {
+   "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
+   "category": null,
+   "revid": 521301
+  },
+  "Giddy Up": {
+   "description": "Buck or spin on a horse/podium for a certain amount of times to get a set amount of time to stack objects on a pedestal. Contestants must keep on eye on their clock, as they must get back to their horse/podium on time.",
+   "category": null,
+   "revid": 631124
+  },
+  "Golf Invitational": {
+   "description": "Use a golf club to hit attempt to hit a hole in one.",
+   "category": null,
+   "revid": 638038
+  },
+  "In The Balance": {
+   "description": "Competitors compete to balance a set of objects without touching the ground",
+   "category": null,
+   "revid": 689941
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Laser Maze": {
+   "description": "Navigate through a series of lasers while guiding an object to the finish.",
+   "category": null,
+   "revid": 698647
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Pose In Ivy": {
+   "description": "Hang onto two ropes for as long as you can.",
+   "category": null,
+   "revid": 631135
+  },
+  "Rollerball": {
+   "description": "Be the last person to keep your ball balanced on a platform.",
+   "category": null,
+   "revid": 689998
+  },
+  "Seesaw": {
+   "description": "Balance on a large seesaw to transport balls from one end to the other.",
+   "category": null,
+   "revid": 691144
+  },
+  "Take It Off": {
+   "description": "Strip down to undergarments in fastest time while trying to keep three buttons pushed down at all times.",
+   "category": null,
+   "revid": 666845
+  },
+  "The Black Box": {
+   "description": "Inside a black box, search for objects and have the most after time runs out.",
+   "category": null,
+   "revid": 639395
+  },
+  "The Maze": {
+   "description": "Find a select number of objects in a maze in the shortest amount of time.",
+   "category": null,
+   "revid": 609320
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "Tower of Hanoi": {
+   "description": "Rearrange disc so that they are matching and are in order.",
+   "category": null,
+   "revid": 678024
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "Who Did What?": {
+   "description": "Pair phrases with the person that accomplished/did the phrase.",
+   "category": null,
+   "revid": 643648
+  },
+  "Will Kirby": {
+   "description": null,
+   "category": null,
+   "revid": 677459
+  },
+  "Yankee Swap": {
+   "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
+   "category": null,
+   "revid": 697394
+  }
+ },
  "roster": [
   [
    "Cody Calafiore",

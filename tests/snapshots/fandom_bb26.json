@@ -12,6 +12,158 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "2.79m"
  },
+ "formats": {
+  "As Close As You Can": {
+   "description": "Shoot as close to the target as possible.",
+   "category": null,
+   "revid": 675092
+  },
+  "Before or After": {
+   "description": "A competition where houseguests attempt to guess whether an event happened before or after another event.",
+   "category": null,
+   "revid": 596527
+  },
+  "Caged Eggs": {
+   "description": "Get eggs through a wire cage to their destination.",
+   "category": null,
+   "revid": 645084
+  },
+  "Carnival Quick Shot": {
+   "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
+   "category": null,
+   "revid": 691915
+  },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 614907
+  },
+  "Feeling Knotty": {
+   "description": "Untie a series of knots",
+   "category": null,
+   "revid": 696397
+  },
+  "Fitting In": {
+   "description": "Take a series of shapes and fit them into a certain shape",
+   "category": null,
+   "revid": 696993
+  },
+  "Hide and Go Veto": {
+   "description": "Houseguests hide an item and then later have to find someone else's item.",
+   "category": null,
+   "revid": 572077
+  },
+  "Hourglass": {
+   "description": "Stack objects/solve a puzzle while refilling their timer.",
+   "category": null,
+   "revid": 691061
+  },
+  "HouseguestsOnly.com": {
+   "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
+   "category": null,
+   "revid": 666850
+  },
+  "Item Maze": {
+   "description": "Maneuver an object through a maze to release it.",
+   "category": null,
+   "revid": 649744
+  },
+  "Jetpack Attack": {
+   "description": "Hold onto a moving object that swings back and forth",
+   "category": null,
+   "revid": 691900
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Laser Maze": {
+   "description": "Navigate through a series of lasers while guiding an object to the finish.",
+   "category": null,
+   "revid": 698647
+  },
+  "Living Art": {
+   "description": "Houseguests race to find discrepancies in artwork or imagery and tape in the correct answer on their podium.",
+   "category": null,
+   "revid": 676628
+  },
+  "Microbrews": {
+   "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
+   "category": null,
+   "revid": 699088
+  },
+  "Niagara Balls": {
+   "description": "Get a specific number of colored balls into your container the quickest.",
+   "category": null,
+   "revid": 686600
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Repeat After Me": {
+   "description": "Reproduce the order of colours shown to you.",
+   "category": null,
+   "revid": 573149
+  },
+  "Roll It Down": {
+   "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
+   "category": null,
+   "revid": 696882
+  },
+  "Slingshot Aim": {
+   "description": "Use a slingshot or similar apparatus to shoot balls at a target to knock down panels.",
+   "category": null,
+   "revid": 535611
+  },
+  "Spelling Search": {
+   "description": "Houseguests attempt to spell the longest word using letters they find.",
+   "category": null,
+   "revid": 677085
+  },
+  "Stacking": {
+   "description": "Balance and stack coins/discs/boxes on a small podium then race back to stack more.",
+   "category": null,
+   "revid": 678713
+  },
+  "The Black Box": {
+   "description": "Inside a black box, search for objects and have the most after time runs out.",
+   "category": null,
+   "revid": 639395
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "What's The Hold Up": {
+   "description": "By using a long flexible structure, hold up object against a plaque.",
+   "category": null,
+   "revid": 696359
+  }
+ },
  "roster": [
   [
    "Chelsie Baham",

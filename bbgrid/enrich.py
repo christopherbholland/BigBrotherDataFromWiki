@@ -2,7 +2,8 @@
 
 Wikipedia stays the source of the grid: nothing here changes weeks.json's week
 records. This adds to details.json:
-  weeks[key]["fandom"]   competitions (all of them, with names and formats),
+  weeks[key]["fandom"]   competitions (all of them, with names, formats and the
+                         episode-summary sentence describing them),
                          Have-Nots, and where the two wikis disagree
   players[i]["fandom"]   bio (full name, age, hometown, occupation, ...) and
                          Have-Not weeks
@@ -17,6 +18,7 @@ import re
 import unicodedata
 
 from .config import fandom_permalink, fandom_url
+from .comps import describe, sentences, twist_prize
 from .details import week_key
 
 WIN_RE = re.compile(r"^(wins?|is saved|is upgraded|is awarded|is rewarded|returns?)\b", re.I)
@@ -80,15 +82,20 @@ class Names:
         return norm(name) in self.alias
 
 
-def _round_for(record, kind, winners):
-    """1-based round whose HOH/veto winners include one of winners, or None."""
+def _round_for(record, kind, winners, taken=()):
+    """1-based round whose HOH/veto winners include one of winners, or None.
+
+    Rounds in taken ((kind, round) pairs already given a competition) are
+    passed over while another round matches, so someone who won both of a
+    double-eviction week's vetoes gets one competition per round.
+    """
     field = "hoh" if kind == "hoh" else "veto_winners" if kind == "veto" else None
     if field is None:
         return None
-    for i, rnd in enumerate(record["rounds"], 1):
-        if {norm(n) for n in rnd[field]} & {norm(n) for n in winners}:
-            return i
-    return None
+    hits = [i for i, rnd in enumerate(record["rounds"], 1)
+            if {norm(n) for n in rnd[field]} & {norm(n) for n in winners}]
+    free = [i for i in hits if (kind, i) not in taken]
+    return (free or hits or [None])[0]
 
 
 def _pair_rows(record, rows):
@@ -106,6 +113,21 @@ def _pair_rows(record, rows):
     if not pairs and len(rows) == len(rounds):
         pairs = list(enumerate(rows))
     return pairs
+
+
+PRIZE_OUTCOME_RE = re.compile(r"rewarded|punished|power|upgraded|downgraded|advantage|curse", re.I)
+
+
+def _prize(comp, winners, sents):
+    """The power or punishment a twist gave: named in its type ("Advantage (BB Buy-Off)"),
+    else in the summaries. None for competitions that only save or pay the winner."""
+    if comp["kind"] != "twist" or not winners or not PRIZE_OUTCOME_RE.search(comp["outcome"] or ""):
+        return None
+    m = re.search(r"\(([^)]+)\)\s*$", comp["type"])
+    if m:
+        return {"name": m.group(1), "kind": "punishment" if re.search(r"punish|downgrad", comp["outcome"], re.I)
+                else "power"}
+    return twist_prize(winners, sents)
 
 
 def cross_check(record, week_details, rows):
@@ -145,6 +167,7 @@ def enrich_season(season, fandom_data, meta, weeks, details, players):
         return [names(v) for v in values]
 
     game = fandom_data["game"]
+    formats = fandom_data.get("formats") or {}
     comps_by_week, game_by_week = {}, {}
     for c in fandom_data["competitions"]:
         comps_by_week.setdefault(c["week"], []).append(c)
@@ -161,19 +184,31 @@ def enrich_season(season, fandom_data, meta, weeks, details, players):
         if d is None:
             continue
         num = record["week"]
-        comps = []
+        comps, taken = [], set()
+        sents = sentences(d["episodes"])
         for c in comps_by_week.get(num, []):
             winners = translate(c["winners"])
+            rnd = _round_for(record, c["kind"], winners, taken)
+            if rnd:
+                taken.add((c["kind"], rnd))
             comps.append({
                 "kind": c["kind"], "type": c["type"], "name": c["name"], "format": c["format"],
                 "day": c["day"], "winners": winners, "outcome": c["outcome"],
                 "won": bool(WIN_RE.match(c["outcome"] or "")),
-                "round": _round_for(record, c["kind"], winners), "extra": c["extra"],
+                "round": rnd, "extra": c["extra"],
+                "about": describe(c["name"], sents) if c["kind"] != "twist" and c["name"] else None,
+                # The format page's own type and one-line summary, when it was fetched.
+                "wiki_category": (formats.get(c["format"]) or {}).get("category"),
+                "format_description": (formats.get(c["format"]) or {}).get("description"),
+                # A twist's named power or punishment ("Diamond Power of Veto"), from the summaries.
+                "prize": _prize(c, winners, sents),
             })
-            if c["kind"] == "twist" and comps[-1]["won"]:
+            # Twist wins, plus punishments with a name (a Time Capsule's "Adam and Eve").
+            if c["kind"] == "twist" and (comps[-1]["won"] or comps[-1]["prize"]):
                 for w in winners:
                     player_wins.setdefault(w, []).append(
-                        {"week": record["week_label"], "type": c["type"], "name": c["name"]})
+                        {"week": record["week_label"], "type": c["type"], "name": c["name"],
+                         "outcome": c["outcome"], "prize": comps[-1]["prize"]})
         hn = []
         for entry in have_nots.get(num, []):
             who = names(entry["guest"])

@@ -122,7 +122,8 @@ def test_enrich_season(soup):
     }
     weeks = [_record([{"hoh": ["Alex"], "nominees_initial": ["Sam L.", "Sam O."], "veto_winners": ["Robin"],
                        "nominees_final": ["Sam O."], "evicted": "Sam O.", "extras": {"Arena winner": ["Jordan"]}}])]
-    details = {"1|Week 1": {"rounds": [{"veto": {"used": True}}]}}
+    details = {"1|Week 1": {"rounds": [{"veto": {"used": True}}], "episodes": [
+        {"summary": 'In the "Hold On Tight" HOH competition, HouseGuests had to hang on to a rope. Alex won.'}]}}
     players = [{"season": 1, "name": n} for n in ["Alex", "Robin", "Sam L.", "Sam O.", "Jordan"]]
     entry, report = enrich_season(1, data, {"title": "Big Brother 1 (US)", "revid": 9}, weeks, details, players)
     f = details["1|Week 1"]["fandom"]
@@ -133,7 +134,10 @@ def test_enrich_season(soup):
     alex = players[0]["fandom"]
     assert alex["full_name"] == "Alex Quinn Stone" and alex["url"].endswith("/wiki/Alex_Stone")
     assert players[1]["fandom"]["have_not"] == ["Week 1"]
-    assert players[4]["fandom"]["twist_wins"] == [{"week": "Week 1", "type": "Arena", "name": "Last Chance"}]
+    assert f["comps"][0]["about"] == ('In the "Hold On Tight" HOH competition, HouseGuests had to hang on to '
+                                      'a rope. Alex won.')
+    assert players[4]["fandom"]["twist_wins"] == [
+        {"week": "Week 1", "type": "Arena", "name": "Last Chance", "outcome": "is saved", "prize": None}]
     assert entry["premiere"] == "2020-07-19" and entry["permalink"].endswith("oldid=9")
     # Four houseguests have no bio in this test; that is reported, nothing else is.
     assert len(report) == 4 and all("no houseguest infobox" in line for line in report)

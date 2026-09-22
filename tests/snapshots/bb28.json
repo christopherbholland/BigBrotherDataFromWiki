@@ -33,7 +33,8 @@
      "Block Buster winner": [
       "Yash"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -76,7 +77,8 @@
      "Block Buster winner": [
       "Jason"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -118,7 +120,8 @@
      "Block Buster winner": [
       "Mallory"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -160,7 +163,8 @@
      "Block Buster winner": [
       "Drew"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -202,7 +206,8 @@
      "Block Buster winner": [
       "Haley"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -245,7 +250,8 @@
      "Block Buster winner": [
       "Angela"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -288,7 +294,8 @@
      "Block Buster winner": [
       "Drew"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -330,7 +337,8 @@
      "Block Buster winner": [
       "Devens"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": {
@@ -541,7 +549,8 @@
      "Block Buster winner": [
       "Devens"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -583,7 +592,8 @@
      "Block Buster winner": [
       "Melody"
      ]
-    }
+    },
+    "double_eviction": false
    },
    {
     "sub_label": "Day 73",
@@ -607,7 +617,8 @@
      "votes_to_evict": 2,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -622,7 +633,7 @@
   "week": 11,
   "week_label": "Week 11",
   "status": "note",
-  "note": "Double eviction; Round 2 (Day 77): No eviction",
+  "note": "Two rounds: Day 74 / Day 77; Round 2 (Day 77): No eviction",
   "rounds": [
    {
     "sub_label": "Day 74",
@@ -646,7 +657,8 @@
      "votes_to_evict": 2,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {
@@ -673,7 +685,7 @@
      "label": "Veto winner(s)",
      "cells": [
       "Drew",
-      ""
+      "Drew"
      ]
     },
     {

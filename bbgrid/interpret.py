@@ -26,7 +26,8 @@ SUMMARY_WORDS = re.compile(r"\b(winners?|nominations?|nominees?|veto|power|saved
 
 WEEK_NUM_RE = re.compile(r"\bweek\s*(\d+)", re.I)
 FINALE_RE = re.compile(r"\bfinale\b", re.I)
-DAY_RE = re.compile(r"^day\s*\d+$", re.I)
+DAY_RE = re.compile(r"^day\s*(\d+)$", re.I)
+EXIT_DAY_RE = re.compile(r"\(day\s*(\d+)\)", re.I)  # "Evicted (Day 73)", BB25's "Zombie (Day 51)"
 NONE_RE = re.compile(r"^\(?(none|n/?a|—|–|-)\)?$", re.I)
 
 VOTE_TALLY_RE = re.compile(r"(\d+)\s+of\s+(\d+)\s+votes?\s+to\s+evict", re.I)
@@ -198,6 +199,7 @@ def build_round(rows, col, sub_label):
     # Used by the validator and the details export; dropped from weeks.json.
     rnd["_vote_cells"] = vote_cells
     rnd["_voters"] = voters
+    rnd["_col"] = col
     return rnd, round_problem(rnd, evicted_cell)
 
 
@@ -218,17 +220,51 @@ def round_problem(rnd, evicted_cell):
     return None
 
 
-def two_round_note(round_cols, twist):
+def eviction_day(rows, rnd):
+    """The day the round's evictee left, from their vote row: the first
+    "Evicted (Day N)"-style cell from the round's column on. None if not found."""
+    name = normalize_label(rnd["evicted"] or "")
+    for kind, _, label, row in rows:
+        if kind == "vote" and normalize_label(label) == name:
+            for cell in row[rnd["_col"]:]:
+                m = EXIT_DAY_RE.search(cell.text)
+                if m:
+                    return int(m.group(1))
+    return None
+
+
+def mark_double_evictions(rows, rounds):
+    """Flag each round that was a true double eviction.
+
+    Wikipedia puts both of a week's evictions under one week when there are
+    two, but only a fast-forward round is a double eviction: its HOH,
+    nominations, veto and eviction all happen on the night of the previous
+    eviction. Such a round's column is labeled with the day it was evicted on
+    ("Day 73", with its evictee "Evicted (Day 73)"), where an ordinary round's
+    label is its nomination day, days before the eviction. A round with no veto
+    (a final HOH round) is never one. Sets rnd["double_eviction"].
+    """
+    for i, rnd in enumerate(rounds):
+        m = DAY_RE.match(rnd["sub_label"] or "")
+        rnd["double_eviction"] = bool(
+            i > 0 and m and rnd["veto_winners"] and rnd["evicted"]
+            and eviction_day(rows, rnd) == int(m.group(1)))
+
+
+def two_round_note(round_cols, rounds, problem):
     """Note for a week with two rounds.
 
-    "Double eviction" only when both sub-columns are "Day N" and both rounds
-    are ordinary evictions. Other two-column weeks (a split house's
-    "Inside"/"Outside", a competition elimination beside an eviction) get a
-    neutral note naming the columns.
+    "Double eviction" when a round was a true (same-night) double eviction;
+    "Two evictions" when both sub-columns are "Day N" and both rounds are
+    ordinary evictions a few days apart. Other two-column weeks (a split
+    house's "Inside"/"Outside", a competition elimination beside an eviction,
+    a round still to be played) get a neutral note naming the columns.
     """
     labels = [s or "" for s, _ in round_cols]
-    if not twist and all(DAY_RE.match(label) for label in labels):
+    if any(r.get("double_eviction") for r in rounds):
         return "Double eviction"
+    if not problem and all(DAY_RE.match(label) for label in labels):
+        return "Two evictions"
     return "Two rounds: " + " / ".join(labels)
 
 
@@ -266,12 +302,12 @@ def interpret(grid: Grid, season: int):
             record["status"] = "note"
             notes.append(f"{len(round_cols)} sub-columns (not modeled)")
             round_cols = []
-        twist = False
+        problem_round = False
         for i, (sub_label, c) in enumerate(round_cols, 1):
             rnd, problem = build_round(rows, c, sub_label)
             if problem:
                 status, msg, modeled = problem
-                twist = twist or msg.startswith(NON_STANDARD)
+                problem_round = True
                 record["status"] = worst(record["status"], status)
                 if len(round_cols) > 1:
                     msg = f"Round {i}" + (f" ({sub_label})" if sub_label else "") + f": {msg}"
@@ -280,7 +316,10 @@ def interpret(grid: Grid, season: int):
                     continue
             record["rounds"].append(rnd)
         if len(round_cols) == 2:
-            notes.insert(1 if finale else 0, two_round_note(round_cols, twist))
+            mark_double_evictions(rows, record["rounds"])
+            notes.insert(1 if finale else 0, two_round_note(round_cols, record["rounds"], problem_round))
+        for rnd in record["rounds"]:
+            rnd.setdefault("double_eviction", False)
 
         for _, _, _, row in [(None, None, None, r) for r in grid.header_rows] + rows:
             for c in cols:

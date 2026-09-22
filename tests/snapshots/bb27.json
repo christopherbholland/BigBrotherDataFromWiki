@@ -33,7 +33,8 @@
      "Block Buster winner": [
       "Kelley"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -77,7 +78,8 @@
      "Block Buster winner": [
       "Adrian"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -121,7 +123,8 @@
      "Block Buster winner": [
       "Kelley"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -164,7 +167,8 @@
      "Block Buster winner": [
       "Rylie"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -207,7 +211,8 @@
      "Block Buster winner": [
       "Keanu"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -249,7 +254,8 @@
      "Block Buster winner": [
       "Mickey"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -291,7 +297,8 @@
      "Block Buster winner": [
       "Kelley"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -333,7 +340,8 @@
      "Block Buster winner": [
       "Vince"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -375,7 +383,8 @@
      "Block Buster winner": [
       "Keanu"
      ]
-    }
+    },
+    "double_eviction": false
    }
   ],
   "raw": {
@@ -586,7 +595,8 @@
      "Block Buster winner": [
       "Lauren"
      ]
-    }
+    },
+    "double_eviction": false
    },
    {
     "sub_label": "Day 73",
@@ -610,7 +620,8 @@
      "votes_to_evict": 2,
      "votes_cast": 3
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": true
    }
   ],
   "raw": null,
@@ -625,7 +636,7 @@
   "week": 11,
   "week_label": "Week 11",
   "status": "ok",
-  "note": "Double eviction",
+  "note": "Two evictions",
   "rounds": [
    {
     "sub_label": "Day 74",
@@ -649,7 +660,8 @@
      "votes_to_evict": 2,
      "votes_cast": 2
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    },
    {
     "sub_label": "Day 77",
@@ -672,7 +684,8 @@
      "type": "sole_vote",
      "by": "Vince"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": null,
@@ -703,7 +716,8 @@
      "type": "sole_vote",
      "by": "Ashley"
     },
-    "extras": {}
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {
