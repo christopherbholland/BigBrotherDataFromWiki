@@ -1,4 +1,6 @@
-# One entry per season. Adding a season is a one-line change.
+# One entry per season. Adding a season is a one-line change in each list.
+# seasons: the Wikipedia article (the grid's source).
+# fandom: the Big Brother Wiki page (extra detail: competitions, Have-Nots, bios).
 seasons:
   21: Big Brother 21 (American season)
   22: Big Brother 22 (American season)
@@ -8,3 +10,12 @@ seasons:
   26: Big Brother 26 (American season)
   27: Big Brother 27 (American season)
   28: Big Brother 28 (American season)
+fandom:
+  21: Big Brother 21 (US)
+  22: Big Brother 22 (US)
+  23: Big Brother 23 (US)
+  24: Big Brother 24 (US)
+  25: Big Brother 25 (US)
+  26: Big Brother 26 (US)
+  27: Big Brother 27 (US)
+  28: Big Brother 28 (US)

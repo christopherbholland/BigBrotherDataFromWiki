@@ -33,6 +33,8 @@ class Cell:
     col: int = 0
     rowspan: int = 1
     colspan: int = 1
+    links: list = field(default_factory=list)  # titles of wiki pages linked from the cell text
+    images: list = field(default_factory=list)  # alt text of images in the cell (e.g. a "Yes!" icon)
 
 
 @dataclass
@@ -74,6 +76,9 @@ def cell_from_tag(tag):
             sup.decompose()
     for hidden in tag.find_all(style=re.compile(r"display\s*:\s*none", re.I)):
         hidden.decompose()
+    images = [img.get("alt", "") for img in tag.find_all("img")]
+    links = [a["title"] for a in tag.find_all("a", title=True)
+             if not a.find("img") and not a.get("href", "").startswith("http")]
     for br in tag.find_all("br"):
         br.replace_with(NavigableString("\n"))
     for block in tag.find_all(BLOCK_TAGS):
@@ -92,6 +97,8 @@ def cell_from_tag(tag):
         classes=list(tag.get("class") or []),
         style=style,
         footnotes=footnotes,
+        links=links,
+        images=images,
     )
 
 
