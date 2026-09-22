@@ -152,8 +152,18 @@ Things to know:
         "sub_label": null,
         "votes": [{ "voter": "Makensy", "vote": "Cedric" }],
         "by_nominee": [{ "nominee": "Cedric", "voters": ["Makensy", "…"] }],
-        "not_voting": [{ "voter": "Quinn", "reason": "Head of Household" }]
+        "not_voting": [{ "voter": "Quinn", "reason": "Head of Household" }],
+        "veto": {                                  // null when there was no veto
+          "used": true, "on": ["Tucker"], "replacements": ["Rubina"],
+          "twist_saved": ["Makensy"]               // left the block through a twist row instead
+        }
       }],
+      "comps": [                                   // from the episode summaries
+        { "kind": "hoh", "name": "Eye Candy", "winner": "Makensy", "round": 1,
+          "source": "In the \"Eye Candy\" Head of Household competition, Makensy emerged as the winner." },
+        { "kind": "hoh", "name": "Bad A.I", "winner": null, "round": null, "source": "…" }
+      ],
+      "veto_notes": ["At the Veto Meeting, Makensy … used the Veto on Kimo."],
       "special": {
         "items": ["AI Arena winner: Makensy"],     // twist rows and unusual outcomes
         "notes": [{ "label": "b", "text": "Quinn activated the Deepfake HoH, …" }]
@@ -181,6 +191,13 @@ Things to know:
 - **What the player stats count.** They cover only the modeled rounds; twist rounds that
   appear only as notes aren't counted.
 - **`special.notes`.** Wikipedia's footnote text, quoted as written.
+- **`veto`.** Worked out from the nominations before and after the veto. The table
+  doesn't state who the veto was used on, but it shows who came off the block and who
+  replaced them.
+- **`comps`.** Competition names found in the episode summaries. A competition has a
+  `winner` and `round` only when that round's HOH or veto winner is named in the same or
+  the next sentence. Unmatched names (often the next week's HOH, which starts on the live
+  show) have `winner: null`. `source` is the sentence the name came from.
 - **`episodes`.** From the season page's episode table, grouped by the week headings
   already in that table.
 

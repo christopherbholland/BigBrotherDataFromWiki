@@ -71,6 +71,21 @@ All of this comes from the same cached page. Nothing is shown on the main cards.
     `grid.footnote_texts` resolves each `[a]` marker to its entry in the page's notes
     list and drops backlinks and citation numbers. There's no attempt to classify or
     reword a twist; the notes are quoted as written.
+- **Veto use.** Worked out from the table. A nominee who is in the initial noms but not
+  the final noms came off the block. If they're named in a twist row (e.g. the AI Arena
+  winner), the twist saved them; otherwise the veto did. Final nominees who weren't
+  initially nominated are the replacements. No change means the veto wasn't used.
+- **Competition names.** Taken from the episode summaries with four phrasings:
+  - `the "X" HOH competition`
+  - `HOH competition, "X"`
+  - `Power of Veto ("X")`
+  - `Veto competition: X.`
+
+  A name is tied to a round only when that round's HOH or veto winner is named in the
+  same or the next sentence, with at most one competition of each kind per round. Live
+  shows start the next week's HOH, so other names are kept as "also mentioned". Names
+  were found in 75 of 100 weeks; some summaries (e.g. BB25's early weeks) don't name
+  competitions at all.
 - **Episodes.** Every season page has one `wikiepisodetable`, grouped by full-width
   "Week N" rows. Each episode row is followed by a full-width summary row. The week
   headings match the voting table's week labels in all eight seasons. Two BB24 episodes

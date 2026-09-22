@@ -96,3 +96,43 @@ def test_episodes_grouped_by_week():
 def test_page_without_episode_table():
     assert build_episode_grid("<p>nothing</p>") is None
     assert episodes_by_week(None) == {}
+
+
+def _round(**kw):
+    base = {"hoh": ["Hana"], "nominees_initial": ["Alex", "Casey"], "veto_winners": ["Alex"],
+            "nominees_final": ["Casey", "Dana"], "extras": {}, "sub_label": None}
+    return {**base, **kw}
+
+
+def test_veto_use_from_nominations():
+    from bbgrid.details import veto_use
+    assert veto_use(_round()) == {"used": True, "on": ["Alex"], "replacements": ["Dana"], "twist_saved": []}
+    assert veto_use(_round(nominees_final=["Alex", "Casey"]))["used"] is False
+    # Someone saved by a twist row came off the block without the veto.
+    three = _round(nominees_initial=["Alex", "Casey", "Eli"], nominees_final=["Casey", "Dana"],
+                   extras={"AI Arena winner": ["Eli"]})
+    assert veto_use(three) == {"used": True, "on": ["Alex"], "replacements": ["Dana"], "twist_saved": ["Eli"]}
+    assert veto_use(_round(veto_winners=[])) is None
+
+
+def test_competition_names_tied_to_the_winner():
+    from bbgrid.details import episode_insights
+    record = {"rounds": [_round(hoh=["Makensy"], veto_winners=["Kimo"])]}
+    episodes = [{"summary": 'In the "Eye Candy" Head of Household competition, Makensy emerged as the winner. '
+                            'Everyone competed in the Power of Veto ("Eye in the Sky"). Kimo won it. '
+                            'At the Veto Meeting, Kimo used the Veto on himself. '
+                            'The live show ended with the "Warning Messages" HOH competition.'}]
+    out = episode_insights(record, episodes)
+    assert [(c["kind"], c["name"], c["winner"], c["round"]) for c in out["comps"]] == [
+        ("hoh", "Eye Candy", "Makensy", 1),
+        ("veto", "Eye in the Sky", "Kimo", 1),
+        ("hoh", "Warning Messages", None, None),  # next week's HOH: mentioned, not tied
+    ]
+    assert out["veto_notes"] == ["At the Veto Meeting, Kimo used the Veto on himself."]
+
+
+def test_week_details_include_veto_and_comps():
+    d = full()["details"]["99|Week 1"]
+    # Three nominees; Casey vetoes themselves off and nobody replaces them.
+    assert d["rounds"][0]["veto"] == {"used": True, "on": ["Casey"], "replacements": [], "twist_saved": []}
+    assert d["comps"] == [] and d["veto_notes"] == []

@@ -5,8 +5,8 @@ on Wikipedia. Each cell names who was evicted that week. Hovering or tapping a c
 the HOH, noms, veto winner(s), final noms, who was evicted, and the vote tally. The season
 currently airing (BB28) is on top.
 
-Clicking a week opens its details: who voted for whom, what was different that week, and
-its episodes. The **Players** view tracks each houseguest's HOH and veto wins, noms, and
+Clicking a week opens its details: the HOH and veto competitions, what was done with the
+veto, who voted for whom, what was different that week, and its episodes. The **Players** view tracks each houseguest's HOH and veto wins, noms, and
 votes for and against.
 
 - [[Screenshots]]

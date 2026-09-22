@@ -61,14 +61,104 @@ def special(record, notes):
     return {"items": items, "notes": texts}
 
 
+def veto_use(rnd):
+    """What the veto did, from the nominations before and after it.
+
+    The table doesn't say who the veto was used on, but it does show who came
+    off the block and who replaced them. A nominee who left the block and is
+    named in a twist row (e.g. the AI Arena winner) was saved by the twist, not
+    the veto. Returns None when there was no veto or nothing to compare.
+    """
+    if not rnd["veto_winners"] or not rnd["nominees_initial"] or not rnd["nominees_final"]:
+        return None
+    initial, final = rnd["nominees_initial"], rnd["nominees_final"]
+    finals = {_key(n) for n in final}
+    removed = [n for n in initial if _key(n) not in finals]
+    added = [n for n in final if _key(n) not in {_key(i) for i in initial}]
+    twist_names = {_key(n) for names in rnd["extras"].values() for n in names}
+    twist_saved = [n for n in removed if _key(n) in twist_names]
+    saved = [n for n in removed if _key(n) not in twist_names]
+    return {
+        "used": bool(saved),
+        "on": saved,
+        "replacements": added,
+        "twist_saved": twist_saved,
+    }
+
+
+# --- Competition names and veto decisions from the episode summaries --------
+_QUOTED = r'["“]([^"”]{2,40}?)[,.!?]?["”]'
+_KIND = r"((?i:head[ -]of[ -]household|hoh|power[ -]of[ -]veto|pov|veto))"
+_COMP = r"[Cc]omp(?:etition)?"
+COMP_PATTERNS = [
+    # (regex, index of the kind group, index of the name group)
+    (re.compile(_QUOTED + r"\s+" + _KIND + r"\s+" + _COMP), 2, 1),              # the "X" HOH competition
+    (re.compile(_KIND + r"\s+" + _COMP + r"[,:]?\s*\(?\s*(?:called\s+|titled\s+|named\s+)?" + _QUOTED), 1, 2),
+    (re.compile(_KIND + r"(?:\s+" + _COMP + r")?\s*\(\s*" + _QUOTED + r"\s*\)"), 1, 2),  # Power of Veto ("X")
+    (re.compile(_KIND + r"\s+" + _COMP + r":\s*([A-Z][^.:;\"“]{2,40}?)\."), 1, 2),     # Veto competition: X.
+]
+VETO_DECISION_RE = re.compile(
+    r"\bveto (meeting|ceremony)\b|\b(used|use|using) the (power of )?veto\b|\bnot to use\b|\bdecided not\b", re.I)
+SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"“])")
+
+
+def _mentions(text, name):
+    return re.search(r"(?<![\w])" + re.escape(name) + r"(?![\w])", text) is not None
+
+
+def episode_insights(record, episodes):
+    """Competition names and veto-meeting sentences found in the week's episode summaries.
+
+    comps: [{"kind": "hoh"|"veto", "name", "winner", "round", "source"}]. A
+    competition is tied to a round only when that round's HOH or veto winner
+    is named in the same or the next sentence; live shows often start the
+    next week's HOH, so unmatched names are kept with winner=None.
+    veto_notes: sentences about the veto meeting, verbatim.
+    """
+    sentences = []
+    for ep in episodes:
+        sentences += [x.strip() for x in SENTENCE_SPLIT.split(ep.get("summary") or "") if x.strip()]
+    comps, seen, taken = [], {}, set()  # taken: (round, kind) already given a competition
+    for i, sent in enumerate(sentences):
+        context = sent + " " + (sentences[i + 1] if i + 1 < len(sentences) else "")
+        for pattern, kind_group, name_group in COMP_PATTERNS:
+            for m in pattern.finditer(sent):
+                kind = "veto" if re.search(r"veto|pov", m.group(kind_group), re.I) else "hoh"
+                name = m.group(name_group).strip()
+                winner, round_no = None, None
+                for n, rnd in enumerate(record["rounds"], 1):
+                    field = "veto_winners" if kind == "veto" else "hoh"
+                    hit = next((w for w in rnd[field] if _mentions(context, w)), None)
+                    if hit and (n, kind) not in taken:
+                        winner, round_no = hit, n
+                        break
+                key = (kind, name.casefold())
+                if key in seen:
+                    if winner and not seen[key]["winner"]:
+                        seen[key].update(winner=winner, round=round_no, source=sent)
+                        taken.add((round_no, kind))
+                    continue
+                if winner:
+                    taken.add((round_no, kind))
+                seen[key] = {"kind": kind, "name": name, "winner": winner, "round": round_no, "source": sent}
+                comps.append(seen[key])
+    veto_notes = []
+    for sent in sentences:
+        if VETO_DECISION_RE.search(sent) and sent not in veto_notes:
+            veto_notes.append(sent)
+    return {"comps": comps, "veto_notes": veto_notes}
+
+
 def week_details(records, notes, episodes):
-    """{week_key: {"rounds": [votes...], "special": {...}, "episodes": [...]}}."""
+    """{week_key: {"rounds": [...], "special", "episodes", "comps", "veto_notes"}}."""
     out = {}
     for record in records:
+        eps = episodes.get(record["week_label"], [])
         out[week_key(record["season"], record["week_label"])] = {
-            "rounds": [{"sub_label": r["sub_label"], **round_votes(r)} for r in record["rounds"]],
+            "rounds": [{"sub_label": r["sub_label"], **round_votes(r), "veto": veto_use(r)} for r in record["rounds"]],
             "special": special(record, notes),
-            "episodes": episodes.get(record["week_label"], []),
+            "episodes": eps,
+            **episode_insights(record, eps),
         }
     return out
 

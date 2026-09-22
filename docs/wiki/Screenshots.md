@@ -25,22 +25,23 @@ Comeback column (Cliff winning re-entry) is flagged.
 
 ## Phone
 
-The grid scrolls sideways with the season labels pinned. Tapping a cell opens its details
-just below it.
+The grid scrolls sideways with the season labels pinned. Tapping a week opens its
+details.
 
-<img src="https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/mobile-week.png?raw=true" alt="Phone view with the BB26 Week 3 tooltip" width="390">
+<img src="https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/mobile-week.png?raw=true" alt="Phone view of the grid" width="390">
 
 ## Week details
 
-Click or tap a week to see who voted for whom, what was different about the week
-(twists, plus Wikipedia's notes), and that week's episodes.
+Click or tap a week to see the competitions, what was done with the veto, who voted for
+whom, what was different about the week (twists, plus Wikipedia's notes), and that week's
+episodes.
 
 ![BB26 Week 4 details](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/details-week.png?raw=true)
 
 ## Players
 
-Per-season stats for each houseguest: HOH wins, veto wins, noms, votes against, votes
-cast, twist wins. Click a player for a week-by-week timeline.
+Per-season stats for each houseguest: HOHs, vetoes, twist wins, noms, votes against and
+votes cast. Click a player for a week-by-week timeline.
 
 ![BB28 players, dark mode](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/players-dark.png?raw=true)
 

@@ -44,29 +44,36 @@ modeled, and the Camp Comeback column (Cliff winning re-entry) is flagged:
 
 ![Light-mode grid with the BB21 Week 3 note tooltip and raw table text](docs/screenshots/grid-note.png)
 
-**Phone.** The grid scrolls sideways with the season labels pinned. Tapping a cell opens
-its details just below it. BB26 Week 3 had two veto winners and the AI Arena twist:
+**Phone.** The grid scrolls sideways with the season labels pinned. Tapping a week opens
+its details (see below).
 
-<img src="docs/screenshots/mobile-week.png" alt="Phone-width view with the BB26 Week 3 tooltip" width="390">
+<img src="docs/screenshots/mobile-week.png" alt="Phone-width view of the grid, BB28 on top" width="390">
 
 ## Detail views
 
 The main cards stay short. More detail sits behind two options:
 
 **Click or tap a week** to open its details:
-- **Votes**: who voted to evict whom, as a bar per nominee listing the voters, plus who
-  didn't vote and why (HOH, nominated, not eligible).
+- **Competitions**: the names of the HOH and veto competitions (e.g. "Eye Candy",
+  "OTEV the Psychic Salamander", "The Wall"), taken from the episode summaries and tied
+  to each round's winner. The summaries name them in about three weeks out of four.
+- **Veto**: what was done with it (not used, used on whom, who was named as the
+  replacement, or who came off the block through a twist instead), plus the episode
+  summaries' own lines about the veto meeting.
+- **Votes to evict**: each nominee with the houseguests who voted to evict them, plus
+  who didn't vote and why (HOH, nominated, not eligible).
 - **What was different**: the week's twist rows (e.g. "AI Arena winner: Makensy"),
   anything unusual about the eviction, and the explanatory notes Wikipedia attaches to
   that week, quoted as written.
 - **Episodes**: that week's episodes from the season's episode table, with days, air
   date, viewers, and each episode's summary (tap to expand).
 
-![Week details for BB26 Week 4: votes, the Deepfake HoH twist and episodes](docs/screenshots/details-week.png)
+![Week details for BB26 Week 4: competitions, veto, votes and the Deepfake HoH twist](docs/screenshots/details-week.png)
 
-**Players**: a table for each season showing HOH wins, veto wins, times nominated, times
-on the final block, votes against, votes cast (and how many went with the house), and
-twist wins. Click a player for a week-by-week timeline.
+**Players**: a table for each season showing HOHs, vetoes, twist wins, noms, final noms,
+votes against, and votes cast (with how many went with the house). Click a player for a
+week-by-week timeline that names the competitions they won and says whether they were
+saved by the veto or by a twist.
 
 ![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
 

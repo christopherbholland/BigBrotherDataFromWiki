@@ -151,10 +151,8 @@ footer a { color: var(--text-secondary); }
 .muted { color: var(--text-muted); }
 a.plink { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
 a.plink:hover { text-decoration-color: currentColor; }
-.vote-row { display: grid; grid-template-columns: minmax(0, 150px) 1fr 24px; align-items: center; gap: 10px; margin-top: 10px; }
-.bar { height: 8px; background: var(--cell); border-radius: 4px; overflow: hidden; }
-.bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
-.vote-count { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+dl.votes { grid-template-columns: minmax(90px, max-content) 1fr !important; row-gap: 6px !important; }
+dl.votes dt { color: var(--text-primary) !important; }
 .voters { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
 .tag { display: inline-block; font-size: 11px; line-height: 16px; border: 1px solid var(--line); border-radius: 8px; padding: 0 6px; margin-left: 6px; color: var(--text-secondary); font-weight: 400; }
 ul.plain { margin: 0; padding-left: 18px; }
@@ -243,10 +241,13 @@ function tallyText(t) {
 }
 
 function roundHtml(r, label) {
-  const rows = FIELDS
-    .filter(([k]) => r[k] && r[k].length)
-    .map(([k, name]) => `<dt>${name}</dt><dd>${esc(r[k].join(", "))}</dd>`);
-  for (const [k, v] of Object.entries(r.extras || {})) rows.push(`<dt>${esc(k)}</dt><dd>${esc(v.join(", "))}</dd>`);
+  const row = (name, names) => `<dt>${esc(name)}</dt><dd>${esc(names.join(", "))}</dd>`;
+  const rows = [];
+  for (const [k, name] of FIELDS) {
+    // Twist rows (AI Arena, Block Buster, …) go before Final noms: they can take someone off the block.
+    if (k === "nominees_final") for (const [label, v] of Object.entries(r.extras || {})) rows.push(row(label, v));
+    if (r[k] && r[k].length) rows.push(row(name, r[k]));
+  }
   if (r.evicted) rows.push(`<dt>Evicted</dt><dd><strong>${esc(r.evicted)}</strong>${r.tally ? `<br><span style="color:var(--text-secondary)">${esc(tallyText(r.tally))}</span>` : ""}</dd>`);
   return `<div class="round">${label ? `<h4>${esc(label)}</h4>` : ""}<dl>${rows.join("")}</dl></div>`;
 }
@@ -430,7 +431,9 @@ async function showWeek(season, label) {
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
   openDrawer(title, statusText(w),
     `<h3>Summary</h3>${summary}`
-    + `<h3>Votes</h3>${votesHtml(w, d)}`
+    + `<h3>Competitions</h3>${compsHtml(w, d)}`
+    + `<h3>Veto</h3>${vetoHtml(w, d)}`
+    + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
     + `<h3>What was different</h3>${specialHtml(d)}`
     + `<h3>Episodes</h3>${episodesHtml(d)}`);
 }
@@ -440,23 +443,79 @@ function votesHtml(w, d) {
   const multi = d.rounds.length > 1;
   return d.rounds.map((v, i) => {
     const r = w.rounds[i];
-    const total = v.votes.length;
     let html = multi ? `<h4>Round ${i + 1}${v.sub_label ? " · " + esc(v.sub_label) : ""}</h4>` : "";
     if (r.tally && r.tally.type === "sole_vote") {
       html += `<p>${plink(w.season, r.tally.by)} cast the sole vote to evict.</p>`;
     }
-    html += v.by_nominee.map(n => {
-      const pct = total ? Math.round(100 * n.voters.length / total) : 0;
-      return `<div class="vote-row"><div>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</div>`
-        + `<div class="bar" role="img" aria-label="${n.voters.length} of ${total} votes"><i style="width:${pct}%"></i></div>`
-        + `<div class="vote-count">${n.voters.length}</div></div>`
-        + `<div class="voters">${n.voters.length ? n.voters.map(x => plink(w.season, x)).join(", ") : "No votes"}</div>`;
-    }).join("");
+    // One line per nominee: who voted to evict them (the count is in the summary's tally).
+    html += `<dl class="votes">` + v.by_nominee.map(n =>
+      `<dt>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</dt>`
+      + `<dd>${n.voters.length ? n.voters.map(x => plink(w.season, x)).join(", ") : `<span class="muted">No votes</span>`}</dd>`).join("") + `</dl>`;
     if (v.not_voting.length) {
       html += `<p class="voters" style="margin-top:10px">Didn’t vote: ${v.not_voting.map(x => `${plink(w.season, x.voter)} (${esc(x.reason)})`).join(", ")}</p>`;
     }
     return html;
   }).join("");
+}
+
+const roundTitle = (w, i) => w.rounds.length > 1 ? `Round ${i + 1}${w.rounds[i].sub_label ? " · " + w.rounds[i].sub_label : ""}` : "";
+
+function compsHtml(w, d) {
+  const matched = d.comps.filter(c => c.winner);
+  const others = d.comps.filter(c => !c.winner);
+  const kindName = { hoh: "HOH", veto: "Veto" };
+  let html = "";
+  w.rounds.forEach((r, i) => {
+    const mine = matched.filter(c => c.round === i + 1);
+    const line = kind => {
+      const c = mine.find(x => x.kind === kind);
+      const winners = kind === "hoh" ? r.hoh : r.veto_winners;
+      if (!winners.length) return "";
+      return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”, won by ${plink(w.season, c.winner)}`
+        : `Won by ${winners.map(x => plink(w.season, x)).join(", ")} <span class="muted">(competition not named)</span>`}</dd>`;
+    };
+    const title = roundTitle(w, i);
+    html += `${title ? `<h4>${esc(title)}</h4>` : ""}<dl>${line("hoh")}${line("veto")}</dl>`;
+  });
+  if (others.length) {
+    html += `<p class="voters" style="margin-top:8px">Also mentioned in this week’s episodes: `
+      + others.map(c => `“${esc(c.name)}” (${kindName[c.kind]})`).join(", ") + `</p>`;
+  }
+  if (!matched.length && !others.length) html += `<p class="muted">The episode summaries don’t name this week’s competitions.</p>`;
+  return html;
+}
+
+function vetoHtml(w, d) {
+  if (!d.rounds.length) return `<p class="muted">No veto to show.</p>`;
+  let html = d.rounds.map((v, i) => {
+    const r = w.rounds[i], u = v.veto;
+    const title = roundTitle(w, i);
+    let body;
+    if (!u) body = `<p class="muted">No veto recorded.</p>`;
+    else {
+      const holder = r.veto_winners.map(x => plink(w.season, x)).join(" and ");
+      const names = xs => xs.map(x => plink(w.season, x)).join(", ");
+      const lines = [];
+      if (!u.used) lines.push(`${holder} didn’t use the veto: the nominations stayed the same.`);
+      else {
+        const self = u.on.length === 1 && r.veto_winners.includes(u.on[0]);
+        lines.push(`${holder} used the veto on ${self ? "themselves" : names(u.on)}.`);
+        if (u.replacements.length) lines.push(`${names(u.replacements)} ${u.replacements.length > 1 ? "were" : "was"} named as the replacement${u.replacements.length > 1 ? "s" : ""}.`);
+      }
+      if (u.twist_saved.length) {
+        const label = Object.keys(r.extras || {})[0] || "a twist";
+        lines.push(`${names(u.twist_saved)} came off the block through the twist (${esc(label)}).`);
+      }
+      body = `<p style="margin:4px 0">${lines.join(" ")}</p>`;
+    }
+    return (title ? `<h4>${esc(title)}</h4>` : "") + body;
+  }).join("");
+  html += `<p class="voters">Worked out from the nominations before and after the veto.</p>`;
+  if (d.veto_notes.length) {
+    html += `<details class="ep"><summary>From the episode summaries</summary>`
+      + d.veto_notes.map(x => `<blockquote class="wnote">${esc(x)}</blockquote>`).join("") + `</details>`;
+  }
+  return html;
 }
 
 function specialHtml(d) {
@@ -520,13 +579,13 @@ async function showPlayers(season) {
   const num = n => n ? n : `<span class="zero">0</span>`;
   panel.innerHTML = `<table class="players"><thead><tr>
       <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
-      <th scope="col">HOH</th><th scope="col">Veto</th><th scope="col">Noms</th><th scope="col">Final noms</th>
-      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th><th scope="col">Twist wins</th>
+      <th scope="col">HOHs</th><th scope="col">Vetoes</th><th scope="col">Twist wins</th><th scope="col">Noms</th><th scope="col">Final noms</th>
+      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th>
     </tr></thead><tbody>` + rows.map(p => {
       const s = playerStats(p);
       return `<tr><td>${plink(season, p.name)}</td><td class="result">${esc(p.result || "In the game")}</td>`
-        + `<td>${num(s.hoh)}</td><td>${num(s.veto)}</td><td>${num(s.noms)}</td><td>${num(s.block)}</td>`
-        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td><td>${num(s.twist)}</td></tr>`;
+        + `<td>${num(s.hoh)}</td><td>${num(s.veto)}</td><td>${num(s.twist)}</td><td>${num(s.noms)}</td><td>${num(s.block)}</td>`
+        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td></tr>`;
     }).join("") + `</tbody></table>`;
 }
 
@@ -535,8 +594,8 @@ function roundKeys(season) {
   const keys = [];
   DATA.weeks.filter(w => w.season === season).forEach(w => {
     const multi = w.rounds.length > 1;
-    if (!w.rounds.length) keys.push([w.week_label, w.week_label]);
-    w.rounds.forEach(r => keys.push([multi && r.sub_label ? `${w.week_label} (${r.sub_label})` : w.week_label, w.week_label]));
+    if (!w.rounds.length) keys.push([w.week_label, w.week_label, 0]);
+    w.rounds.forEach((r, i) => keys.push([multi && r.sub_label ? `${w.week_label} (${r.sub_label})` : w.week_label, w.week_label, i]));
   });
   return keys;
 }
@@ -553,10 +612,26 @@ async function showPlayer(season, name) {
   const s = playerStats(p);
   const events = new Map();
   const add = (week, html) => { if (!events.has(week)) events.set(week, []); events.get(week).push(html); };
-  p.hoh.forEach(w => add(w, "Won HOH"));
-  p.veto.forEach(w => add(w, "Won the veto"));
+  // Look up a round's details from its timeline key, e.g. "Week 10 (Day 67)".
+  const keys = new Map(roundKeys(season).map(([k, label, i]) => [k, { label, i }]));
+  const roundInfo = k => {
+    const at = keys.get(k); if (!at) return {};
+    const wd = d.weeks[`${season}|${at.label}`];
+    return wd ? { comps: wd.comps.filter(c => c.round === at.i + 1 && c.winner === name), veto: (wd.rounds[at.i] || {}).veto } : {};
+  };
+  const compName = (k, kind) => {
+    const c = (roundInfo(k).comps || []).find(x => x.kind === kind);
+    return c ? ` <span class="muted">(“${esc(c.name)}”)</span>` : "";
+  };
+  p.hoh.forEach(w => add(w, "Won HOH" + compName(w, "hoh")));
+  p.veto.forEach(w => add(w, "Won the veto" + compName(w, "veto")));
   p.twist.forEach(t => add(t.week, esc(t.label)));
-  p.nominated.forEach(w => add(w, p.on_block.includes(w) ? "Nominated" : "Nominated, then saved"));
+  p.nominated.forEach(w => {
+    if (p.on_block.includes(w)) return add(w, "Nominated");
+    const v = roundInfo(w).veto;
+    const how = v && v.on.includes(name) ? " by the veto" : v && v.twist_saved.includes(name) ? " by a twist" : "";
+    add(w, `Nominated, then saved${how}`);
+  });
   p.on_block.filter(w => !p.nominated.includes(w)).forEach(w => add(w, "Put on the block as a replacement nominee"));
   p.votes_against.forEach(v => add(v.week, `${plural(v.voters.length, "vote")} to evict them (${v.voters.map(x => plink(season, x)).join(", ")})`));
   p.votes_cast.forEach(v => add(v.week, `Voted to evict ${plink(season, v.vote)}${v.with_house ? "" : " <span class=\"tag\">against the house</span>"}`));
@@ -565,9 +640,9 @@ async function showPlayer(season, name) {
     `<li><a class="plink" href="${weekHash(season, label)}">${esc(k)}</a><div>${events.get(k).join("<br>")}</div></li>`).join("");
   openDrawer(title, `BB${season} · ${p.result || "In the game"}`,
     `<div class="stats">
-       <div class="stat"><b>${s.hoh}</b><span>HOH wins</span></div>
-       <div class="stat"><b>${s.veto}</b><span>Veto wins</span></div>
-       <div class="stat"><b>${s.noms}</b><span>Times nominated</span></div>
+       <div class="stat"><b>${s.hoh}</b><span>HOHs</span></div>
+       <div class="stat"><b>${s.veto}</b><span>Vetoes</span></div>
+       <div class="stat"><b>${s.noms}</b><span>Noms</span></div>
        <div class="stat"><b>${s.against}</b><span>Votes against</span></div>
      </div>
      <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${s.withHouse} with the house` : ""}${s.twist ? ` · ${plural(s.twist, "twist win")}` : ""}</p>
