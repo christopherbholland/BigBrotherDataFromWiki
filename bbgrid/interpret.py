@@ -26,10 +26,13 @@ SUMMARY_WORDS = re.compile(r"\b(winners?|nominations?|nominees?|veto|power|saved
 
 WEEK_NUM_RE = re.compile(r"\bweek\s*(\d+)", re.I)
 FINALE_RE = re.compile(r"\bfinale\b", re.I)
+DAY_RE = re.compile(r"^day\s*\d+$", re.I)
 NONE_RE = re.compile(r"^\(?(none|n/?a|—|–|-)\)?$", re.I)
 
 VOTE_TALLY_RE = re.compile(r"(\d+)\s+of\s+(\d+)\s+votes?\s+to\s+evict", re.I)
 SOLE_VOTE_RE = re.compile(r"^(.+?)['’]s\s+choice\s+to\s+evict", re.I)
+
+NON_STANDARD = "Non-standard outcome: "
 
 STATUS_RANK = {"ok": 0, "note": 1, "error": 2}
 
@@ -60,7 +63,13 @@ def classify_rows(grid, label_cols):
     row), "vote" (individual houseguest vote row), "evicted", "ignored".
     """
     labeled = []
-    for row in grid.body_rows:
+    first_body_row = len(grid.header_rows)
+    for i, row in enumerate(grid.body_rows):
+        if row[label_cols[0]].row != first_body_row + i:
+            # The label cell spans down from an earlier row (e.g. a two-row
+            # "Evicted" whose second row only differs in a Finale column).
+            labeled.append(("", "", row))
+            continue
         seen, parts = set(), []
         for c in label_cols:
             cell = row[c]
@@ -171,7 +180,7 @@ def build_round(rows, col, sub_label):
         "tally": None,
         "extras": {},
     }
-    problems, vote_cells, evicted_seen = [], [], False
+    vote_cells, evicted_cell = [], None
     for kind, key, _, row in rows:
         cell = row[col]
         if kind == "field":
@@ -181,19 +190,43 @@ def build_round(rows, col, sub_label):
             if names:
                 rnd["extras"][key] = names
         elif kind == "evicted":
-            name, tally = parse_evicted(cell)
-            evicted_seen = name is not None
-            rnd["evicted"], rnd["tally"] = name, tally
-            if name is not None and tally is None:
-                problems.append(("error", f"Unreadable Evicted cell: {cell.text!r}"))
+            evicted_cell = cell
+            rnd["evicted"], rnd["tally"] = parse_evicted(cell)
         elif kind == "vote":
             vote_cells.append(cell.names)
-    if not evicted_seen:
-        problems.append(("note", "No eviction"))
-    elif not rnd["hoh"]:
-        problems.append(("error", "Missing HOH"))
     rnd["_vote_cells"] = vote_cells  # used by the validator, dropped on export
-    return rnd, problems
+    return rnd, round_problem(rnd, evicted_cell)
+
+
+def round_problem(rnd, evicted_cell):
+    """Return None, or (status, message, modeled) for a round that isn't a plain eviction.
+
+    An empty Evicted cell (e.g. a week still airing) and an outcome that isn't
+    a vote tally or a sole vote (competition eliminations, re-entries,
+    cancelled evictions) are flagged and the round is left out. A plain
+    eviction with no HOH is a structural error.
+    """
+    if rnd["evicted"] is None:
+        return ("note", "No eviction", False)
+    if rnd["tally"] is None:
+        return ("note", NON_STANDARD + " ".join(evicted_cell.names), False)
+    if not rnd["hoh"]:
+        return ("error", "Missing HOH", True)
+    return None
+
+
+def two_round_note(round_cols, twist):
+    """Note for a week with two rounds.
+
+    "Double eviction" only when both sub-columns are "Day N" and both rounds
+    are ordinary evictions. Other two-column weeks (a split house's
+    "Inside"/"Outside", a competition elimination beside an eviction) get a
+    neutral note naming the columns.
+    """
+    labels = [s or "" for s, _ in round_cols]
+    if not twist and all(DAY_RE.match(label) for label in labels):
+        return "Double eviction"
+    return "Two rounds: " + " / ".join(labels)
 
 
 def worst(a, b):
@@ -230,20 +263,21 @@ def interpret(grid: Grid, season: int):
             record["status"] = "note"
             notes.append(f"{len(round_cols)} sub-columns (not modeled)")
             round_cols = []
-        elif len(round_cols) == 2:
-            notes.append("Double eviction")
-
-        rounds = []
-        for sub_label, c in round_cols:
-            rnd, problems = build_round(rows, c, sub_label)
-            for status, msg in problems:
+        twist = False
+        for i, (sub_label, c) in enumerate(round_cols, 1):
+            rnd, problem = build_round(rows, c, sub_label)
+            if problem:
+                status, msg, modeled = problem
+                twist = twist or msg.startswith(NON_STANDARD)
                 record["status"] = worst(record["status"], status)
-                if msg not in notes:
-                    notes.append(msg)
-            rounds.append(rnd)
-        # A week with no eviction is flagged, not modeled.
-        if "No eviction" not in notes:
-            record["rounds"] = rounds
+                if len(round_cols) > 1:
+                    msg = f"Round {i}" + (f" ({sub_label})" if sub_label else "") + f": {msg}"
+                notes.append(msg)
+                if not modeled:
+                    continue
+            record["rounds"].append(rnd)
+        if len(round_cols) == 2:
+            notes.insert(1 if finale else 0, two_round_note(round_cols, twist))
 
         for _, _, _, row in rows:
             for c in cols:

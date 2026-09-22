@@ -1,0 +1,52 @@
+name: Fetch Wikipedia pages
+
+# Fetches each season's page into cache/, rebuilds web/weeks.json and
+# report.txt, and commits them back to the branch if any page changed.
+# Runs when this file or seasons.yaml changes, or by hand from the Actions tab.
+on:
+  push:
+    paths:
+      - .github/workflows/fetch.yml
+      - seasons.yaml
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: "Season numbers to fetch, space-separated (blank = all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Fetch pages
+        run: python -m bbgrid fetch ${{ github.event.inputs.seasons }}
+      - name: Build weeks.json and report.txt
+        run: |
+          python -m bbgrid build
+          cat report.txt
+      - name: Commit if the pages changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Only the fetch timestamps change when a page hasn't been edited,
+          # so compare the HTML to decide whether there's anything to commit.
+          if git diff --quiet -- 'cache/*.html'; then
+            echo "Wikipedia pages unchanged; nothing to commit"
+          else
+            git add cache/ web/weeks.json report.txt
+            git commit -m "Update Wikipedia page cache and weeks.json"
+            git push
+          fi

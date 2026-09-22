@@ -1,41 +1,60 @@
 # Implementation notes
 
-This file records choices made while building v1, and assumptions that need checking
-against the real pages.
+This file records choices made while building v1 and what the real tables showed.
 
-## Not checked against real pages yet
+## What the real tables showed (fetched 2026-09-22)
 
-The pipeline was built in a sandbox whose network policy blocks `en.wikipedia.org`.
-Nothing here has run on real voting-history tables yet. Step 2 of the suggested order
-("inspect each table before writing the interpreter") is still open. To do it:
+All eight pages were fetched by the "Fetch Wikipedia pages" GitHub Action, because the
+Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 15 `note`,
+0 `error`. The vote-count check passed on every `ok` round.
 
-```sh
-python -m bbgrid fetch
-python -m bbgrid inspect      # headers, week/sub-column grouping, row-label mapping per season
-python -m bbgrid build        # then read report.txt
-```
+**Assumptions that held in all eight seasons**
+- The table has a "voting history" caption.
+- There are two header rows (three in BB23 and BB24, where the middle row doesn't
+  matter), with week labels on top and sub-column labels below.
+- The label column is one column wide.
+- Rows run: summary rows, then one vote row per houseguest, then `Evicted`.
+- The top-row labels are the same in every season: `Head of Household`,
+  `Nominations (initial)`, `Veto winner` (BB21–22) or `Veto winner(s)` (BB23+), and
+  `Nominations (final)`. No mapping changes were needed.
+- Tally text is always `X of Y votes to evict` or `<name>'s choice to evict`.
 
-Assumptions to confirm against the `inspect` output:
+**Twist rows, which land in `extras` without any code for them**
 
-1. **Table location.** A `<caption>` containing "voting history", or else the first
-   `wikitable` after a heading with that text.
-2. **Header rows.** The leading rows whose own cells are all `<th>`. Body rows are assumed
-   to start with a `<th>` label and contain `<td>` data cells. Week labels come from the
-   first header row that has a "Week N" cell. Sub-column labels ("Day 67", "Finale") come
-   from the last header row. A week header that spans both header rows has no sub-label.
-3. **Label columns.** The columns covered by the top-left corner header cell.
-4. **Row sections.**
-   - The top summary block runs from the first body row to the last row with a known top
-     label (HOH, nominations, veto, final nominations).
-   - The bottom block starts at the first `Evicted…` row.
-   - The rows in between are houseguest vote rows. A row there whose label contains a
-     summary word (winner, nominations, veto, power, saved, evicted) is counted as an
-     extra instead.
-   - `Notes` and `References` rows are ignored except for their footnote markers.
-5. **Evicted cell.** The first line is the evicted name. The remaining lines are joined
-   and matched against `X of Y votes to evict` or `<name>'s choice to evict`.
-6. **Name lists.** Summary cells are split on line breaks and commas, never on spaces.
-   `(none)`, `N/A` and dashes are dropped.
+| Season | Label |
+|---|---|
+| BB22 | Room winner |
+| BB23 | Wild Card winner |
+| BB26 | AI Arena winner |
+| BB27, BB28 | Block Buster winner |
+
+**Two changes made after inspecting**
+1. *Rowspan continuation rows.* The `Evicted` label spans two rows, and the second row
+   differs only in the Finale column (winner and runner-up vote counts). A body row whose
+   label cell started in an earlier row is now ignored. Before this fix it put a junk
+   `extras: {"Evicted": ...}` entry into every round.
+2. *Non-standard outcomes are notes, not errors.* An `Evicted` cell that is neither a vote
+   tally nor a sole vote is a readable twist, not a structural failure. The round isn't
+   modeled; the week becomes `note: Non-standard outcome: …` and keeps its raw text. Any
+   other round in the same week is still modeled. The same goes for a round with an empty
+   `Evicted` cell, which covers a double eviction that's half finished. The six cases:
+   - BB21 Week 1, Day 1: David, "Evicted by competition"
+   - BB21 Week 3, Comeback: Cliff, "Won re-entry into game"
+   - BB24 Week 1: "Eviction cancelled"
+   - BB25 Week 8: Cameron, "Won re-entry into game"
+   - BB27 Week 9, Day 59: Rachel, "Eliminated by competition"
+   - BB28 Week 8, Day 52: Haley, "Yash's choice to eliminate"
+
+**Things to know about the data**
+- Some two-column weeks aren't double evictions on the show. BB24 Week 7's columns are
+  "Inside" and "Outside" (the split house), and BB21 Weeks 1 and 3, BB27 Week 9 and BB28
+  Week 8 pair an ordinary eviction with a twist round. These get the note
+  `Two rounds: <column> / <column>` instead of `Double eviction` (see Status rules).
+- BB25's last week has three columns (Day 94, Day 100, Finale): two sole-vote rounds plus
+  the Finale.
+- BB28 was still airing when fetched. Week 11's second round and Week 12 have no
+  eviction yet. BB28's caption on Wikipedia reads "Big Brother 26 voting history", a
+  mistake on the page itself that doesn't affect parsing.
 
 ## Row-label patterns (`bbgrid/interpret.py`)
 
@@ -57,13 +76,17 @@ the first.
 ## Status rules as implemented
 
 - One non-Finale sub-column: one round, `ok` if it passes validation.
-- Two non-Finale sub-columns: two rounds, `ok`, note `Double eviction`.
+- Two non-Finale sub-columns: two rounds, `ok`. The note is `Double eviction` only when
+  both sub-labels are "Day N" and neither round has a non-standard outcome. Otherwise it
+  is `Two rounds: <label> / <label>`, e.g. BB24's split house, `Two rounds: Inside / Outside`.
 - A Finale sub-column is never a round. It sets `note` / `Finale`, and the week's regular
   column is still modeled as a round and validated.
 - Three or more non-Finale sub-columns: `note`, no rounds, raw text kept.
-- A round with an empty or missing Evicted cell: `note` / `No eviction`, no rounds, raw
-  text kept. This covers BB28's in-progress weeks.
-- Missing HOH, or an Evicted cell with an unreadable tally: `error`.
+- A round with an empty or missing Evicted cell: `note` / `No eviction`. That round isn't
+  modeled, but the week's other rounds are. This covers BB28's in-progress weeks.
+- An Evicted cell that isn't a vote tally or a sole vote: `note` /
+  `Non-standard outcome: …`. That round isn't modeled.
+- A plain eviction round with no HOH: `error`.
 - A failed validation check sets `error` and appends `Validation failed: …` to the note.
   Validation runs on every modeled round, including a Finale week's regular round.
 
@@ -83,7 +106,8 @@ footnote text itself isn't extracted in v1.
 ## Web page
 
 - Seasons are rows. Columns are keyed by week label, with numbered weeks first.
-- Each cell names the evicted houseguest. A double eviction shows two stacked halves.
+- Each cell names the evicted houseguest. A week with two modeled rounds shows two stacked
+  halves.
 - `note` and `error` weeks get an icon badge (`!` / `×`) with a legend. Color is never the
   only signal.
 - The tooltip appears on hover or keyboard focus, and clicking pins it (useful on touch).

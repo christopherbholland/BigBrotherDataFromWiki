@@ -1,0 +1,742 @@
+[
+ {
+  "season": 24,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "note",
+  "note": "Non-standard outcome: Eviction cancelled",
+  "rounds": [],
+  "raw": {
+   "columns": [
+    "Week 1"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Daniel"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Michael\nTerrance"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "Michael"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Taylor\nTerrance"
+     ]
+    },
+    {
+     "label": "Taylor",
+     "cells": [
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Monte",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Turner",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Brittany",
+     "cells": [
+      "Backstage"
+     ]
+    },
+    {
+     "label": "Alyssa",
+     "cells": [
+      "Backstage"
+     ]
+    },
+    {
+     "label": "Michael",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Terrance",
+     "cells": [
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Kyle",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Joseph",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Jasmine",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Indy",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Daniel",
+     "cells": [
+      "Head of\nHousehold"
+     ]
+    },
+    {
+     "label": "Nicole",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Ameerah",
+     "cells": [
+      "No vote"
+     ]
+    },
+    {
+     "label": "Pooch",
+     "cells": [
+      "Backstage\nBoss"
+     ]
+    },
+    {
+     "label": "Paloma",
+     "cells": [
+      "Backstage"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Eviction\ncancelled"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "f",
+   "h",
+   "i"
+  ]
+ },
+ {
+  "season": 24,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Jasmine"
+    ],
+    "nominees_initial": [
+     "Pooch",
+     "Taylor"
+    ],
+    "veto_winners": [
+     "Michael"
+    ],
+    "nominees_final": [
+     "Pooch",
+     "Taylor"
+    ],
+    "evicted": "Pooch",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 12,
+     "votes_cast": 12
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Turner"
+    ],
+    "nominees_initial": [
+     "Brittany",
+     "Michael"
+    ],
+    "veto_winners": [
+     "Brittany",
+     "Michael"
+    ],
+    "nominees_final": [
+     "Ameerah",
+     "Terrance"
+    ],
+    "evicted": "Ameerah",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 7,
+     "votes_cast": 11
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 24,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Monte"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Indy"
+    ],
+    "veto_winners": [
+     "Daniel",
+     "Kyle"
+    ],
+    "nominees_final": [
+     "Nicole",
+     "Taylor"
+    ],
+    "evicted": "Nicole",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 9,
+     "votes_cast": 10
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 24,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Michael"
+    ],
+    "nominees_initial": [
+     "Joseph",
+     "Monte",
+     "Terrance"
+    ],
+    "veto_winners": [
+     "Brittany",
+     "Michael"
+    ],
+    "nominees_final": [
+     "Daniel",
+     "Kyle"
+    ],
+    "evicted": "Daniel",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 9
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 24,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Taylor"
+    ],
+    "nominees_initial": [
+     "Indy",
+     "Terrance"
+    ],
+    "veto_winners": [
+     "Kyle"
+    ],
+    "nominees_final": [
+     "Indy",
+     "Terrance"
+    ],
+    "evicted": "Indy",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 7,
+     "votes_cast": 8
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": "Two rounds: Inside / Outside",
+  "rounds": [
+   {
+    "sub_label": "Inside",
+    "hoh": [
+     "Michael"
+    ],
+    "nominees_initial": [
+     "Jasmine",
+     "Monte"
+    ],
+    "veto_winners": [
+     "Brittany"
+    ],
+    "nominees_final": [
+     "Jasmine",
+     "Monte"
+    ],
+    "evicted": "Jasmine",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Outside",
+    "hoh": [
+     "Terrance"
+    ],
+    "nominees_initial": [
+     "Joseph",
+     "Turner"
+    ],
+    "veto_winners": [
+     "Terrance"
+    ],
+    "nominees_final": [
+     "Joseph",
+     "Kyle"
+    ],
+    "evicted": "Joseph",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Turner"
+    ],
+    "nominees_initial": [
+     "Brittany",
+     "Taylor"
+    ],
+    "veto_winners": [
+     "Michael"
+    ],
+    "nominees_final": [
+     "Kyle",
+     "Taylor"
+    ],
+    "evicted": "Kyle",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 5
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 59",
+    "hoh": [
+     "Michael"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Terrance"
+    ],
+    "veto_winners": [
+     "Michael"
+    ],
+    "nominees_final": [
+     "Alyssa",
+     "Terrance"
+    ],
+    "evicted": "Terrance",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 4
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 65",
+    "hoh": [
+     "Turner"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Brittany"
+    ],
+    "veto_winners": [
+     "Monte"
+    ],
+    "nominees_final": [
+     "Brittany",
+     "Michael"
+    ],
+    "evicted": "Michael",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Monte"
+    ],
+    "nominees_initial": [
+     "Alyssa",
+     "Brittany"
+    ],
+    "veto_winners": [
+     "Brittany"
+    ],
+    "nominees_final": [
+     "Alyssa",
+     "Taylor"
+    ],
+    "evicted": "Alyssa",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "d"
+  ]
+ },
+ {
+  "season": 24,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Taylor"
+    ],
+    "nominees_initial": [
+     "Brittany",
+     "Turner"
+    ],
+    "veto_winners": [
+     "Monte"
+    ],
+    "nominees_final": [
+     "Brittany",
+     "Turner"
+    ],
+    "evicted": "Brittany",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Monte"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 24,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "note",
+  "note": "Finale",
+  "rounds": [
+   {
+    "sub_label": "Day 82",
+    "hoh": [
+     "Monte"
+    ],
+    "nominees_initial": [],
+    "veto_winners": [],
+    "nominees_final": [
+     "Taylor",
+     "Turner"
+    ],
+    "evicted": "Turner",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Monte"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 82",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Monte",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner(s)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Taylor\nTurner",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Taylor",
+     "cells": [
+      "Nominated",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Monte",
+     "cells": [
+      "Turner",
+      "Runner-up"
+     ]
+    },
+    {
+     "label": "Turner",
+     "cells": [
+      "Evicted\n(Day 82)",
+      "Monte"
+     ]
+    },
+    {
+     "label": "Brittany",
+     "cells": [
+      "Evicted\n(Day 79)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Alyssa",
+     "cells": [
+      "Evicted\n(Day 72)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Michael",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Terrance",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Kyle",
+     "cells": [
+      "Evicted\n(Day 58)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Joseph",
+     "cells": [
+      "Evicted\n(Day 51)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Jasmine",
+     "cells": [
+      "Evicted\n(Day 51)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Indy",
+     "cells": [
+      "Evicted\n(Day 44)",
+      "Taylor"
+     ]
+    },
+    {
+     "label": "Daniel",
+     "cells": [
+      "Evicted\n(Day 37)",
+      "Evicted\n(Day 37)"
+     ]
+    },
+    {
+     "label": "Nicole",
+     "cells": [
+      "Evicted\n(Day 30)",
+      "Evicted\n(Day 30)"
+     ]
+    },
+    {
+     "label": "Ameerah",
+     "cells": [
+      "Evicted\n(Day 23)",
+      "Evicted\n(Day 23)"
+     ]
+    },
+    {
+     "label": "Pooch",
+     "cells": [
+      "Evicted\n(Day 16)",
+      "Evicted\n(Day 16)"
+     ]
+    },
+    {
+     "label": "Paloma",
+     "cells": [
+      "Walked\n(Day 8)",
+      "Walked\n(Day 8)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Turner\nMonte's\nchoice\nto evict",
+      "Taylor\n8 votes\nto win"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "e"
+  ]
+ }
+]

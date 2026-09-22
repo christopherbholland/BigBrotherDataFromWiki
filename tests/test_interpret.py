@@ -64,10 +64,34 @@ def test_evicted_not_a_final_nominee_is_an_error():
     assert "not in final nominees" in w["note"]
 
 
-def test_unreadable_tally_is_an_error():
-    html = FIXTURE.replace("3 of 4 votes<br />to evict", "by a coin flip")
+def test_non_standard_outcome_is_a_note_and_not_modeled():
+    # e.g. "Evicted by competition", "Won re-entry into game", "Eviction cancelled"
+    html = FIXTURE.replace("3 of 4 votes<br />to evict", "Eliminated by competition")
     w = {w["week"]: w for w in process_season(99, html)}[2]
-    assert w["status"] == "error" and "Unreadable Evicted cell" in w["note"]
+    assert w["status"] == "note"
+    assert w["note"] == "Non-standard outcome: Fran Eliminated by competition"
+    assert w["rounds"] == [] and w["raw"]["rows"]
+
+
+def test_double_eviction_with_one_round_unfinished_keeps_the_finished_round():
+    html = FIXTURE.replace("<td>Dana<br /><small>2 of 2 votes<br />to evict</small></td>", "<td></td>")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["status"] == "note"
+    assert w["note"] == "Double eviction; Round 2 (Day 23): No eviction"
+    assert [r["evicted"] for r in w["rounds"]] == ["Gus"]
+
+
+def test_label_spanning_two_rows_is_not_a_second_row():
+    # Wikipedia's Evicted label spans two rows; the second row differs only in the Finale column.
+    html = FIXTURE.replace('<th colspan="2">Evicted</th>', '<th colspan="2" rowspan="2">Evicted</th>').replace(
+        '<tr>\n  <th colspan="2">Notes</th>',
+        '<tr><td>Blair</td><td>Fran</td><td>Gus</td><td>Dana</td><td>Eli</td><td>Casey</td></tr>\n'
+        '<tr>\n  <th colspan="2">Notes</th>',
+    )
+    assert html.count('rowspan="2">Evicted') == 1 and "<td>Casey</td></tr>" in html
+    weeks = process_season(99, html)
+    assert [w["status"] for w in weeks] == ["ok", "ok", "ok", "note"]
+    assert all("Evicted" not in r["extras"] for w in weeks for r in w["rounds"])
 
 
 def test_week_without_eviction_is_a_note():
@@ -89,3 +113,19 @@ def test_three_sub_columns_are_not_modeled():
     (w,) = process_season(1, html)
     assert w["status"] == "note" and w["note"] == "3 sub-columns (not modeled)"
     assert w["rounds"] == []
+
+
+def test_two_rounds_without_day_labels_is_not_called_a_double_eviction():
+    # A split house: two separate evictions labeled "Inside" / "Outside".
+    html = FIXTURE.replace("<th>Day 20</th><th>Day 23</th>", "<th>Inside</th><th>Outside</th>")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["status"] == "ok" and w["note"] == "Two rounds: Inside / Outside"
+    assert [r["sub_label"] for r in w["rounds"]] == ["Inside", "Outside"]
+
+
+def test_twist_round_beside_an_eviction_is_not_called_a_double_eviction():
+    html = FIXTURE.replace("<td>Gus<br /><small>2 of 3 votes<br />to evict</small></td>",
+                           "<td>Gus<br /><small>Evicted by competition</small></td>")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["note"] == "Two rounds: Day 20 / Day 23; Round 1 (Day 20): Non-standard outcome: Gus Evicted by competition"
+    assert [r["evicted"] for r in w["rounds"]] == ["Dana"]

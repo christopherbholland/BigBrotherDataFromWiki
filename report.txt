@@ -1,0 +1,357 @@
+100 weeks: 85 ok, 15 note, 0 error
+
+BB21 Week 1: NOTE: Two rounds: Day 1 / Day 8; Round 1 (Day 1): Non-standard outcome: David Evicted by competition
+    columns: Day 1 | Day 8
+    Head of Household: Michie | Christie
+    Nominations (initial): Cliff / David / Jessica / Kemi | Cliff / Kathryn
+    Veto winner: (None) | Sam
+    Nominations (final): (None) | Kathryn / Ovi
+    Michie: Camp Director | Ovi
+    Holly: No vote | Ovi
+    Nicole: No vote | Ovi
+    Cliff: Banished | Ovi
+    Tommy: No vote | Ovi
+    Christie: No vote | Head of Household
+    Jessica: Banished | Ovi
+    Nick: No vote | Ovi
+    Analyse: No vote | Ovi
+    Kathryn: No vote | Nominated
+    Jack: No vote | Ovi
+    Sam: No vote | Ovi
+    Isabella: No vote | Ovi
+    Kemi: Banished | Ovi
+    Ovi: No vote | Nominated
+    David: Banished | Evicted / (Day 1)
+    Evicted: David / Evicted by / competition | Ovi / 12 of 12 / votes / to evict
+BB21 Week 3: NOTE: Two rounds: Eviction / Comeback; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game
+    columns: Eviction | Comeback
+    Head of Household: Nick | (None)
+    Nominations (initial): Cliff / Jessica | (None)
+    Veto winner: Kathryn | (None)
+    Nominations (final): Cliff / Nicole | (None)
+    Michie: Cliff | No vote
+    Holly: Cliff | No vote
+    Nicole: Nominated | No vote
+    Cliff: Nominated | Camp Comeback / (Day 30)
+    Tommy: Cliff | No vote
+    Christie: Cliff | No vote
+    Jessica: Nicole | No vote
+    Nick: Head of Household | No vote
+    Analyse: Cliff | No vote
+    Kathryn: Nicole | No vote
+    Jack: Cliff | No vote
+    Sam: Nicole | No vote
+    Isabella: Nicole | No vote
+    Kemi: Camp Comeback / (Day 23) | Camp Comeback / (Day 23)
+    Ovi: Camp Comeback / (Day 15) | Camp Comeback / (Day 15)
+    David: Camp Comeback / (Day 15) | Camp Comeback / (Day 15)
+    Evicted: Cliff / 6 of 10 / votes / to evict | Cliff / Won re-entry / into game
+BB21 Week 13: NOTE: Finale
+    columns: Day 99 | Finale
+    Head of Household: Michie | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner: (None) | (None)
+    Nominations (final): Holly / Nicole | (None)
+    Michie: Nicole | Winner
+    Holly: Nominated | Runner-up
+    Nicole: Evicted / (Day 99) | Holly
+    Cliff: Re-evicted / (Day 93) | Michie
+    Tommy: Evicted / (Day 86) | Michie
+    Christie: Evicted / (Day 79) | Michie
+    Jessica: Evicted / (Day 79) | Holly
+    Nick: Evicted / (Day 72) | Michie
+    Analyse: Evicted / (Day 65) | Michie
+    Kathryn: Evicted / (Day 58) | Holly
+    Jack: Evicted / (Day 51) | Michie
+    Sam: Evicted / (Day 44) | Evicted / (Day 44)
+    Isabella: Evicted / (Day 37) | Evicted / (Day 37)
+    Kemi: Remained evicted / (Day 30) | Remained evicted / (Day 30)
+    Ovi: Remained evicted / (Day 30) | Remained evicted / (Day 30)
+    David: Remained evicted / (Day 30) | Remained evicted / (Day 30)
+    Evicted: Nicole / Michie's / choice / to evict | Michie / 6 votes / to win
+BB22 Week 12: NOTE: Finale
+    columns: Day 85 | Finale
+    Head of Household: Cody | (None)
+    Room winner: (None) | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner: (None) | (None)
+    Nominations (final): Enzo / Nicole F. | (None)
+    Cody: Nicole F. | Winner
+    Enzo: Nominated | Runner-up
+    Nicole F.: Evicted / (Day 85) | Cody
+    Christmas: Evicted / (Day 79) | Cody
+    Memphis: Evicted / (Day 72) | Cody
+    Tyler: Evicted / (Day 65) | Cody
+    Dani: Evicted / (Day 58) | Cody
+    David: Evicted / (Day 58) | Cody
+    Kevin: Evicted / (Day 58) | Cody
+    Da'Vonne: Evicted / (Day 51) | Cody
+    Ian: Evicted / (Day 44) | Cody
+    Bayleigh: Evicted / (Day 37) | Evicted / (Day 37)
+    Kaysar: Evicted / (Day 30) | Evicted / (Day 30)
+    Janelle: Evicted / (Day 23) | Evicted / (Day 23)
+    Nicole A.: Evicted / (Day 16) | Evicted / (Day 16)
+    Keesha: Evicted / (Day 9) | Evicted / (Day 9)
+    Evicted: Nicole F. / Cody's / choice / to evict | Enzo / 0 votes / to win
+BB23 Week 12: NOTE: Finale
+    columns: Day 85 | Finale
+    Head of Household: Xavier | (None)
+    Wild Card winner: (None) | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner(s): (None) | (None)
+    Nominations (final): Azah / Derek F. | (None)
+    Xavier: Azah | Winner
+    Derek F.: Nominated | Runner-up
+    Azah: Evicted / (Day 85) | Xavier
+    Kyland: Evicted / (Day 79) | Xavier
+    Hannah: Evicted / (Day 71) | Xavier
+    Tiffany: Evicted / (Day 71) | Xavier
+    Alyssa: Evicted / (Day 65) | Xavier
+    Claire: Evicted / (Day 65) | Xavier
+    Sarah Beth: Evicted / (Day 58) | Xavier
+    Derek X.: Evicted / (Day 51) | Xavier
+    Britini: Evicted / (Day 44) | Xavier
+    Christian: Evicted / (Day 37) | Evicted / (Day 37)
+    Whitney: Evicted / (Day 30) | Evicted / (Day 30)
+    Brent: Evicted / (Day 23) | Evicted / (Day 23)
+    Frenchie: Evicted / (Day 16) | Evicted / (Day 16)
+    Travis: Evicted / (Day 9) | Evicted / (Day 9)
+    Evicted: Azah / Xavier's / choice / to evict | Xavier / 9 votes / to win
+BB24 Week 1: NOTE: Non-standard outcome: Eviction cancelled
+    columns: Week 1
+    Head of Household: Daniel
+    Nominations (initial): Michael / Terrance
+    Veto winner(s): Michael
+    Nominations (final): Taylor / Terrance
+    Taylor: Nominated
+    Monte: No vote
+    Turner: No vote
+    Brittany: Backstage
+    Alyssa: Backstage
+    Michael: No vote
+    Terrance: Nominated
+    Kyle: No vote
+    Joseph: No vote
+    Jasmine: No vote
+    Indy: No vote
+    Daniel: Head of / Household
+    Nicole: No vote
+    Ameerah: No vote
+    Pooch: Backstage / Boss
+    Paloma: Backstage
+    Evicted: Eviction / cancelled
+BB24 Week 12: NOTE: Finale
+    columns: Day 82 | Finale
+    Head of Household: Monte | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner(s): (None) | (None)
+    Nominations (final): Taylor / Turner | (None)
+    Taylor: Nominated | Winner
+    Monte: Turner | Runner-up
+    Turner: Evicted / (Day 82) | Monte
+    Brittany: Evicted / (Day 79) | Taylor
+    Alyssa: Evicted / (Day 72) | Taylor
+    Michael: Evicted / (Day 65) | Taylor
+    Terrance: Evicted / (Day 65) | Taylor
+    Kyle: Evicted / (Day 58) | Taylor
+    Joseph: Evicted / (Day 51) | Taylor
+    Jasmine: Evicted / (Day 51) | Taylor
+    Indy: Evicted / (Day 44) | Taylor
+    Daniel: Evicted / (Day 37) | Evicted / (Day 37)
+    Nicole: Evicted / (Day 30) | Evicted / (Day 30)
+    Ameerah: Evicted / (Day 23) | Evicted / (Day 23)
+    Pooch: Evicted / (Day 16) | Evicted / (Day 16)
+    Paloma: Walked / (Day 8) | Walked / (Day 8)
+    Evicted: Turner / Monte's / choice / to evict | Taylor / 8 votes / to win
+BB25 Week 8: NOTE: Non-standard outcome: Cameron Won re-entry into game
+    columns: Week 8
+    Head of Household: (None)
+    Nominations (initial): Cameron / Jared
+    Veto winner(s): (None)
+    Nominations (final): (None)
+    Jag: No vote
+    Matt: No vote
+    Bowie Jane: No vote
+    Felicia: No vote
+    Cirie: No vote
+    America: No vote
+    Blue: No vote
+    Cory: No vote
+    Cameron: Zombie / (Day 51)
+    Mecole: No vote
+    Jared: Zombie / (Day 51)
+    Izzy: Evicted / (Day 44)
+    Red: Evicted / (Day 37)
+    Hisam: Evicted / (Day 23)
+    Reilly: Evicted / (Day 16)
+    Kirsten: Evicted / (Day 9)
+    Luke: Expelled / (Day 8)
+    Evicted: Cameron / Won re-entry / into game
+BB25 Week 14: NOTE: Finale; Double eviction
+    columns: Day 94 | Day 100 | Finale
+    Head of Household: Bowie Jane | Jag | (None)
+    Nominations (initial): Felicia / Matt | (None) | (None)
+    Veto winner(s): Jag | (None) | (None)
+    Nominations (final): Felicia / Matt | Bowie Jane / Matt | (None)
+    Jag: Felicia | Bowie Jane | Winner
+    Matt: Nominated | Nominated | Runner-up
+    Bowie Jane: Head of / Household | Evicted / (Day 100) | Jag
+    Felicia: Nominated | Evicted / (Day 96) | Matt
+    Cirie: Evicted / (Day 93) | Evicted / (Day 93) | Matt
+    America: Evicted / (Day 86) | Evicted / (Day 86) | Jag
+    Blue: Evicted / (Day 86) | Evicted / (Day 86) | Jag
+    Cory: Evicted / (Day 79) | Evicted / (Day 79) | Jag
+    Cameron: Re-evicted / (Day 72) | Re-evicted / (Day 72) | Jag
+    Mecole: Evicted / (Day 65) | Evicted / (Day 65) | Evicted / (Day 65)
+    Jared: Evicted / (Day 58) | Evicted / (Day 58) | Evicted / (Day 58)
+    Izzy: Evicted / (Day 44) | Evicted / (Day 44) | Evicted / (Day 44)
+    Red: Evicted / (Day 37) | Evicted / (Day 37) | Evicted / (Day 37)
+    Hisam: Evicted / (Day 23) | Evicted / (Day 23) | Evicted / (Day 23)
+    Reilly: Evicted / (Day 16) | Evicted / (Day 16) | Evicted / (Day 16)
+    Kirsten: Evicted / (Day 9) | Evicted / (Day 9) | Evicted / (Day 9)
+    Luke: Expelled / (Day 8) | Expelled / (Day 8) | Expelled / (Day 8)
+    Evicted: Felicia / Jag's / choice / to evict | Bowie Jane / Jag's / choice / to evict | Jag / 5 votes / to win
+BB26 Week 13: NOTE: Finale
+    columns: Day 90 | Finale
+    Head of Household: Makensy | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner(s): (None) | (None)
+    AI Arena winner: (None) | (None)
+    Nominations (final): Cam / Chelsie | (None)
+    Chelsie: Nominated | Winner
+    Makensy: Cam | Runner-up
+    Cam: Evicted / (Day 90) | Chelsie
+    Rubina: Evicted / (Day 87) | Chelsie
+    Kimo: Evicted / (Day 80) | Chelsie
+    Angela: Evicted / (Day 73) | Chelsie
+    Leah: Evicted / (Day 73) | Chelsie
+    T'kor: Evicted / (Day 66) | Chelsie
+    Quinn: Evicted / (Day 59) | Chelsie
+    Joseph: Evicted / (Day 52) | Evicted / (Day 52)
+    Tucker: Evicted / (Day 45) | Evicted / (Day 45)
+    Brooklyn: Evicted / (Day 38) | Evicted / (Day 38)
+    Cedric: Evicted / (Day 31) | Evicted / (Day 31)
+    Kenney: Evicted / (Day 24) | Evicted / (Day 24)
+    Lisa: Evicted / (Day 17) | Evicted / (Day 17)
+    Matt: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Cam / Makensy's / choice / to evict | Chelsie / 7 votes / to win
+BB27 Week 9: NOTE: Two rounds: Day 59 / Day 60; Round 1 (Day 59): Non-standard outcome: Rachel Eliminated by competition
+    columns: Day 59 | Day 60
+    Head of Household: (None) | Lauren
+    Nominations (initial): (None) | Ashley / Morgan / Will
+    Veto winner(s): (None) | Morgan
+    Block Buster winner: (None) | Keanu
+    Nominations (final): Vince / Lauren / Morgan / Rachel | Ashley / Will
+    Ashley: No vote | Nominated
+    Vince: Lauren | Will
+    Morgan: Rachel | Will
+    Ava: Vince | Ashley
+    Keanu: No vote | Will
+    Lauren: Morgan | Head of / Household
+    Kelley: No vote | Ashley
+    Will: No vote | Nominated
+    Rachel: Nominated | Eliminated / (Day 60)
+    Mickey: Evicted / (Day 59) | Evicted / (Day 59)
+    Katherine: Evicted / (Day 52) | Evicted / (Day 52)
+    Rylie: Evicted / (Day 45) | Evicted / (Day 45)
+    Zach: Evicted / (Day 38) | Evicted / (Day 38)
+    Jimmy: Evicted / (Day 31) | Evicted / (Day 31)
+    Adrian: Evicted / (Day 24) | Evicted / (Day 24)
+    Amy: Evicted / (Day 17) | Evicted / (Day 17)
+    Zae: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Rachel / Eliminated by competition | Will / 3 of 5 / votes / to evict
+BB27 Week 12: NOTE: Finale
+    columns: Day 83 | Finale
+    Head of Household: Ashley | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner(s): (None) | (None)
+    Block Buster winner: (None) | (None)
+    Nominations (final): Morgan / Vince | (None)
+    Ashley: Morgan | Winner
+    Vince: Nominated | Runner-up
+    Morgan: Evicted / (Day 83) | Vince
+    Ava: Evicted / (Day 80) | Ashley
+    Keanu: Evicted / (Day 77) | Ashley
+    Lauren: Evicted / (Day 73) | Ashley
+    Kelley: Evicted / (Day 73) | Ashley
+    Will: Evicted / (Day 66) | Ashley
+    Rachel: Eliminated / (Day 60) | Ashley
+    Mickey: Evicted / (Day 59) | Evicted / (Day 59)
+    Katherine: Evicted / (Day 52) | Evicted / (Day 52)
+    Rylie: Evicted / (Day 45) | Evicted / (Day 45)
+    Zach: Evicted / (Day 38) | Evicted / (Day 38)
+    Jimmy: Evicted / (Day 31) | Evicted / (Day 31)
+    Adrian: Evicted / (Day 24) | Evicted / (Day 24)
+    Amy: Evicted / (Day 17) | Evicted / (Day 17)
+    Zae: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Morgan / Ashley's / choice / to evict | Ashley / 6 votes / to win
+BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate
+    columns: Day 52 | Day 53
+    Head of Household: (None) | Drew
+    Nominations (initial): (None) | La Trice / Taylor / Yash
+    Veto winner(s): (None) | Yash
+    Block Buster winner: (None) | Devens
+    Nominations (final): Drew / Barrett / Yash / La Trice / Haley | La Trice / Taylor
+    Dee: Drew / Haley | La Trice
+    Devens: Saved | La Trice
+    Drew: Barrett | Head of / Household
+    Taylor: Saved | Nominated
+    Melody: Saved | Taylor
+    Yash: Haley | La Trice
+    Barrett: La Trice / Yash | La Trice
+    Angela: Saved | Taylor
+    La Trice: Nominated | Nominated
+    Haley: Nominated | Eliminated / (Day 53)
+    Mallory: Evicted / (Day 52) | Evicted / (Day 52)
+    Kamu: Evicted / (Day 45) | Evicted / (Day 45)
+    Chuk: Evicted / (Day 38) | Evicted / (Day 38)
+    Lyric: Evicted / (Day 31) | Evicted / (Day 31)
+    Jason: Evicted / (Day 24) | Evicted / (Day 24)
+    Rome: Evicted / (Day 17) | Evicted / (Day 17)
+    Ashley: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Haley / Yash's / choice / to eliminate | La Trice / 4 of 6 / votes / to evict
+BB28 Week 11: NOTE: Double eviction; Round 2 (Day 77): No eviction
+    columns: Day 74 | Day 77
+    Head of Household: Devens | Taylor
+    Nominations (initial): Drew / Melody | Dee / Drew
+    Veto winner(s): Drew | 
+    Block Buster winner: (None) | (None)
+    Nominations (final): Melody / Taylor | 
+    Dee: Melody | Nominated
+    Devens: Melody | 
+    Drew: Taylor | Nominated
+    Taylor: Nominated | Head of / Household
+    Melody: Nominated | Evicted / (Day 77)
+    Yash: Evicted / (Day 73) | Evicted / (Day 73)
+    Barrett: Evicted / (Day 73) | Evicted / (Day 73)
+    Angela: Evicted / (Day 66) | Evicted / (Day 66)
+    La Trice: Evicted / (Day 59) | Evicted / (Day 59)
+    Haley: Eliminated / (Day 53) | Eliminated / (Day 53)
+    Mallory: Evicted / (Day 52) | Evicted / (Day 52)
+    Kamu: Evicted / (Day 45) | Evicted / (Day 45)
+    Chuk: Evicted / (Day 38) | Evicted / (Day 38)
+    Lyric: Evicted / (Day 31) | Evicted / (Day 31)
+    Jason: Evicted / (Day 24) | Evicted / (Day 24)
+    Rome: Evicted / (Day 17) | Evicted / (Day 17)
+    Ashley: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Melody / 2 of 3 / votes / to evict | 
+BB28 Week 12: NOTE: Finale; No eviction
+    columns: Day 87 | Finale
+    Head of Household:  | (None)
+    Nominations (initial): (None) | (None)
+    Veto winner(s): (None) | (None)
+    Block Buster winner: (None) | (None)
+    Nominations (final):  | (None)
+    Melody: Evicted / (Day 77) | Jury Member
+    Yash: Evicted / (Day 73) | Jury Member
+    Barrett: Evicted / (Day 73) | Jury Member
+    Angela: Evicted / (Day 66) | Jury Member
+    La Trice: Evicted / (Day 59) | Jury Member
+    Haley: Eliminated / (Day 53) | Eliminated / (Day 53)
+    Mallory: Evicted / (Day 52) | Evicted / (Day 52)
+    Kamu: Evicted / (Day 45) | Evicted / (Day 45)
+    Chuk: Evicted / (Day 38) | Evicted / (Day 38)
+    Lyric: Evicted / (Day 31) | Evicted / (Day 31)
+    Jason: Evicted / (Day 24) | Evicted / (Day 24)
+    Rome: Evicted / (Day 17) | Evicted / (Day 17)
+    Ashley: Evicted / (Day 10) | Evicted / (Day 10)

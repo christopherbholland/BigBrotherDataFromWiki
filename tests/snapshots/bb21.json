@@ -1,0 +1,950 @@
+[
+ {
+  "season": 21,
+  "week": 1,
+  "week_label": "Week 1",
+  "status": "note",
+  "note": "Two rounds: Day 1 / Day 8; Round 1 (Day 1): Non-standard outcome: David Evicted by competition",
+  "rounds": [
+   {
+    "sub_label": "Day 8",
+    "hoh": [
+     "Christie"
+    ],
+    "nominees_initial": [
+     "Cliff",
+     "Kathryn"
+    ],
+    "veto_winners": [
+     "Sam"
+    ],
+    "nominees_final": [
+     "Kathryn",
+     "Ovi"
+    ],
+    "evicted": "Ovi",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 12,
+     "votes_cast": 12
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 1",
+    "Day 8"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Michie",
+      "Christie"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Cliff\nDavid\nJessica\nKemi",
+      "Cliff\nKathryn"
+     ]
+    },
+    {
+     "label": "Veto winner",
+     "cells": [
+      "(None)",
+      "Sam"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "(None)",
+      "Kathryn\nOvi"
+     ]
+    },
+    {
+     "label": "Michie",
+     "cells": [
+      "Camp Director",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Holly",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Nicole",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Cliff",
+     "cells": [
+      "Banished",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Tommy",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Christie",
+     "cells": [
+      "No vote",
+      "Head of Household"
+     ]
+    },
+    {
+     "label": "Jessica",
+     "cells": [
+      "Banished",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Nick",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Analyse",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Kathryn",
+     "cells": [
+      "No vote",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "Jack",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Sam",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Isabella",
+     "cells": [
+      "No vote",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Kemi",
+     "cells": [
+      "Banished",
+      "Ovi"
+     ]
+    },
+    {
+     "label": "Ovi",
+     "cells": [
+      "No vote",
+      "Nominated"
+     ]
+    },
+    {
+     "label": "David",
+     "cells": [
+      "Banished",
+      "Evicted\n(Day 1)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "David\nEvicted by\ncompetition",
+      "Ovi\n12 of 12\nvotes\nto evict"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "b",
+   "f"
+  ]
+ },
+ {
+  "season": 21,
+  "week": 2,
+  "week_label": "Week 2",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Jack"
+    ],
+    "nominees_initial": [
+     "Jessica",
+     "Kemi"
+    ],
+    "veto_winners": [
+     "Sam"
+    ],
+    "nominees_final": [
+     "Jessica",
+     "Kemi"
+    ],
+    "evicted": "Kemi",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 10,
+     "votes_cast": 11
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 21,
+  "week": 3,
+  "week_label": "Week 3",
+  "status": "note",
+  "note": "Two rounds: Eviction / Comeback; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game",
+  "rounds": [
+   {
+    "sub_label": "Eviction",
+    "hoh": [
+     "Nick"
+    ],
+    "nominees_initial": [
+     "Cliff",
+     "Jessica"
+    ],
+    "veto_winners": [
+     "Kathryn"
+    ],
+    "nominees_final": [
+     "Cliff",
+     "Nicole"
+    ],
+    "evicted": "Cliff",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 10
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Eviction",
+    "Comeback"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Nick",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "Cliff\nJessica",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner",
+     "cells": [
+      "Kathryn",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Cliff\nNicole",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Michie",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Holly",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Nicole",
+     "cells": [
+      "Nominated",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Cliff",
+     "cells": [
+      "Nominated",
+      "Camp Comeback\n(Day 30)"
+     ]
+    },
+    {
+     "label": "Tommy",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Christie",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Jessica",
+     "cells": [
+      "Nicole",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Nick",
+     "cells": [
+      "Head of Household",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Analyse",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Kathryn",
+     "cells": [
+      "Nicole",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Jack",
+     "cells": [
+      "Cliff",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Sam",
+     "cells": [
+      "Nicole",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Isabella",
+     "cells": [
+      "Nicole",
+      "No vote"
+     ]
+    },
+    {
+     "label": "Kemi",
+     "cells": [
+      "Camp Comeback\n(Day 23)",
+      "Camp Comeback\n(Day 23)"
+     ]
+    },
+    {
+     "label": "Ovi",
+     "cells": [
+      "Camp Comeback\n(Day 15)",
+      "Camp Comeback\n(Day 15)"
+     ]
+    },
+    {
+     "label": "David",
+     "cells": [
+      "Camp Comeback\n(Day 15)",
+      "Camp Comeback\n(Day 15)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Cliff\n6 of 10\nvotes\nto evict",
+      "Cliff\nWon re-entry\ninto game"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "g"
+  ]
+ },
+ {
+  "season": 21,
+  "week": 4,
+  "week_label": "Week 4",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Cliff"
+    ],
+    "nominees_initial": [
+     "Jack",
+     "Michie"
+    ],
+    "veto_winners": [
+     "Michie"
+    ],
+    "nominees_final": [
+     "Isabella",
+     "Jack"
+    ],
+    "evicted": "Isabella",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 8,
+     "votes_cast": 10
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 5,
+  "week_label": "Week 5",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Holly"
+    ],
+    "nominees_initial": [
+     "Nick",
+     "Sam"
+    ],
+    "veto_winners": [
+     "Nick"
+    ],
+    "nominees_final": [
+     "Kathryn",
+     "Sam"
+    ],
+    "evicted": "Sam",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 9,
+     "votes_cast": 9
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 6,
+  "week_label": "Week 6",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Jessica"
+    ],
+    "nominees_initial": [
+     "Jack",
+     "Michie"
+    ],
+    "veto_winners": [
+     "Jessica"
+    ],
+    "nominees_final": [
+     "Jack",
+     "Michie"
+    ],
+    "evicted": "Jack",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 8
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 7,
+  "week_label": "Week 7",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Tommy"
+    ],
+    "nominees_initial": [
+     "Christie",
+     "Cliff",
+     "Kathryn"
+    ],
+    "veto_winners": [
+     "Tommy"
+    ],
+    "nominees_final": [
+     "Cliff",
+     "Kathryn"
+    ],
+    "evicted": "Kathryn",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 6,
+     "votes_cast": 7
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "c"
+  ]
+ },
+ {
+  "season": 21,
+  "week": 8,
+  "week_label": "Week 8",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Michie"
+    ],
+    "nominees_initial": [
+     "Analyse",
+     "Christie"
+    ],
+    "veto_winners": [
+     "Michie"
+    ],
+    "nominees_final": [
+     "Analyse",
+     "Christie"
+    ],
+    "evicted": "Analyse",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 6
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 9,
+  "week_label": "Week 9",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Holly"
+    ],
+    "nominees_initial": [
+     "Christie",
+     "Nick"
+    ],
+    "veto_winners": [
+     "Michie"
+    ],
+    "nominees_final": [
+     "Christie",
+     "Nick"
+    ],
+    "evicted": "Nick",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 5,
+     "votes_cast": 5
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": [
+   "d"
+  ]
+ },
+ {
+  "season": 21,
+  "week": 10,
+  "week_label": "Week 10",
+  "status": "ok",
+  "note": "Double eviction",
+  "rounds": [
+   {
+    "sub_label": "Day 73",
+    "hoh": [
+     "Michie"
+    ],
+    "nominees_initial": [
+     "Christie",
+     "Jessica"
+    ],
+    "veto_winners": [
+     "Tommy"
+    ],
+    "nominees_final": [
+     "Cliff",
+     "Jessica"
+    ],
+    "evicted": "Jessica",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 4,
+     "votes_cast": 4
+    },
+    "extras": {}
+   },
+   {
+    "sub_label": "Day 79",
+    "hoh": [
+     "Nicole"
+    ],
+    "nominees_initial": [
+     "Christie",
+     "Tommy"
+    ],
+    "veto_winners": [
+     "Cliff"
+    ],
+    "nominees_final": [
+     "Christie",
+     "Tommy"
+    ],
+    "evicted": "Christie",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 3,
+     "votes_cast": 3
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 11,
+  "week_label": "Week 11",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Michie"
+    ],
+    "nominees_initial": [
+     "Cliff",
+     "Tommy"
+    ],
+    "veto_winners": [
+     "Nicole"
+    ],
+    "nominees_final": [
+     "Holly",
+     "Tommy"
+    ],
+    "evicted": "Tommy",
+    "tally": {
+     "type": "vote",
+     "votes_to_evict": 2,
+     "votes_cast": 2
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 12,
+  "week_label": "Week 12",
+  "status": "ok",
+  "note": null,
+  "rounds": [
+   {
+    "sub_label": null,
+    "hoh": [
+     "Nicole"
+    ],
+    "nominees_initial": [
+     "Holly",
+     "Michie"
+    ],
+    "veto_winners": [
+     "Michie"
+    ],
+    "nominees_final": [
+     "Cliff",
+     "Holly"
+    ],
+    "evicted": "Cliff",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Michie"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": null,
+  "footnotes": []
+ },
+ {
+  "season": 21,
+  "week": 13,
+  "week_label": "Week 13",
+  "status": "note",
+  "note": "Finale",
+  "rounds": [
+   {
+    "sub_label": "Day 99",
+    "hoh": [
+     "Michie"
+    ],
+    "nominees_initial": [],
+    "veto_winners": [],
+    "nominees_final": [
+     "Holly",
+     "Nicole"
+    ],
+    "evicted": "Nicole",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Michie"
+    },
+    "extras": {}
+   }
+  ],
+  "raw": {
+   "columns": [
+    "Day 99",
+    "Finale"
+   ],
+   "rows": [
+    {
+     "label": "Head of Household",
+     "cells": [
+      "Michie",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (initial)",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Veto winner",
+     "cells": [
+      "(None)",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Nominations (final)",
+     "cells": [
+      "Holly\nNicole",
+      "(None)"
+     ]
+    },
+    {
+     "label": "Michie",
+     "cells": [
+      "Nicole",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Holly",
+     "cells": [
+      "Nominated",
+      "Runner-up"
+     ]
+    },
+    {
+     "label": "Nicole",
+     "cells": [
+      "Evicted\n(Day 99)",
+      "Holly"
+     ]
+    },
+    {
+     "label": "Cliff",
+     "cells": [
+      "Re-evicted\n(Day 93)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Tommy",
+     "cells": [
+      "Evicted\n(Day 86)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Christie",
+     "cells": [
+      "Evicted\n(Day 79)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Jessica",
+     "cells": [
+      "Evicted\n(Day 79)",
+      "Holly"
+     ]
+    },
+    {
+     "label": "Nick",
+     "cells": [
+      "Evicted\n(Day 72)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Analyse",
+     "cells": [
+      "Evicted\n(Day 65)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Kathryn",
+     "cells": [
+      "Evicted\n(Day 58)",
+      "Holly"
+     ]
+    },
+    {
+     "label": "Jack",
+     "cells": [
+      "Evicted\n(Day 51)",
+      "Michie"
+     ]
+    },
+    {
+     "label": "Sam",
+     "cells": [
+      "Evicted\n(Day 44)",
+      "Evicted\n(Day 44)"
+     ]
+    },
+    {
+     "label": "Isabella",
+     "cells": [
+      "Evicted\n(Day 37)",
+      "Evicted\n(Day 37)"
+     ]
+    },
+    {
+     "label": "Kemi",
+     "cells": [
+      "Remained evicted\n(Day 30)",
+      "Remained evicted\n(Day 30)"
+     ]
+    },
+    {
+     "label": "Ovi",
+     "cells": [
+      "Remained evicted\n(Day 30)",
+      "Remained evicted\n(Day 30)"
+     ]
+    },
+    {
+     "label": "David",
+     "cells": [
+      "Remained evicted\n(Day 30)",
+      "Remained evicted\n(Day 30)"
+     ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Nicole\nMichie's\nchoice\nto evict",
+      "Michie\n6 votes\nto win"
+     ]
+    }
+   ]
+  },
+  "footnotes": [
+   "e"
+  ]
+ }
+]
