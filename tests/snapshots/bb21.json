@@ -4,7 +4,7 @@
   "week": 1,
   "week_label": "Week 1",
   "status": "note",
-  "note": "Double eviction; Round 1 (Day 1): Non-standard outcome: David Evicted by competition",
+  "note": "Two rounds: Day 1 / Day 8; Round 1 (Day 1): Non-standard outcome: David Evicted by competition",
   "rounds": [
    {
     "sub_label": "Day 8",
@@ -233,7 +233,7 @@
   "week": 3,
   "week_label": "Week 3",
   "status": "note",
-  "note": "Double eviction; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game",
+  "note": "Two rounds: Eviction / Comeback; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game",
   "rounds": [
    {
     "sub_label": "Eviction",

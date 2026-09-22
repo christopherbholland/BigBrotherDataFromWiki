@@ -113,3 +113,19 @@ def test_three_sub_columns_are_not_modeled():
     (w,) = process_season(1, html)
     assert w["status"] == "note" and w["note"] == "3 sub-columns (not modeled)"
     assert w["rounds"] == []
+
+
+def test_two_rounds_without_day_labels_is_not_called_a_double_eviction():
+    # A split house: two separate evictions labeled "Inside" / "Outside".
+    html = FIXTURE.replace("<th>Day 20</th><th>Day 23</th>", "<th>Inside</th><th>Outside</th>")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["status"] == "ok" and w["note"] == "Two rounds: Inside / Outside"
+    assert [r["sub_label"] for r in w["rounds"]] == ["Inside", "Outside"]
+
+
+def test_twist_round_beside_an_eviction_is_not_called_a_double_eviction():
+    html = FIXTURE.replace("<td>Gus<br /><small>2 of 3 votes<br />to evict</small></td>",
+                           "<td>Gus<br /><small>Evicted by competition</small></td>")
+    w = {w["week"]: w for w in process_season(99, html)}[3]
+    assert w["note"] == "Two rounds: Day 20 / Day 23; Round 1 (Day 20): Non-standard outcome: Gus Evicted by competition"
+    assert [r["evicted"] for r in w["rounds"]] == ["Dana"]

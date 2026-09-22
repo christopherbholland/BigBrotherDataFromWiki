@@ -335,7 +335,7 @@
   "week": 7,
   "week_label": "Week 7",
   "status": "ok",
-  "note": "Double eviction",
+  "note": "Two rounds: Inside / Outside",
   "rounds": [
    {
     "sub_label": "Inside",

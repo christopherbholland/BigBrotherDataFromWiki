@@ -46,12 +46,10 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
    - BB28 Week 8, Day 52: Haley, "Yash's choice to eliminate"
 
 **Things to know about the data**
-- A "Double eviction" note means two sub-columns under one week. Not all of them are
-  double evictions in the TV sense. BB24 Week 7's columns are "Inside" and "Outside" (the
-  split-house twist), and BB21 Week 1 and BB27 and BB28's early two-column weeks are
-  competition-elimination twists. The note is accurate about the table's layout. If
-  "Double eviction" wording matters for these weeks, a generic fix would be to use the
-  note only when both sub-labels are "Day N".
+- Some two-column weeks aren't double evictions on the show. BB24 Week 7's columns are
+  "Inside" and "Outside" (the split house), and BB21 Weeks 1 and 3, BB27 Week 9 and BB28
+  Week 8 pair an ordinary eviction with a twist round. These get the note
+  `Two rounds: <column> / <column>` instead of `Double eviction` (see Status rules).
 - BB25's last week has three columns (Day 94, Day 100, Finale): two sole-vote rounds plus
   the Finale.
 - BB28 was still airing when fetched. Week 11's second round and Week 12 have no
@@ -78,7 +76,9 @@ the first.
 ## Status rules as implemented
 
 - One non-Finale sub-column: one round, `ok` if it passes validation.
-- Two non-Finale sub-columns: two rounds, `ok`, note `Double eviction`.
+- Two non-Finale sub-columns: two rounds, `ok`. The note is `Double eviction` only when
+  both sub-labels are "Day N" and neither round has a non-standard outcome. Otherwise it
+  is `Two rounds: <label> / <label>`, e.g. BB24's split house, `Two rounds: Inside / Outside`.
 - A Finale sub-column is never a round. It sets `note` / `Finale`, and the week's regular
   column is still modeled as a round and validated.
 - Three or more non-Finale sub-columns: `note`, no rounds, raw text kept.
@@ -106,7 +106,8 @@ footnote text itself isn't extracted in v1.
 ## Web page
 
 - Seasons are rows. Columns are keyed by week label, with numbered weeks first.
-- Each cell names the evicted houseguest. A double eviction shows two stacked halves.
+- Each cell names the evicted houseguest. A week with two modeled rounds shows two stacked
+  halves.
 - `note` and `error` weeks get an icon badge (`!` / `×`) with a legend. Color is never the
   only signal.
 - The tooltip appears on hover or keyboard focus, and clicking pins it (useful on touch).

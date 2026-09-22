@@ -26,10 +26,13 @@ SUMMARY_WORDS = re.compile(r"\b(winners?|nominations?|nominees?|veto|power|saved
 
 WEEK_NUM_RE = re.compile(r"\bweek\s*(\d+)", re.I)
 FINALE_RE = re.compile(r"\bfinale\b", re.I)
+DAY_RE = re.compile(r"^day\s*\d+$", re.I)
 NONE_RE = re.compile(r"^\(?(none|n/?a|—|–|-)\)?$", re.I)
 
 VOTE_TALLY_RE = re.compile(r"(\d+)\s+of\s+(\d+)\s+votes?\s+to\s+evict", re.I)
 SOLE_VOTE_RE = re.compile(r"^(.+?)['’]s\s+choice\s+to\s+evict", re.I)
+
+NON_STANDARD = "Non-standard outcome: "
 
 STATUS_RANK = {"ok": 0, "note": 1, "error": 2}
 
@@ -206,10 +209,24 @@ def round_problem(rnd, evicted_cell):
     if rnd["evicted"] is None:
         return ("note", "No eviction", False)
     if rnd["tally"] is None:
-        return ("note", "Non-standard outcome: " + " ".join(evicted_cell.names), False)
+        return ("note", NON_STANDARD + " ".join(evicted_cell.names), False)
     if not rnd["hoh"]:
         return ("error", "Missing HOH", True)
     return None
+
+
+def two_round_note(round_cols, twist):
+    """Note for a week with two rounds.
+
+    "Double eviction" only when both sub-columns are "Day N" and both rounds
+    are ordinary evictions. Other two-column weeks (a split house's
+    "Inside"/"Outside", a competition elimination beside an eviction) get a
+    neutral note naming the columns.
+    """
+    labels = [s or "" for s, _ in round_cols]
+    if not twist and all(DAY_RE.match(label) for label in labels):
+        return "Double eviction"
+    return "Two rounds: " + " / ".join(labels)
 
 
 def worst(a, b):
@@ -246,13 +263,12 @@ def interpret(grid: Grid, season: int):
             record["status"] = "note"
             notes.append(f"{len(round_cols)} sub-columns (not modeled)")
             round_cols = []
-        elif len(round_cols) == 2:
-            notes.append("Double eviction")
-
+        twist = False
         for i, (sub_label, c) in enumerate(round_cols, 1):
             rnd, problem = build_round(rows, c, sub_label)
             if problem:
                 status, msg, modeled = problem
+                twist = twist or msg.startswith(NON_STANDARD)
                 record["status"] = worst(record["status"], status)
                 if len(round_cols) > 1:
                     msg = f"Round {i}" + (f" ({sub_label})" if sub_label else "") + f": {msg}"
@@ -260,6 +276,8 @@ def interpret(grid: Grid, season: int):
                 if not modeled:
                     continue
             record["rounds"].append(rnd)
+        if len(round_cols) == 2:
+            notes.insert(1 if finale else 0, two_round_note(round_cols, twist))
 
         for _, _, _, row in rows:
             for c in cols:

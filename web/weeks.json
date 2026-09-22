@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T18:17:09+00:00",
+ "generated_at": "2026-09-22T18:20:46+00:00",
  "license": "Wikipedia content, CC BY-SA 4.0",
  "sources": [
   {
@@ -73,7 +73,7 @@
    "week": 1,
    "week_label": "Week 1",
    "status": "note",
-   "note": "Double eviction; Round 1 (Day 1): Non-standard outcome: David Evicted by competition",
+   "note": "Two rounds: Day 1 / Day 8; Round 1 (Day 1): Non-standard outcome: David Evicted by competition",
    "rounds": [
     {
      "sub_label": "Day 8",
@@ -302,7 +302,7 @@
    "week": 3,
    "week_label": "Week 3",
    "status": "note",
-   "note": "Double eviction; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game",
+   "note": "Two rounds: Eviction / Comeback; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game",
    "rounds": [
     {
      "sub_label": "Eviction",
@@ -2645,7 +2645,7 @@
    "week": 7,
    "week_label": "Week 7",
    "status": "ok",
-   "note": "Double eviction",
+   "note": "Two rounds: Inside / Outside",
    "rounds": [
     {
      "sub_label": "Inside",
@@ -4956,7 +4956,7 @@
    "week": 9,
    "week_label": "Week 9",
    "status": "note",
-   "note": "Double eviction; Round 1 (Day 59): Non-standard outcome: Rachel Eliminated by competition",
+   "note": "Two rounds: Day 59 / Day 60; Round 1 (Day 59): Non-standard outcome: Rachel Eliminated by competition",
    "rounds": [
     {
      "sub_label": "Day 60",
@@ -5788,7 +5788,7 @@
    "week": 8,
    "week_label": "Week 8",
    "status": "note",
-   "note": "Double eviction; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate",
+   "note": "Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate",
    "rounds": [
     {
      "sub_label": "Day 53",

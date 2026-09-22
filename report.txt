@@ -1,6 +1,6 @@
 100 weeks: 85 ok, 15 note, 0 error
 
-BB21 Week 1: NOTE: Double eviction; Round 1 (Day 1): Non-standard outcome: David Evicted by competition
+BB21 Week 1: NOTE: Two rounds: Day 1 / Day 8; Round 1 (Day 1): Non-standard outcome: David Evicted by competition
     columns: Day 1 | Day 8
     Head of Household: Michie | Christie
     Nominations (initial): Cliff / David / Jessica / Kemi | Cliff / Kathryn
@@ -23,7 +23,7 @@ BB21 Week 1: NOTE: Double eviction; Round 1 (Day 1): Non-standard outcome: David
     Ovi: No vote | Nominated
     David: Banished | Evicted / (Day 1)
     Evicted: David / Evicted by / competition | Ovi / 12 of 12 / votes / to evict
-BB21 Week 3: NOTE: Double eviction; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game
+BB21 Week 3: NOTE: Two rounds: Eviction / Comeback; Round 2 (Comeback): Non-standard outcome: Cliff Won re-entry into game
     columns: Eviction | Comeback
     Head of Household: Nick | (None)
     Nominations (initial): Cliff / Jessica | (None)
@@ -235,7 +235,7 @@ BB26 Week 13: NOTE: Finale
     Lisa: Evicted / (Day 17) | Evicted / (Day 17)
     Matt: Evicted / (Day 10) | Evicted / (Day 10)
     Evicted: Cam / Makensy's / choice / to evict | Chelsie / 7 votes / to win
-BB27 Week 9: NOTE: Double eviction; Round 1 (Day 59): Non-standard outcome: Rachel Eliminated by competition
+BB27 Week 9: NOTE: Two rounds: Day 59 / Day 60; Round 1 (Day 59): Non-standard outcome: Rachel Eliminated by competition
     columns: Day 59 | Day 60
     Head of Household: (None) | Lauren
     Nominations (initial): (None) | Ashley / Morgan / Will
@@ -285,7 +285,7 @@ BB27 Week 12: NOTE: Finale
     Amy: Evicted / (Day 17) | Evicted / (Day 17)
     Zae: Evicted / (Day 10) | Evicted / (Day 10)
     Evicted: Morgan / Ashley's / choice / to evict | Ashley / 6 votes / to win
-BB28 Week 8: NOTE: Double eviction; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate
+BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard outcome: Haley Yash's choice to eliminate
     columns: Day 52 | Day 53
     Head of Household: (None) | Drew
     Nominations (initial): (None) | La Trice / Taylor / Yash
