@@ -17,26 +17,37 @@ Any static host works. Serve `index.html`, `weeks.json` and `details.json` from 
 Opening the file directly (`file://`) won't work, because the browser blocks it from
 loading `weeks.json`.
 
-**GitHub Pages.** The repo includes `.github/workflows/pages.yml`, which publishes the
-`web/` folder. It runs on every push to `main` that changes `web/`, after every run of the
-fetch workflow, and by hand from the Actions tab. To turn it on:
+**Cloudflare Pages** (recommended). Free, works with a private repo, and redeploys on
+every push, with no build step and no secrets in the repo. One-time setup:
 
-1. Make sure Pages is available for the repo. It's free on public repos. A private repo
-   needs a paid plan (GitHub Pro or above). Either way, the published site itself is public.
-2. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Merge to `main`, or run **Publish page** from the Actions tab.
-4. The page is then at `https://<user>.github.io/BigBrotherDataFromWiki/`.
+1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (a free account is fine).
+2. Go to **Compute (Workers) → Workers & Pages → Create → Pages → Import an existing Git
+   repository**. (In older dashboards: **Workers & Pages → Create → Pages → Connect to Git**.)
+3. Connect GitHub and allow Cloudflare access to `BigBrotherDataFromWiki` (you can pick
+   just this repo).
+4. Build settings:
+   - **Production branch:** `main`
+   - **Framework preset:** None
+   - **Build command:** leave empty
+   - **Build output directory:** `web`
+5. **Save and Deploy.** The site is then at `https://<project-name>.pages.dev`.
+
+Every other branch gets its own preview address too, e.g.
+`https://<branch-name>.<project-name>.pages.dev`, so you can check a change on your phone
+before merging. The site is public even though the repo is private. To limit who can open
+it, add Cloudflare Access to the project (**Settings → Access policy**; free for up to 50
+people).
 
 **Staying current.** The fetch workflow runs every day at 14:00 UTC. When a Wikipedia page
-has changed, it commits the new data, and the Pages workflow republishes. You can also run
+has changed, it commits the new data to `main`, and Cloudflare redeploys. You can also run
 **Fetch Wikipedia pages** by hand from the Actions tab, including from the GitHub mobile app.
 
-**On your phone.** Open the Pages address in Safari or Chrome. To open it like an app
+**On your phone.** Open the `pages.dev` address in Safari or Chrome. To open it like an app
 (full screen, no browser bar), use **Share → Add to Home Screen** in Safari, or **⋮ → Add
 to Home screen** in Chrome.
 
-**Any other static host** (Netlify, Cloudflare Pages, S3, your own server): upload
-`web/index.html`, `web/weeks.json` and `web/details.json` together.
+**Any other static host** (GitHub Pages, Netlify, S3, your own server): publish the `web/`
+folder as is. GitHub Pages on a private repo needs a paid GitHub plan.
 
 **Locally:** `python -m http.server -d web`, then open http://localhost:8000.
 
@@ -46,7 +57,7 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 
 ```html
 <iframe
-  src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
+  src="https://<project-name>.pages.dev/?embed=1"
   title="Big Brother week-by-week grid"
   style="width: 100%; height: 560px; border: 0;"
   loading="lazy"></iframe>

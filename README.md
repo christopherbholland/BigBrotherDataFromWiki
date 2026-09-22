@@ -113,10 +113,12 @@ To add a season, add a line to `seasons.yaml`.
 
 The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 
-- **Host it** on GitHub Pages: `.github/workflows/pages.yml` publishes `web/`, so you can use it from a phone. See the integration guide for setup.
+- **Host it** on Cloudflare Pages (free, works with a private repo): connect the repo and
+  set the build output directory to `web`. It redeploys on every push, so you can use it
+  from a phone. See the integration guide for setup.
 - **Embed it** in another site with an iframe; `?embed=1` hides the page's title:
   ```html
-  <iframe src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
+  <iframe src="https://<project-name>.pages.dev/?embed=1"
           title="Big Brother week-by-week grid"
           style="width:100%;height:560px;border:0" loading="lazy"></iframe>
   ```
@@ -125,7 +127,7 @@ The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 - **Keep it fresh** by running the **Fetch Wikipedia pages** action. It refetches the
   pages, rebuilds `weeks.json`, and commits the changes.
 
-Step-by-step instructions, including GitHub Pages setup and the full data
+Step-by-step instructions, including Cloudflare Pages setup and the full data
 format, are in [`docs/integration.md`](docs/integration.md).
 
 ## Tests

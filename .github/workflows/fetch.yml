@@ -10,6 +10,7 @@ on:
       - seasons.yaml
   schedule:
     # Daily at 14:00 UTC, so the hosted page picks up last night's episode.
+    # A commit to main redeploys the Cloudflare Pages site.
     - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
