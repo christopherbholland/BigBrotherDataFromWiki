@@ -75,7 +75,9 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 
 - **Height.** About 560px fits all eight seasons with the legend. The grid scrolls
   sideways inside the frame on narrow screens.
-- **Theme.** The page follows the viewer's light/dark setting.
+- **Theme.** The page follows the viewer's light/dark setting. The dark theme is a navy
+  board styled to sit next to Taran's stock-watch graphics. Add `&theme=dark` (or
+  `&theme=light`) to pin one, e.g. `?embed=1&theme=dark` for a stream overlay.
 - **Deep links.** Every view has its own link, so an iframe can open straight into
   one: `?embed=1#week=26/Week%2010` (a week's details), `?embed=1#players=28` (a
   season's players), or `?embed=1#player=26/Angela` (one player).

@@ -7,49 +7,54 @@
 <style>
 :root {
   color-scheme: light;
-  --surface-0: #f4f4f2;
-  --surface-1: #fcfcfb;
-  --cell: #ecebe7;
-  --cell-hover: #dcdad3;
-  --line: #d6d4cd;
-  --text-primary: #0b0b0b;
-  --text-secondary: #52514e;
-  --text-muted: #75736d;
-  --accent: #2a78d6;
+  --surface-0: #eef1f7;
+  --surface-1: #ffffff;
+  --cell: #e3e8f2;
+  --cell-hover: #d2d9e8;
+  --line: #d3d9e6;
+  --text-primary: #0a1024;
+  --text-secondary: #4b5572;
+  --text-muted: #7a839c;
+  --accent: #2563eb;
+  --accent-text: #ffffff;
+  --now: #0a1024;
   --warning: #fab219;
   --critical: #d03b3b;
   --tip-bg: #ffffff;
-  --tip-shadow: 0 6px 24px rgba(0,0,0,.14);
+  --tip-shadow: 0 6px 24px rgba(10,16,36,.14);
 }
+/* Dark: the navy "stock watch" board look. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --surface-0: #121211;
-    --surface-1: #1a1a19;
-    --cell: #2a2a28;
-    --cell-hover: #3a3a37;
-    --line: #3a3a37;
+    --surface-0: #050a1a;
+    --surface-1: #0a1128;
+    --cell: #0e1733;
+    --cell-hover: #1a2750;
+    --line: #1c2748;
     --text-primary: #ffffff;
-    --text-secondary: #c3c2b7;
-    --text-muted: #9a998f;
-    --accent: #3987e5;
-    --tip-bg: #242422;
-    --tip-shadow: 0 6px 24px rgba(0,0,0,.5);
+    --text-secondary: #a9b3cf;
+    --text-muted: #6e7a9c;
+    --accent: #2f6bff;
+    --now: #8a96b8;
+    --tip-bg: #101a38;
+    --tip-shadow: 0 8px 32px rgba(0,0,0,.6);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --surface-0: #121211;
-  --surface-1: #1a1a19;
-  --cell: #2a2a28;
-  --cell-hover: #3a3a37;
-  --line: #3a3a37;
+  --surface-0: #050a1a;
+  --surface-1: #0a1128;
+  --cell: #0e1733;
+  --cell-hover: #1a2750;
+  --line: #1c2748;
   --text-primary: #ffffff;
-  --text-secondary: #c3c2b7;
-  --text-muted: #9a998f;
-  --accent: #3987e5;
-  --tip-bg: #242422;
-  --tip-shadow: 0 6px 24px rgba(0,0,0,.5);
+  --text-secondary: #a9b3cf;
+  --text-muted: #6e7a9c;
+  --accent: #2f6bff;
+  --now: #8a96b8;
+  --tip-bg: #101a38;
+  --tip-shadow: 0 8px 32px rgba(0,0,0,.6);
 }
 * { box-sizing: border-box; }
 body {
@@ -57,40 +62,52 @@ body {
   font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 main { max-width: 1400px; margin: 0 auto; padding: 24px 16px 48px; }
-h1 { font-size: 22px; margin: 0 0 4px; }
+.kicker { margin: 0; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+h1 { font-size: 22px; font-weight: 600; margin: 2px 0 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pill { font-size: 11px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 4px; background: var(--accent); color: var(--accent-text, #fff); letter-spacing: .02em; }
 .sub { color: var(--text-secondary); margin: 0 0 16px; }
-.legend { display: flex; flex-wrap: wrap; gap: 16px; color: var(--text-secondary); font-size: 13px; margin-bottom: 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; color: var(--text-secondary); font-size: 12px; margin-bottom: 12px; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
-.swatch { width: 18px; height: 14px; border-radius: 3px; background: var(--cell); display: inline-grid; }
-.swatch.split { grid-template-rows: 1fr 1fr; gap: 2px; background: none; }
-.swatch.split i { background: var(--cell); border-radius: 2px; }
+.swatch { width: 18px; height: 14px; border-radius: 2px; background: var(--cell); border: 1px solid var(--line); display: inline-grid; }
+.swatch.split { grid-template-rows: 1fr 1fr; gap: 1px; background: var(--line); }
+.swatch.split i { background: var(--cell); }
 .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; }
-table.grid { border-collapse: separate; border-spacing: 2px; padding: 8px; }
-.grid th { font-weight: 600; color: var(--text-secondary); font-size: 12px; padding: 4px 6px; white-space: nowrap; }
-.grid thead th { text-align: center; }
-.grid tbody th { text-align: right; position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
+table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
+.grid th { font-weight: 700; color: var(--text-secondary); font-size: 11px; padding: 8px 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: .1em; }
+.grid thead th { text-align: center; border-bottom: 1px solid var(--line); }
+.grid thead th:first-child { text-align: left; color: var(--text-primary); font-size: 14px; letter-spacing: .12em; padding-left: 12px; }
+.grid tbody th { text-align: left; font-size: 13px; letter-spacing: .02em; color: var(--text-primary); padding: 0 12px; position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
 .grid thead th:first-child { position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
+.grid tbody tr + tr > * { border-top: 1px solid var(--line); }
+.grid td + td, .grid th + td { border-left: 1px solid var(--line); }
 .grid tbody th a { color: inherit; text-decoration: none; }
 .grid tbody th a:hover { text-decoration: underline; }
-.grid td { padding: 0; }
+.grid td { padding: 0; height: 1px; }
+.grid td > .cell { height: 100%; }
+/* The week currently airing gets an outlined column, like the broadcast board. */
+.grid .now { position: relative; }
+.grid thead th.now { color: var(--text-primary); }
+.grid .now::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: solid var(--now); border-width: 0 1px; }
+.grid thead th.now::after { border-top-width: 1px; }
+.grid tbody tr:last-child .now::after { border-bottom-width: 1px; }
 .cell {
-  display: grid; gap: 2px; width: 84px; min-height: 40px; padding: 0; border: 0;
-  background: none; color: inherit; font: inherit; cursor: pointer; position: relative; text-align: left;
+  display: grid; gap: 1px; width: 100%; min-width: 86px; min-height: 48px; padding: 0; border: 0;
+  background: none; color: inherit; font: inherit; cursor: pointer; position: relative; text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
 .cell .part {
-  background: var(--cell); border-radius: 4px; padding: 3px 6px; font-size: 12px;
-  display: flex; align-items: center; min-height: 19px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  background: var(--cell); padding: 3px 6px; font-size: 13px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; min-height: 23px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
-.cell:not(.multi) .part { min-height: 40px; }
+.cell.multi .part { font-size: 12px; }
+.cell:not(.multi) .part { min-height: 48px; }
 .cell:hover .part, .cell:focus-visible .part { background: var(--cell-hover); }
-.cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
-.cell .empty { color: var(--text-muted); }
+.cell:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.cell .empty { color: var(--text-muted); font-weight: 400; }
 .badge {
-  position: absolute; top: -3px; right: -3px; width: 14px; height: 14px; border-radius: 50%;
+  position: absolute; top: 3px; right: 3px; width: 14px; height: 14px; border-radius: 50%;
   font-size: 10px; line-height: 14px; text-align: center; font-weight: 700; color: #0b0b0b;
-  box-shadow: 0 0 0 2px var(--surface-1);
-}
+  }
 .badge.note { background: var(--warning); }
 .badge.error { background: var(--critical); color: #fff; }
 #tip {
@@ -115,15 +132,15 @@ footer { margin-top: 16px; color: var(--text-muted); font-size: 12px; }
 footer a { color: var(--text-secondary); }
 /* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
 .embed main { padding-top: 8px; }
-.embed h1, .embed .sub { display: none; }
+.embed .kicker, .embed h1, .embed .sub { display: none; }
 /* View tabs */
 .toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-.tabs { display: inline-flex; gap: 2px; padding: 3px; background: var(--cell); border-radius: 8px; }
+.tabs { display: inline-flex; gap: 2px; padding: 3px; background: var(--cell); border: 1px solid var(--line); border-radius: 8px; }
 .tabs button {
   border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600;
   padding: 6px 14px; border-radius: 6px; cursor: pointer;
 }
-.tabs button[aria-selected="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
 .tabs button:focus-visible, .chips button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* Details drawer: a side panel, or a bottom sheet on phones */
 #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 20; }
@@ -169,10 +186,10 @@ blockquote.wnote cite { display: block; font-style: normal; color: var(--text-mu
   border: 1px solid var(--line); background: var(--surface-1); color: var(--text-secondary); font: inherit; font-size: 13px;
   font-weight: 600; padding: 4px 10px; border-radius: 14px; cursor: pointer;
 }
-.chips button[aria-pressed="true"] { background: var(--text-primary); color: var(--surface-1); border-color: var(--text-primary); }
+.chips button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
 table.players { border-collapse: collapse; font-size: 13px; min-width: 100%; }
 table.players th, table.players td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-table.players th { color: var(--text-secondary); font-size: 12px; font-weight: 600; }
+table.players th { color: var(--text-secondary); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 table.players th:first-child, table.players td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface-1); }
 table.players td.result { text-align: left; color: var(--text-secondary); }
 table.players tr:last-child td { border-bottom: 0; }
@@ -189,8 +206,9 @@ table.players tr:last-child td { border-bottom: 0; }
 </head>
 <body>
 <main>
-  <h1>Big Brother, week by week</h1>
-  <p class="sub">US seasons 21–28. Each cell names who was evicted that week. Hover for a summary; click or tap a week for votes, twists and episodes.</p>
+  <p class="kicker" id="kicker">Big Brother US</p>
+  <h1>Week by week <span class="pill" id="now-pill" hidden></span></h1>
+  <p class="sub">Each cell names who was evicted that week. Hover for a summary; click or tap a week for votes, twists and episodes.</p>
   <div class="toolbar">
     <div class="tabs" role="tablist" aria-label="View">
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
@@ -222,7 +240,10 @@ table.players tr:last-child td { border-bottom: 0; }
   <div id="drawer-body"></div>
 </aside>
 <script>
-if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+const params = new URLSearchParams(location.search);
+if (params.has("embed")) document.documentElement.classList.add("embed");
+// ?theme=dark or ?theme=light pins the look, e.g. to match a host page.
+if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
 
 const FIELDS = [
   ["hoh", "HOH"],
@@ -287,20 +308,28 @@ function render(data) {
   const bySeason = new Map(seasons.map(s => [s, new Map()]));
   weeks.forEach(w => bySeason.get(w.season).set(w.week_label, w));
   const source = new Map((data.sources || []).map(s => [s.season, s]));
+  // The newest season's latest week is the one "now" airing.
+  const latest = weeks.filter(w => w.season === seasons[0]).reduce((a, w) => (w.week ?? -1) > (a.week ?? -1) ? w : a);
+  const nowLabel = latest.week_label;
+  const now = l => l === nowLabel ? ` class="now"` : "";
+  document.getElementById("kicker").textContent = `Big Brother US · Seasons ${seasons[seasons.length - 1]}–${seasons[0]}`;
+  const pill = document.getElementById("now-pill");
+  pill.textContent = `BB${seasons[0]} · ${nowLabel}`;
+  pill.hidden = false;
 
-  let html = `<table class="grid"><thead><tr><th><span class="sr">Season</span></th>${labels.map(l => `<th scope="col">${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
+  let html = `<table class="grid"><thead><tr><th scope="col">Season</th>${labels.map(l => `<th scope="col"${now(l)}>${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
   for (const s of seasons) {
     const src = source.get(s);
     html += `<tr><th scope="row">${src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">BB${s}</a>` : `BB${s}`}</th>`;
     for (const l of labels) {
       const w = bySeason.get(s).get(l);
-      if (!w) { html += "<td></td>"; continue; }
+      if (!w) { html += `<td${now(l)}></td>`; continue; }
       const idx = weeks.indexOf(w);
       const parts = w.rounds.length
         ? w.rounds.map(r => `<span class="part">${esc(r.evicted || "—")}</span>`).join("")
         : `<span class="part empty">—</span>`;
       const badge = w.status === "ok" ? "" : `<span class="badge ${w.status}" aria-hidden="true">${w.status === "error" ? "×" : "!"}</span>`;
-      html += `<td><button class="cell${w.rounds.length > 1 ? " multi" : ""}" data-i="${idx}" aria-label="${esc(cellLabel(w))}">${parts}${badge}</button></td>`;
+      html += `<td${now(l)}><button class="cell${w.rounds.length > 1 ? " multi" : ""}" data-i="${idx}" aria-label="${esc(cellLabel(w))}">${parts}${badge}</button></td>`;
     }
     html += "</tr>";
   }
