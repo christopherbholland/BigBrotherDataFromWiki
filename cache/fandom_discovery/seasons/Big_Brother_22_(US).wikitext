@@ -1,0 +1,174 @@
+{{Season
+|name = ''Big Brother: All-Stars''
+|image = [[File:BB22 Titlecard.png|200px]]
+|version = [[Big Brother (U.S.)|United States]]
+|host = [[Julie Chen-Moonves]]
+|season = 22
+|prizemoney = $500,000
+|numberofhouseguests = 16
+|numberofdays = 85
+|winner = [[Cody Calafiore]]
+|runnersup = [[Enzo Palumbo]]
+|returnees = [[Cody Calafiore]] (''[[Big Brother: Reindeer Games|BBRG]]'')<br>[[Nicole Franzel]] (''[[Big Brother: Reindeer Games|BBRG]]'')
+|network = [[CBS]]<br>[[wikipedia:CBS All Access|CBS All Access]] (live feeds)<br>[[wikipedia:Facebook Watch|Facebook Watch]] (BBR)
+|executiveproducer = [[wikipedia:Allison Grodner|Allison Grodner]]<br>Rich Meehan
+|challengeproducer = Heath Luman
+|casting = Robyn Kass
+|announcers = Don Wollman<br>Clayton Halsey
+|productioncompany = {{nowrap|Fly on the Wall Entertainment}}<br>{{nowrap|[[wikipedia:Endemol Shine North America|Endemol Shine North America]]}}
+|seasonrun = August 5, 2020 - October 28, 2020
+|numberofepisodes = 37
+|viewership = 3.94m
+|companionshows = [[BB Rewind]]
+|castphoto = [[File:BB22_Cast_Move_In.jpg|200px]]
+|video = 
+|previousseason = [[Big Brother 21 (US)]]
+|nextseason = [[Big Brother 23 (US)]]
+}}
+[[File:BB22 Intro.mp4|thumb|250px|<center>'''Opening Sequence'''</center>]]<!--Video doesn't work in the infobox, this is the new best thing, leave it until Fandom fixes issue-->
+'''Big Brother 22''', also known as '''''Big Brother: All-Stars''''' is the 22nd season of the broadcasted edition of ''[[Big Brother (U.S.)]]'' and the 25th season overall, while celebrating the 20th anniversary of the series.
+
+The season was in limbo due to the severity of the [[The Impact of COVID-19 on Big Brother|2019-2020 Coronavirus Pandemic]]. However it was announced on July 23, 2020 that the season would premiere on August 5, 2020 with a live two-hour premiere, making it the latest start to a ''Big Brother'' season since [[Big Brother 14 (US)|season 14]] in late July. It was also the first season to feature a live televised premiere, and the second live premiere overall since ''[[Big Brother: Over The Top|Over The Top]]''.<ref name="Season Announcement">{{Cite web |url=https://www.viacomcbspressexpress.com/cbs-entertainment/releases/view?id=55647|title=“BIG BROTHER” ALL-STARS EDITION DEBUTS WITH A TWO-HOUR LIVE MOVE-IN PREMIERE EVENT WEDNESDAY, AUGUST 5, 9:00-11:00 PM ON CBS|date=23 July 2020|publisher=[[wikipedia:ViacomCBS|ViacomCBS Press Express]]|language=English|access-date=23 July 2020|archive-url=https://web.archive.org/web/20200723144608/https://www.viacomcbspressexpress.com/cbs-entertainment/releases/view?id=55647|archive-date=4 May 2020|dead-url=no |df= }}</ref>
+==Background==
+===Development===
+CBS announced that ''Big Brother'' had been renewed for a twenty-first and twenty-second season on May 15, 2019. Despite the renewal, fans still speculated on whether or not ''Big Brother'' would actually receive a twenty-second season, and if it did, whether host [[Julie Chen|Julie Chen-Moonves]] would return or not, but the rumors ceased once Chen-Moonves and the official CBS and Big Brother accounts officially announced the season and Chen-Moonves' return on Twitter on the day of the ''[[Big Brother 21 (US)]]'' [[Double Eviction]].<ref>https://twitter.com/JulieChen/status/1169649079153901568</ref><ref>https://twitter.com/CBSTweet/status/1169643342424002560</ref><ref>https://twitter.com/CBSBigBrother/status/1169646163122745344</ref>
+
+Following the controversial nature of both ''Big Brother 21'' and ''[[w:c:survivor:Survivor: Island of the Idols|Survivor: Island of the Idols]]'', on December 17, 2019, CBS announced that ''Survivor'' would be undergoing anti-harassment, unconscious bias and sensitivity training for future casts, measures they intended on placing with their other reality shows, including ''Big Brother'', as well.<ref>https://ew.com/tv/2019/12/17/survivor-inappropriate-touching-cbs-statement/</ref>. On the live feeds, houseguests of ''Big Brother 22'' confirmed that they received extensive racial bias and sexual harassment training during their pre-show quarantine and sequester.<ref>https://www.inquisitr.com/6214132/big-brother-all-stars-bias-training/</ref> Following an incident on ''Big Brother 21'', this same training was applied to the production crew almost immediately, before later being applied to the entire cast for this, and future seasons.<ref>https://www.cinemablend.com/television/2477505/cbs-gave-big-brother-producers-unconscious-bias-training-after-one-overstepped</ref>
+===Complications Due To The Coronavirus Pandemic===
+''For more information on the 2019-2020 Coronavirus Pandemic's Impact on Big Brother, [[The Impact of COVID-19 on Big Brother|click here]].''
+
+Between seasons 21 and 22 of ''Big Brother'', the [[The Impact of COVID-19 on Big Brother|2019-2020 Coronavirus Pandemic]] began in China and spread around the world, including the [[wikipedia:United States|United States]].<ref>{{Cite web |url=https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic|title=2019–20 coronavirus pandemic|date=7 April 2020|website=[[wikipedia:Wikipedia|Wikipedia]]|language=en|dead-url=no |df= }}</ref> The season turned into a question by the fans very quickly after ''[[Big Brother Canada 8]]'' was forced to shut down mid-production due to the virus.<ref name="BBCAN8 Shut Down">{{cite web|url=https://www.bigbrothercanada.ca/news/big-brother-canada-special-statement-regarding-end-of-production/|title=BIG BROTHER CANADA SPECIAL STATEMENT REGARDING END OF PRODUCTION|publisher=Big Brother Canada|author=STAFF|date=24 March 2020|accessdate=24 March 2020 |archiveurl=http://web.archive.org/web/20200324193513/https://www.bigbrothercanada.ca/news/big-brother-canada-special-statement-regarding-end-of-production/|archivedate=24 March 2020}}</ref>
+
+However, planning continued for the season. [[wikipedia:The Hollywood Reporter|The Hollywood Reporter]] would later go on to report that the season would not be airing due to the pandemic stating:
+
+"CBS scripted originals have historically repeated well and, per sources, the network will lean on those to ride out the summer. The network will be without new seasons of ''Big Brother'' and ''Love Island'', neither of which had been shot before the world stopped."<ref name="THR April 7">{{Cite web |url=https://www.hollywoodreporter.com/live-feed/a-puzzle-all-pieces-broadcast-networks-scramble-program-an-uncertain-future-1288828|title=A Puzzle Without All the Pieces: Broadcast Networks Scramble to Program an Uncertain Future|last=Goldberg|first=Lesley|date=7 April 2020|website=[[wikipedia:The Hollywood Reporter|The Hollywood Reporter]]|language=English|access-date=7 April 2020|archive-url=https://web.archive.org/web/20200407201434/https://www.hollywoodreporter.com/live-feed/a-puzzle-all-pieces-broadcast-networks-scramble-program-an-uncertain-future-1288828|archive-date=7 April 2020|dead-url=no |df= }}</ref>
+
+Hours later, fansite [http://bigblagger.com/ Big Blagger] reached out to CBS for a confirmation on the situation. A representative of the network stated, "The situation is still fluid but the intention is for Big Brother to return this summer."<ref name="Big Blagger April 7">{{Cite web |url=http://www.bigblagger.com/blog/cbs-say-big-brother-still-on-track-to-return-this-summer/|title=CBS say Big Brother still on track to return this summer|first=Jonnie|date=7 April 2020|publisher=Big Blagger|language=English|access-date=7 April 2020|archive-url=https://web.archive.org/web/20200407212826/http://www.bigblagger.com/blog/cbs-say-big-brother-still-on-track-to-return-this-summer/|archive-date=7 April 2020|dead-url=no |df= }}</ref>
+
+One month later after [[wikipedia:ITV (TV network)|ITV]] pushed the upcoming season of ''[[wikipedia:Love Island (2015 TV series)|Love Island (UK)]]'' to 2021. On May 4, 2020, CBS would then go on to release their own statement on the future of their version of ''[[wikipedia:Love Island (American TV series)|Love Island (US)]]'' and the upcoming season of ''Big Brother 22''. They stated that they will air both shows in the future "when the time is right".<ref name="Entertainment Weekly May 4">{{Cite web |url=https://ew.com/tv/love-island-canceled-coronavirus/|title=Love Island canceled for 2020 due to coronavirus|first=James|last=Hibberd|date=4 May 2020|publisher=[[wikipedia:Entertainment Weekly|Entertainment Weekly]]|language=English|access-date=4 May 2020|archive-url=https://web.archive.org/web/20200504233400/https://ew.com/tv/love-island-canceled-coronavirus/|archive-date=4 May 2020|dead-url=no |df= }}</ref>
+====Changes in Production Due to Coronavirus====
+[[File:BBUS22 All-Stars Logo.jpg|200px|thumb|right]]
+Then on July 23, 2020, ViacomCBS announced that the season was to premiere on August 5, 2020. However, with the current COVID-19 restrictions in California the season would be required to follow certain protocols in order to secure safety for the contestants and staff members.
+
+The All-Star houseguests will have an extended sequester into the minimum 14-day quarantine that is usually used by medical professionals to check for symptoms of the novel coronavirus. If they pass with a negative test, they will be allowed to enter the house. Once inside, they will be tested weekly for the cast's safety.
+
+The behind the scenes crew will have a limited interaction with the contestants. Unlike past seasons where interaction was frequent among setting up competitions, stocking the storage room, or fixing areas around the house, this season's interaction will be as limited as possible. Everything that enters the house will be thoroughly disinfected for the houseguests' safety. In addition, crew members will be required to social distance. They will be tested before the season starts and frequently during production. Daily temperature tests and screenings for symptoms will take place. All crew members will be require to wear personal protective equipment (PPE) while working in socially distant isolation pods. <ref name="Season Announcement"/>
+
+The crew will be required to wear colored coded lanyards at all times. Each color corresponds to a different part of the production staff. When the weekly coronavirus tests results come back and a crew member tests positive, that whole colored off section will be quarantined.<ref name="CNN Aug 5">{{Cite web |url=https://www.cnn.com/2020/08/05/entertainment/big-brother-season-22/index.html|title='Big Brother' returns with color-coded pods and no hugs amid coronavirus pandemic|date=5 August 2020|publisher=[[wikipedia:CNN|CNN]]|language=English|access-date=5 August 2020|first=Marianne|last=Garvey|archive-url=https://web.archive.org/web/20200805153337/https://www.cnn.com/2020/08/05/entertainment/big-brother-season-22/index.html|archive-date=5 August 2020|dead-url=no |df= }}</ref>
+
+In addition, ViacomCBS will hire a "COVID-19 compliance officer" that will monitor the staff everyday enforcing all social distance rules for the safety of everyone involved.
+
+Finally alongside ''[[Big Brother Canada 8]]'' and many other international counterparts, it was announced that there will be no live audience for the entire season due to the pandemic.<ref name="Season Announcement"/>
+
+===Casting===
+Kassting, Inc. initially returned to provide casting services for the twenty-first consecutive season since [[Big Brother 2 (US)|season 2]] with Robyn Kass serving as the casting director.<ref>{{Cite web |title=Kassting, Inc. – Showlist |url=https://kasstinginc.com/showlist.php |url-status=live |archive-url=http://archive.today/2020.07.22-054129/https://kasstinginc.com/showlist.php |archive-date=July 22, 2020 |access-date=July 22, 2020 |website=Kassting, Inc. }}</ref> Open casting for the season was still held, which opened on September 22, 2019 and closed on April 3, 2020. Open casting at locations around the country were cancelled due to the Coronavirus pandemic. However, online submissions were still available.<ref>{{Cite tweet |number=1175954084450291712 |user=Kassting |title=Think u have what it takes to play #BigBrother and WIN!!? Time to put ur money where ur mouth is and show them how it’s done. Casting is now open for #BB22! https://bigbrothercasting.tv/home  #goodluck |author=Robyn Kass |date=September 22, 2019 |access-date=July 22, 2020 |archive-url=http://archive.today/2020.07.22-055629/https://twitter.com/Kassting/status/1175954084450291712 |archive-date=July 22, 2020 |url-status=live}}</ref><ref>{{Cite web |last=Dehnart |first=Andy |date=April 9, 2020 |title=Has Big Brother 22 been cancelled? And Love Island? |url=https://www.realityblurred.com/realitytv/2020/04/big-brother-22-bb22-love-island-cancelled/ |url-status=live |archive-url=https://web.archive.org/web/20200606053503/https://www.realityblurred.com/realitytv/2020/04/big-brother-22-bb22-love-island-cancelled/ |archive-date=June 6, 2020 |access-date=July 22, 2020 |website=[[Andy Dehnart|Reality Blurred]] |language=en-US}}</ref>
+
+===House Reveal===
+After much speculation, the house was officially revealed on August 3, 2020 through ViacomCBS's press website and CBS's ''Big Brother'' social media pages.<ref name="House Reveal BB22">{{Cite web |url=https://www.viacomcbspressexpress.com/cbs-entertainment/shows/big-brother/releases/view?id=55726|title=“BIG BROTHER: ALL-STARS” HOUSE THEME REVEALED!|date=3 August 2020|publisher=[[wikipedia:ViacomCBS|ViacomCBS Press Express]]|language=English|access-date=4 August 2020}}</ref>
+
+As with previous seasons, the program is filmed at CBS Studios, sound stage 18 in a custom-built two story house.<ref name="House-1">{{Cite web |url=https://variety.com/2005/scene/markets-festivals/cbs-ramps-up-summer-reality-sked-1117922274/ |title=CBS ramps up summer reality sked |last=Adalian |first=Josef |date=May 6, 2005 |website=Variety |language=en |archive-url=https://web.archive.org/web/20181025150117/https://variety.com/2005/scene/markets-festivals/cbs-ramps-up-summer-reality-sked-1117922274/ |archive-date=25 October 25 2018 |dead-url=no |access-date=18 January 2019}}</ref><ref name="House-CBS">{{Cite web |url=https://www.cbs.com/shows/big_brother/news/1007499/here-s-what-it-s-like-to-attend-a-big-brother-live-eviction-show/ |title=Here's What It's Like To Attend A Big Brother Live Eviction Show  |date=29 August 2017 |website=CBS.com |archive-url=https://web.archive.org/web/20180101145934/https://www.cbs.com/shows/big_brother/news/1007499/here-s-what-it-s-like-to-attend-a-big-brother-live-eviction-show/ |archive-date=1 January 2018 |dead-url=no |access-date=18 January 2019}}</ref> The House is equipped with 94 high-definition cameras and 113 microphones in order to monitor and record the houseguests.<ref name="House Reveal BB22"/> Similar to previous seasons, the [[Head of Household]] bedroom suite is located on top of the second floor with a private bathroom. Outside is a lounge area known as the "Sky Bridge" that was added in ''[[Big Brother 17 (US)]]''. The second floor is accessible by a ladder located in the entry way or a spiral staircase located in the kitchen next to the sliding glass doors that lead to the backyard. The backyard area features outdoor amenities for the houseguests. The kitchen, bathroom, bedrooms, living room, and the second lounge is located on the first floor.<ref name="BBN House Reveal">{{Cite web |url=https://bigbrothernetwork.com/big-brother-22-house-tour/ |title=Big Brother 22 House Tour: First Look With Julie Chen [PHOTOS & VIDEO]|date=3 August 2020 |website=CBS.com|access-date=4 August 2020|first=Matt|last=Boyer}}</ref> For the first time in the history of the series, a fourth bedroom was introduced to the franchise.<ref name="House Reveal BB22"/>
+
+Unlike previous years, host [[Julie Chen-Moonves|Julie Chen]] was unable to enter the ''Big Brother'' house for a house tour, as the production staff was keeping the area disinfected until the houseguests entered. Along with keeping Julie isolated away from potential crew members with the novel coronavirus, a remote house tour was conducted away from the house with Julie hosting from afar. <ref name="BBN House Reveal"/>
+
+As similar to the [[Big Brother 7 (US)|previous All-Star season]], the house design was a nod to the past. The theme was revealed as a "'All-Star Loft' Fit For VIPs" with decor that played homage to the previous twenty years of the franchise.<ref name="House Reveal BB22"/>
+
+Throughout the kitchen various phrases and moments were spray painted along the walls. They included [[Dan Gheesling|Dan Gheesling's]] Funeral in ''[[Big Brother 14 (US)]]'', [[Derrick Levasseur]] going undercover in ''[[Big Brother 16 (US)]]'', [[Danielle Reyes|Danielle Reyes']] infamous countdown of "1 down, 8 to go" while imitating the devil horns when referring to fellow houseguest [[Roddy Mancuso]] in ''[[Big Brother 3 (US)]]'', [[Rachel Reilly|Rachel Reilly's]] famous quote "Floaters Grab a Life Vest" in ''[[Big Brother 12 (US)]]'', [[Kaycee Clark]] yelling "Let's Go" in ''[[Big Brother 20 (US)]]'', and [[Will Kirby|Will Kirby's]] puppet master strategy in ''[[Big Brother 2 (US)]]'' & ''[[Big Brother 7 (US)]]''.<ref name="BBN House Reveal Kitchen 1">{{Cite web |url=https://bigbrothernetwork.com/big-brother-22-house-tour/kitchen-01/|title=Big Brother 22 kitchen 01|date=3 August 2020 |website=CBS.com|access-date=4 August 2020|first=Matt|last=Boyer}}</ref><ref name="BBN House Reveal Kitchen 2">{{Cite web |url=https://bigbrothernetwork.com/big-brother-22-house-tour/kitchen-02/|title=Big Brother 22 kitchen 02|date=3 August 2020 |website=CBS.com|access-date=4 August 2020|first=Matt|last=Boyer}}</ref>
+
+Inside two of the four bedrooms, past moments filled the walls. The walls of the "photo memory" bedroom are filled with "127 black-and-white photos that highlight pivotal moments spanning the show’s 20-year history". Another bedroom, the walls are filled with the past comics of [[BB Comics]], a staple competition of the franchise since [[Big Brother 16 (US)|season 16]]. The former houseguests that filled the walls were [[Ovi Kabir]] from ''[[Big Brother 21 (US)]]'', [[Angela Rummans]], [[Faysal Shafaat]] & [[Chris Williams]] from ''[[Big Brother 20 (US)]]'', [[Jessica Graf]] from ''[[Big Brother 19 (US)]]'', [[Victor Arroyo]] from ''[[Big Brother 18 (US)]]'', [[Vanessa Rousso]] & [[Steve Moses]] from ''[[Big Brother 17 (US)]]'', [[Frankie Grande]], [[Amber Borzotra]] & [[Devin Shepherd]] from ''[[Big Brother 16 (US)]]'', and [[Frank Eudy]] from seasons [[Big Brother 14 (US)|14]] & [[Big Brother 18 (US)|18]]. Former contestants [[Jase Wirey]], [[Jordan Lloyd]] and [[Rachel Reilly]] were included in the design without having prior comics.<ref name="BBN House Reveal Bedroom 2">{{Cite web |url=https://bigbrothernetwork.com/big-brother-22-house-tour/bedroom-02/|title=Big Brother 22 bedroom 02|date=3 August 2020 |website=CBS.com|access-date=4 August 2020|first=Matt|last=Boyer}}</ref>
+====House Pictures====
+<gallery position="center" spacing="small" orientation="none" widths="150">
+BB22LivingRoom.jpg|Living Room
+BB22Bedroom1.jpg|Bedroom
+BB22Bedroom2.jpg|Bedroom
+BB22Bedroom3.jpg|Bedroom
+BB22Chess.jpg|Chess Board
+BB22HOH.jpg|HOH Room
+BB22Lounge.jpg|Lounge
+BB22Kitchen.jpg|Kitchen
+BB22Bathroom.jpg|Bathroom
+</gallery>
+
+===Multiplatform Coverage===
+
+==Twists==
+*'''[[Returning Players|All-Stars]]''': For the first time in 14 years, the Big Brother House is an All-Star battleground. 16 former houseguests, consisting of winners, finalists, legends, memorable personalities and some of the best to never win the game, all have something to prove as they return for another chance at the $500,000 grand prize and to cement themselves as Big Brother Legends.
+*'''[[Have-Not]] Choosing''': After the first Have-Nots were determined by the first HOH competition, they then had to pick the new Have-Nots themselves for the following week, and the process repeated every week. They are not allowed to pick any other outgoing Have-Nots, including themselves. In Week 5, there were no Have-Nots for the week, and the Week 6 Have-Nots were also determined by a competition, before starting the new selection cycle in Week 7. If an outgoing Have-Not was evicted, there would be no replacement and the number of overall Have-Nots would just decrease.
+*'''Room Twist''': New rooms will be added to the house throughout the season, each with its own special twist.
+**'''[[Safety Suite Competition]]''': For the first three weeks, the All-Stars were given a VIP Pass to the Safety Suite. Once a signal went off, they had an hour to decide if they wanted to swipe their pass and play in the competition. The winner would get safety for the week and could gift it to a "Plus One", making two people immune. The Plus One would receive a punishment in exchange for being safe. The current HOH is ineligible to enter the Safety Suite, and a houseguest can only enter the Safety Suite once before being ineligible for future rounds. If only one houseguest enters the Safety Suite, they will not be guaranteed safety - they will still have to complete the competition before their time runs out in order to win safety.
+**'''BB Basement''': In Week 5, the houseguests will compete in a [[The Black Box|Black Box]] competition, and three houseguests will win. The three winners will each receive their own power that has the ability to shake-up the game.
+***'''The Disruptor:''' [[David Alexander]] won the power to secretly save a nominee and force the HOH to name a replacement. Whoever he saves will be safe, but unless he uses it on himself, he will still be vulnerable. It can be used following any of the next three Nomination Ceremonies.
+***'''The Replay:''' [[Dani Briones]] won the power to allow any outgoing HOH to play the HOH the following week. She can use it on herself or anyone else. It can be used during the next three HOH competitions.
+***'''The Blocker:''' [[Christmas Abbott]] won the power to block herself, or someone else, from being nominated post-Veto. If she wins the Veto and saves a nominee, she can also block another houseguest of her choosing from going up. She must use it after the POV is used but before the HOH names a replacement nominee. It can be used at one of the next three Veto Meetings.
+**'''Neighbor's House''': At the start of Week 8, [[Big Brother 2 (US)|season 2]] winner [[Dr. Will Kirby]] moved into the neighbor's house to usher in the next twist. Within the HOH and POV competitions, he will offer the All-Stars the chance at going for prizes or power, based off of his life motto "Money can't buy you love, but it can buy you stuff, and I love stuff!" And he will be making recurring appearances throughout the week.
+***'''[[Triple Eviction]]''': Dr. Will warned the All-Stars that they should always be thinking not one, not two, but three steps ahead. In Week 8, two weeks of ''Big Brother'' will go down in one night during the first ever Triple Eviction. Two HOH competitions, two POV competitions and three evictions all in one night!
+
+==HouseGuests==
+{{US 22 Progress}}
+==Voting History==
+{{US 22 Voting History}}
+
+==Safety Suite Competition History==
+{{US 22 Safety Suite History}}
+==Have/Have-Not History==
+{{US 22 Have/Have-Not History}}
+==Competition History==
+{{US 22 Competitions}}
+==Game History==
+{{US 22 Game History}}
+==Controversies==
+
+=== The "Wall Yeller" Incident ===
+Early into the season, [[Cody Calafiore|Cody]] and [[Nicole Franzel|Nicole F]] became the dominant members of [[The Committee]], the majority alliance that controlled the entirety of the season. The alliance was controversial amongst fans as many felt they had made the season boring and predictable, with others believing that the alliance was organised through preseason pregaming. During Week 4, a fan, dubbed by the community as "The Wall Yeller," was heard on the 24/7 live feeds shouting "Nicole and Cody are playing everyone!" Afterwards, the feeds went down and did not return for another two hours.<ref>https://www.oprahdaily.com/entertainment/tv-movies/a33850089/wall-yeller-big-brother-all-stars-spoilers/</ref>
+
+=== Contestants Mocking Ian's Autism ===
+During the early days of the season, [[Ian Terry|Ian]] had revealed on the live feeds that he was diagnosed with Autism Spectrum Disorder (ASD) some time after [[Big Brother 14 (US)|Big Brother 14]].<ref>https://www.oprahdaily.com/entertainment/tv-movies/a33562318/big-brother-ian-terry-kaysar-ridha-autism/</ref> Many people with ASD are known to "stim" which refers to an act of repetitive movement used to soothe or help an individual deal with stress, which can include movements like rocking, pacing back and forth or repeating certain words and phrases. Later in the season, [[Daniele Briones|Dani]] was caught on live feeds talking to Nicole F, where she is heard talking about Ian, stating "I can't even look at him sometimes because his constant movement stresses me out," in reference to his rocking stim. She then asks Nicole F if she feels the same way, to which the latter agrees. In another clip she also accused him of using his ASD as a strategy. Later that day, [[Memphis Garrett|Memphis]]  brings up Ian in a conversation with Dani, Nicole F and [[Christmas Abbott|Christmas]], where he describes Ian as the "red rum" of the house (a reference to [https://en.wikipedia.org/wiki/The_Shining_(film) The Shining]) and claims that he might have nightmares of Ian rocking at the end of his bed.<ref>https://www.tmz.com/2020/09/10/big-brother-houseguest-making-fun-ian-terry-autistic-autism-mocking-bullying/</ref> Numerous fans were upset by these clips, claiming that the contestants were bullying Ian, with some former Big Brother houseguests calling out the behaviour and denouncing production for not stepping in.<ref>https://x.com/JanellePierzina/status/1303895860015755265</ref> <ref>https://x.com/AndyHerren/status/1303921672001597443</ref> Ian later revealed that Dani had apologised to him in the Jury House and Nicole F had apologised to him sometime after the season.<ref>[https://www.youtube.com/watch?v=V_Gppqi6ZNk&t=3087s https://www.youtube.com/watch?v=V_Gppqi6ZNk]</ref>
+
+==Trivia==
+[[File:BB22 Cast Picture.jpg|200px|thumb|right|A photo of the cast in full body, posted by [[Janelle Pierzina|Janelle]] in December 2023.]]
+* With their 22nd season, the ''[[Big Brother U.S. (franchise)|Big Brother U.S.]]'' English speaking edition became the first country to air 22 civilian seasons of the show.
+* With, ''[[Big Brother: After Dark]]'' not airing during the season, it will mark the first time since ''[[Big Brother 7 (US)]]'' that ''After Dark'' will not air alongside the main series.
+** Coincidentally, season 7 was the first All-Star season.
+* Every civilian season from ''[[Big Brother 6 (US)]]'' to ''[[Big Brother 21 (US)]]'' is represented on this cast, with the exception of [[Big Brother 9 (US)|seasons 9]], [[Big Brother 15 (US)|15]] and [[Big Brother: Over The Top|OTT]].
+** However, no houseguests who debuted on [[Big Brother 13 (US)|seasons 13]] or [[Big Brother 18 (US)|18]] appear on this season. The three houseguests representing those seasons debuted on [[Big Brother 8 (US)|seasons 8]], [[Big Brother 16 (US)|16]] and [[Big Brother 17 (US)|17]] respectively.
+* This is the first season since ''Big Brother 16 (US)'' where the first evictee was a woman.
+** Coincidentally, on both seasons, the first evictee was evicted by a unanimous vote and the entire pre-jury had the same gender ratio: four women and one man.
+** The first four women evicted this season ([[Keesha Smith|Keesha]], [[Nicole Anthony|Nicole A.]], [[Janelle Pierzina|Janelle]] and [[Bayleigh Dayton|Bayleigh]]) were all in the same entry group on Day 1.
+* This season is tied with [[Big Brother 23 (US)]] for the longest time before a woman won an HOH or a POV, with the first HOH or POV win by a female occurring on Week 5.
+* This is the first time since ''Big Brother 18 (US)'' that none of the pre-jury houseguests won an HOH or a POV.
+* This is the first season since ''[[Big Brother 11 (US)]]'' to not feature a [[Double Eviction]]. Instead, this season had a [[Triple Eviction]], which was initially presented as a Double before "surprising" the houseguests with the third.
+* This season has the second least instances the veto has been used, with only 2 instances. The season with the veto used the least times is ''[[Big Brother 3 (US)]],'' with only 1 instance.
+** Coincidentally, both times it was used it was used on [[Kevin Campbell]].
+* This is the first season since ''[[Big Brother 14 (US)]]'' to not feature a [[Previously Evicted Contestant]].
+* This is the second season to not feature a successful [[backdoor]] since it was invented in ''[[Big Brother 5 (US)]]'', following ''[[Celebrity Big Brother 1 (US)]]''.
+* This season is tied with ''Big Brother 14 (US)'' and ''Big Brother 21 (US)'' for the most amount of consecutive HOHs to also win the POV with three.
+** This was accomplished by [[Tyler Crispen|Tyler]], [[Cody Calafiore|Cody]] and [[Nicole Franzel|Nicole F]] during Day 58 (Round 2), Week 9 & Week 10.
+* There were four players who were playing for their third time this season (Kaysar, [[Dani Briones|Dani]], Nicole F and [[Da'Vonne Rogers|Da'Vonne]]). The three who were evicted before finale night were all evicted exactly three placements below the other: Kaysar placed 13th, Da'Vonne placed 10th and Dani placed 7th.
+* The Final Two houseguests of the season, Cody and [[Enzo Palumbo|Enzo]], are both from the state of New Jersey.
+* This is the sixth season where neither of the finalists had any eviction votes cast against them, following ''[[Big Brother 4 (US)]]'', ''Big Brother 14 (US)'', ''Big Brother 15 (US)'', ''Big Brother 16 (US)'' and ''Big Brother: Over The Top''.
+* This is the first civilian season to not feature any showmances since ''Big Brother 1 (US)'', 20 years prior.
+** However, houseguests [[Memphis Garrett|Memphis]] and [[Christmas Abbott|Christmas]] began a relationship after the season.
+
+==Ratings==
+===United States===
+====Live Ratings====
+{{US 22 Ratings - United States}}
+====DVR Ratings====
+{{US 22 DVR Ratings}}
+===Canada===
+{{US 22 Ratings - Canada}}
+==References==
+{| class="mw-collapsible mw-collapsed" style="margin:auto; font-size: 6pt; width: 100%;"
+|-
+! style="background-color: rgb(229, 228, 226); color:#3a3a3a; font-size: 8pt;" | References
+|-
+| style="padding:0.2em 0.5em;" |{{Reflist|2}}
+|}
+==External Links==
+* [http://www.cbs.com/shows/big-brother/ CBS Official Site]
+* [http://www.cbs.com/shows/big_brother/live_feed/stream/ Live Feeds - Requires CBS All-Access Subscription]
+* [https://en.wikipedia.org/wiki/Big_Brother_22_(American_season) Wikipedia Page]
+
+{{US Seasons}}
+[[Category:Seasons]]
+[[Category:United States (English) Seasons]]
+[[Category:Seasons with Returning Contestants]]
