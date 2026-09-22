@@ -1,0 +1,1858 @@
+{
+ "info": {
+  "season_run": "August 2, 2023 - November 9, 2023",
+  "premiere": "2023-08-02",
+  "finale": "2023-11-09",
+  "days": "100",
+  "houseguests": "17",
+  "episodes": "42",
+  "prize": "$750,000",
+  "winner": "Jag Bains",
+  "runner_up": "Matt Klotz",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "3.05m"
+ },
+ "roster": [
+  [
+   "Jag Bains",
+   "Jag"
+  ],
+  [
+   "Matt Klotz",
+   "Matt"
+  ],
+  [
+   "Bowie Jane Ball",
+   "Bowie Jane"
+  ],
+  [
+   "Felicia Cannon",
+   "Felicia"
+  ],
+  [
+   "Cirie Fields",
+   "Cirie"
+  ],
+  [
+   "America Lopez",
+   "America"
+  ],
+  [
+   "Blue Kim",
+   "Blue"
+  ],
+  [
+   "Cory Wurtenberger",
+   "Cory"
+  ],
+  [
+   "Cameron Hardin",
+   "Cameron"
+  ],
+  [
+   "Mecole Hayes",
+   "Mecole"
+  ],
+  [
+   "Jared Fields",
+   "Jared"
+  ],
+  [
+   "Izzy Gleicher",
+   "Izzy"
+  ],
+  [
+   "Red Utley",
+   "Red"
+  ],
+  [
+   "Hisam Goueli",
+   "Hisam"
+  ],
+  [
+   "Reilly Smedley",
+   "Reilly"
+  ],
+  [
+   "Kirsten Elwin",
+   "Kirsten"
+  ],
+  [
+   "Luke Valentine",
+   "Luke"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Nomination",
+   "kind": "twist",
+   "name": "Puzzling Headlines",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Jared"
+   ],
+   "outcome": "is nominated",
+   "result": "Jared is nominated",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Nomination",
+   "kind": "twist",
+   "name": "Kicking Butt",
+   "format": "Feel The Burn",
+   "winners": [
+    "Kirsten"
+   ],
+   "outcome": "is nominated",
+   "result": "Kirsten is nominated",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Nomination",
+   "kind": "twist",
+   "name": "Goo-Pocalypse",
+   "format": "Sequence Explosion",
+   "winners": [
+    "Felicia"
+   ],
+   "outcome": "is nominated",
+   "result": "Felicia is nominated",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Nomination",
+   "kind": "twist",
+   "name": "Hold On Fright",
+   "format": "The Wall",
+   "winners": [
+    "Cory"
+   ],
+   "outcome": "is nominated",
+   "result": "Cory is nominated",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 1,
+   "day": "2",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Crash Course in Comics",
+   "format": "Only One Path",
+   "winners": [
+    "Reilly"
+   ],
+   "outcome": "wins HOH",
+   "result": "Reilly wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 1,
+   "day": "4",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Atomic Wedgie",
+   "format": "Giddy Up",
+   "winners": [
+    "Hisam"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Hisam wins the Veto",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 2,
+   "day": "9",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Escape The Nether Region",
+   "format": "Hide and Seek",
+   "winners": [
+    "Hisam"
+   ],
+   "outcome": "wins HOH",
+   "result": "Hisam wins HOH",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 2,
+   "day": "11",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Twisted Tasks",
+   "format": null,
+   "winners": [
+    "Hisam"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Hisam wins the Veto",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 3,
+   "day": "16",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Snot-a-Winner",
+   "format": "Shootout",
+   "winners": [
+    "Felicia"
+   ],
+   "outcome": "wins HOH",
+   "result": "Felicia wins HOH",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 3,
+   "day": "18",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Cock-a-Doodle Zoom",
+   "format": "Rollin' in the Dough",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 4,
+   "day": "23-24",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Revenge of the Pressure Cooker",
+   "format": "Pressure Cooker",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cameron wins HOH",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 4,
+   "day": "25",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Artifact Stack",
+   "format": null,
+   "winners": [
+    "Red"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Red wins the Veto",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 4,
+   "day": "28",
+   "type": "Invincibility",
+   "kind": "twist",
+   "name": "Power Path",
+   "format": "Roll It Down",
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins the Power",
+   "result": "Matt wins the Power",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 5,
+   "day": "30",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Odd Couples",
+   "format": "Knockout",
+   "winners": [
+    "Jared"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jared wins HOH",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 5,
+   "day": "32",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Sludge Stackers",
+   "format": "Microbrews",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cameron wins the Veto",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 6,
+   "day": "37",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Name That Toot",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cameron wins HOH",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Buddy Ball",
+   "format": "Yankee Swap",
+   "winners": [
+    "Jared"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jared wins the Veto",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 7,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Attack of the 50 Foot Meatball",
+   "format": "The Wall",
+   "winners": [
+    "Jared"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jared wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 7,
+   "day": "46",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Sweaty Scrimmage",
+   "format": "Slippery Slope",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 7,
+   "day": "51",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Soul Mates",
+   "format": "Knockout",
+   "winners": [
+    "Cory"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cory wins HOH",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 7,
+   "day": "51",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Monster Kill",
+   "format": "Somewhere Over The Veto",
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Matt wins the Veto",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 8,
+   "day": "51-52",
+   "type": "Re-Entry",
+   "kind": "twist",
+   "name": "Resurrection Rumble",
+   "format": "Seesaw",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins an Advantage",
+   "result": "Cameron wins an Advantage",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "Re-Entry",
+   "kind": "twist",
+   "name": "Do or Die",
+   "format": "Pull Some Strings",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "returns to the game",
+   "result": "Cameron returns to the game",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "Re-Entry",
+   "kind": "twist",
+   "name": "Do or Die",
+   "format": "Pull Some Strings",
+   "winners": [
+    "Jared"
+   ],
+   "outcome": "remains evicted",
+   "result": "Jared remains evicted",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 9,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "We Come in Pieces",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cameron wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 9,
+   "day": "60",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Exorcism",
+   "format": "The Black Box",
+   "winners": [
+    "Cameron"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cameron wins the Veto",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 10,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Humili-Gram",
+   "format": "Getting Loopy",
+   "winners": [
+    "Bowie Jane"
+   ],
+   "outcome": "wins HOH",
+   "result": "Bowie Jane wins HOH",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 10,
+   "day": "67",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Zinging Robot",
+   "format": "OTEV",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 11,
+   "day": "72",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jag wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Superhero Training Academy",
+   "format": "Dizzy Discs",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "Luxury",
+   "kind": "twist",
+   "name": "Time to Take Flight",
+   "format": null,
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins $3,500",
+   "result": "Jag wins $3,500",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Time to Take Flight",
+   "format": null,
+   "winners": [
+    "Blue"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Blue wins the Veto",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 12,
+   "day": "79",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Johnny Mac: Demented Dentist",
+   "format": "Johnny Mac",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jag wins HOH",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Embarrassing Expedition",
+   "format": "Snapshot Shuffle",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Humili-verse"
+   }
+  },
+  {
+   "week": 12,
+   "day": "86",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Triple Feature",
+   "format": "BB Flix & Chill",
+   "winners": [
+    "Bowie Jane"
+   ],
+   "outcome": "wins HOH",
+   "result": "Bowie Jane wins HOH",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 12,
+   "day": "86",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Drive-In Drop",
+   "format": "Big Top Drop",
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Matt wins the Veto",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 13,
+   "day": "86",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Superhero Smackdown",
+   "format": "Carnival Quick Shot",
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins HOH",
+   "result": "Matt wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 13,
+   "day": "88",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Swamp Slasher",
+   "format": "Coin Stacking",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 13,
+   "day": "89",
+   "type": "Luxury",
+   "kind": "twist",
+   "name": "Trick or Treat",
+   "format": null,
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins $5,000",
+   "result": "Matt wins $5,000",
+   "extra": {
+    "Multiverse": "Scary-verse"
+   }
+  },
+  {
+   "week": 14,
+   "day": "93",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Chenbot Volume #1",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Bowie Jane"
+   ],
+   "outcome": "wins HOH",
+   "result": "Bowie Jane wins HOH",
+   "extra": {
+    "Multiverse": "Comic-verse"
+   }
+  },
+  {
+   "week": 14,
+   "day": "94",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Scrambled Timeline",
+   "format": "Cover Your Days",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jag wins the Veto",
+   "extra": {
+    "Multiverse": "Scramble-verse"
+   }
+  },
+  {
+   "week": 14,
+   "day": "96",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "When Universes Collide",
+   "format": "Swing, Slam, Dunk",
+   "winners": [
+    "Matt"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Matt wins Final HOH Part 1",
+   "extra": {
+    "Multiverse": "All Multiverses"
+   }
+  },
+  {
+   "week": 14,
+   "day": "98",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Multiverse Mix-Up",
+   "format": "What Competition Was That?",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Jag wins Final HOH Part 2",
+   "extra": {
+    "Multiverse": "All Multiverses"
+   }
+  },
+  {
+   "week": 14,
+   "day": "100",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Jury Verse",
+   "format": "Jury Statements",
+   "winners": [
+    "Jag"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Jag wins Final HOH Part 3",
+   "extra": {
+    "Multiverse": "All Multiverses"
+   }
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Cory Wurtenberger",
+     "chosen_by": null
+    },
+    {
+     "guest": "Jared Fields",
+     "chosen_by": null
+    },
+    {
+     "guest": "Hisam Goueli",
+     "chosen_by": null
+    },
+    {
+     "guest": "Luke Valentine",
+     "chosen_by": null
+    }
+   ],
+   "3": [
+    {
+     "guest": "America Lopez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Matt Klotz",
+     "chosen_by": null
+    },
+    {
+     "guest": "Red Utley",
+     "chosen_by": null
+    }
+   ],
+   "4": [
+    {
+     "guest": "Bowie Jane Ball",
+     "chosen_by": null
+    },
+    {
+     "guest": "Cory Wurtenberger",
+     "chosen_by": null
+    },
+    {
+     "guest": "Izzy Gleicher",
+     "chosen_by": null
+    }
+   ],
+   "6": [
+    {
+     "guest": "America Lopez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Blue Kim",
+     "chosen_by": null
+    },
+    {
+     "guest": "Bowie Jane Ball",
+     "chosen_by": null
+    },
+    {
+     "guest": "Cirie Fields",
+     "chosen_by": null
+    },
+    {
+     "guest": "Cory Wurtenberger",
+     "chosen_by": null
+    },
+    {
+     "guest": "Felicia Cannon",
+     "chosen_by": null
+    },
+    {
+     "guest": "Izzy Gleicher",
+     "chosen_by": null
+    },
+    {
+     "guest": "Jag Bains",
+     "chosen_by": null
+    },
+    {
+     "guest": "Jared Fields",
+     "chosen_by": null
+    },
+    {
+     "guest": "Matt Klotz",
+     "chosen_by": null
+    },
+    {
+     "guest": "Mecole Hayes",
+     "chosen_by": null
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Reilly Smedley"
+   ],
+   "2": [
+    "Hisam Goueli"
+   ],
+   "3": [
+    "Felicia Cannon"
+   ],
+   "4": [
+    "Cameron Hardin"
+   ],
+   "5": [
+    "Jared Fields"
+   ],
+   "6": [
+    "Cameron Hardin"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Reilly"
+   ],
+   "nominees_initial": [
+    "Cory",
+    "Felicia"
+   ],
+   "veto_holders": [
+    "Hisam"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Felicia",
+    "Kirsten"
+   ],
+   "evicted": [
+    "Luke"
+   ],
+   "vote": "Expelled Day 8",
+   "finish": "Expelled Day 8",
+   "other": {}
+  },
+  {
+   "week": 1,
+   "hoh": [
+    "Reilly"
+   ],
+   "nominees_initial": [
+    "Jared",
+    "Kirsten"
+   ],
+   "veto_holders": [
+    "Hisam"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Felicia",
+    "Kirsten"
+   ],
+   "evicted": [
+    "Kirsten"
+   ],
+   "vote": "13-0",
+   "finish": "1st Evicted Day 9",
+   "other": {}
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Hisam"
+   ],
+   "nominees_initial": [
+    "Cameron",
+    "Reilly"
+   ],
+   "veto_holders": [
+    "Hisam"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Cameron",
+    "Reilly"
+   ],
+   "evicted": [
+    "Reilly"
+   ],
+   "vote": "12-0",
+   "finish": "2nd Evicted Day 16",
+   "other": {}
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Felicia"
+   ],
+   "nominees_initial": [
+    "Cameron",
+    "Jag"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cameron",
+    "Hisam"
+   ],
+   "evicted": [
+    "Hisam"
+   ],
+   "vote": "11-0",
+   "finish": "3rd Evicted Day 23",
+   "other": {}
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Cameron"
+   ],
+   "nominees_initial": [
+    "Blue",
+    "Jag"
+   ],
+   "veto_holders": [
+    "Red"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Blue",
+    "Jag"
+   ],
+   "evicted": [
+    "Jag"
+   ],
+   "vote": "10-0",
+   "finish": "4th Evicted Day 30",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Jag"
+   ],
+   "vote": "Returned Day 30",
+   "finish": "Returned Day 30",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Jared"
+   ],
+   "nominees_initial": [
+    "Cameron",
+    "Red"
+   ],
+   "veto_holders": [
+    "Cameron"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Jag",
+    "Red"
+   ],
+   "evicted": [
+    "Red"
+   ],
+   "vote": "8-2",
+   "finish": "5th Evicted Day 37",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Cameron"
+   ],
+   "nominees_initial": [
+    "Felicia",
+    "Izzy"
+   ],
+   "veto_holders": [
+    "Jared"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Felicia",
+    "Izzy"
+   ],
+   "evicted": [
+    "Izzy"
+   ],
+   "vote": "8-1",
+   "finish": "6th Evicted Day 44",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Jared"
+   ],
+   "nominees_initial": [
+    "America",
+    "Cory"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "America",
+    "Cameron"
+   ],
+   "evicted": [
+    "Cameron"
+   ],
+   "vote": "8-0",
+   "finish": "7th Evicted Big Brother Zombie Day 51",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Cory"
+   ],
+   "nominees_initial": [
+    "Blue",
+    "Jared"
+   ],
+   "veto_holders": [
+    "Matt"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Blue",
+    "Jared"
+   ],
+   "evicted": [
+    "Jared"
+   ],
+   "vote": "6-1",
+   "finish": "8th Evicted Big Brother Zombie Day 51",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Cameron"
+   ],
+   "vote": "Returned Day 58",
+   "finish": "Returned Day 58",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Cameron"
+   ],
+   "nominees_initial": [
+    "Felicia",
+    "Mecole"
+   ],
+   "veto_holders": [
+    "Cameron"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Felicia",
+    "Mecole"
+   ],
+   "evicted": [
+    "Mecole"
+   ],
+   "vote": "7-0",
+   "finish": "9th Evicted Day 65",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Bowie Jane"
+   ],
+   "nominees_initial": [
+    "Cirie",
+    "Felicia"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cameron",
+    "Cirie"
+   ],
+   "evicted": [
+    "Cameron"
+   ],
+   "vote": "6-0",
+   "finish": "10th Evicted 1st Jury Member Day 72",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Jag"
+   ],
+   "nominees_initial": [
+    "Blue",
+    "Felicia"
+   ],
+   "veto_holders": [
+    "Jag",
+    "Blue"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "America",
+    "Cory"
+   ],
+   "evicted": [
+    "Cory"
+   ],
+   "vote": "5-0",
+   "finish": "11th Evicted 2nd Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Jag"
+   ],
+   "nominees_initial": [
+    "America",
+    "Blue"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "America",
+    "Blue"
+   ],
+   "evicted": [
+    "Blue"
+   ],
+   "vote": "4-0",
+   "finish": "12th Evicted 3rd Jury Member Day 86",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Bowie Jane"
+   ],
+   "nominees_initial": [
+    "America",
+    "Felicia"
+   ],
+   "veto_holders": [
+    "Matt"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "America",
+    "Felicia"
+   ],
+   "evicted": [
+    "America"
+   ],
+   "vote": "3-0",
+   "finish": "13th Evicted 4th Jury Member Day 86",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [
+    "Matt"
+   ],
+   "nominees_initial": [
+    "Cirie",
+    "Felicia"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Cirie",
+    "Felicia"
+   ],
+   "evicted": [
+    "Cirie"
+   ],
+   "vote": "2-0",
+   "finish": "14th Evicted 5th Jury Member Day 93",
+   "other": {}
+  },
+  {
+   "week": 14,
+   "hoh": [
+    "Bowie Jane"
+   ],
+   "nominees_initial": [
+    "Felicia",
+    "Matt"
+   ],
+   "veto_holders": [
+    "Jag"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Felicia",
+    "Matt"
+   ],
+   "evicted": [
+    "Felicia"
+   ],
+   "vote": "1-0",
+   "finish": "15th Evicted 6th Jury Member Day 96",
+   "other": {}
+  },
+  {
+   "week": 14,
+   "hoh": [
+    "Jag"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Bowie Jane",
+    "Matt"
+   ],
+   "evicted": [
+    "Bowie Jane"
+   ],
+   "vote": "1-0",
+   "finish": "16th Evicted 7th Jury Member Day 100",
+   "other": {}
+  },
+  {
+   "week": 14,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Matt"
+   ],
+   "vote": "5-2",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 14,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Jag"
+   ],
+   "vote": "5-2",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Jag Bains": {
+   "page": "Jag Bains",
+   "full_name": "Jagateshwar \"Jag\" Bains",
+   "birth_date": "1998-02-14",
+   "age": 25,
+   "hometown": [
+    "Omak, WA"
+   ],
+   "occupation": "Truck company owner",
+   "nickname": [
+    "Jaguar",
+    "Swaggy Jaggy"
+   ],
+   "place": "1st",
+   "days": "100",
+   "alliances": [
+    "7 Deadly Sins",
+    "Crowd Control",
+    "Family Style",
+    "The Fugitives",
+    "The Handful",
+    "The Mafia (BB25)",
+    "The Minutemen",
+    "The Unreliables"
+   ],
+   "other_prizes": [
+    "$8,500"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 697381
+  },
+  "Matt Klotz": {
+   "page": "Matt Klotz",
+   "full_name": "Matthew James \"Matt\" Klotz",
+   "birth_date": "1996-05-24",
+   "age": 27,
+   "hometown": [
+    "Cameron Park, CA",
+    "Baton Rouge, LA"
+   ],
+   "occupation": "Deaflympics gold medalist",
+   "nickname": [
+    "Ice Pick",
+    "Matty Ice"
+   ],
+   "place": "2nd",
+   "days": "100",
+   "alliances": [
+    "3 Way Rats",
+    "7 Deadly Sins",
+    "Family Style",
+    "Legend 25",
+    "Phalanx 5",
+    "The Fugitives",
+    "The Handful",
+    "The Mafia (BB25)",
+    "The Minutemen"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 682202
+  },
+  "Bowie Jane Ball": {
+   "page": "Bowie Jane Ball",
+   "full_name": "Miranda \"Bowie Jane\" Ball",
+   "birth_date": "1977-10-04",
+   "age": 45,
+   "hometown": [
+    "Melbourne, Australia",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Barrister and DJ",
+   "nickname": [
+    "BJ",
+    "FBJ",
+    "BJDJ"
+   ],
+   "place": "3rd",
+   "days": "100",
+   "alliances": [
+    "Bye Bye Bitches",
+    "Legend 25",
+    "The Mafia (BB25)",
+    "The Professors"
+   ],
+   "other_prizes": [
+    "Home Pressure Cooker"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 679222
+  },
+  "Felicia Cannon": {
+   "page": "Felicia Cannon",
+   "full_name": "Felicia Delene Cannon",
+   "birth_date": "1960-06-18",
+   "age": 63,
+   "hometown": [
+    "Tacoma, WA",
+    "Kennesaw, GA"
+   ],
+   "occupation": "Real estate agent",
+   "nickname": [
+    "Mama Fe"
+   ],
+   "place": "4th",
+   "days": "96",
+   "alliances": [
+    "7 Deadly Sins",
+    "Brown Sugar Babes",
+    "Bye Bye Bitches",
+    "For Real For Real",
+    "Legend 25",
+    "The Bookends",
+    "The Professors"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 691540
+  },
+  "Cirie Fields": {
+   "page": "Cirie Fields",
+   "full_name": "Cirie Tiffany Fields",
+   "birth_date": "1970-07-18",
+   "age": 53,
+   "hometown": [
+    "Jersey City, NJ",
+    "Walterboro, SC"
+   ],
+   "occupation": "Surgical director",
+   "nickname": [
+    "Mama C"
+   ],
+   "place": "5th",
+   "days": "93",
+   "alliances": [
+    "7 Deadly Sins",
+    "Brown Sugar Babes",
+    "Bye Bye Bitches",
+    "For Real For Real",
+    "Legend 25",
+    "The Bookends",
+    "The Crossroads",
+    "The Fields",
+    "The Professors",
+    "The Real Fields"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 681785
+  },
+  "America Lopez": {
+   "page": "America Lopez",
+   "full_name": "America Lopez",
+   "birth_date": "1995-11-28",
+   "age": 27,
+   "hometown": [
+    "Edinburg, TX",
+    "Brooklyn, NY"
+   ],
+   "occupation": "Medical receptionist",
+   "nickname": [],
+   "place": "6th",
+   "days": "86",
+   "alliances": [
+    "3 Way Rats",
+    "Americory",
+    "Family Style",
+    "For Real For Real",
+    "The Sirens",
+    "The Unreliables"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 684378
+  },
+  "Blue Kim": {
+   "page": "Blue Kim",
+   "full_name": "Blue Bada Kim",
+   "birth_date": "1998-08-01",
+   "age": 25,
+   "hometown": [
+    "Riverside, CA",
+    "New York, NY"
+   ],
+   "occupation": "Brand strategist",
+   "nickname": [],
+   "place": "7th",
+   "days": "86",
+   "alliances": [
+    "7 Deadly Sins",
+    "Crowd Control",
+    "Family Style",
+    "The Handful",
+    "The Sirens"
+   ],
+   "other_prizes": [
+    "$1,000"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 684377
+  },
+  "Cory Wurtenberger": {
+   "page": "Cory Wurtenberger",
+   "full_name": "Cory Benjamin Wurtenberger",
+   "birth_date": "2001-09-29",
+   "age": 21,
+   "hometown": [
+    "Weston, FL"
+   ],
+   "occupation": "College student",
+   "nickname": [
+    "Skeezy"
+   ],
+   "place": "8th",
+   "days": "79",
+   "alliances": [
+    "3 Way Rats",
+    "Americory",
+    "For Real For Real",
+    "The Crossroads",
+    "The Handful",
+    "The Unreliables",
+    "The Writers Room"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 694844
+  },
+  "Cameron Hardin": {
+   "page": "Cameron Hardin",
+   "full_name": "Cameron Hardin",
+   "birth_date": "1989-03-06",
+   "age": 34,
+   "hometown": [
+    "Eastman, GA"
+   ],
+   "occupation": "Stay-at-home dad",
+   "nickname": [
+    "Cam",
+    "Space Cowboy"
+   ],
+   "place": "9th",
+   "days": "72 (Days 1-51 & 58-72 in house, Days 51-58 as a BB Zombie)",
+   "alliances": [
+    "Family Style",
+    "Legend 25",
+    "The Chillers",
+    "The Fugitives",
+    "The Handful"
+   ],
+   "other_prizes": [
+    "Trip to Europe",
+    "$50,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)",
+    "Big Brother Reindeer Games"
+   ],
+   "revid": 650386
+  },
+  "Mecole Hayes": {
+   "page": "Mecole Hayes",
+   "full_name": "Mecole Deonsha Hayes",
+   "birth_date": "1993-06-30",
+   "age": 30,
+   "hometown": [
+    "St Louis, MO",
+    "Upper Marlboro, MD"
+   ],
+   "occupation": "Political consultant",
+   "nickname": [
+    "Meme"
+   ],
+   "place": "10th",
+   "days": "65",
+   "alliances": [
+    "Brown Sugar Babes",
+    "Bye Bye Bitches",
+    "For Real For Real",
+    "Legend 25",
+    "The Professors",
+    "The Writers Room"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 670332
+  },
+  "Jared Fields": {
+   "page": "Jared Fields",
+   "full_name": "Jared Lavell Fields",
+   "birth_date": "1998-03-05",
+   "age": 25,
+   "hometown": [
+    "Norwalk, CT"
+   ],
+   "occupation": "Exterminator",
+   "nickname": [
+    "Pooh"
+   ],
+   "place": "11th",
+   "days": "58 (Days 1-51 in house, Days 51-58 as a BB Zombie)",
+   "alliances": [
+    "7 Deadly Sins",
+    "Brown Sugar Babes",
+    "For Real For Real",
+    "Phalanx 5",
+    "The Crossroads",
+    "The Fields",
+    "The Handful",
+    "The Real Fields"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 679238
+  },
+  "Izzy Gleicher": {
+   "page": "Izzy Gleicher",
+   "full_name": "Isabel Lepanto \"Izzy\" Gleicher",
+   "birth_date": "1990-12-16",
+   "age": 32,
+   "hometown": [
+    "New York, NY"
+   ],
+   "occupation": "Professional flutist",
+   "nickname": [
+    "Izzy Fields",
+    "Izzard"
+   ],
+   "place": "12th",
+   "days": "44",
+   "alliances": [
+    "7 Deadly Sins",
+    "Bye Bye Bitches",
+    "For Real For Real",
+    "Legend 25",
+    "The Crossroads",
+    "The Fields",
+    "The Professors"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 637764
+  },
+  "Red Utley": {
+   "page": "Red Utley",
+   "full_name": "Michael \"Red\" Utley",
+   "birth_date": "1985-09-05",
+   "age": 37,
+   "hometown": [
+    "Gatlinburg, TN"
+   ],
+   "occupation": "Salesman",
+   "nickname": [
+    "The Chillbilly"
+   ],
+   "place": "13th",
+   "days": "37",
+   "alliances": [
+    "Legend 25",
+    "The Chillers",
+    "The Professors"
+   ],
+   "other_prizes": [
+    "Home Theater",
+    "Paramount+ with Showtime Subscription"
+   ],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 682317
+  },
+  "Hisam Goueli": {
+   "page": "Hisam Goueli",
+   "full_name": "Hisam Said Goueli",
+   "birth_date": "1978-03-14",
+   "age": 45,
+   "hometown": [
+    "Minneapolis, MN",
+    "Seattle, WA"
+   ],
+   "occupation": "Geriatric physician",
+   "nickname": [],
+   "place": "14th",
+   "days": "23",
+   "alliances": [
+    "The Professors"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 682838
+  },
+  "Reilly Smedley": {
+   "page": "Reilly Smedley",
+   "full_name": "Reilly Lauren Smedley",
+   "birth_date": "1999-08-02",
+   "age": 24,
+   "hometown": [
+    "Portland, ME",
+    "Nashville, TN"
+   ],
+   "occupation": "Bartender",
+   "nickname": [],
+   "place": "15th",
+   "days": "16",
+   "alliances": [
+    "Crowd Control",
+    "Family Style",
+    "Phalanx 5",
+    "The Handful"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 681233
+  },
+  "Kirsten Elwin": {
+   "page": "Kirsten Elwin",
+   "full_name": "Kirsten Vivica Elwin",
+   "birth_date": "1997-11-10",
+   "age": 25,
+   "hometown": [
+    "Dominica",
+    "Orlando, FL",
+    "Houston, TX"
+   ],
+   "occupation": "Molecular biologist",
+   "nickname": [],
+   "place": "16th",
+   "days": "9",
+   "alliances": [
+    "Phalanx 5"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 624341
+  },
+  "Luke Valentine": {
+   "page": "Luke Valentine",
+   "full_name": "Luke Valentine",
+   "birth_date": "1992-12-11",
+   "age": 30,
+   "hometown": [
+    "Weston, FL",
+    "Coral Springs, FL"
+   ],
+   "occupation": "Illustrator",
+   "nickname": [],
+   "place": "17th",
+   "days": "8",
+   "alliances": [
+    "Phalanx 5"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 25 (US)"
+   ],
+   "revid": 670161
+  }
+ }
+}

@@ -1,7 +1,8 @@
-name: Fetch Wikipedia pages
+name: Fetch wiki pages
 
-# Fetches each season's page into cache/, rebuilds web/weeks.json, details.json and
-# report.txt, and commits them back to the branch if any page changed.
+# Fetches each season's Wikipedia page and Big Brother Wiki (Fandom) page into cache/,
+# rebuilds web/weeks.json, details.json, report.txt and proofread.xlsx, and commits
+# them back to the branch if any page changed.
 # Runs daily, when this file or seasons.yaml changes, or by hand from the Actions tab.
 on:
   push:
@@ -45,12 +46,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Only the fetch timestamps change when a page hasn't been edited,
-          # so compare the HTML to decide whether there's anything to commit.
-          if git diff --quiet -- 'cache/*.html'; then
-            echo "Wikipedia pages unchanged; nothing to commit"
+          git add cache/ web/weeks.json web/details.json report.txt proofread.xlsx
+          # Only the fetch timestamps change when a page hasn't been edited, so compare
+          # the pages themselves. Staged, so newly added pages count too.
+          if git diff --cached --quiet -- 'cache/*.html' 'cache/*.wikitext' 'cache/*.houseguests.json'; then
+            echo "Wiki pages unchanged; nothing to commit"
           else
-            git add cache/ web/weeks.json web/details.json report.txt proofread.xlsx
-            git commit -m "Update Wikipedia page cache and weeks.json"
+            git commit -m "Update wiki page cache and weeks.json"
             git push
           fi

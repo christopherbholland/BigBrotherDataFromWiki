@@ -95,7 +95,8 @@ def _store_cached_values(path, sheetnames, values):
             z.writestr(name, data)
 
 
-def _sheet(wb, title, headers, widths, rows, links=None, wrap=(), hidden=(), note_col=None):
+def _sheet(wb, title, headers, widths, rows, links=None, wrap=(), hidden=(), note_col=None,
+           source_label="Wikipedia"):
     """Write a table with a styled header, filters, frozen panes and input columns."""
     ws = wb.create_sheet(title)
     ws.append(headers)
@@ -112,7 +113,7 @@ def _sheet(wb, title, headers, widths, rows, links=None, wrap=(), hidden=(), not
         if links:
             url = links[r - 2]
             if url:
-                cell = ws.cell(row=r, column=headers.index("Source") + 1, value="Wikipedia")
+                cell = ws.cell(row=r, column=headers.index("Source") + 1, value=source_label)
                 cell.hyperlink = url
                 cell.font = Font(name=FONT, size=10, color="0563C1", underline="single")
     for name in CHECKS:
@@ -142,10 +143,15 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     weeks_doc = json.loads((web_dir / "weeks.json").read_text(encoding="utf-8"))
     details = json.loads((web_dir / "details.json").read_text(encoding="utf-8"))
     sources = {s["season"]: s.get("permalink") or s["url"] for s in weeks_doc["sources"]}
+    fandom_sources = {s["season"]: s["fandom"].get("permalink") or s["fandom"]["url"]
+                      for s in weeks_doc["sources"] if s.get("fandom")}
     weeks = sorted(weeks_doc["weeks"], key=lambda w: (-w["season"], w["week"] or 999))
 
     def src(season, anchor="Voting_history"):
         return f"{sources[season]}#{anchor}" if season in sources else None
+
+    def fsrc(season, anchor):
+        return f"{fandom_sources[season]}#{anchor}" if season in fandom_sources else None
 
     wb = Workbook()
     readme = wb.active
@@ -167,6 +173,9 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
                 wk_links.append(src(w["season"]))
                 continue
             comp = {c["kind"]: c["name"] for c in comps if c["round"] == i + 1}
+            # The Big Brother Wiki's Competition History wins over the episode summaries.
+            comp.update({c["kind"]: c["name"] for c in reversed((d.get("fandom") or {}).get("comps", []))
+                         if c["round"] == i + 1 and c["name"] and c["kind"] in ("hoh", "veto")})
             twist_names = [n for names in rnd["extras"].values() for n in names
                            if not (n.startswith("(") and n.endswith(")"))]
             veto = (d.get("rounds") or [{}] * len(rounds))[i].get("veto")
@@ -253,6 +262,50 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     _sheet(wb, "Competitions", cp_headers, [8, 9, 7, 26, 20, 7, 60, 11, 12, 30], cp_rows, cp_links,
            wrap={"From the summary", "Correction"})
 
+    # --- Big Brother Wiki (Fandom): every competition, Have-Nots, bios, disagreements ---
+    fc_headers = ["Season", "Week", "Day", "Type", "Competition", "Format", "Result", "Round", "Source", *CHECKS]
+    fc_rows, fc_links, hn_rows, hn_links, dg_rows, dg_links = [], [], [], [], [], []
+    for w in weeks:
+        f = details["weeks"].get(f"{w['season']}|{w['week_label']}", {}).get("fandom")
+        if not f:
+            continue
+        for c in f["comps"]:
+            fc_rows.append([f"BB{w['season']}", w["week_label"], c["day"] or "", c["type"], c["name"] or "",
+                            c["format"] or "", " & ".join(c["winners"]) + (" " if c["winners"] else "") + c["outcome"],
+                            c["round"] or "", None, "", ""])
+            fc_links.append(fsrc(w["season"], "Competition_History"))
+        for h in f["have_nots"]:
+            hn_rows.append([f"BB{w['season']}", w["week_label"], h["name"], h["chosen_by"] or "", None, "", ""])
+            hn_links.append(fsrc(w["season"], "Have/Have-Not_History"))
+        for c in f["checks"]:
+            dg_rows.append([f"BB{w['season']}", w["week_label"], c["round"], c["field"], _join(c["wikipedia"]),
+                            _join(c["fandom"]), None, "", ""])
+            dg_links.append(fsrc(w["season"], "Game_History"))
+    _sheet(wb, "BB Wiki comps", fc_headers, [8, 9, 7, 18, 26, 20, 30, 7, 11, 12, 30], fc_rows, fc_links,
+           wrap={"Result", "Correction"}, source_label="BB Wiki")
+    _sheet(wb, "Have-Nots", ["Season", "Week", "Have-Not", "Made a Have-Not by", "Source", *CHECKS],
+           [8, 9, 16, 20, 11, 12, 30], hn_rows, hn_links, source_label="BB Wiki")
+    bio_headers = ["Season", "Player", "Full name", "Age at premiere", "Born", "Hometown", "Occupation",
+                   "Days", "Alliances", "Source", *CHECKS]
+    bio_rows, bio_links = [], []
+    for p in players:
+        f = p.get("fandom")
+        if not f:
+            continue
+        bio_rows.append([f"BB{p['season']}", p["name"], f.get("full_name") or "", f.get("age"),
+                         date.fromisoformat(f["birth_date"]) if f.get("birth_date") else "",
+                         " / ".join(f.get("hometown") or []), f.get("occupation") or "", f.get("days") or "",
+                         ", ".join(f.get("alliances") or []), None, "", ""])
+        bio_links.append(f.get("url"))
+    ws = _sheet(wb, "Bios", bio_headers, [8, 14, 24, 9, 12, 26, 26, 6, 40, 11, 12, 30], bio_rows, bio_links,
+                wrap={"Alliances", "Correction"}, source_label="BB Wiki")
+    for r in range(2, len(bio_rows) + 2):
+        ws.cell(row=r, column=5).number_format = "mmm d, yyyy"
+    _sheet(wb, "Sources disagree", ["Season", "Week", "Round", "Field", "Wikipedia", "Big Brother Wiki", "Source",
+                                    *CHECKS],
+           [8, 9, 7, 18, 30, 30, 11, 12, 30], dg_rows, dg_links, wrap={"Wikipedia", "Big Brother Wiki", "Correction"},
+           source_label="BB Wiki")
+
     # --- What was different: twist rows, unusual outcomes, Wikipedia notes ---
     nt_headers = ["Season", "Week", "Type", "Text", "Source", *CHECKS]
     nt_rows, nt_links = [], []
@@ -291,15 +344,16 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     # --- Read me ---
     lines = [
         ("Big Brother data: proofreading sheet", True),
-        (f"Generated {weeks_doc['generated_at']} from the Wikipedia pages cached in this repo "
-         f"(data: Wikipedia, CC BY-SA 4.0).", False),
+        (f"Generated {weeks_doc['generated_at']} from the Wikipedia and Big Brother Wiki pages cached in this "
+         f"repo (data: Wikipedia, CC BY-SA 4.0; Big Brother Wiki, CC BY-SA 3.0).", False),
         ("", False),
         ("How to proofread", True),
         ("Only the yellow columns are for you: set “Looks right?” to OK, Wrong or Unsure, "
          "and write what should change in “Correction”.", False),
         ("Example: on Weeks, BB26 · Week 4, you might set Wrong and write "
          "“Veto use should say Tucker used it on himself”.", False),
-        ("Every row has a Source link to the exact Wikipedia revision the data came from.", False),
+        ("Every row has a Source link to the exact revision the data came from: Wikipedia, or the "
+         "Big Brother Wiki (bigbrother.fandom.com) on the BB Wiki tabs.", False),
         ("Filters are on every header row; shaded Weeks rows are weeks that aren’t plain evictions.", False),
         ("", False),
         ("Tabs", True),
@@ -311,14 +365,21 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
          "so fixing a week there updates them.", False),
         (f"Competitions ({len(cp_rows)} rows): competition names found in the episode summaries, "
          "with the sentence each came from.", False),
+        (f"BB Wiki comps ({len(fc_rows)} rows): every competition in the Big Brother Wiki’s Competition "
+         "History, twists included. Round is the round whose HOH or veto winner it matches.", False),
+        (f"Have-Nots ({len(hn_rows)} rows): each week’s Have-Nots and, where the wiki says, who picked them.", False),
+        (f"Bios ({len(bio_rows)} rows): full name, age at the premiere, hometown and occupation from each "
+         "houseguest’s Big Brother Wiki page.", False),
+        (f"Sources disagree ({len(dg_rows)} rows): where the Big Brother Wiki’s Game History differs from "
+         "Wikipedia. The site follows Wikipedia.", False),
         (f"What was different ({len(nt_rows)} rows): twist rows, unusual outcomes, Wikipedia’s notes, "
          "and the episode summaries’ veto-meeting lines.", False),
         (f"Episodes ({len(ep_rows)} rows): every episode with days, air date, viewers and summary.", False),
         ("", False),
         ("Derived, not stated in Wikipedia’s table", True),
         ("Veto use: worked out from the noms before and after the veto.", False),
-        ("Competition names: matched from the episode summaries; tied to a winner only when the "
-         "summary names them nearby.", False),
+        ("Competition names: from the Big Brother Wiki’s Competition History, or else matched from the "
+         "episode summaries (tied to a winner only when the summary names them nearby).", False),
         ("Player totals: count only the rounds the grid models (twist rounds shown as notes are left out).",
          False),
     ]
@@ -332,4 +393,6 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     wb.save(out)
     _store_cached_values(out, wb.sheetnames, cached)
     return out, {"weeks": len(wk_rows), "votes": len(vt_rows), "players": len(pl_rows),
-                 "competitions": len(cp_rows), "notes": len(nt_rows), "episodes": len(ep_rows)}
+                 "competitions": len(cp_rows), "notes": len(nt_rows), "episodes": len(ep_rows),
+                 "bb_wiki_comps": len(fc_rows), "have_nots": len(hn_rows), "bios": len(bio_rows),
+                 "disagreements": len(dg_rows)}

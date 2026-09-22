@@ -206,6 +206,10 @@ table.players tr:last-child td { border-bottom: 0; }
 .timeline { list-style: none; margin: 0; padding: 0; }
 .timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
 .timeline li > a, .timeline li > span:first-child { color: var(--text-secondary); font-size: 12px; padding-top: 1px; }
+.season-info { margin: 10px 12px 4px; color: var(--text-secondary); font-size: 13px; }
+.season-info a { color: inherit; }
+dl.bio { margin-top: 12px !important; }
+.voters a { color: var(--text-secondary); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -213,7 +217,7 @@ table.players tr:last-child td { border-bottom: 0; }
 <main>
   <p class="kicker" id="kicker">Big Brother US</p>
   <h1>Week by week <span class="pill" id="now-pill" hidden></span></h1>
-  <p class="sub">Each cell names who was evicted that week. Hover for a summary; click or tap a week for votes, twists and episodes.</p>
+  <p class="sub">Each cell names who was evicted that week. Hover for a summary; click or tap a week for competitions, votes, Have-Nots, twists and episodes.</p>
   <div class="toolbar">
     <div class="tabs" role="tablist" aria-label="View">
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
@@ -345,6 +349,8 @@ function render(data) {
   document.getElementById("footer").innerHTML =
     `Data from the “voting history” tables on Wikipedia, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>: `
     + (data.sources || []).filter(s => !s.error).map(s => `<a href="${esc(s.permalink || s.url)}">${esc(s.title)}</a>`).join(", ")
+    + `. Competition names, Have-Nots and houseguest bios from the <a href="https://bigbrother.fandom.com/">Big Brother Wiki</a>, used under <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>: `
+    + ((data.sources || []).filter(s => s.fandom).map(s => `<a href="${esc(s.fandom.permalink || s.fandom.url)}">${esc(s.fandom.title)}</a>`).join(", ") || "not fetched yet")
     + `. Generated ${esc(data.generated_at)}.`
     + (missing.length ? ` Missing: ${missing.join(", ")}.` : "");
 
@@ -468,7 +474,9 @@ async function showWeek(season, label) {
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
     + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
+    + (d.fandom && d.fandom.have_nots.length ? `<h3>Have-Nots</h3>${haveNotsHtml(w, d)}` : "")
     + `<h3>What was different</h3>${specialHtml(d)}`
+    + checksHtml(w, d)
     + `<h3>Episodes</h3>${episodesHtml(d)}`);
 }
 
@@ -494,28 +502,50 @@ function votesHtml(w, d) {
 
 const roundTitle = (w, i) => w.rounds.length > 1 ? `Round ${i + 1}${w.rounds[i].sub_label ? " · " + w.rounds[i].sub_label : ""}` : "";
 
+// The competition that decided a round's HOH or veto: the Big Brother Wiki's
+// Competition History first, then a name found in Wikipedia's episode summaries.
+function roundComp(d, round, kind) {
+  const f = d.fandom && d.fandom.comps.find(c => c.kind === kind && c.round === round && c.name);
+  if (f) return { name: f.name, format: f.format, winner: f.winners[0], fandom: true };
+  const e = d.comps.find(c => c.winner && c.kind === kind && c.round === round);
+  return e ? { name: e.name, winner: e.winner } : null;
+}
+
 function compsHtml(w, d) {
-  const matched = d.comps.filter(c => c.winner);
   const others = d.comps.filter(c => !c.winner);
   const kindName = { hoh: "HOH", veto: "Veto" };
+  const fmt = c => c.format ? ` <span class="muted">(format: ${esc(c.format)})</span>` : "";
   let html = "";
   w.rounds.forEach((r, i) => {
-    const mine = matched.filter(c => c.round === i + 1);
     const line = kind => {
-      const c = mine.find(x => x.kind === kind);
+      const c = roundComp(d, i + 1, kind);
       const winners = kind === "hoh" ? r.hoh : r.veto_winners;
       if (!winners.length) return "";
-      return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”, won by ${plink(w.season, c.winner)}`
+      return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”, won by ${plink(w.season, c.winner)}${fmt(c)}`
         : `Won by ${winners.map(x => plink(w.season, x)).join(", ")} <span class="muted">(competition not named)</span>`}</dd>`;
     };
     const title = roundTitle(w, i);
     html += `${title ? `<h4>${esc(title)}</h4>` : ""}<dl>${line("hoh")}${line("veto")}</dl>`;
   });
-  if (others.length) {
+  // Everything else the Big Brother Wiki lists this week: twist comps, final HOH parts, unmodeled rounds.
+  const shown = new Set(w.rounds.flatMap((_, i) => ["hoh", "veto"].map(k => roundComp(d, i + 1, k)))
+    .filter(c => c && c.fandom).map(c => c.name));
+  const extra = d.fandom ? d.fandom.comps.filter(c => !shown.has(c.name)) : [];
+  if (extra.length) {
+    html += `<h4>${w.rounds.length ? "Other competitions this week" : "Competitions this week"}</h4><dl>`
+      + extra.map(c => `<dt>${esc(c.type)}</dt><dd>${c.name ? `“${esc(c.name)}”${c.winners.length ? ": " : ""}` : ""}`
+        + (c.winners.length ? `${c.winners.map(x => plink(w.season, x)).join(" & ")} ${esc(c.outcome)}` : esc(c.outcome))
+        + `${c.day ? ` <span class="muted">(Day ${esc(c.day)})</span>` : ""}</dd>`).join("") + `</dl>`;
+  }
+  if (d.fandom && d.fandom.comps.length) {
+    html += `<p class="voters" style="margin-top:8px">Competition names from the Big Brother Wiki’s Competition History.</p>`;
+  } else if (others.length) {
     html += `<p class="voters" style="margin-top:8px">Also mentioned in this week’s episodes: `
       + others.map(c => `“${esc(c.name)}” (${kindName[c.kind]})`).join(", ") + `</p>`;
   }
-  if (!matched.length && !others.length) html += `<p class="muted">The episode summaries don’t name this week’s competitions.</p>`;
+  if (!w.rounds.some((_, i) => roundComp(d, i + 1, "hoh") || roundComp(d, i + 1, "veto")) && !others.length && !extra.length) {
+    html += `<p class="muted">Neither source names this week’s competitions.</p>`;
+  }
   return html;
 }
 
@@ -550,6 +580,22 @@ function vetoHtml(w, d) {
       + d.veto_notes.map(x => `<blockquote class="wnote">${esc(x)}</blockquote>`).join("") + `</details>`;
   }
   return html;
+}
+
+function haveNotsHtml(w, d) {
+  return `<ul class="plain">` + d.fandom.have_nots.map(h => `<li>${plink(w.season, h.name)}`
+    + (h.chosen_by ? ` <span class="muted">(made a Have-Not by ${esc(h.chosen_by)})</span>` : "") + `</li>`).join("")
+    + `</ul><p class="voters">From the Big Brother Wiki’s Have/Have-Not History.</p>`;
+}
+
+// Where the Big Brother Wiki's Game History table disagrees with Wikipedia.
+function checksHtml(w, d) {
+  const checks = d.fandom ? d.fandom.checks : [];
+  if (!checks.length) return "";
+  const multi = w.rounds.length > 1;
+  return `<h3>Sources disagree</h3><dl>` + checks.map(c => `<dt>${multi ? `Round ${c.round} · ` : ""}${esc(c.field)}</dt>`
+    + `<dd>Wikipedia: ${esc(c.wikipedia.join(", "))}<br>Big Brother Wiki: ${esc(c.fandom.join(", "))}</dd>`).join("")
+    + `</dl><p class="voters">The grid follows Wikipedia.</p>`;
 }
 
 function specialHtml(d) {
@@ -611,16 +657,34 @@ async function showPlayers(season) {
   if (currentSeason !== season) return;
   const rows = d.players.filter(p => p.season === season);
   const num = n => n ? n : `<span class="zero">0</span>`;
-  panel.innerHTML = `<table class="players"><thead><tr>
-      <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
+  const hasBio = rows.some(p => p.fandom);
+  const info = (d.seasons || {})[season];
+  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + `<table class="players"><thead><tr>
+      <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>${hasBio ? `<th scope="col">Age</th>` : ""}
       <th scope="col">HOHs</th><th scope="col">Vetoes</th><th scope="col">Twist wins</th><th scope="col">Noms</th><th scope="col">Final noms</th>
-      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th>
+      <th scope="col">Votes against</th><th scope="col">Votes cast</th><th scope="col">With the house</th>${hasBio ? `<th scope="col">Have-Not wks</th>` : ""}
     </tr></thead><tbody>` + rows.map(p => {
       const s = playerStats(p);
+      const f = p.fandom || {};
       return `<tr><td>${plink(season, p.name)}</td><td class="result">${esc(p.result || "In the game")}</td>`
+        + (hasBio ? `<td>${f.age != null ? f.age : `<span class="zero">–</span>`}</td>` : "")
         + `<td>${num(s.hoh)}</td><td>${num(s.veto)}</td><td>${num(s.twist)}</td><td>${num(s.noms)}</td><td>${num(s.block)}</td>`
-        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td></tr>`;
+        + `<td>${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? `${s.withHouse} of ${s.cast}` : `<span class="zero">–</span>`}</td>`
+        + (hasBio ? `<td>${num((f.have_not || []).length)}</td>` : "") + `</tr>`;
     }).join("") + `</tbody></table>`;
+}
+
+function seasonInfoHtml(info) {
+  const date = iso => iso ? new Date(iso + "T12:00:00Z").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
+  const bits = [
+    info.premiere && `Premiered ${date(info.premiere)}`,
+    info.finale && (info.finale <= new Date().toISOString().slice(0, 10) ? `finale ${date(info.finale)}` : `finale due ${date(info.finale)}`),
+    info.days && `${info.days} days`,
+    info.houseguests && `${info.houseguests} houseguests`,
+    info.prize && `${info.prize} prize`,
+    info.host && `hosted by ${info.host}`,
+  ].filter(Boolean);
+  return `<p class="season-info">${esc(bits.join(" · "))}${info.url ? ` · <a href="${esc(info.url)}" target="_blank" rel="noopener">Big Brother Wiki</a>` : ""}</p>`;
 }
 
 // Week keys in season order, e.g. "Week 10 (Day 67)" for a round of a two-round week.
@@ -651,10 +715,10 @@ async function showPlayer(season, name) {
   const roundInfo = k => {
     const at = keys.get(k); if (!at) return {};
     const wd = d.weeks[`${season}|${at.label}`];
-    return wd ? { comps: wd.comps.filter(c => c.round === at.i + 1 && c.winner === name), veto: (wd.rounds[at.i] || {}).veto } : {};
+    return wd ? { comp: kind => roundComp(wd, at.i + 1, kind), veto: (wd.rounds[at.i] || {}).veto } : {};
   };
   const compName = (k, kind) => {
-    const c = (roundInfo(k).comps || []).find(x => x.kind === kind);
+    const info = roundInfo(k), c = info.comp && info.comp(kind);
     return c ? ` <span class="muted">(“${esc(c.name)}”)</span>` : "";
   };
   p.hoh.forEach(w => add(w, "Won HOH" + compName(w, "hoh")));
@@ -670,10 +734,19 @@ async function showPlayer(season, name) {
   p.votes_against.forEach(v => add(v.week, `${plural(v.voters.length, "vote")} to evict them (${v.voters.map(x => plink(season, x)).join(", ")})`));
   p.votes_cast.forEach(v => add(v.week, `Voted to evict ${plink(season, v.vote)}${v.with_house ? "" : " <span class=\"tag\">against the house</span>"}`));
   if (p.evicted) add(p.evicted, "<strong>Evicted</strong>");
+  const f = p.fandom || {};
+  // Have-Not weeks and twist wins are per week, so they go on the week's first round.
+  const firstKey = new Map();
+  roundKeys(season).forEach(([k, label]) => { if (!firstKey.has(label)) firstKey.set(label, k); });
+  (f.have_not || []).forEach(label => firstKey.has(label) && add(firstKey.get(label), "Have-Not"));
+  const wikiTwistWeeks = new Set(p.twist.map(t => keys.has(t.week) ? keys.get(t.week).label : t.week));
+  (f.twist_wins || []).filter(t => !wikiTwistWeeks.has(t.week)).forEach(t =>
+    firstKey.has(t.week) && add(firstKey.get(t.week), `Won ${esc(t.type)}${t.name ? ` <span class="muted">(“${esc(t.name)}”)</span>` : ""}`));
   const timeline = roundKeys(season).filter(([k]) => events.has(k)).map(([k, label]) =>
     `<li><a class="plink" href="${weekHash(season, label)}">${esc(k)}</a><div>${events.get(k).join("<br>")}</div></li>`).join("");
   openDrawer(title, `BB${season} · ${p.result || "In the game"}`,
-    `<div class="stats">
+    bioHtml(f, season)
+    + `<div class="stats">
        <div class="stat"><b>${s.hoh}</b><span>HOHs</span></div>
        <div class="stat"><b>${s.veto}</b><span>Vetoes</span></div>
        <div class="stat"><b>${s.noms}</b><span>Noms</span></div>
@@ -682,7 +755,22 @@ async function showPlayer(season, name) {
      <p class="voters" style="margin-top:8px">Final noms ${s.block} time${s.block === 1 ? "" : "s"} · voted ${s.cast} time${s.cast === 1 ? "" : "s"}${s.cast ? `, ${s.withHouse} with the house` : ""}${s.twist ? ` · ${plural(s.twist, "twist win")}` : ""}</p>
      <h3>Week by week</h3>
      ${timeline ? `<ul class="timeline">${timeline}</ul>` : `<p class="muted">Nothing recorded in the modeled weeks.</p>`}
-     <p class="voters" style="margin-top:12px">Counted from the weeks the grid models; twist rounds shown as notes aren’t included.</p>`);
+     <p class="voters" style="margin-top:12px">Counted from the weeks the grid models; twist rounds shown as notes aren’t included.${(f.have_not || []).length || (f.twist_wins || []).length ? " Have-Not weeks and other twist wins are from the Big Brother Wiki." : ""}</p>`);
+}
+
+function bioHtml(f, season) {
+  if (!f || !f.page) return "";
+  const rows = [
+    ["Full name", f.full_name],
+    ["Age", f.age != null ? `${f.age} at the premiere` : null],
+    ["Hometown", (f.hometown || []).join(" / ")],
+    ["Occupation", f.occupation],
+    ["Days", f.days],
+    ["Alliances", (f.alliances || []).join(", ")],
+    ["Other seasons", (f.seasons || []).filter(x => x !== `Big Brother ${season} (US)`).join(", ")],
+  ].filter(([, v]) => v);
+  return `<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`
+    + `<p class="voters">${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.page)} on the Big Brother Wiki</a>` : ""}</p>`;
 }
 
 // ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela ----------

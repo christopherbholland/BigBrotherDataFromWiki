@@ -1,0 +1,1664 @@
+{
+ "info": {
+  "season_run": "July 7, 2021 - September 29, 2021",
+  "premiere": "2021-07-07",
+  "finale": "2021-09-29",
+  "days": "85",
+  "houseguests": "16",
+  "episodes": "37",
+  "prize": "$750,000",
+  "winner": "Xavier Prather",
+  "runner_up": "Derek Frazier",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "3.72m"
+ },
+ "roster": [
+  [
+   "Xavier Prather",
+   "Xavier"
+  ],
+  [
+   "Derek Frazier",
+   "Derek F"
+  ],
+  [
+   "Azah Awasum",
+   "Azah"
+  ],
+  [
+   "Kyland Young",
+   "Kyland"
+  ],
+  [
+   "Hannah Chaddha",
+   "Hannah"
+  ],
+  [
+   "Tiffany Mitchell",
+   "Tiffany"
+  ],
+  [
+   "Alyssa Lopez",
+   "Alyssa"
+  ],
+  [
+   "Claire Rehfuss",
+   "Claire"
+  ],
+  [
+   "Sarah Beth Steagall",
+   "Sarah Beth"
+  ],
+  [
+   "Derek Xiao",
+   "Derek X"
+  ],
+  [
+   "Britini D'Angelo",
+   "Britini"
+  ],
+  [
+   "Christian Birkenberger",
+   "Christian"
+  ],
+  [
+   "Whitney Williams",
+   "Whitney"
+  ],
+  [
+   "Brent Champagne",
+   "Brent"
+  ],
+  [
+   "Frenchie French",
+   "Frenchie"
+  ],
+  [
+   "Travis Long",
+   "Travis"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "House of Cards",
+   "format": null,
+   "winners": [
+    "Frenchie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Frenchie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "2",
+   "type": "Wildcard",
+   "kind": "twist",
+   "name": "Do Not Disturb",
+   "format": null,
+   "winners": [
+    "Christian"
+   ],
+   "outcome": "wins Wildcard",
+   "result": "Christian wins Wildcard",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "4",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Massive Cocktails",
+   "format": "Perfect Shot",
+   "winners": [
+    "Derek X"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Derek X wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "9",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Pool Sharks",
+   "format": "Shootout",
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins HOH",
+   "result": "Kyland wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "Wildcard",
+   "kind": "twist",
+   "name": "BB Flying Colors",
+   "format": "Sequence Explosion",
+   "winners": [
+    "Sarah Beth"
+   ],
+   "outcome": "wins Wildcard",
+   "result": "Sarah Beth wins Wildcard",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "11",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Fun Tan Lotion",
+   "format": "Slippery Slope",
+   "winners": [
+    "Derek X"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Derek X wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "16",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Tom Talks BB",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins HOH",
+   "result": "Xavier wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "17",
+   "type": "Wildcard",
+   "kind": "twist",
+   "name": "Unlucky 13",
+   "format": "Microchip Mayhem",
+   "winners": [
+    "Tiffany"
+   ],
+   "outcome": "wins Wildcard",
+   "result": "Tiffany wins Wildcard",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "18",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Room Key Rumble",
+   "format": "Bowlerina",
+   "winners": [
+    "Christian"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Christian wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "23",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Pier Pressure",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Christian"
+   ],
+   "outcome": "wins HOH",
+   "result": "Christian wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "24",
+   "type": "Wildcard",
+   "kind": "twist",
+   "name": "Olive Shook-Up",
+   "format": "Roll It Down",
+   "winners": [
+    "Claire"
+   ],
+   "outcome": "wins Wildcard",
+   "result": "Claire wins Wildcard",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "25",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Bump, Set, Veto",
+   "format": "Ball Roll",
+   "winners": [
+    "Christian"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Christian wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "30",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Whale of a Time",
+   "format": "The Wall",
+   "winners": [
+    "Derek X"
+   ],
+   "outcome": "wins HOH",
+   "result": "Derek X wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "32",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Kingdom of Curl-A-Lot",
+   "format": "Yankee Swap",
+   "winners": [
+    "Britini"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Britini wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "37",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Name That Croon",
+   "format": "Knockout",
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins HOH",
+   "result": "Kyland wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "38",
+   "type": "High Rollers",
+   "kind": "twist",
+   "name": "Veto Derby",
+   "format": "As Close As You Can",
+   "winners": [
+    "Claire",
+    "Derek F",
+    "Kyland",
+    "Sarah Beth"
+   ],
+   "outcome": "win High Rollers",
+   "result": "Claire, Derek F, Kyland, Sarah Beth win High Rollers",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Jacked Jellyfish",
+   "format": "OTEV",
+   "winners": [
+    "Alyssa"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Alyssa wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Jacked Jellyfish",
+   "format": "OTEV",
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kyland wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Dash to Dinner",
+   "format": "Only One Path",
+   "winners": [
+    "Sarah Beth"
+   ],
+   "outcome": "wins HOH",
+   "result": "Sarah Beth wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "45",
+   "type": "High Rollers",
+   "kind": "twist",
+   "name": "Chopping Block Roulette",
+   "format": null,
+   "winners": [
+    "Alyssa"
+   ],
+   "outcome": "wins High Rollers",
+   "result": "Alyssa wins High Rollers",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "46",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Domino Effect",
+   "format": "How Bad Do You Want It?",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Xavier wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "51",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB NFT's",
+   "format": "Getting Loopy",
+   "winners": [
+    "Tiffany"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tiffany wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52",
+   "type": "High Rollers",
+   "kind": "twist",
+   "name": "Coin of Destiny",
+   "format": null,
+   "winners": [
+    "Claire"
+   ],
+   "outcome": "wins High Rollers",
+   "result": "Claire wins High Rollers",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Coin of Destiny (Toss)",
+   "format": null,
+   "winners": [
+    "Claire"
+   ],
+   "outcome": "wins HOH",
+   "result": "Claire wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Coin of Destiny (Toss)",
+   "format": null,
+   "winners": [
+    "Tiffany"
+   ],
+   "outcome": "is dethroned",
+   "result": "Tiffany is dethroned",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "53",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB High School Hijinks",
+   "format": "Snapshot Shuffle",
+   "winners": [
+    "Hannah"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Hannah wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Flying BB-inos",
+   "format": "Dizzy Discs",
+   "winners": [
+    "Tiffany"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tiffany wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "60",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Micro-Cocktails",
+   "format": "Microbrews",
+   "winners": [
+    "Alyssa"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Alyssa wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Crash, Boom, Pow",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Hannah"
+   ],
+   "outcome": "wins HOH",
+   "result": "Hannah wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "65",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Logo, Let's Go",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Xavier wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Cluckster",
+   "format": "Caged Eggs",
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins HOH",
+   "result": "Kyland wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "67",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kyland wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "71",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Ballers",
+   "format": "Carnival Quick Shot",
+   "winners": [
+    "Azäh"
+   ],
+   "outcome": "wins HOH",
+   "result": "Azäh wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "71",
+   "type": "POV",
+   "kind": "veto",
+   "name": "What The Bleep?",
+   "format": null,
+   "winners": [
+    "Kyland"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kyland wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "71",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB: Crime Lab",
+   "format": "HouseguestsOnly.com",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins HOH",
+   "result": "Xavier wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Winning Days",
+   "format": "Seesaw",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Xavier wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "79",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Bouncy Boat Bash",
+   "format": null,
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Xavier wins Final HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Four of a Kind",
+   "format": "Who Did What?",
+   "winners": [
+    "Azäh"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Azäh wins Final HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "86",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Houseguest Headliners",
+   "format": "Jury Statements",
+   "winners": [
+    "Xavier"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Xavier wins Final HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Xavier Prather",
+     "chosen_by": null
+    },
+    {
+     "guest": "Alyssa Lopez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Sarah Beth Steagall",
+     "chosen_by": null
+    },
+    {
+     "guest": "Christian Birkenberger",
+     "chosen_by": null
+    }
+   ],
+   "2": [
+    {
+     "guest": "Hannah Chaddha",
+     "chosen_by": null
+    },
+    {
+     "guest": "Derek Xiao",
+     "chosen_by": null
+    },
+    {
+     "guest": "Whitney Williams",
+     "chosen_by": null
+    },
+    {
+     "guest": "Brent Champagne",
+     "chosen_by": null
+    }
+   ],
+   "3": [
+    {
+     "guest": "Kyland Young",
+     "chosen_by": null
+    },
+    {
+     "guest": "Tiffany Mitchell",
+     "chosen_by": null
+    },
+    {
+     "guest": "Claire Rehfuss",
+     "chosen_by": null
+    }
+   ],
+   "4": [
+    {
+     "guest": "Azah Awasum",
+     "chosen_by": null
+    },
+    {
+     "guest": "Derek Frazier",
+     "chosen_by": null
+    },
+    {
+     "guest": "Britini D'Angelo",
+     "chosen_by": null
+    }
+   ],
+   "5": [
+    {
+     "guest": "Xavier Prather",
+     "chosen_by": null
+    },
+    {
+     "guest": "Alyssa Lopez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Christian Birkenberger",
+     "chosen_by": null
+    }
+   ],
+   "7": [
+    {
+     "guest": "Kyland Young",
+     "chosen_by": null
+    },
+    {
+     "guest": "Derek Xiao",
+     "chosen_by": null
+    }
+   ],
+   "9": [
+    {
+     "guest": "Derek Frazier",
+     "chosen_by": null
+    },
+    {
+     "guest": "Alyssa Lopez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Claire Rehfuss",
+     "chosen_by": null
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Frenchie French"
+   ],
+   "2": [
+    "Kyland Young"
+   ],
+   "3": [
+    "Xavier Prather"
+   ],
+   "4": [
+    "Christian Birkenberger"
+   ],
+   "5": [
+    "Derek Xiao"
+   ],
+   "6": [
+    "Kyland Young"
+   ],
+   "7": [
+    "Sarah Beth Steagall"
+   ],
+   "8": [
+    "Tiffany Mitchell"
+   ],
+   "9": [
+    "Tiffany Mitchell"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Frenchie"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Kyland"
+   ],
+   "veto_holders": [
+    "Derek X"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Alyssa",
+    "Travis"
+   ],
+   "evicted": [
+    "Travis"
+   ],
+   "vote": "11-2",
+   "finish": "1st Evicted Day 9",
+   "other": {
+    "Team Immunity": [
+     "Jokers"
+    ],
+    "Twist Comp Winner": [
+     "Christian"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Kyland"
+   ],
+   "nominees_initial": [
+    "Britini",
+    "Frenchie"
+   ],
+   "veto_holders": [
+    "Derek X"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Britini",
+    "Frenchie"
+   ],
+   "evicted": [
+    "Frenchie"
+   ],
+   "vote": "11-1",
+   "finish": "2nd Evicted Day 16",
+   "other": {
+    "Team Immunity": [
+     "Queens"
+    ],
+    "Twist Comp Winner": [
+     "Sarah Beth"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Xavier"
+   ],
+   "nominees_initial": [
+    "Brent",
+    "Britini"
+   ],
+   "veto_holders": [
+    "Christian"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Brent",
+    "Britini"
+   ],
+   "evicted": [
+    "Brent"
+   ],
+   "vote": "11-0",
+   "finish": "3rd Evicted Day 23",
+   "other": {
+    "Team Immunity": [
+     "Kings"
+    ],
+    "Twist Comp Winner": [
+     "Tiffany"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Christian"
+   ],
+   "nominees_initial": [
+    "Hannah",
+    "Whitney"
+   ],
+   "veto_holders": [
+    "Christian"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Hannah",
+    "Whitney"
+   ],
+   "evicted": [
+    "Whitney"
+   ],
+   "vote": "10-0",
+   "finish": "4th Evicted Day 30",
+   "other": {
+    "Team Immunity": [
+     "Kings"
+    ],
+    "Twist Comp Winner": [
+     "Claire"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Derek X"
+   ],
+   "nominees_initial": [
+    "Britini",
+    "Sarah Beth"
+   ],
+   "veto_holders": [
+    "Britini"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Christian",
+    "Sarah Beth"
+   ],
+   "evicted": [
+    "Christian"
+   ],
+   "vote": "7-2",
+   "finish": "5th Evicted Day 37",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Kyland"
+   ],
+   "nominees_initial": [
+    "Claire",
+    "Derek F"
+   ],
+   "veto_holders": [
+    "Alyssa",
+    "Kyland"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Britini",
+    "Derek F"
+   ],
+   "evicted": [
+    "Britini"
+   ],
+   "vote": "7-1",
+   "finish": "6th Evicted 1st Jury Member Day 44",
+   "other": {
+    "Twist Comp Winner": [
+     "Kyland"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Sarah Beth"
+   ],
+   "nominees_initial": [
+    "Claire",
+    "Derek F"
+   ],
+   "veto_holders": [
+    "Nominations Void"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Nominations Void"
+   ],
+   "evicted": [
+    "Nominations Void"
+   ],
+   "vote": "Nominations Void",
+   "finish": "Nominations Void",
+   "other": {
+    "Twist Comp Winner": [
+     "Alyssa"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Sarah Beth"
+   ],
+   "nominees_initial": [
+    "Claire",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Xavier"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Claire",
+    "Derek X"
+   ],
+   "evicted": [
+    "Derek X"
+   ],
+   "vote": "5-2",
+   "finish": "7th Evicted 2nd Jury Member Day 51",
+   "other": {
+    "Twist Comp Winner": [
+     "Alyssa"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Tiffany"
+   ],
+   "nominees_initial": [
+    "Kyland",
+    "Sarah Beth",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Nominations Void"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Nominations Void"
+   ],
+   "evicted": [
+    "Nominations Void"
+   ],
+   "vote": "Nominations Void",
+   "finish": "Nominations Void",
+   "other": {
+    "Twist Comp Winner": [
+     "Claire"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Claire"
+   ],
+   "nominees_initial": [
+    "Kyland",
+    "Sarah Beth",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Hannah"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kyland",
+    "Sarah Beth"
+   ],
+   "evicted": [
+    "Sarah Beth"
+   ],
+   "vote": "5-1",
+   "finish": "8th Evicted 3rd Jury Member Day 58",
+   "other": {
+    "Twist Comp Winner": [
+     "Claire"
+    ],
+    "Get Twist?": []
+   }
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Tiffany"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Alyssa"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Claire",
+    "Xavier"
+   ],
+   "evicted": [
+    "Claire"
+   ],
+   "vote": "4-1",
+   "finish": "9th Evicted 4th Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Hannah"
+   ],
+   "nominees_initial": [
+    "Alyssa",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Xavier"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Alyssa",
+    "Kyland"
+   ],
+   "evicted": [
+    "Alyssa"
+   ],
+   "vote": "3-1",
+   "finish": "10th Evicted 5th Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Kyland"
+   ],
+   "nominees_initial": [
+    "Hannah",
+    "Tiffany"
+   ],
+   "veto_holders": [
+    "Kyland"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Hannah",
+    "Tiffany"
+   ],
+   "evicted": [
+    "Tiffany"
+   ],
+   "vote": "3-0",
+   "finish": "11th Evicted 6th Jury Member Day 71",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Azah"
+   ],
+   "nominees_initial": [
+    "Hannah",
+    "Xavier"
+   ],
+   "veto_holders": [
+    "Kyland"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Derek F",
+    "Hannah"
+   ],
+   "evicted": [
+    "Hannah"
+   ],
+   "vote": "2-0",
+   "finish": "12th Evicted 7th Jury Member Day 71",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Xavier"
+   ],
+   "nominees_initial": [
+    "Azah",
+    "Kyland"
+   ],
+   "veto_holders": [
+    "Xavier"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Azah",
+    "Kyland"
+   ],
+   "evicted": [
+    "Kyland"
+   ],
+   "vote": "1-0",
+   "finish": "13th Evicted 8th Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Xavier"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Azah",
+    "Derek F"
+   ],
+   "evicted": [
+    "Azah"
+   ],
+   "vote": "1-0",
+   "finish": "14th Evicted 9th Jury Member Day 85",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Derek F"
+   ],
+   "vote": "9-0",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Xavier"
+   ],
+   "vote": "9-0",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Xavier Prather": {
+   "page": "Xavier Prather",
+   "full_name": "Xavier Eugene Prather",
+   "birth_date": "1994-05-12",
+   "age": 27,
+   "hometown": [
+    "Kalamazoo, MI;",
+    "Milwaukee, WI"
+   ],
+   "occupation": "Attorney",
+   "nickname": [
+    "X",
+    "Luscious"
+   ],
+   "place": "1st",
+   "days": "85",
+   "alliances": [
+    "The Cookout",
+    "The Royal Flush",
+    "The Slaughterhouse",
+    "The Butchers",
+    "The Radicals",
+    "The Black-Ops"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)",
+    "Big Brother Reindeer Games"
+   ],
+   "revid": 696152
+  },
+  "Derek Frazier": {
+   "page": "Derek Frazier",
+   "full_name": "Derek Dennis Frazier",
+   "birth_date": "1991-11-17",
+   "age": 29,
+   "hometown": [
+    "Philadelphia, PA"
+   ],
+   "occupation": "Safety Officer",
+   "nickname": [
+    "Big D"
+   ],
+   "place": "2nd",
+   "days": "85",
+   "alliances": [
+    "The Cookout",
+    "The Slaughterhouse",
+    "The Butchers",
+    "The Black-Ops"
+   ],
+   "other_prizes": [
+    "$7,500"
+   ],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 693265
+  },
+  "Azah Awasum": {
+   "page": "Azah Awasum",
+   "full_name": "Azäh Awasum",
+   "birth_date": "1990-12-13",
+   "age": 30,
+   "hometown": [
+    "Baltimore, MD"
+   ],
+   "occupation": "Director of Sales Operations",
+   "nickname": [],
+   "place": "3rd",
+   "days": "85",
+   "alliances": [
+    "The Cookout",
+    "French Kisses",
+    "The Kingslayers"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 691581
+  },
+  "Kyland Young": {
+   "page": "Kyland Young",
+   "full_name": "Kyland Young",
+   "birth_date": "1991-07-13",
+   "age": 29,
+   "hometown": [
+    "San Bernardino County, CA;",
+    "Venice Beach, CA"
+   ],
+   "occupation": "Account Executive",
+   "nickname": [
+    "Ky"
+   ],
+   "place": "4th",
+   "days": "79",
+   "alliances": [
+    "The Cookout",
+    "The Royal Flush",
+    "The Slaughterhouse",
+    "The Mafia (BB23)",
+    "Two Sweet",
+    "The Butchers",
+    "The Detectives",
+    "The Connect (BB23)",
+    "The Flop"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 673625
+  },
+  "Hannah Chaddha": {
+   "page": "Hannah Chaddha",
+   "full_name": "Hannah Chaddha",
+   "birth_date": "2000-05-13",
+   "age": 21,
+   "hometown": [
+    "Chicago, IL"
+   ],
+   "occupation": "Graduate Student",
+   "nickname": [
+    "Chaddha"
+   ],
+   "place": "5th",
+   "days": "71",
+   "alliances": [
+    "The Cookout",
+    "The Mafia (BB23)",
+    "The Radicals",
+    "French Kisses",
+    "The Vendetta"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 694142
+  },
+  "Tiffany Mitchell": {
+   "page": "Tiffany Mitchell",
+   "full_name": "Tiffany Monique Mitchell",
+   "birth_date": "1980-08-05",
+   "age": 40,
+   "hometown": [
+    "Detroit, MI"
+   ],
+   "occupation": "Phlebotomist",
+   "nickname": [
+    "Tiff",
+    "Tippy Toes",
+    "Silk"
+   ],
+   "place": "6th",
+   "days": "71",
+   "alliances": [
+    "The Cookout",
+    "The Royal Flush",
+    "Tiffney",
+    "The Mafia (BB23)",
+    "Snake Eyes",
+    "French Kisses",
+    "The Vendetta",
+    "The Kingslayers",
+    "The Detectives",
+    "The Connect (BB23)",
+    "Jackpot"
+   ],
+   "other_prizes": [
+    "$50,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 697441
+  },
+  "Alyssa Lopez": {
+   "page": "Alyssa Lopez",
+   "full_name": "Alyssa Lynn Lopez",
+   "birth_date": "1996-07-17",
+   "age": 24,
+   "hometown": [
+    "Sarasota, FL"
+   ],
+   "occupation": "Swimwear Designer",
+   "nickname": [],
+   "place": "7th",
+   "days": "65",
+   "alliances": [
+    "The Royal Flush",
+    "The Slaughterhouse",
+    "The Radicals"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 669649
+  },
+  "Claire Rehfuss": {
+   "page": "Claire Rehfuss",
+   "full_name": "Claire Renee Rehfuss",
+   "birth_date": "1996-06-06",
+   "age": 25,
+   "hometown": [
+    "Chagrin Falls, OH;",
+    "New York, NY"
+   ],
+   "occupation": "AI Engineer",
+   "nickname": [],
+   "place": "8th",
+   "days": "65",
+   "alliances": [
+    "The Royal Flush",
+    "The Mafia (BB23)",
+    "Snake Eyes",
+    "French Kisses",
+    "The Kingslayers"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 693944
+  },
+  "Sarah Beth Steagall": {
+   "page": "Sarah Beth Steagall",
+   "full_name": "Sarah Beth Steagall",
+   "birth_date": "1993-08-09",
+   "age": 27,
+   "hometown": [
+    "Boiling Springs, SC;",
+    "Fort Myers, FL"
+   ],
+   "occupation": "Forensic Scientist",
+   "nickname": [
+    "SB"
+   ],
+   "place": "9th",
+   "days": "58",
+   "alliances": [
+    "The Royal Flush",
+    "The Radicals",
+    "Two Sweet",
+    "Jackpot",
+    "The Flop"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 669645
+  },
+  "Derek Xiao": {
+   "page": "Derek Xiao",
+   "full_name": "Derek Xiao",
+   "birth_date": "1997-03-20",
+   "age": 24,
+   "hometown": [
+    "Baltimore, MD;",
+    "New York, NY"
+   ],
+   "occupation": "Start-Up Founder",
+   "nickname": [
+    "DX",
+    "Baby D",
+    "Little D"
+   ],
+   "place": "10th",
+   "days": "51",
+   "alliances": [
+    "The Royal Flush",
+    "The Mafia (BB23)",
+    "The Radicals",
+    "The Detectives",
+    "The Flop"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 693947
+  },
+  "Britini D'Angelo": {
+   "page": "Britini D'Angelo",
+   "full_name": "Britini Margaret Anne D'Angelo",
+   "birth_date": "1997-06-09",
+   "age": 24,
+   "hometown": [
+    "Niagara Falls, NY"
+   ],
+   "occupation": "Kindergarten Teacher",
+   "nickname": [
+    "Brit",
+    "Brit Brat"
+   ],
+   "place": "11th",
+   "days": "44",
+   "alliances": [
+    "The Kingslayers"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 669643
+  },
+  "Christian Birkenberger": {
+   "page": "Christian Birkenberger",
+   "full_name": "Christian Birkenberger",
+   "birth_date": "1998-05-15",
+   "age": 23,
+   "hometown": [
+    "Harwinton, CT"
+   ],
+   "occupation": "General Contractor Assistant",
+   "nickname": [],
+   "place": "12th",
+   "days": "37",
+   "alliances": [
+    "The Royal Flush",
+    "The Slaughterhouse",
+    "The Radicals"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 668571
+  },
+  "Whitney Williams": {
+   "page": "Whitney Williams",
+   "full_name": "Whitney Leigh Williams",
+   "birth_date": "1990-12-19",
+   "age": 30,
+   "hometown": [
+    "Portland, OR"
+   ],
+   "occupation": "Make-Up Artist",
+   "nickname": [
+    "Whit"
+   ],
+   "place": "13th",
+   "days": "30",
+   "alliances": [
+    "The Slaughterhouse",
+    "Tiffney",
+    "Whenchie",
+    "The Mafia (BB23)",
+    "The Radicals"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 693946
+  },
+  "Brent Champagne": {
+   "page": "Brent Champagne",
+   "full_name": "Brent Champagne",
+   "birth_date": "1992-10-28",
+   "age": 28,
+   "hometown": [
+    "Cranston, RI"
+   ],
+   "occupation": "Flight Attendant",
+   "nickname": [],
+   "place": "14th",
+   "days": "23",
+   "alliances": [
+    "The Slaughterhouse",
+    "The Mafia (BB23)",
+    "The Radicals"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 669642
+  },
+  "Frenchie French": {
+   "page": "Frenchie French",
+   "full_name": "Brandon \"Frenchie\" French",
+   "birth_date": "1987-01-01",
+   "age": 34,
+   "hometown": [
+    "Camden, TN;",
+    "Clarksville, TN"
+   ],
+   "occupation": "Farmer",
+   "nickname": [],
+   "place": "15th",
+   "days": "16",
+   "alliances": [
+    "The Slaughterhouse",
+    "Whenchie",
+    "French Kisses"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 668578
+  },
+  "Travis Long": {
+   "page": "Travis Long",
+   "full_name": "Travis Garret Long",
+   "birth_date": "1998-10-02",
+   "age": 22,
+   "hometown": [
+    "Austin, TX;",
+    "Honolulu, HI"
+   ],
+   "occupation": "Tech Sales Consultant",
+   "nickname": [],
+   "place": "16th",
+   "days": "9",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 23 (US)"
+   ],
+   "revid": 668572
+  }
+ }
+}

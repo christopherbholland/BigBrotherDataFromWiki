@@ -1,0 +1,1577 @@
+{
+ "info": {
+  "season_run": "June 25, 2019 - September 25, 2019",
+  "premiere": "2019-06-25",
+  "finale": "2019-09-25",
+  "days": "99",
+  "houseguests": "16",
+  "episodes": "40",
+  "prize": "$500,000",
+  "winner": "Jackson Michie",
+  "runner_up": "Holly Allen",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "4.27m"
+ },
+ "roster": [
+  [
+   "Jackson Michie",
+   "Jackson"
+  ],
+  [
+   "Holly Allen",
+   "Holly"
+  ],
+  [
+   "Nicole Anthony",
+   "Nicole"
+  ],
+  [
+   "Cliff Hogg III",
+   "Cliff"
+  ],
+  [
+   "Tommy Bracco",
+   "Tommy"
+  ],
+  [
+   "Christie Murphy",
+   "Christie"
+  ],
+  [
+   "Jessica Milagros",
+   "Jessica"
+  ],
+  [
+   "Nick Maccarone",
+   "Nick"
+  ],
+  [
+   "Analyse Talavera",
+   "Analyse"
+  ],
+  [
+   "Kathryn Dunn",
+   "Kathryn"
+  ],
+  [
+   "Jack Matthews",
+   "Jack"
+  ],
+  [
+   "Sam Smith",
+   "Sam"
+  ],
+  [
+   "Isabella Wang",
+   "Isabella"
+  ],
+  [
+   "Kemi Fakunle",
+   "Kemi"
+  ],
+  [
+   "Ovi Kabir",
+   "Ovi"
+  ],
+  [
+   "David Alexander",
+   "David"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "The Search for Camp BB",
+   "format": null,
+   "winners": [
+    "Cliff"
+   ],
+   "outcome": "wins safety",
+   "result": "Cliff wins safety",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "The Search for Camp BB",
+   "format": null,
+   "winners": [
+    "Kemi"
+   ],
+   "outcome": "wins safety",
+   "result": "Kemi wins safety",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "The Search for Camp BB",
+   "format": null,
+   "winners": [
+    "Jessica"
+   ],
+   "outcome": "wins safety",
+   "result": "Jessica wins safety",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Hit The Road",
+   "kind": "twist",
+   "name": "The Search for Camp BB",
+   "format": null,
+   "winners": [
+    "David"
+   ],
+   "outcome": "is evicted",
+   "result": "David is evicted",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "2",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Color Wars",
+   "format": "Get A Grip",
+   "winners": [
+    "Christie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Christie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "7",
+   "type": "Whacktivity",
+   "kind": "twist",
+   "name": "Nightmare \"This Stinks",
+   "format": "HouseguestsOnly.com",
+   "winners": [
+    "Ovi"
+   ],
+   "outcome": "wins the Power",
+   "result": "Ovi wins the Power",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "9",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Food Fight",
+   "format": "Item Catching",
+   "winners": [
+    "Sam"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Sam wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "15",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Fireworks Quiztacular",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Jack"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jack wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "17",
+   "type": "Whacktivity",
+   "kind": "twist",
+   "name": "Chaos \"For Goodness Snakes",
+   "format": null,
+   "winners": [
+    "Jack"
+   ],
+   "outcome": "wins the Power",
+   "result": "Jack wins the Power",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "19",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Froggy Style",
+   "format": "Hourglass",
+   "winners": [
+    "Sam"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Sam wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "23",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Power Shot",
+   "format": "Shootout",
+   "winners": [
+    "Nick"
+   ],
+   "outcome": "wins HOH",
+   "result": "Nick wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "24",
+   "type": "Whacktivity",
+   "kind": "twist",
+   "name": "Panic \"Madagascar Mayhem",
+   "format": null,
+   "winners": [
+    "Christie"
+   ],
+   "outcome": "wins the Power",
+   "result": "Christie wins the Power",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "25",
+   "type": "POV",
+   "kind": "veto",
+   "name": "The Haunting of Kaitlyn Herman",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Kathryn"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kathryn wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "30",
+   "type": "Comeback",
+   "kind": "twist",
+   "name": "Path to Redemption",
+   "format": "Roll It Down",
+   "winners": [
+    "Cliff"
+   ],
+   "outcome": "returns to the game",
+   "result": "Cliff returns to the game",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "30",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Patch Perfect",
+   "format": "Knockout",
+   "winners": [
+    "Cliff"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cliff wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "32",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Take It Off",
+   "format": null,
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jackson wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "37",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Pose In Ivy",
+   "format": null,
+   "winners": [
+    "Holly"
+   ],
+   "outcome": "wins HOH",
+   "result": "Holly wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "39",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Counting Sheep",
+   "format": null,
+   "winners": [
+    "Nick"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Nick wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "44",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Camp Expo",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Jessica"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jessica wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "46",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Tossed In Space",
+   "format": "Yankee Swap",
+   "winners": [
+    "Jessica"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jessica wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "51",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Time Me A River",
+   "format": "Time Highway",
+   "winners": [
+    "Tommy"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tommy wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "Field Trip",
+   "kind": "twist",
+   "name": "Egg-scape the Coop",
+   "format": "Caged Eggs",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins Safety",
+   "result": "Jackson wins Safety",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "Field Trip",
+   "kind": "twist",
+   "name": "Egg-scape the Coop",
+   "format": "Caged Eggs",
+   "winners": [
+    "Analyse"
+   ],
+   "outcome": "is punished",
+   "result": "Analyse is punished",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "Field Trip",
+   "kind": "twist",
+   "name": "Egg-scape the Coop",
+   "format": "Caged Eggs",
+   "winners": [
+    "Christie"
+   ],
+   "outcome": "is nominated",
+   "result": "Christie is nominated",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "53",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Paranoid Pigeon",
+   "format": "OTEV",
+   "winners": [
+    "Tommy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tommy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "58",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Aug-Toberfest",
+   "format": "Slippery Slope",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jackson wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "60",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Coral Grief",
+   "format": "In The Balance",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jackson wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "65",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Prank Shot",
+   "format": "Perfect Shot",
+   "winners": [
+    "Holly"
+   ],
+   "outcome": "wins HOH",
+   "result": "Holly wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "67",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Free The Zing!",
+   "format": "Pull Some Strings",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jackson wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "72",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Hold On Fright",
+   "format": "The Wall",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jackson wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "74",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Hide and Go Veto",
+   "format": null,
+   "winners": [
+    "Tommy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tommy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "79",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "On Thin Ice",
+   "format": null,
+   "winners": [
+    "Nicole"
+   ],
+   "outcome": "wins HOH",
+   "result": "Nicole wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "79",
+   "type": "POV",
+   "kind": "veto",
+   "name": "What The Bleep?",
+   "format": null,
+   "winners": [
+    "Cliff"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cliff wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "80",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "BB Flix & Chill",
+   "format": null,
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins HOH",
+   "result": "Jackson wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "81",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Nicole"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Nicole wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "86",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Crash and Turn",
+   "format": "Dizzy Discs",
+   "winners": [
+    "Nicole"
+   ],
+   "outcome": "wins HOH",
+   "result": "Nicole wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "87",
+   "type": "Luxury",
+   "kind": "twist",
+   "name": "Change of $cenery",
+   "format": null,
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins $10,000",
+   "result": "Jackson wins $10,000",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "88",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Win and You're In",
+   "format": "Who Did What?",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Jackson wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "93",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Raiders of the BB Relics",
+   "format": null,
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Jackson wins Final HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "95",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Foggy Memory",
+   "format": "Who Did What?",
+   "winners": [
+    "Holly"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Holly wins Final HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "99",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "The Jury Is Out",
+   "format": "Jury Statements",
+   "winners": [
+    "Jackson"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Jackson wins Final HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "4": [
+    {
+     "guest": "Christie Murphy",
+     "chosen_by": null
+    },
+    {
+     "guest": "Jackson Michie",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kathryn Dunn",
+     "chosen_by": null
+    },
+    {
+     "guest": "Tommy Bracco",
+     "chosen_by": null
+    }
+   ],
+   "5": [
+    {
+     "guest": "Jessica Milagros",
+     "chosen_by": null
+    },
+    {
+     "guest": "Nicole Anthony",
+     "chosen_by": null
+    },
+    {
+     "guest": "Sam Smith",
+     "chosen_by": null
+    }
+   ]
+  },
+  "hoh": {
+   "4": [
+    "Cliff Hogg III"
+   ],
+   "5": [
+    "Holly Allen"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Cliff",
+    "David"
+   ],
+   "evicted": [
+    "David"
+   ],
+   "vote": "1st Evicted Day 1",
+   "finish": "1st Evicted Day 1",
+   "other": {}
+  },
+  {
+   "week": 1,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Jessica",
+    "Kemi"
+   ],
+   "evicted": [
+    "David"
+   ],
+   "vote": "1st Evicted Day 1",
+   "finish": "1st Evicted Day 1",
+   "other": {}
+  },
+  {
+   "week": 1,
+   "hoh": [
+    "Christie"
+   ],
+   "nominees_initial": [
+    "Cliff",
+    "Kathryn"
+   ],
+   "veto_holders": [
+    "Sam"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kathryn",
+    "Ovi"
+   ],
+   "evicted": [
+    "Ovi"
+   ],
+   "vote": "12-0",
+   "finish": "2nd Evicted Camp Comeback Day 15",
+   "other": {
+    "Twist Winner": [
+     "Ovi"
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "David"
+   ],
+   "vote": "Returned Camp Comeback Day 15",
+   "finish": "Returned Camp Comeback Day 15",
+   "other": {}
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Jack"
+   ],
+   "nominees_initial": [
+    "Jessica",
+    "Kemi"
+   ],
+   "veto_holders": [
+    "Sam"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Jessica",
+    "Kemi"
+   ],
+   "evicted": [
+    "Kemi"
+   ],
+   "vote": "10-1",
+   "finish": "3rd Evicted Camp Comeback Day 23",
+   "other": {
+    "Twist Winner": [
+     "Jack"
+    ]
+   }
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Nick"
+   ],
+   "nominees_initial": [
+    "Cliff",
+    "Jessica"
+   ],
+   "veto_holders": [
+    "Kathryn"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cliff",
+    "Nicole"
+   ],
+   "evicted": [
+    "Cliff"
+   ],
+   "vote": "6-4",
+   "finish": "4th Evicted Camp Comeback Day 30",
+   "other": {
+    "Twist Winner": [
+     "Christie"
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Cliff"
+   ],
+   "vote": "Comeback Comp Winner Returned Day 30",
+   "finish": "Comeback Comp Winner Returned Day 30",
+   "other": {}
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Cliff"
+   ],
+   "nominees_initial": [
+    "Jack",
+    "Jackson"
+   ],
+   "veto_holders": [
+    "Jackson"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Isabella",
+    "Jack"
+   ],
+   "evicted": [
+    "Isabella"
+   ],
+   "vote": "8-2",
+   "finish": "5th Evicted Day 37",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Holly"
+   ],
+   "nominees_initial": [
+    "Nick",
+    "Sam"
+   ],
+   "veto_holders": [
+    "Nick"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kathryn",
+    "Sam"
+   ],
+   "evicted": [
+    "Sam"
+   ],
+   "vote": "9-0",
+   "finish": "6th Evicted Day 44",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "Jessica"
+   ],
+   "nominees_initial": [
+    "Jack",
+    "Jackson"
+   ],
+   "veto_holders": [
+    "Jessica"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Jack",
+    "Jackson"
+   ],
+   "evicted": [
+    "Jack"
+   ],
+   "vote": "6-2",
+   "finish": "7th Evicted 1st Jury Member Day 51",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Tommy"
+   ],
+   "nominees_initial": [
+    "Christie",
+    "Cliff",
+    "Kathryn"
+   ],
+   "veto_holders": [
+    "Tommy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cliff",
+    "Kathryn"
+   ],
+   "evicted": [
+    "Kathryn"
+   ],
+   "vote": "6-1",
+   "finish": "8th Evicted 2nd Jury Member Day 58",
+   "other": {
+    "Twist Winner": [
+     "Jackson"
+    ]
+   }
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [
+    "Analyse",
+    "Christie"
+   ],
+   "veto_holders": [
+    "Jackson"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Analyse",
+    "Christie"
+   ],
+   "evicted": [
+    "Analyse"
+   ],
+   "vote": "5-1",
+   "finish": "9th Evicted 3rd Jury Member Day 65",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Holly"
+   ],
+   "nominees_initial": [
+    "Christie",
+    "Nick"
+   ],
+   "veto_holders": [
+    "Jackson"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Christie",
+    "Nick"
+   ],
+   "evicted": [
+    "Nick"
+   ],
+   "vote": "5-0",
+   "finish": "10th Evicted 4th Jury Member Day 72",
+   "other": {
+    "Twist Winner": [
+     "Nick"
+    ]
+   }
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [
+    "Christie",
+    "Jessica"
+   ],
+   "veto_holders": [
+    "Tommy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cliff",
+    "Jessica"
+   ],
+   "evicted": [
+    "Jessica"
+   ],
+   "vote": "4-0",
+   "finish": "11th Evicted 5th Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Nicole"
+   ],
+   "nominees_initial": [
+    "Christie",
+    "Tommy"
+   ],
+   "veto_holders": [
+    "Cliff"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Christie",
+    "Tommy"
+   ],
+   "evicted": [
+    "Christie"
+   ],
+   "vote": "3-0",
+   "finish": "12th Evicted 6th Jury Member Day 79",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [
+    "Cliff",
+    "Tommy"
+   ],
+   "veto_holders": [
+    "Nicole"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Holly",
+    "Tommy"
+   ],
+   "evicted": [
+    "Tommy"
+   ],
+   "vote": "2-0",
+   "finish": "13th Evicted 7th Jury Member Day 86",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Nicole"
+   ],
+   "nominees_initial": [
+    "Holly",
+    "Jackson"
+   ],
+   "veto_holders": [
+    "Jackson"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cliff",
+    "Holly"
+   ],
+   "evicted": [
+    "Cliff"
+   ],
+   "vote": "1-0",
+   "finish": "14th Evicted 8th Jury Member Day 93",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [
+    "Jackson"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Holly",
+    "Nicole"
+   ],
+   "evicted": [
+    "Nicole"
+   ],
+   "vote": "1-0",
+   "finish": "15th Evicted 9th Jury Member Day 99",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Holly"
+   ],
+   "vote": "6-3",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Jackson"
+   ],
+   "vote": "6-3",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Jackson Michie": {
+   "page": "Jackson Michie",
+   "full_name": "Jackson Glen Michie",
+   "birth_date": "1995-06-13",
+   "age": 24,
+   "hometown": [
+    "Nashville, TN",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Server",
+   "nickname": [
+    "Michie"
+   ],
+   "place": "1st",
+   "days": "99",
+   "alliances": [
+    "Gr8ful",
+    "Fam Five",
+    "Stage Five",
+    "Six Shooters",
+    "Threemance",
+    "Unde9able"
+   ],
+   "other_prizes": [
+    "$10,000"
+   ],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698855
+  },
+  "Holly Allen": {
+   "page": "Holly Allen",
+   "full_name": "Holly Katherine Allen",
+   "birth_date": "1988-01-11",
+   "age": 31,
+   "hometown": [
+    "Lander, WY",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Wine Safari Guide",
+   "nickname": [
+    "Beth",
+    "Holls"
+   ],
+   "place": "2nd",
+   "days": "99",
+   "alliances": [
+    "Gr8ful",
+    "Stage Five",
+    "BB Besties",
+    "Six Shooters",
+    "Threemance",
+    "Unde9able"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 690937
+  },
+  "Nicole Anthony": {
+   "page": "Nicole Anthony",
+   "full_name": "Nicole Mary Frances Anthony-Fontanez",
+   "birth_date": "1994-12-26",
+   "age": 24,
+   "hometown": [
+    "Long Island, NY"
+   ],
+   "occupation": "Podcast host",
+   "nickname": [],
+   "place": "3rd",
+   "days": "99",
+   "alliances": [
+    "The Black Widows",
+    "The Fellowship of the Zing",
+    "Cliff's Angels"
+   ],
+   "other_prizes": [
+    "$25,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 21 (US)"
+   ],
+   "revid": 661813
+  },
+  "Cliff Hogg III": {
+   "page": "Cliff Hogg III",
+   "full_name": "William Clifford \"Cliff\" Hogg III",
+   "birth_date": "1965-04-24",
+   "age": 54,
+   "hometown": [
+    "Houston, TX"
+   ],
+   "occupation": "Petroleum Engineer",
+   "nickname": [
+    "Boss",
+    "Boss Hogg"
+   ],
+   "place": "4th",
+   "days": "93",
+   "alliances": [
+    "The Fellowship of the Zing",
+    "Cliff's Angels"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698967
+  },
+  "Tommy Bracco": {
+   "page": "Tommy Bracco",
+   "full_name": "Thomas \"Tommy\" Bracco",
+   "birth_date": "1990-08-08",
+   "age": 28,
+   "hometown": [
+    "Staten Island, NY"
+   ],
+   "occupation": "Broadway dancer",
+   "nickname": [],
+   "place": "5th",
+   "days": "86",
+   "alliances": [
+    "Gr8ful",
+    "Six Shooters",
+    "Unde9able",
+    "Flaming Five",
+    "Staten Island",
+    "Lots of Love"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698963
+  },
+  "Christie Murphy": {
+   "page": "Christie Murphy",
+   "full_name": "Christie Lynn Murphy",
+   "birth_date": "1990-10-20",
+   "age": 28,
+   "hometown": [
+    "Staten Island, NY",
+    "Keyport, NJ"
+   ],
+   "occupation": "Boutique Owner",
+   "nickname": [
+    "Chris"
+   ],
+   "place": "6th",
+   "days": "79",
+   "alliances": [
+    "Gr8ful",
+    "Fam Five",
+    "Stage Five",
+    "Six Shooters",
+    "Unde9able",
+    "Flaming Five",
+    "Staten Island",
+    "Lots of Love"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698812
+  },
+  "Jessica Milagros": {
+   "page": "Jessica Milagros",
+   "full_name": "Jessica Milagros Guzman Sanchez",
+   "birth_date": "1981-10-14",
+   "age": 37,
+   "hometown": [
+    "Chicago, IL",
+    "Oak Park, IL"
+   ],
+   "occupation": "Model",
+   "nickname": [
+    "Jess"
+   ],
+   "place": "7th",
+   "days": "79",
+   "alliances": [
+    "The Black Widows",
+    "Cliff's Angels"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 669630
+  },
+  "Nick Maccarone": {
+   "page": "Nick Maccarone",
+   "full_name": "Nicholas \"Nick\" Maccarone",
+   "birth_date": "1992-06-12",
+   "age": 27,
+   "hometown": [
+    "Sewell, NJ"
+   ],
+   "occupation": "Therapist",
+   "nickname": [],
+   "place": "8th",
+   "days": "72",
+   "alliances": [
+    "Gr8ful",
+    "Stage Five",
+    "Unde9able",
+    "Flaming Five"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698965
+  },
+  "Analyse Talavera": {
+   "page": "Analyse Talavera",
+   "full_name": "Analyse Marie \"Sis\" Talavera",
+   "birth_date": "1997-03-10",
+   "age": 22,
+   "hometown": [
+    "Northridge, CA",
+    "Simi Valley, CA"
+   ],
+   "occupation": "College Soccer Star",
+   "nickname": [
+    "Sis",
+    "Sissy"
+   ],
+   "place": "9th",
+   "days": "65",
+   "alliances": [
+    "Gr8ful",
+    "Fam Five",
+    "BB Besties",
+    "Stage Five",
+    "Six Shooters",
+    "Unde9able"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698971
+  },
+  "Kathryn Dunn": {
+   "page": "Kathryn Dunn",
+   "full_name": "Kathryn Elaine Dunn",
+   "birth_date": "1990-01-09",
+   "age": 29,
+   "hometown": [
+    "Irving, TX",
+    "Dallas, TX"
+   ],
+   "occupation": "Digital Marketing Executive",
+   "nickname": [
+    "Kat",
+    "Kit Kat"
+   ],
+   "place": "10th",
+   "days": "58",
+   "alliances": [
+    "Stage Five",
+    "Threemance",
+    "Cliff's Angels"
+   ],
+   "other_prizes": [
+    "Hawaii Trip"
+   ],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698973
+  },
+  "Jack Matthews": {
+   "page": "Jack Matthews",
+   "full_name": "John Kirkwood \"Jack\" Matthews",
+   "birth_date": "1990-07-07",
+   "age": 28,
+   "hometown": [
+    "Chicago, IL",
+    "Tampa, FL"
+   ],
+   "occupation": "Fitness Trainer",
+   "nickname": [],
+   "place": "11th",
+   "days": "51",
+   "alliances": [
+    "Gr8ful",
+    "Stage Five",
+    "Six Shooters",
+    "Unde9able",
+    "Lots of Love"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 669626
+  },
+  "Sam Smith": {
+   "page": "Sam Smith",
+   "full_name": "Samuel Titus \"Sam\" Smith",
+   "birth_date": "1988-02-11",
+   "age": 31,
+   "hometown": [
+    "West Nanticoke, PA",
+    "Mountain Top, PA"
+   ],
+   "occupation": "Truck Driver",
+   "nickname": [],
+   "place": "12th",
+   "days": "44",
+   "alliances": [
+    "Stage Five",
+    "Unde9able",
+    "Flaming Five"
+   ],
+   "other_prizes": [
+    "Fiji Trip"
+   ],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 698969
+  },
+  "Isabella Wang": {
+   "page": "Isabella Wang",
+   "full_name": "Isabella Love Wang",
+   "birth_date": "1997-01-23",
+   "age": 22,
+   "hometown": [
+    "Mount Olive, NJ",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Public Health Analyst",
+   "nickname": [
+    "Bella",
+    "Isa"
+   ],
+   "place": "13th",
+   "days": "37",
+   "alliances": [
+    "Gr8ful",
+    "Rush Hour",
+    "The Black Widows",
+    "Unde9able"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 615105
+  },
+  "Kemi Fakunle": {
+   "page": "Kemi Fakunle",
+   "full_name": "Olukemi \"Kemi\" Fakunle",
+   "birth_date": "1993-07-07",
+   "age": 25,
+   "hometown": [
+    "Elkridge, MD",
+    "Brooklyn, NY"
+   ],
+   "occupation": "Marketing Strategist",
+   "nickname": [],
+   "place": "14th",
+   "days": "30 (Days 1-23 in house, Days 23-30 in Camp Comeback)",
+   "alliances": [
+    "Rush Hour",
+    "The Black Widows"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 648532
+  },
+  "Ovi Kabir": {
+   "page": "Ovi Kabir",
+   "full_name": "Ovi Kabir",
+   "birth_date": "1996-11-15",
+   "age": 22,
+   "hometown": [
+    "Oak Ridge, TN",
+    "Knoxville, TN"
+   ],
+   "occupation": "College student",
+   "nickname": [],
+   "place": "15th",
+   "days": "30 (Days 1-15 in house, Days 15-30 in Camp Comeback)",
+   "alliances": [
+    "Fam Five",
+    "The Fellowship of the Zing"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 21 (US)"
+   ],
+   "revid": 691547
+  },
+  "David Alexander": {
+   "page": "David Alexander",
+   "full_name": "David Alexander",
+   "birth_date": "1990-01-01",
+   "age": 29,
+   "hometown": [
+    "Atlanta, GA",
+    "Los Angeles, CA"
+   ],
+   "occupation": "Senior sales rep",
+   "nickname": [],
+   "place": "16th",
+   "days": "17 (Day 1 in house, Days 15-30 in Camp Comeback)",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 22 (US)",
+    "Big Brother 21 (US)"
+   ],
+   "revid": 669495
+  }
+ }
+}

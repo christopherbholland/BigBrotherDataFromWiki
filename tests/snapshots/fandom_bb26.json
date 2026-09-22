@@ -1,0 +1,1580 @@
+{
+ "info": {
+  "season_run": "July 17, 2024 - October 13, 2024",
+  "premiere": "2024-07-17",
+  "finale": "2024-10-13",
+  "days": "90",
+  "houseguests": "16",
+  "episodes": "39",
+  "prize": "$750,000",
+  "winner": "Chelsie Baham",
+  "runner_up": "Makensy Manbeck",
+  "host": "Julie Chen-Moonves",
+  "average_viewers": "2.79m"
+ },
+ "roster": [
+  [
+   "Chelsie Baham",
+   "Chelsie"
+  ],
+  [
+   "Makensy Manbeck",
+   "Makensy"
+  ],
+  [
+   "Cam Sullivan-Brown",
+   "Cam"
+  ],
+  [
+   "Rubina Bernabe",
+   "Rubina"
+  ],
+  [
+   "Kimo Apaka",
+   "Kimo"
+  ],
+  [
+   "Angela Murray",
+   "Angela"
+  ],
+  [
+   "Leah Peters",
+   "Leah"
+  ],
+  [
+   "T'kor Clottey",
+   "T'kor"
+  ],
+  [
+   "Quinn Martin",
+   "Quinn"
+  ],
+  [
+   "Joseph Rodriguez",
+   "Joseph"
+  ],
+  [
+   "Tucker Des Lauriers",
+   "Tucker"
+  ],
+  [
+   "Brooklyn Rivera",
+   "Brooklyn"
+  ],
+  [
+   "Cedric Hodges",
+   "Cedric"
+  ],
+  [
+   "Kenney Kelley",
+   "Kenney"
+  ],
+  [
+   "Lisa Weintraub",
+   "Lisa"
+  ],
+  [
+   "Matt Hardeman",
+   "Matt"
+  ]
+ ],
+ "competitions": [
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Upgrade (America's Veto)",
+   "kind": "twist",
+   "name": "Color Calibration",
+   "format": "Repeat After Me",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "is upgraded",
+   "result": "Makensy is upgraded",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Downgrade",
+   "kind": "twist",
+   "name": "Fear Facer",
+   "format": "HouseguestsOnly.com",
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "is downgraded",
+   "result": "Chelsie is downgraded",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Upgrade (Deepfake HOH)",
+   "kind": "twist",
+   "name": "AI Chip Install",
+   "format": null,
+   "winners": [
+    "Quinn"
+   ],
+   "outcome": "is upgraded",
+   "result": "Quinn is upgraded",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "1",
+   "type": "Downgrade",
+   "kind": "twist",
+   "name": "Facial Recognition",
+   "format": null,
+   "winners": [
+    "Cedric"
+   ],
+   "outcome": "is downgraded",
+   "result": "Cedric is downgraded",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "2",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "New Rule",
+   "format": "As Close As You Can",
+   "winners": [
+    "Angela"
+   ],
+   "outcome": "wins HOH",
+   "result": "Angela wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "5",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB AI Spelling Bee",
+   "format": "Spelling Search",
+   "winners": [
+    "Lisa"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Lisa wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 1,
+   "day": "10",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Glitch in the System",
+   "format": "Living Art",
+   "winners": [
+    "Kimo"
+   ],
+   "outcome": "is saved",
+   "result": "Kimo is saved",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "10",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Animal Obsession",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Chelsie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "12",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Code Tower",
+   "format": "Stacking",
+   "winners": [
+    "Kenney"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kenney wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 2,
+   "day": "17",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Security Race",
+   "format": "Fitting In",
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "is saved",
+   "result": "Tucker is saved",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "17",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Ainsley Land",
+   "format": "Only One Path",
+   "winners": [
+    "Cedric"
+   ],
+   "outcome": "wins HOH",
+   "result": "Cedric wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "19",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Recharge My Core",
+   "format": "Laser Maze",
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tucker wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 3,
+   "day": "24",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Data Dump",
+   "format": "Niagara Balls",
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "is saved",
+   "result": "Tucker is saved",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "24",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Bad AI",
+   "format": "Knockout",
+   "winners": [
+    "Angela"
+   ],
+   "outcome": "wins HOH",
+   "result": "Angela wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "26",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Binary Bridge",
+   "format": null,
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tucker wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 4,
+   "day": "31",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Upload, Download",
+   "format": "Carnival Quick Shot",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "is saved",
+   "result": "Makensy is saved",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "31",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Firewall",
+   "format": "The Wall",
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "wins HOH",
+   "result": "Tucker wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "33",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Hide-N-Go Veto",
+   "format": "Hide and Go Veto",
+   "winners": [
+    "Tucker"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Tucker wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 5,
+   "day": "38",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Digital Decryption",
+   "format": null,
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "is saved",
+   "result": "Chelsie is saved",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "38",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Sound Bites",
+   "format": "What Did They Just Do?",
+   "winners": [
+    "T'kor"
+   ],
+   "outcome": "wins HOH",
+   "result": "T'kor wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "40",
+   "type": "POV",
+   "kind": "veto",
+   "name": "A.I. Apocalypse",
+   "format": "Slingshot Aim",
+   "winners": [
+    "Cam"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Cam wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 6,
+   "day": "45",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Puzzling Password",
+   "format": "Kaitlyn's Puzzle",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "is saved",
+   "result": "Makensy is saved",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "45",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "What Came First?",
+   "format": "Caged Eggs",
+   "winners": [
+    "Quinn"
+   ],
+   "outcome": "wins HOH",
+   "result": "Quinn wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "47",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Bot Builders",
+   "format": "The Black Box",
+   "winners": [
+    "Leah"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Leah wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 7,
+   "day": "52",
+   "type": "AI Arena",
+   "kind": "twist",
+   "name": "Bandwidth Boosters",
+   "format": "Feeling Knotty",
+   "winners": [
+    "Rubina"
+   ],
+   "outcome": "is saved",
+   "result": "Rubina is saved",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "52",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Ding Cam",
+   "format": "Before or After",
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Chelsie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 8,
+   "day": "54",
+   "type": "POV",
+   "kind": "veto",
+   "name": "OTEV the Trash-Talking Trash Panda",
+   "format": "OTEV",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Makensy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "59-60",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Getting Toasted",
+   "format": "What's The Hold Up",
+   "winners": [
+    "Leah"
+   ],
+   "outcome": "wins HOH",
+   "result": "Leah wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "61",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Too Much of a Good Thing",
+   "format": "Fitting In",
+   "winners": [
+    "Angela"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Angela wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "61",
+   "type": "JANKIE POV",
+   "kind": "veto",
+   "name": "Too Much of a Good Thing",
+   "format": "Fitting In",
+   "winners": [
+    "Leah"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Leah wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 9,
+   "day": "63",
+   "type": "JANKIE POV",
+   "kind": "veto",
+   "name": "JANKIE's Knock-Em Down",
+   "format": null,
+   "winners": [
+    "Leah"
+   ],
+   "outcome": "fails her task",
+   "result": "Leah fails her task",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "66",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Eye Candy",
+   "format": "Hourglass",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins HOH",
+   "result": "Makensy wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "68",
+   "type": "POV",
+   "kind": "veto",
+   "name": "The Wild Robot",
+   "format": null,
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Makensy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Warning Messages",
+   "format": null,
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Chelsie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 10,
+   "day": "73",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Eye in the Sky",
+   "format": "Roll It Down",
+   "winners": [
+    "Kimo"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Kimo wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "73",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Killer Keycard",
+   "format": "Microbrews",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins HOH",
+   "result": "Makensy wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "75",
+   "type": "POV",
+   "kind": "veto",
+   "name": "BB Comics",
+   "format": null,
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Makensy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "80",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Hidden Agenda",
+   "format": null,
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "wins HOH",
+   "result": "Chelsie wins HOH",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "POV",
+   "kind": "veto",
+   "name": "Passcode Protectors",
+   "format": "Cover Your Days",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Makensy wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "87",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Sever the Source",
+   "format": "Jetpack Attack",
+   "winners": [
+    "Chelsie"
+   ],
+   "outcome": "wins Final HOH Part 1",
+   "result": "Chelsie wins Final HOH Part 1",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "88",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Cerebral Shutdown",
+   "format": "Item Maze",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins Final HOH Part 2",
+   "result": "Makensy wins Final HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 13,
+   "day": "90",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Data Destruction",
+   "format": "Jury Statements",
+   "winners": [
+    "Makensy"
+   ],
+   "outcome": "wins Final HOH Part 3",
+   "result": "Makensy wins Final HOH Part 3",
+   "extra": {}
+  }
+ ],
+ "have_nots": {
+  "weeks": {
+   "1": [
+    {
+     "guest": "Cam Sullivan-Brown",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kimo Apaka",
+     "chosen_by": null
+    },
+    {
+     "guest": "Quinn Martin",
+     "chosen_by": null
+    },
+    {
+     "guest": "Tucker Des Lauriers",
+     "chosen_by": null
+    }
+   ],
+   "2": [
+    {
+     "guest": "Leah Peters",
+     "chosen_by": null
+    },
+    {
+     "guest": "Makensy Manbeck",
+     "chosen_by": null
+    },
+    {
+     "guest": "Rubina Bernabe",
+     "chosen_by": null
+    },
+    {
+     "guest": "Lisa Weintraub",
+     "chosen_by": null
+    }
+   ],
+   "5": [
+    {
+     "guest": "Angela Murray",
+     "chosen_by": null
+    },
+    {
+     "guest": "Joseph Rodriguez",
+     "chosen_by": null
+    },
+    {
+     "guest": "Kimo Apaka",
+     "chosen_by": null
+    }
+   ],
+   "7": [
+    {
+     "guest": "Kimo Apaka",
+     "chosen_by": null
+    },
+    {
+     "guest": "Makensy Manbeck",
+     "chosen_by": null
+    }
+   ]
+  },
+  "hoh": {
+   "1": [
+    "Angela Murray"
+   ],
+   "2": [
+    "Chelsie Baham"
+   ],
+   "3": [
+    "Cedric Hodges"
+   ],
+   "4": [
+    "Angela Murray"
+   ],
+   "5": [
+    "Tucker Des Lauriers"
+   ],
+   "6": [
+    "T'kor Clottey"
+   ],
+   "7": [
+    "Quinn Martin"
+   ]
+  }
+ },
+ "game": [
+  {
+   "week": 1,
+   "hoh": [
+    "Angela"
+   ],
+   "nominees_initial": [
+    "Kenney",
+    "Kimo",
+    "Lisa"
+   ],
+   "veto_holders": [
+    "Lisa"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kenney",
+    "Kimo",
+    "Matt"
+   ],
+   "evicted": [
+    "Matt"
+   ],
+   "vote": "8-3",
+   "finish": "1st Evicted Day 10",
+   "other": {}
+  },
+  {
+   "week": 2,
+   "hoh": [
+    "Chelsie"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kenney",
+    "Lisa"
+   ],
+   "veto_holders": [
+    "Kenney"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Angela",
+    "Lisa",
+    "Tucker"
+   ],
+   "evicted": [
+    "Lisa"
+   ],
+   "vote": "11-1",
+   "finish": "2nd Evicted Day 17",
+   "other": {}
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Cedric"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kenney",
+    "Tucker"
+   ],
+   "veto_holders": [
+    "Tucker"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kenney",
+    "Makensy",
+    "Tucker"
+   ],
+   "evicted": [
+    "Nominations Void"
+   ],
+   "vote": "Nominations Void",
+   "finish": "Nominations Void",
+   "other": {}
+  },
+  {
+   "week": 3,
+   "hoh": [
+    "Cedric"
+   ],
+   "nominees_initial": [
+    "Kenney",
+    "Makensy",
+    "Tucker"
+   ],
+   "veto_holders": [
+    "Makensy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kenney",
+    "Quinn",
+    "Tucker"
+   ],
+   "evicted": [
+    "Kenney"
+   ],
+   "vote": "10-1",
+   "finish": "3rd Evicted Day 24",
+   "other": {}
+  },
+  {
+   "week": 4,
+   "hoh": [
+    "Angela",
+    "Quinn"
+   ],
+   "nominees_initial": [
+    "Cedric",
+    "Makensy",
+    "Tucker"
+   ],
+   "veto_holders": [
+    "Tucker"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cedric",
+    "Makensy",
+    "Rubina"
+   ],
+   "evicted": [
+    "Cedric"
+   ],
+   "vote": "6-3",
+   "finish": "4th Evicted Day 31",
+   "other": {}
+  },
+  {
+   "week": 5,
+   "hoh": [
+    "Tucker"
+   ],
+   "nominees_initial": [
+    "Brooklyn",
+    "Cam",
+    "Quinn"
+   ],
+   "veto_holders": [
+    "Tucker"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Brooklyn",
+    "Cam",
+    "Chelsie"
+   ],
+   "evicted": [
+    "Brooklyn"
+   ],
+   "vote": "8-1",
+   "finish": "5th Evicted Day 38",
+   "other": {}
+  },
+  {
+   "week": 6,
+   "hoh": [
+    "T'kor"
+   ],
+   "nominees_initial": [
+    "Cam",
+    "Makensy",
+    "Tucker"
+   ],
+   "veto_holders": [
+    "Cam"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Angela",
+    "Makensy",
+    "Tucker"
+   ],
+   "evicted": [
+    "Tucker"
+   ],
+   "vote": "5-3",
+   "finish": "6th Evicted Day 45",
+   "other": {}
+  },
+  {
+   "week": 7,
+   "hoh": [
+    "Quinn"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kimo",
+    "Rubina"
+   ],
+   "veto_holders": [
+    "Leah"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Joseph",
+    "Kimo",
+    "Rubina"
+   ],
+   "evicted": [
+    "Joseph"
+   ],
+   "vote": "4-3",
+   "finish": "7th Evicted Day 52",
+   "other": {}
+  },
+  {
+   "week": 8,
+   "hoh": [
+    "Chelsie"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kimo"
+   ],
+   "veto_holders": [
+    "Makensy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Kimo",
+    "Quinn"
+   ],
+   "evicted": [
+    "Quinn"
+   ],
+   "vote": "4-2",
+   "finish": "8th Evicted 1st Jury Member Day 59",
+   "other": {}
+  },
+  {
+   "week": 9,
+   "hoh": [
+    "Leah"
+   ],
+   "nominees_initial": [
+    "Kimo",
+    "Rubina"
+   ],
+   "veto_holders": [
+    "Angela",
+    "Leah"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Rubina",
+    "T'kor"
+   ],
+   "evicted": [
+    "T'kor"
+   ],
+   "vote": "4-1",
+   "finish": "9th Evicted 2nd Jury Member Day 66",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Makensy"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kimo"
+   ],
+   "veto_holders": [
+    "Makensy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Angela",
+    "Leah"
+   ],
+   "evicted": [
+    "Leah"
+   ],
+   "vote": "4-0",
+   "finish": "10th Evicted 3rd Jury Member Day 73",
+   "other": {}
+  },
+  {
+   "week": 10,
+   "hoh": [
+    "Chelsie"
+   ],
+   "nominees_initial": [
+    "Angela",
+    "Kimo"
+   ],
+   "veto_holders": [
+    "Kimo"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Angela",
+    "Rubina"
+   ],
+   "evicted": [
+    "Angela"
+   ],
+   "vote": "3-0",
+   "finish": "11th Evicted 4th Jury Member Day 73",
+   "other": {}
+  },
+  {
+   "week": 11,
+   "hoh": [
+    "Makensy"
+   ],
+   "nominees_initial": [
+    "Kimo",
+    "Rubina"
+   ],
+   "veto_holders": [
+    "Makensy"
+   ],
+   "veto_used": false,
+   "nominees_final": [
+    "Kimo",
+    "Rubina"
+   ],
+   "evicted": [
+    "Kimo"
+   ],
+   "vote": "2-0",
+   "finish": "12th Evicted 5th Jury Member Day 80",
+   "other": {}
+  },
+  {
+   "week": 12,
+   "hoh": [
+    "Chelsie"
+   ],
+   "nominees_initial": [
+    "Cam",
+    "Makensy"
+   ],
+   "veto_holders": [
+    "Makensy"
+   ],
+   "veto_used": true,
+   "nominees_final": [
+    "Cam",
+    "Rubina"
+   ],
+   "evicted": [
+    "Rubina"
+   ],
+   "vote": "1-0",
+   "finish": "13th Evicted 6th Jury Member Day 87",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [
+    "Makensy"
+   ],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [
+    "Cam",
+    "Chelsie"
+   ],
+   "evicted": [
+    "Cam"
+   ],
+   "vote": "1-0",
+   "finish": "14th Evicted 7th Jury Member Day 90",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Makensy"
+   ],
+   "vote": "7-0",
+   "finish": "Runner-Up",
+   "other": {}
+  },
+  {
+   "week": 13,
+   "hoh": [],
+   "nominees_initial": [],
+   "veto_holders": [],
+   "veto_used": null,
+   "nominees_final": [],
+   "evicted": [
+    "Chelsie"
+   ],
+   "vote": "7-0",
+   "finish": "Winner",
+   "other": {}
+  }
+ ],
+ "bios": {
+  "Chelsie Baham": {
+   "page": "Chelsie Baham",
+   "full_name": "Chelsie Marlene Baham",
+   "birth_date": "1996-12-28",
+   "age": 27,
+   "hometown": [
+    "Rancho Cucamonga, CA"
+   ],
+   "occupation": "Nonprofit director",
+   "nickname": [],
+   "place": "1st",
+   "days": "90",
+   "alliances": [
+    "The Barbershop",
+    "The Collective",
+    "The Core",
+    "The Pentagon",
+    "Final Three (BB26)"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 697449
+  },
+  "Makensy Manbeck": {
+   "page": "Makensy Manbeck",
+   "full_name": "Makensy Jo Manbeck",
+   "birth_date": "2002-04-15",
+   "age": 22,
+   "hometown": [
+    "Houston, TX"
+   ],
+   "occupation": "Construction project manager",
+   "nickname": [
+    "MJ"
+   ],
+   "place": "2nd",
+   "days": "90",
+   "alliances": [
+    "The Barbershop",
+    "Final Three (BB26)"
+   ],
+   "other_prizes": [
+    "Trip to Hawaii"
+   ],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 693262
+  },
+  "Cam Sullivan-Brown": {
+   "page": "Cam Sullivan-Brown",
+   "full_name": "Cameron \"Cam\" Sullivan-Brown",
+   "birth_date": "1998-12-13",
+   "age": 25,
+   "hometown": [
+    "Bowie, MD"
+   ],
+   "occupation": "Physical therapist",
+   "nickname": [],
+   "place": "3rd",
+   "days": "90",
+   "alliances": [
+    "The Andersons",
+    "The Barbershop",
+    "The Collective",
+    "The Core",
+    "The Pentagon",
+    "Final Three (BB26)"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 681487
+  },
+  "Rubina Bernabe": {
+   "page": "Rubina Bernabe",
+   "full_name": "Rubina Ann Bernabe",
+   "birth_date": "1989-02-04",
+   "age": 35,
+   "hometown": [
+    "Los Angeles, CA"
+   ],
+   "occupation": "Event bartender",
+   "nickname": [
+    "RB"
+   ],
+   "place": "4th",
+   "days": "87",
+   "alliances": [
+    "5 Pointz",
+    "The Trio",
+    "Sixth Avenue",
+    "The Barbershop",
+    "Tubina"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 682875
+  },
+  "Kimo Apaka": {
+   "page": "Kimo Apaka",
+   "full_name": "Kimo Apaka",
+   "birth_date": "1988-09-17",
+   "age": 35,
+   "hometown": [
+    "Hilo, HI"
+   ],
+   "occupation": "Mattress sales rep",
+   "nickname": [],
+   "place": "5th",
+   "days": "80",
+   "alliances": [
+    "Five Pointz",
+    "The Trio",
+    "Sixth Avenue",
+    "The Andersons",
+    "The Collective",
+    "The Crow Boys",
+    "The Visionaries"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 687991
+  },
+  "Angela Murray": {
+   "page": "Angela Murray",
+   "full_name": "Angela Lorraine Murray",
+   "birth_date": "1973-08-17",
+   "age": 50,
+   "hometown": [
+    "Long Beach, CA",
+    "Syracuse, UT"
+   ],
+   "occupation": "Realtor",
+   "nickname": [
+    "Mama"
+   ],
+   "place": "6th",
+   "days": "73",
+   "alliances": [
+    "BB Guns",
+    "Golden Girlies",
+    "Sixth Avenue",
+    "The Lorraines"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)",
+    "Big Brother 28 (US)"
+   ],
+   "revid": 694233
+  },
+  "Leah Peters": {
+   "page": "Leah Peters",
+   "full_name": "Leah Lorraine Peters",
+   "birth_date": "1998-01-09",
+   "age": 26,
+   "hometown": [
+    "Pittsburgh, PA",
+    "Miami, FL"
+   ],
+   "occupation": "VIP cocktail server",
+   "nickname": [],
+   "place": "7th",
+   "days": "73",
+   "alliances": [
+    "The Barbershop",
+    "The Lorraines",
+    "The Snoots"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 634391
+  },
+  "T'kor Clottey": {
+   "page": "T'kor Clottey",
+   "full_name": "Dinah T'kor Clottey",
+   "birth_date": "2000-10-28",
+   "age": 23,
+   "hometown": [
+    "London, UK",
+    "Chicago, IL",
+    "Atlanta, GA"
+   ],
+   "occupation": "Crochet business owner",
+   "nickname": [
+    "T"
+   ],
+   "place": "8th",
+   "days": "66",
+   "alliances": [
+    "5 Pointz",
+    "Friendzzzz",
+    "Sixth Avenue",
+    "The Collective",
+    "The Visionaries"
+   ],
+   "other_prizes": [
+    "$5,000"
+   ],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 671554
+  },
+  "Quinn Martin": {
+   "page": "Quinn Martin",
+   "full_name": "Quinn Martin",
+   "birth_date": "1998-10-03",
+   "age": 25,
+   "hometown": [
+    "Lawton, OK",
+    "Omaha, NE"
+   ],
+   "occupation": "Nurse recruiter",
+   "nickname": [],
+   "place": "9th",
+   "days": "59",
+   "alliances": [
+    "BB Guns",
+    "Crowd Control (BB26)",
+    "The Andersons",
+    "The Collective",
+    "The Crow Boys",
+    "The Pentagon",
+    "The Snoots",
+    "The Visionaries"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 681845
+  },
+  "Joseph Rodriguez": {
+   "page": "Joseph Rodriguez",
+   "full_name": "Joseph Rodriguez",
+   "birth_date": "1993-07-28",
+   "age": 30,
+   "hometown": [
+    "Tampa, FL"
+   ],
+   "occupation": "Video store clerk",
+   "nickname": [],
+   "place": "10th",
+   "days": "52",
+   "alliances": [
+    "Sixth Avenue",
+    "The Collective",
+    "The Critics",
+    "The Crow Boys"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 677452
+  },
+  "Tucker Des Lauriers": {
+   "page": "Tucker Des Lauriers",
+   "full_name": "Tucker Schall Des Lauriers",
+   "birth_date": "1993-10-17",
+   "age": 30,
+   "hometown": [
+    "Boston, MA",
+    "Brooklyn, NY"
+   ],
+   "occupation": "Marketing and sales executive",
+   "nickname": [],
+   "place": "11th",
+   "days": "45",
+   "alliances": [
+    "Five Pointz",
+    "The Trio",
+    "Sixth Avenue",
+    "The Andersons",
+    "Tubina"
+   ],
+   "other_prizes": [
+    "$20,000 (AI Instigator)",
+    "$50,000 (Fan Favorite)"
+   ],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 687986
+  },
+  "Brooklyn Rivera": {
+   "page": "Brooklyn Rivera",
+   "full_name": "Brooklyn Michelle Rivera",
+   "birth_date": "1990-05-20",
+   "age": 34,
+   "hometown": [
+    "Covington, GA",
+    "Dallas, TX"
+   ],
+   "occupation": "Business administrator",
+   "nickname": [],
+   "place": "12th",
+   "days": "38",
+   "alliances": [
+    "Five Pointz",
+    "Golden Girlies",
+    "The Barbershop",
+    "The Collective",
+    "The Pentagon"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 687988
+  },
+  "Cedric Hodges": {
+   "page": "Cedric Hodges",
+   "full_name": "Cedric Juan Hodges",
+   "birth_date": "2002-09-11",
+   "age": 21,
+   "hometown": [
+    "Running Springs, CA",
+    "Boise, ID"
+   ],
+   "occupation": "Former marine",
+   "nickname": [
+    "Young Cedric"
+   ],
+   "place": "13th",
+   "days": "31",
+   "alliances": [
+    "Crowd Control (BB26)",
+    "The Barbershop",
+    "The Collective",
+    "The Core",
+    "The Pentagon"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 684376
+  },
+  "Kenney Kelley": {
+   "page": "Kenney Kelley",
+   "full_name": "Kenney Kelley",
+   "birth_date": "1971-12-10",
+   "age": 52,
+   "hometown": [
+    "Boston, MA"
+   ],
+   "occupation": "Former undercover cop",
+   "nickname": [
+    "Sweet Kenney K",
+    "Papa"
+   ],
+   "place": "14th",
+   "days": "24",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 677099
+  },
+  "Lisa Weintraub": {
+   "page": "Lisa Weintraub",
+   "full_name": "Lisa Sarah Weintraub",
+   "birth_date": "1991-05-22",
+   "age": 33,
+   "hometown": [
+    "Los Angeles, CA"
+   ],
+   "occupation": "Celebrity chef",
+   "nickname": [
+    "Tinkerbell"
+   ],
+   "place": "15th",
+   "days": "17",
+   "alliances": [],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 688004
+  },
+  "Matt Hardeman": {
+   "page": "Matt Hardeman",
+   "full_name": "David Matthew \"Matt\" Hardeman",
+   "birth_date": "1999-01-28",
+   "age": 25,
+   "hometown": [
+    "Loganville, GA",
+    "Roswell, GA"
+   ],
+   "occupation": "Tech sales rep",
+   "nickname": [
+    "Crazy Eyes"
+   ],
+   "place": "16th",
+   "days": "10",
+   "alliances": [
+    "The Barbershop"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 26 (US)"
+   ],
+   "revid": 688003
+  }
+ }
+}
