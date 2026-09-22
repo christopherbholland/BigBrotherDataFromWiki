@@ -41,6 +41,7 @@ class Grid:
     body_rows: list
     width: int
     caption: str = ""
+    notes: dict = field(default_factory=dict)  # footnote label -> note text, e.g. {"a": "This week was..."}
 
 
 class TableNotFound(Exception):
@@ -150,6 +151,36 @@ def find_voting_table(soup):
     raise TableNotFound("no table captioned or headed 'voting history'")
 
 
+def footnote_texts(soup, table):
+    """Resolve the table's footnote markers to their text: {"a": "note text", ...}.
+
+    A marker links to an <li id="cite_note-..."> in the page's notes list. The
+    note's own backlinks ("^ a b") and nested citation markers are dropped.
+    """
+    notes = {}
+    for sup in table.find_all("sup"):
+        if not _is_footnote(sup):
+            continue
+        label = sup.get_text("", strip=True).strip("[]")
+        link = sup.find("a", href=re.compile(r"^#"))
+        if not label or label in notes or link is None:
+            continue
+        target = soup.find(id=link["href"][1:])
+        if target is None:
+            continue
+        target = copy.copy(target.find(class_="reference-text") or target)
+        for junk in target.find_all(class_="mw-cite-backlink"):
+            junk.decompose()
+        for ref in target.find_all("sup"):
+            if _is_footnote(ref):
+                ref.decompose()
+        text = re.sub(r"\s+", " ", target.get_text(" ")).strip()
+        text = re.sub(r"\s+([,.;:!?)])", r"\1", text).replace("( ", "(")
+        if text:
+            notes[label] = text
+    return notes
+
+
 def build_grid(html):
     soup = BeautifulSoup(html, "lxml")
     table = find_voting_table(soup)
@@ -161,4 +192,21 @@ def build_grid(html):
         body_rows=body,
         width=width,
         caption=cap.get_text(" ", strip=True) if cap else "",
+        notes=footnote_texts(soup, table),
     )
+
+
+def build_episode_grid(html):
+    """Expand the page's episode table (class "wikiepisodetable"), or return None.
+
+    Returned as a Grid like the voting table: header_rows hold the column
+    titles; body_rows mix week headings, episode rows and summary rows, which
+    episodes.py tells apart.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    table = soup.find("table", class_="wikiepisodetable")
+    if table is None:
+        return None
+    expanded, width = expand_table(table)
+    header, body = split_header(expanded)
+    return Grid(header_rows=header, body_rows=body, width=width)

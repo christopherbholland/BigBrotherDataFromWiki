@@ -1,0 +1,216 @@
+"""Detail data for the page's click-through views, written to details.json.
+
+Works on the interpreter's week records (before export drops their internal
+keys), the voting Grid's footnote text, the houseguest list and the episode
+table. Nothing here is shown on the main cards.
+"""
+import re
+
+OUT_OF_GAME_RE = re.compile(r"^(evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
+# Parts of a week's note that don't describe anything unusual about the game.
+ROUTINE_NOTES = re.compile(r"^(finale|no eviction)$|: no eviction$", re.I)
+
+
+def _key(name):
+    return " ".join(name.split()).casefold()
+
+
+def week_key(season, week_label):
+    return f"{season}|{week_label}"
+
+
+def round_votes(rnd):
+    """Split a round's vote-row cells into votes and reasons for not voting.
+
+    Returns {"votes": [{"voter", "vote"}], "not_voting": [{"voter", "reason"}],
+    "by_nominee": [{"nominee", "voters": [...]}]} with by_nominee in the order
+    of nominees_final.
+    """
+    finals = {_key(n): n for n in rnd["nominees_final"]}
+    votes, not_voting = [], []
+    for voter, names in rnd.get("_voters", []):
+        text = " ".join(names)
+        if len(names) == 1 and _key(names[0]) in finals:
+            votes.append({"voter": voter, "vote": finals[_key(names[0])]})
+        elif text and not OUT_OF_GAME_RE.match(text):
+            not_voting.append({"voter": voter, "reason": text})
+    by_nominee = [
+        {"nominee": n, "voters": [v["voter"] for v in votes if v["vote"] == n]}
+        for n in rnd["nominees_final"]
+    ]
+    return {"votes": votes, "not_voting": not_voting, "by_nominee": by_nominee}
+
+
+def special(record, notes):
+    """What was different about the week, from the table only.
+
+    items: twist rows (e.g. "AI Arena winner: Kimo") and the unusual parts of
+    the week's note (double eviction, non-standard outcomes).
+    notes: Wikipedia's footnote text for the week, verbatim.
+    """
+    multi = len(record["rounds"]) > 1
+    items = []
+    for part in (record["note"] or "").split("; "):
+        if part and not ROUTINE_NOTES.search(part) and not part.startswith("Validation failed"):
+            items.append(part)
+    for i, rnd in enumerate(record["rounds"], 1):
+        for label, names in rnd["extras"].items():
+            prefix = f"Round {i}: " if multi else ""
+            items.append(f"{prefix}{label}: {', '.join(names)}")
+    texts = [{"label": fn, "text": notes[fn]} for fn in record["footnotes"] if fn in notes]
+    return {"items": items, "notes": texts}
+
+
+def veto_use(rnd):
+    """What the veto did, from the nominations before and after it.
+
+    The table doesn't say who the veto was used on, but it does show who came
+    off the block and who replaced them. A nominee who left the block and is
+    named in a twist row (e.g. the AI Arena winner) was saved by the twist, not
+    the veto. Returns None when there was no veto or nothing to compare.
+    """
+    if not rnd["veto_winners"] or not rnd["nominees_initial"] or not rnd["nominees_final"]:
+        return None
+    initial, final = rnd["nominees_initial"], rnd["nominees_final"]
+    finals = {_key(n) for n in final}
+    removed = [n for n in initial if _key(n) not in finals]
+    added = [n for n in final if _key(n) not in {_key(i) for i in initial}]
+    twist_names = {_key(n) for names in rnd["extras"].values() for n in names}
+    twist_saved = [n for n in removed if _key(n) in twist_names]
+    saved = [n for n in removed if _key(n) not in twist_names]
+    return {
+        "used": bool(saved),
+        "on": saved,
+        "replacements": added,
+        "twist_saved": twist_saved,
+    }
+
+
+# --- Competition names and veto decisions from the episode summaries --------
+_QUOTED = r'["“]([^"”]{2,40}?)[,.!?]?["”]'
+_KIND = r"((?i:head[ -]of[ -]household|hoh|power[ -]of[ -]veto|pov|veto))"
+_COMP = r"[Cc]omp(?:etition)?"
+COMP_PATTERNS = [
+    # (regex, index of the kind group, index of the name group)
+    (re.compile(_QUOTED + r"\s+" + _KIND + r"\s+" + _COMP), 2, 1),              # the "X" HOH competition
+    (re.compile(_KIND + r"\s+" + _COMP + r"[,:]?\s*\(?\s*(?:called\s+|titled\s+|named\s+)?" + _QUOTED), 1, 2),
+    (re.compile(_KIND + r"(?:\s+" + _COMP + r")?\s*\(\s*" + _QUOTED + r"\s*\)"), 1, 2),  # Power of Veto ("X")
+    (re.compile(_KIND + r"\s+" + _COMP + r":\s*([A-Z][^.:;\"“]{2,40}?)\."), 1, 2),     # Veto competition: X.
+]
+VETO_DECISION_RE = re.compile(
+    r"\bveto (meeting|ceremony)\b|\b(used|use|using) the (power of )?veto\b|\bnot to use\b|\bdecided not\b", re.I)
+SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"“])")
+
+
+def _mentions(text, name):
+    return re.search(r"(?<![\w])" + re.escape(name) + r"(?![\w])", text) is not None
+
+
+def episode_insights(record, episodes):
+    """Competition names and veto-meeting sentences found in the week's episode summaries.
+
+    comps: [{"kind": "hoh"|"veto", "name", "winner", "round", "source"}]. A
+    competition is tied to a round only when that round's HOH or veto winner
+    is named in the same or the next sentence; live shows often start the
+    next week's HOH, so unmatched names are kept with winner=None.
+    veto_notes: sentences about the veto meeting, verbatim.
+    """
+    sentences = []
+    for ep in episodes:
+        sentences += [x.strip() for x in SENTENCE_SPLIT.split(ep.get("summary") or "") if x.strip()]
+    comps, seen, taken = [], {}, set()  # taken: (round, kind) already given a competition
+    for i, sent in enumerate(sentences):
+        context = sent + " " + (sentences[i + 1] if i + 1 < len(sentences) else "")
+        for pattern, kind_group, name_group in COMP_PATTERNS:
+            for m in pattern.finditer(sent):
+                kind = "veto" if re.search(r"veto|pov", m.group(kind_group), re.I) else "hoh"
+                name = m.group(name_group).strip()
+                winner, round_no = None, None
+                for n, rnd in enumerate(record["rounds"], 1):
+                    field = "veto_winners" if kind == "veto" else "hoh"
+                    hit = next((w for w in rnd[field] if _mentions(context, w)), None)
+                    if hit and (n, kind) not in taken:
+                        winner, round_no = hit, n
+                        break
+                key = (kind, name.casefold())
+                if key in seen:
+                    if winner and not seen[key]["winner"]:
+                        seen[key].update(winner=winner, round=round_no, source=sent)
+                        taken.add((round_no, kind))
+                    continue
+                if winner:
+                    taken.add((round_no, kind))
+                seen[key] = {"kind": kind, "name": name, "winner": winner, "round": round_no, "source": sent}
+                comps.append(seen[key])
+    veto_notes = []
+    for sent in sentences:
+        if VETO_DECISION_RE.search(sent) and sent not in veto_notes:
+            veto_notes.append(sent)
+    return {"comps": comps, "veto_notes": veto_notes}
+
+
+def week_details(records, notes, episodes):
+    """{week_key: {"rounds": [...], "special", "episodes", "comps", "veto_notes"}}."""
+    out = {}
+    for record in records:
+        eps = episodes.get(record["week_label"], [])
+        out[week_key(record["season"], record["week_label"])] = {
+            "rounds": [{"sub_label": r["sub_label"], **round_votes(r), "veto": veto_use(r)} for r in record["rounds"]],
+            "special": special(record, notes),
+            "episodes": eps,
+            **episode_insights(record, eps),
+        }
+    return out
+
+
+def players(season, records, guests):
+    """Per-houseguest stats for one season, from the modeled rounds.
+
+    Returns (players, unmatched): players in table order (winner first), and
+    names seen in summary cells that match no houseguest row.
+    """
+    table = {}
+    for g in guests:
+        table[_key(g["name"])] = {
+            "season": season, "name": g["name"], "result": g["result"],
+            "hoh": [], "veto": [], "nominated": [], "on_block": [], "evicted": None,
+            "votes_against": [], "votes_cast": [], "twist": [],
+        }
+    unmatched = set()
+
+    def add(name, field, value):
+        p = table.get(_key(name))
+        if p is None:
+            unmatched.add(name)
+        elif field == "evicted":
+            p["evicted"] = value
+        else:
+            p[field].append(value)
+
+    for record in records:
+        multi = len(record["rounds"]) > 1
+        for rnd in record["rounds"]:
+            week = record["week_label"] + (f" ({rnd['sub_label']})" if multi and rnd["sub_label"] else "")
+            for n in rnd["hoh"]:
+                add(n, "hoh", week)
+            for n in rnd["veto_winners"]:
+                add(n, "veto", week)
+            for n in rnd["nominees_initial"]:
+                add(n, "nominated", week)
+            for n in rnd["nominees_final"]:
+                add(n, "on_block", week)
+            for label, names in rnd["extras"].items():
+                for n in names:
+                    # "(Janelle)" beside a winner names someone else involved, not a winner.
+                    if not (n.startswith("(") and n.endswith(")")):
+                        add(n, "twist", {"week": week, "label": label})
+            if rnd["evicted"]:
+                add(rnd["evicted"], "evicted", week)
+            v = round_votes(rnd)
+            for vote in v["votes"]:
+                add(vote["voter"], "votes_cast", {"week": week, "vote": vote["vote"],
+                                                  "with_house": vote["vote"] == rnd["evicted"]})
+            for row in v["by_nominee"]:
+                if row["voters"]:
+                    add(row["nominee"], "votes_against", {"week": week, "voters": row["voters"]})
+    return list(table.values()), sorted(unmatched)
