@@ -59,7 +59,7 @@ def process_season_full(season, html):
 def comp_index(details):
     """Categorize every HOH and veto competition in place; return the format index.
 
-    Returns {format: {"url", "category", "about", "plays": [...]}}, each play being
+    Returns {format: {"url", "description", "category", "about", "plays": [...]}}, each play being
     {"season", "week", "kind", "name", "winners", "day", "category", "about"},
     oldest first. Competitions with no format are categorized but not indexed.
     """
@@ -74,7 +74,8 @@ def comp_index(details):
     for season, week, c in plays:
         if not c["format"]:
             continue
-        entry = index.setdefault(c["format"], {"url": fandom_url(c["format"]), "plays": []})
+        entry = index.setdefault(c["format"], {"url": fandom_url(c["format"]), "description": None, "plays": []})
+        entry["description"] = entry["description"] or c.get("format_description")
         entry["plays"].append({"season": season, "week": week, "kind": c["kind"], "name": c["name"],
                                "winners": c["winners"], "day": c["day"], "category": c["category"],
                                "about": c["about"]})

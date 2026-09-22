@@ -1,7 +1,9 @@
 """What each HOH and veto competition was like: a description and a category.
 
-Neither wiki tags competitions as physical, endurance and so on, so the
-category is worked out here, in this order:
+The category is worked out here, in this order:
+  0. the Big Brother Wiki's page for the competition's format, whose opening
+     sentence names its type ("a recurring endurance Head of Household
+     competition"; see fandom.format_info);
   1. KNOWN_FORMATS / KNOWN_NAMES: recurring formats (the Big Brother Wiki's format pages,
      e.g. "The Wall") whose category is settled;
   2. keywords in the competition's own description, the episode-summary
@@ -126,15 +128,18 @@ def keyword_category(text):
 def categorize(comps):
     """Set "category" and "category_from" on each comp dict in place.
 
-    comps: HOH and veto comps with "format" and "about" (description or None).
-    category_from is "format" (a known format), "summary" (keywords in the
-    description) or "other plays" (the format's other plays).
+    comps: HOH and veto comps with "format", "about" (description or None) and
+    optionally "wiki_category" (from the format's wiki page). category_from is
+    "wiki" (the format's page), "format" (a known format), "summary" (keywords
+    in the description) or "other plays" (the format's other plays).
     """
     by_format = {}
     for c in comps:
         c["category"], c["category_from"] = None, None
         known = KNOWN_FORMATS.get(c["format"]) or KNOWN_NAMES.get(c["name"])
-        if known:
+        if c.get("wiki_category"):
+            c["category"], c["category_from"] = c["wiki_category"], "wiki"
+        elif known:
             c["category"], c["category_from"] = known, "format"
         else:
             cat = keyword_category(c["about"])

@@ -174,7 +174,9 @@ Things to know:
           "extra": {},                             // other columns, e.g. BB25's {"Multiverse": "…"}
           "about": "In the \"Bad A.I.\" Head of Household competition, …",  // episode-summary sentence, or null
           "category": "Mental",                    // Endurance | Physical | Mental | Puzzle | Crapshoot | null
-          "category_from": "summary"               // "format" | "summary" | "other plays" | null
+          "category_from": "summary",              // "wiki" | "format" | "summary" | "other plays" | null
+          "wiki_category": null,                   // the format page's own type, when fetched
+          "format_description": null               // the format page's one-line summary
         }],
         "have_nots": [{ "name": "Kimo", "chosen_by": null }],
         "checks": [{ "round": 1, "field": "Initial nominations",   // where the two wikis disagree
@@ -185,6 +187,7 @@ Things to know:
   "categories": [{ "name": "Endurance", "help": "last one standing" }, "…"],
   "formats": {                                     // one entry per recurring competition format
     "Knockout": { "url": "https://bigbrother.fandom.com/wiki/Knockout", "category": "Mental",
+                  "description": "…",              // the wiki's one-line summary, or null
                   "about": { "text": "…", "season": 26, "week": "Week 4" },  // how it's played, or null
                   "plays": [{ "season": 26, "week": "Week 4", "kind": "hoh", "name": "Bad AI",
                               "winners": ["Angela"], "day": "24", "category": "Mental", "about": "…" }] }
@@ -224,8 +227,9 @@ Things to know:
 - **`veto`.** Worked out from the nominations before and after the veto. The table
   doesn't state who the veto was used on, but it shows who came off the block and who
   replaced them.
-- **Competition categories.** Neither wiki tags competitions as physical, endurance and
-  so on, so `category` is worked out in `bbgrid/comps.py`: a list of recurring formats
+- **Competition categories.** `category` is worked out in `bbgrid/comps.py`: first the
+  Big Brother Wiki's page for the format, whose opening sentence names its type ("a
+  recurring endurance Head of Household competition"), then a list of recurring formats
   whose type is settled, then keywords in the competition's episode-summary sentence
   ("last HouseGuest standing", "true or false questions"), then the most common type
   among the format's other plays. About seven in ten HOH and veto competitions get one.

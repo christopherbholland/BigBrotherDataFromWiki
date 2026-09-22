@@ -152,6 +152,7 @@ def enrich_season(season, fandom_data, meta, weeks, details, players):
         return [names(v) for v in values]
 
     game = fandom_data["game"]
+    formats = fandom_data.get("formats") or {}
     comps_by_week, game_by_week = {}, {}
     for c in fandom_data["competitions"]:
         comps_by_week.setdefault(c["week"], []).append(c)
@@ -181,6 +182,9 @@ def enrich_season(season, fandom_data, meta, weeks, details, players):
                 "won": bool(WIN_RE.match(c["outcome"] or "")),
                 "round": rnd, "extra": c["extra"],
                 "about": describe(c["name"], sents) if c["kind"] != "twist" and c["name"] else None,
+                # The format page's own type and one-line summary, when it was fetched.
+                "wiki_category": (formats.get(c["format"]) or {}).get("category"),
+                "format_description": (formats.get(c["format"]) or {}).get("description"),
             })
             if c["kind"] == "twist" and comps[-1]["won"]:
                 for w in winners:

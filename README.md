@@ -99,10 +99,11 @@ line of season facts: premiere, days, cast size, prize and host.
 
 **Comps**: every HOH and veto competition of a season with its format and type
 (Endurance, Physical, Mental, Puzzle or Crapshoot), with a count of each type. Click a
-format (e.g. `#comp=The%20Wall`) for its page: how it's played (from an episode summary),
-every play across the seasons and who won, and a link to it on the Big Brother Wiki.
-Types are worked out from the format and the episode summaries, since neither wiki tags
-them; about seven in ten competitions get one.
+format (e.g. `#comp=The%20Wall`) for its page: the Big Brother Wiki's one-line summary,
+how it played out (from an episode summary), every play across the seasons and who won,
+and a link to it on the Big Brother Wiki. Types come from the format's Big Brother Wiki
+page ("a recurring endurance competition") where it names one, otherwise from the
+episode summaries.
 
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 

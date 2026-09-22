@@ -55,3 +55,24 @@ def test_same_winner_gets_one_comp_per_round():
     first = _round_for(record, "veto", ["Kyland"], taken)
     taken.add(("veto", first))
     assert (first, _round_for(record, "veto", ["Kyland"], taken)) == (1, 2)
+
+
+WALL_LEAD = """{{Recurring Competition
+| image= [[File:Wall.jpg|225px]]
+| description= Hang on to a moving wall as long as you can.
+}}'''{{PAGENAME}}''' is a recurring endurance [[Head of Household]] and [[Re-Entry Competition|Re-Entry]] competition.
+"""
+
+
+def test_format_page_gives_type_and_description():
+    from bbgrid.fandom import format_info
+    assert format_info(WALL_LEAD) == {"description": "Hang on to a moving wall as long as you can.",
+                                      "category": "Endurance"}
+    # A page whose opening sentence names no type leaves the category to comps.py.
+    assert format_info(WALL_LEAD.replace("endurance ", ""))["category"] is None
+
+
+def test_wiki_type_wins_over_guesses():
+    comps = [{"format": "The Wall", "name": "A", "about": "Players answer questions.", "wiki_category": "Mental"}]
+    categorize(comps)
+    assert (comps[0]["category"], comps[0]["category_from"]) == ("Mental", "wiki")

@@ -943,7 +943,7 @@ async function showComps(season) {
       + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : `<span class="zero">–</span>`}</td>`
       + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
       + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
-    + `</tbody></table><p class="season-info">Types are worked out from each format and the episode summaries.</p>`;
+    + `</tbody></table><p class="season-info">Types come from the Big Brother Wiki’s page for each format where it names one, otherwise from the episode summaries.</p>`;
 }
 
 async function showFormat(format) {
@@ -960,8 +960,9 @@ async function showFormat(format) {
   f.plays.forEach(x => x.winners.forEach(n => { const k = `${x.season}|${n}`; winners.set(k, (winners.get(k) || 0) + 1); }));
   const repeat = [...winners].filter(([, n]) => n > 1).map(([k, n]) => { const [season, name] = k.split("|"); return `${plink(+season, name)} (BB${season}) ×${n}`; });
   openDrawer(format, `${plural(f.plays.length, "play")} · ${kinds}${f.category ? ` · ${f.category}` : ""}`,
-    (f.category ? `<p><span class="cat">${esc(f.category)}</span> <span class="muted">${esc(help[f.category] || "")}</span></p>` : "")
-    + (about ? `<h3>How it works</h3><blockquote class="wnote">${esc(about.text)}<cite>BB${about.season} ${esc(about.week)} · Wikipedia</cite></blockquote>` : "")
+    (f.description ? `<p style="font-size:15px">${esc(f.description)}</p>` : "")
+    + (f.category ? `<p><span class="cat">${esc(f.category)}</span> <span class="muted">${esc(help[f.category] || "")}</span></p>` : "")
+    + (about ? `<h3>${f.description ? "On the show" : "How it works"}</h3><blockquote class="wnote">${esc(about.text)}<cite>BB${about.season} ${esc(about.week)} · Wikipedia</cite></blockquote>` : "")
     + `<h3>Every play</h3><ul class="timeline">` + f.plays.map(x =>
       `<li><a class="plink" href="${weekHash(x.season, x.week)}">BB${x.season} · ${esc(x.week.replace(/^Week\s*/i, "Wk "))}</a>`
       + `<div>${x.kind === "hoh" ? "HOH" : "Veto"}${x.name ? `: “${esc(x.name)}”` : ""}`

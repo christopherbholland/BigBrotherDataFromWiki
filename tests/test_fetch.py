@@ -75,3 +75,20 @@ def test_fetch_fandom_writes_page_and_houseguest_leads(tmp_path, monkeypatch):
     assert cached["houseguests"]["Alex Stone"]["lead"] == "{{Houseguest|Place=1st}}\n'''Alex''' won.\n"
     assert cached["houseguests"]["Robin"] == {"title": "Robin Park", "revid": 12, "lead": "x"}
     assert fetch.load_fandom_cached(27, tmp_path) is None
+
+
+def test_fetch_fandom_also_fetches_competition_format_pages(tmp_path, monkeypatch):
+    import bbgrid.fetch as fetch
+    html = FANDOM_HTML + """<h2>Competition History</h2><table class="wikitable">
+<tr><th>Week</th><th>Day</th><th>Type</th><th>Name</th><th>Result</th></tr>
+<tr><td>1</td><td>1</td><td>HOH</td><td><a href="/wiki/The_Wall" title="The Wall">Firewall</a></td><td>Alex<br>wins HOH</td></tr>
+</table><h2>Game History</h2>"""
+    monkeypatch.setattr(fetch, "PAUSE", 0)
+    monkeypatch.setattr(fetch, "fetch_page", lambda *a, **k: (html, 7, "{{Season}}"))
+    asked = []
+    monkeypatch.setattr(fetch, "fetch_leads", lambda titles, session=None: asked.append(sorted(titles)) or {
+        t: {"title": t, "revid": 1, "lead": "x"} for t in titles})
+    meta = fetch.fetch_fandom_season(26, "Big Brother 26 (US)", cache_dir=tmp_path, session=object())
+    assert asked == [["Alex Stone", "Robin"], ["The Wall"]]
+    assert meta["format_pages"] == 1
+    assert fetch.load_fandom_cached(26, tmp_path)["formats"]["The Wall"]["lead"] == "x"
