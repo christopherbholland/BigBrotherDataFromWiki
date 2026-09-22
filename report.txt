@@ -323,7 +323,7 @@ BB28 Week 11: NOTE: Two rounds: Day 74 / Day 77; Round 2 (Day 77): No eviction
     columns: Day 74 | Day 77
     Head of Household: Devens | Taylor
     Nominations (initial): Drew / Melody | Dee / Drew
-    Veto winner(s): Drew | 
+    Veto winner(s): Drew | Drew
     Block Buster winner: (None) | (None)
     Nominations (final): Melody / Taylor | 
     Dee: Melody | Nominated
