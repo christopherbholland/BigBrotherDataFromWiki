@@ -20,6 +20,26 @@ Wikipedia API -> fetch -> cache/ -> grid builder -> interpreter -> validator/exp
 
 Implementation choices and open assumptions are in `docs/implementation-notes.md`.
 
+## Screenshots
+
+> These screenshots show **synthetic data**: made-up houseguests from
+> `tests/fixtures/synthetic_season.html`, loaded as two fake seasons. The real grid has
+> one row per season, BB21–BB28.
+
+Hovering over a double-eviction week shows both rounds stacked:
+
+![Grid in light mode with the Week 3 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
+
+An `error` week (here the vote count disagrees with the tally) shows the failed check
+and the week's raw table text. Dark mode:
+
+![Grid in dark mode with an error-week tooltip](docs/screenshots/grid-error-dark.png)
+
+At phone width, tapping a cell pins its details. This is a Finale week, whose regular
+column is modeled and whose Finale column is shown as raw text:
+
+![Phone-width view with a Finale-week tooltip](docs/screenshots/mobile-finale.png)
+
 ## Usage
 
 ```sh
