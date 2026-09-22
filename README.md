@@ -27,6 +27,9 @@ Wikipedia API -> fetch -> cache/ -> grid builder -> interpreter -> validator/exp
 
 These show the real data: all eight seasons as fetched from Wikipedia on 2026-09-22.
 
+To retake them after a style change, run `python scripts/screenshots.py` (needs
+`pip install playwright` and `playwright install chromium`).
+
 **A double eviction.** BB26 Week 10's two rounds are stacked in both the cell and the
 tooltip:
 
