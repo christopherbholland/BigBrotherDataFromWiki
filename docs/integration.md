@@ -17,44 +17,23 @@ Any static host works. Serve `index.html`, `weeks.json` and `details.json` from 
 Opening the file directly (`file://`) won't work, because the browser blocks it from
 loading `weeks.json`.
 
-**GitHub Pages.** The simplest way is to publish the `web/` folder with a Pages workflow:
+**GitHub Pages.** The repo includes `.github/workflows/pages.yml`, which publishes the
+`web/` folder. It runs on every push to `main` that changes `web/`, after every run of the
+fetch workflow, and by hand from the Actions tab. To turn it on:
 
-1. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
-2. Add `.github/workflows/pages.yml`:
+1. Make sure Pages is available for the repo. It's free on public repos. A private repo
+   needs a paid plan (GitHub Pro or above). Either way, the published site itself is public.
+2. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Merge to `main`, or run **Publish page** from the Actions tab.
+4. The page is then at `https://<user>.github.io/BigBrotherDataFromWiki/`.
 
-   ```yaml
-   name: Publish page
-   on:
-     push:
-       branches: [main]
-       paths: [web/**]
-     # Commits made by the fetch workflow don't trigger push events,
-     # so also redeploy whenever a fetch run finishes.
-     workflow_run:
-       workflows: ["Fetch Wikipedia pages"]
-       types: [completed]
-       branches: [main]
-     workflow_dispatch:
-   permissions:
-     pages: write
-     id-token: write
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       environment: github-pages
-       steps:
-         - uses: actions/checkout@v4
-           with:
-             ref: main
-         - uses: actions/upload-pages-artifact@v3
-           with:
-             path: web
-         - uses: actions/deploy-pages@v4
-   ```
+**Staying current.** The fetch workflow runs every day at 14:00 UTC. When a Wikipedia page
+has changed, it commits the new data, and the Pages workflow republishes. You can also run
+**Fetch Wikipedia pages** by hand from the Actions tab, including from the GitHub mobile app.
 
-3. The page is then at `https://<user>.github.io/BigBrotherDataFromWiki/`.
-
-Change `main` to whichever branch you publish from.
+**On your phone.** Open the Pages address in Safari or Chrome. To open it like an app
+(full screen, no browser bar), use **Share → Add to Home Screen** in Safari, or **⋮ → Add
+to Home screen** in Chrome.
 
 **Any other static host** (Netlify, Cloudflare Pages, S3, your own server): upload
 `web/index.html`, `web/weeks.json` and `web/details.json` together.
