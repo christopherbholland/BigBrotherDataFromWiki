@@ -12,7 +12,118 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "3.66m"
  },
- "formats": {},
+ "formats": {
+  "As Close As You Can": {
+   "description": "Shoot as close to the target as possible.",
+   "category": null,
+   "revid": 675092
+  },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 614907
+  },
+  "Dizzy Discs": {
+   "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
+   "category": null,
+   "revid": 521301
+  },
+  "Faster Than A Speeding Veto": {
+   "description": "One player is attached to a rope and is raised upward as the other player runs forward. Both come back as the runner returns to the starting platform in order to hand pieces to complete a vertical puzzle.",
+   "category": null,
+   "revid": 522146
+  },
+  "Feeling Knotty": {
+   "description": "Untie a series of knots",
+   "category": null,
+   "revid": 696397
+  },
+  "Gear Puzzle": {
+   "description": "Place a number of gears on a wall so that they all move together.",
+   "category": null,
+   "revid": 677822
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Microbrews": {
+   "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
+   "category": null,
+   "revid": 699088
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Ready, Set, Woah": {
+   "description": "Contestants must wait for the word go and not be the last one across the finish.",
+   "category": null,
+   "revid": 605549
+  },
+  "Relay Race": {
+   "description": "Run down your lane and back completing the set objective of the competition.",
+   "category": null,
+   "revid": 649750
+  },
+  "Slippery Slope": {
+   "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
+   "category": null,
+   "revid": 695415
+  },
+  "Stacking": {
+   "description": "Balance and stack coins/discs/boxes on a small podium then race back to stack more.",
+   "category": null,
+   "revid": 678713
+  },
+  "Stay or Fold": {
+   "description": "Houseguests try to guess how many objects are in an area and bet by using stay or fold to win a point.",
+   "category": null,
+   "revid": 564213
+  },
+  "The Haunting": {
+   "description": "Navigate throughout the dark house in order to grab objects to satisfy the mission.",
+   "category": null,
+   "revid": 595033
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "What Competition Was That?": {
+   "description": "Place the competitions in the order they occurred.",
+   "category": null,
+   "revid": 533015
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "Yankee Swap": {
+   "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
+   "category": null,
+   "revid": 697394
+  }
+ },
  "roster": [
   [
    "Taylor Hale",

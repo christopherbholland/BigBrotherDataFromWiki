@@ -6,9 +6,11 @@ The category is worked out here, in this order:
      competition"; see fandom.format_info);
   1. KNOWN_FORMATS / KNOWN_NAMES: recurring formats (the Big Brother Wiki's format pages,
      e.g. "The Wall") whose category is settled;
-  2. keywords in the competition's own description, the episode-summary
+  2. keywords in the format page's one-line description ("Roll balls down a
+     winding track ...");
+  3. keywords in the competition's own description, the episode-summary
      sentence that names it ("... the last HouseGuest standing wins");
-  3. the most common category among other plays of the same format.
+  4. the most common category among other plays of the same format.
 Otherwise the category is None. The description is that sentence (and the
 next, when the first is short), verbatim.
 """
@@ -37,7 +39,6 @@ KNOWN_FORMATS = {
     "Before or After": "Mental",
     "Will Kirby": "Mental",
     "What The Bleep?": "Mental",
-    "As Close As You Can": "Mental",
     "Kaitlyn's Puzzle": "Puzzle",
     "Fitting In": "Puzzle",
     "Roll It Down": "Physical",
@@ -56,6 +57,8 @@ KNOWN_FORMATS = {
     "Seesaw": "Physical",
     "Carnival Quick Shot": "Physical",
     "Hourglass": "Physical",
+    "Time Highway": "Physical",
+    "Binary Bridge": "Crapshoot",
 }
 # Recurring competitions the wiki gives no format page, by name.
 KNOWN_NAMES = {
@@ -66,12 +69,13 @@ KNOWN_NAMES = {
 # Checked in this order; the first that matches decides.
 KEYWORDS = [
     ("Endurance", re.compile(
-        r"\blast (?:person|houseguest|one|player|remaining)s?\b|\bendurance\b|\boutlast|\blongest\b"
+        r"\blast (?:person|houseguest|one|player)s? (?:standing|remaining|left|to (?:hold|fall|drop|let go))"
+        r"|\bendurance\b|\boutlast|\bas long as (?:possible|you can)|\blongest time\b"
         r"|\b(?:hang|hold)(?:ing|s)? on(?:to)?\b|\bfalls? off\b|\bhour and \d+ minute", re.I)),
-    ("Puzzle", re.compile(r"\bpuzzles?\b|\bunscrambl|\bassembl(?:e|ing)\b", re.I)),
+    ("Puzzle", re.compile(r"\bpuzzles?\b|\bunscrambl|\bassembl(?:e|ing)\b|\bspell", re.I)),
     ("Mental", re.compile(
         r"\bquestions?\b|\btrue(?: or |/|-)false\b|\btrivia\b|\bquiz|\bmemori[sz]|\bremember|\bmemory\b"
-        r"|\bbefore or after\b|\bguess|\bclosest\b|\bestimat|\bmatch(?:ed|ing)? (?:the |different )?"
+        r"|\bbefore or after\b|\bchronological|\border (?:they|it) occurred|\bguess|\bclosest\b|\bestimat|\bmatch(?:ed|ing)? (?:the |different )?"
         r"(?:pictures|houseguests|photos|statements|quotes)|\bday numbers?\b", re.I)),
     ("Physical", re.compile(
         r"\brace\b|\bfastest\b|\bquickest\b|\broll(?:ed|ing|s)?\b|\bballs?\b|\bshoot|\btoss|\bthrow"
@@ -130,8 +134,9 @@ def categorize(comps):
 
     comps: HOH and veto comps with "format", "about" (description or None) and
     optionally "wiki_category" (from the format's wiki page). category_from is
-    "wiki" (the format's page), "format" (a known format), "summary" (keywords
-    in the description) or "other plays" (the format's other plays).
+    "wiki" (the format page's type word or description), "format" (a known
+    format), "summary" (keywords in the episode summary) or "other plays"
+    (the format's other plays).
     """
     by_format = {}
     for c in comps:
@@ -141,6 +146,8 @@ def categorize(comps):
             c["category"], c["category_from"] = c["wiki_category"], "wiki"
         elif known:
             c["category"], c["category_from"] = known, "format"
+        elif keyword_category(c.get("format_description")):
+            c["category"], c["category_from"] = keyword_category(c["format_description"]), "wiki"
         else:
             cat = keyword_category(c["about"])
             if cat:

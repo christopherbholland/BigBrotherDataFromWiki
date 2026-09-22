@@ -230,9 +230,10 @@ Things to know:
 - **Competition categories.** `category` is worked out in `bbgrid/comps.py`: first the
   Big Brother Wiki's page for the format, whose opening sentence names its type ("a
   recurring endurance Head of Household competition"), then a list of recurring formats
-  whose type is settled, then keywords in the competition's episode-summary sentence
-  ("last HouseGuest standing", "true or false questions"), then the most common type
-  among the format's other plays. About seven in ten HOH and veto competitions get one.
+  whose type is settled, then keywords in the format page's one-line description ("Hang
+  on to a moving wall as long as you can"), then in the competition's episode-summary
+  sentence, then the most common type among the format's other plays. About five in six
+  HOH and veto competitions get one.
 - **`bio` vs `fandom`.** The page shows age, hometown and occupation from `bio`
   (Wikipedia, age as listed there) and falls back to `fandom`.
 - **`comps`.** Competition names found in the episode summaries. A competition has a

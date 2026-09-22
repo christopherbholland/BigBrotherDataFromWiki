@@ -12,7 +12,173 @@
   "host": "Julie Chen-Moonves",
   "average_viewers": "3.05m"
  },
- "formats": {},
+ "formats": {
+  "BB Flix & Chill": {
+   "description": "Look at a set of movie posters and try to guess the correct one based on a set of clues.",
+   "category": null,
+   "revid": 518095
+  },
+  "Big Top Drop": {
+   "description": "Aim balls down a tube in a predetermined amount of time or balls",
+   "category": null,
+   "revid": 693873
+  },
+  "Carnival Quick Shot": {
+   "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
+   "category": null,
+   "revid": 691915
+  },
+  "Coin Stacking": {
+   "description": "Balance and stack coins/discs/boxes on a small podium then race back to stack more.",
+   "category": null,
+   "revid": 678713
+  },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 614907
+  },
+  "Dizzy Discs": {
+   "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
+   "category": null,
+   "revid": 521301
+  },
+  "Feel The Burn": {
+   "description": "Perform a set of reps in a certain time limit.",
+   "category": null,
+   "revid": 697044
+  },
+  "Getting Loopy": {
+   "description": "View a certain amount of video, then answer questions about them.",
+   "category": null,
+   "revid": 688794
+  },
+  "Giddy Up": {
+   "description": "Buck or spin on a horse/podium for a certain amount of times to get a set amount of time to stack objects on a pedestal. Contestants must keep on eye on their clock, as they must get back to their horse/podium on time.",
+   "category": null,
+   "revid": 631124
+  },
+  "Hide and Seek": {
+   "description": "Figure out which of the given hiding spots is safe to hide at to avoid elimination.",
+   "category": null,
+   "revid": 684486
+  },
+  "Johnny Mac": {
+   "description": null,
+   "category": null,
+   "revid": 669467
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 665975
+  },
+  "Kaitlyn's Puzzle": {
+   "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
+   "category": null,
+   "revid": 694212
+  },
+  "Knockout": {
+   "description": "Look at a picture, buzz in first, and answer correctly.",
+   "category": null,
+   "revid": 684535
+  },
+  "Microbrews": {
+   "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
+   "category": null,
+   "revid": 699088
+  },
+  "OTEV": {
+   "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
+   "category": null,
+   "revid": 688598
+  },
+  "Only One Path": {
+   "description": "Try to find the correct path and reach the buzzer before the time limit",
+   "category": null,
+   "revid": 697042
+  },
+  "Pressure Cooker": {
+   "description": "Be the last one left in the box and holding the button to win.",
+   "category": null,
+   "revid": 699221
+  },
+  "Pull Some Strings": {
+   "description": "Use two ropes to propel a bar/tilt a table up a ramp to carry balls to a target",
+   "category": null,
+   "revid": 690163
+  },
+  "Roll It Down": {
+   "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
+   "category": null,
+   "revid": 696882
+  },
+  "Rollin' in the Dough": {
+   "description": "Crawl through goo and slime to retrieve a certain number of items",
+   "category": null,
+   "revid": 698293
+  },
+  "Seesaw": {
+   "description": "Balance on a large seesaw to transport balls from one end to the other.",
+   "category": null,
+   "revid": 691144
+  },
+  "Sequence Explosion": {
+   "description": "A competition where houseguests watch a sequence of patterns to complete a task.",
+   "category": null,
+   "revid": 681456
+  },
+  "Shootout": {
+   "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
+   "category": null,
+   "revid": 694509
+  },
+  "Slippery Slope": {
+   "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
+   "category": null,
+   "revid": 695415
+  },
+  "Snapshot Shuffle": {
+   "description": "Arrange the photos in chronological order in the fastest time.",
+   "category": null,
+   "revid": 666843
+  },
+  "Somewhere Over The Veto": {
+   "description": "Race over obstacles in order to grab a predetermined amount of objects and return to your station to retrieve another object.",
+   "category": null,
+   "revid": 631123
+  },
+  "Swing, Slam, Dunk": {
+   "description": "Swing back & forth trying to hang on to your rope while sitting on a disc.",
+   "category": null,
+   "revid": 535314
+  },
+  "The Black Box": {
+   "description": "Inside a black box, search for objects and have the most after time runs out.",
+   "category": null,
+   "revid": 639395
+  },
+  "The Wall": {
+   "description": "Hang on to a moving wall as long as you can.",
+   "category": "Endurance",
+   "revid": 682100
+  },
+  "What Competition Was That?": {
+   "description": "Place the competitions in the order they occurred.",
+   "category": null,
+   "revid": 533015
+  },
+  "What Did They Just Do?": {
+   "description": "Watch a short performance and then answer questions.",
+   "category": null,
+   "revid": 694511
+  },
+  "Yankee Swap": {
+   "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
+   "category": null,
+   "revid": 697394
+  }
+ },
  "roster": [
   [
    "Jag Bains",
