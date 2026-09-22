@@ -7,7 +7,10 @@ Player totals are COUNTIFS formulas over the Weeks and Votes tabs, so a
 correction typed into those tabs flows through.
 """
 import json
+import re
+import zipfile
 from datetime import date
+from xml.sax.saxutils import escape
 
 from openpyxl import Workbook
 from openpyxl.formatting.rule import FormulaRule
@@ -26,8 +29,12 @@ CHOICES = '"OK,Wrong,Unsure"'
 
 
 def _key(names):
-    """Names as "|a|b|" so COUNTIFS can match whole names ("*|Nicole A.|*")."""
-    return "|" + "|".join(names) + "|" if names else ""
+    """Names as ";a;b;" so COUNTIFS can match whole names ("*;Nicole A.;*").
+
+    ";" rather than "|": some formula engines turn wildcards into regular
+    expressions without escaping, where "|" means "or".
+    """
+    return ";" + ";".join(names) + ";" if names else ""
 
 
 def _join(names):
@@ -56,6 +63,36 @@ def _tally_text(t):
     if t["type"] == "vote":
         return f"{t['votes_to_evict']} of {t['votes_cast']} votes to evict"
     return f"{t['by']}'s choice to evict"
+
+
+def _store_cached_values(path, sheetnames, values):
+    """Fill in formula cells' cached results, which openpyxl leaves empty.
+
+    Excel and Google Sheets recalculate on open anyway (the workbook sets
+    fullCalcOnLoad), but previewers that don't calculate, like the iPhone
+    Files preview, show only cached results. values: {sheet: {"D2": 3}}.
+    tests/test_proofread.py checks these against a formula engine.
+    """
+    with zipfile.ZipFile(path) as z:
+        parts = {name: z.read(name) for name in z.namelist()}
+    for index, title in enumerate(sheetnames, 1):
+        cells = values.get(title)
+        if not cells:
+            continue
+        name = f"xl/worksheets/sheet{index}.xml"
+        xml = parts[name].decode("utf-8")
+
+        def fill(m):
+            v = cells.get(m.group(1))
+            if v is None:
+                return m.group(0)
+            attrs = m.group(2) + ('' if isinstance(v, (int, float)) else ' t="str"')
+            return f'<c r="{m.group(1)}"{attrs}><f>{m.group(3)}</f><v>{escape(str(v))}</v></c>'
+        xml = re.sub(r'<c r="([A-Z]+\d+)"([^>]*)><f>(.*?)</f><v></v></c>', fill, xml)
+        parts[name] = xml.encode("utf-8")
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+        for name, data in parts.items():
+            z.writestr(name, data)
 
 
 def _sheet(wb, title, headers, widths, rows, links=None, wrap=(), hidden=(), note_col=None):
@@ -164,7 +201,9 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
                 vt_rows.append([f"BB{w['season']}", w["week_label"], rnd["sub_label"] or "", nv["voter"],
                                 "", nv["reason"], rnd["evicted"] or "", None, None, "", ""])
             vt_links += [src(w["season"])] * (len(vt_rows) + 2 - r)
+    cached = {"Votes": {}, "Players": {}}
     for r, row in enumerate(vt_rows, 2):
+        cached["Votes"][f"H{r}"] = "" if not row[4] else ("Yes" if row[4] == row[6] else "No")
         row[7] = f'=IF(E{r}="","",IF(E{r}=G{r},"Yes","No"))'
     _sheet(wb, "Votes", vt_headers, [8, 9, 9, 14, 16, 22, 14, 14, 11, 12, 30], vt_rows, vt_links)
 
@@ -182,8 +221,12 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
         return f"Votes!${c}$2:${c}${vl}"
     pl_rows = []
     for r, p in enumerate(players, 2):
+        totals = [len(p["hoh"]), len(p["veto"]), len(p["twist"]), len(p["nominated"]), len(p["on_block"]),
+                  sum(len(v["voters"]) for v in p["votes_against"]), len(p["votes_cast"]),
+                  sum(v["with_house"] for v in p["votes_cast"])]
+        cached["Players"].update({f"{get_column_letter(4 + i)}{r}": t for i, t in enumerate(totals)})
         def weeks_count(key_col):
-            return f'=COUNTIFS({wk("A")},$A{r},{wk(col[key_col])},"*|"&$B{r}&"|*")'
+            return f'=COUNTIFS({wk("A")},$A{r},{wk(col[key_col])},"*;"&$B{r}&";*")'
         pl_rows.append([
             f"BB{p['season']}", p["name"], p["result"] or "In the game",
             weeks_count("hoh_key"), weeks_count("veto_key"), weeks_count("twist_key"),
@@ -287,5 +330,6 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     readme.cell(row=5, column=1).fill = INPUT_FILL
 
     wb.save(out)
+    _store_cached_values(out, wb.sheetnames, cached)
     return out, {"weeks": len(wk_rows), "votes": len(vt_rows), "players": len(pl_rows),
                  "competitions": len(cp_rows), "notes": len(nt_rows), "episodes": len(ep_rows)}
