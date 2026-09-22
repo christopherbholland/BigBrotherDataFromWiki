@@ -41,11 +41,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cache/
-          if git diff --cached --quiet; then
+          # Only the fetch timestamps change when a page hasn't been edited,
+          # so compare the HTML to decide whether there's anything to commit.
+          if git diff --quiet -- 'cache/*.html'; then
             echo "Wikipedia pages unchanged; nothing to commit"
           else
-            git add web/weeks.json report.txt
+            git add cache/ web/weeks.json report.txt
             git commit -m "Update Wikipedia page cache and weeks.json"
             git push
           fi
