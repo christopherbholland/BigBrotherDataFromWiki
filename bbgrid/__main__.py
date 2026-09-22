@@ -4,6 +4,7 @@
   python -m bbgrid build                 cache/ -> web/weeks.json + report.txt
   python -m bbgrid inspect [SEASON ...]  print each cached table's headers and row labels
   python -m bbgrid refresh SEASON ...    fetch the given seasons, then build
+  python -m bbgrid proofread             web/*.json -> proofread.xlsx (a sheet to check every fact)
 """
 import argparse
 import sys
@@ -48,7 +49,7 @@ def cmd_inspect(seasons):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="bbgrid")
-    parser.add_argument("command", choices=["fetch", "build", "inspect", "refresh"])
+    parser.add_argument("command", choices=["fetch", "build", "inspect", "refresh", "proofread"])
     parser.add_argument("seasons", nargs="*", type=int)
     args = parser.parse_args(argv)
     all_seasons = load_seasons()
@@ -63,6 +64,10 @@ def main(argv=None):
         cmd_build()
     elif args.command == "inspect":
         cmd_inspect(chosen)
+    elif args.command == "proofread":
+        from .proofread import build as build_sheet
+        out, counts = build_sheet()
+        print(f"wrote {out.name}: " + ", ".join(f"{n} {k}" for k, n in counts.items()))
     elif args.command == "refresh":
         if not args.seasons:
             parser.error("refresh needs at least one season, e.g. `refresh 28`")
