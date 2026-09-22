@@ -1,8 +1,8 @@
 # BigBrotherDataFromWiki
 
 A week-by-week grid of US Big Brother seasons 21–28. Each cell is one week of one season.
-Hovering shows that week's HOH, nominees, veto winner(s), final nominees, who was evicted,
-and the vote tally. The data comes from the "Voting history" table on each season's
+Hovering shows that week's HOH, noms, veto winner(s), final noms, who was evicted, and the
+vote tally. The season currently airing (BB28) is on top. The data comes from the "Voting history" table on each season's
 Wikipedia page.
 
 ```
@@ -18,7 +18,10 @@ Wikipedia API -> fetch -> cache/ -> grid builder -> interpreter -> validator/exp
 | 4. Validator + exporter | `bbgrid/validate.py`, `bbgrid/export.py` | checks each round, writes the outputs |
 | 5. Web page | `web/index.html` | static page that reads `weeks.json` |
 
-Implementation choices and open assumptions are in `docs/implementation-notes.md`.
+- **Hosting, embedding, or using the data elsewhere:** see
+  [`docs/integration.md`](docs/integration.md).
+- **Implementation choices and what the real tables showed:** see
+  [`docs/implementation-notes.md`](docs/implementation-notes.md).
 
 ## Screenshots
 
@@ -41,8 +44,8 @@ modeled, and the Camp Comeback column (Cliff winning re-entry) is flagged:
 
 ![Light-mode grid with the BB21 Week 3 note tooltip and raw table text](docs/screenshots/grid-note.png)
 
-**Phone.** The grid scrolls sideways with the season labels pinned, and tapping a cell
-pins its details. BB26 Week 3 had two veto winners and the AI Arena twist:
+**Phone.** The grid scrolls sideways with the season labels pinned. Tapping a cell opens
+its details just below it. BB26 Week 3 had two veto winners and the AI Arena twist:
 
 <img src="docs/screenshots/mobile-week.png" alt="Phone-width view with the BB26 Week 3 tooltip" width="390">
 
@@ -64,6 +67,25 @@ pytest
 `report.txt` lists every week that isn't `ok`. It's the main acceptance check.
 
 To add a season, add a line to `seasons.yaml`.
+
+## Integrating
+
+The page is one static HTML file plus `weeks.json`, so it can go anywhere:
+
+- **Host it** on GitHub Pages or any static host. Serve `web/` over HTTP.
+- **Embed it** in another site with an iframe; `?embed=1` hides the page's title:
+  ```html
+  <iframe src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
+          title="Big Brother week-by-week grid"
+          style="width:100%;height:560px;border:0" loading="lazy"></iframe>
+  ```
+- **Use the data**: `web/weeks.json` has one record per season-week, with every field
+  documented.
+- **Keep it fresh** by running the **Fetch Wikipedia pages** action. It refetches the
+  pages, rebuilds `weeks.json`, and commits the changes.
+
+Step-by-step instructions, including a ready-made GitHub Pages workflow and the full data
+format, are in [`docs/integration.md`](docs/integration.md).
 
 ## Tests
 

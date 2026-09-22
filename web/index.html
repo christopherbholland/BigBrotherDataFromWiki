@@ -114,6 +114,9 @@ table.grid { border-collapse: separate; border-spacing: 2px; padding: 8px; }
 .msg { padding: 24px; color: var(--text-secondary); }
 footer { margin-top: 16px; color: var(--text-muted); font-size: 12px; }
 footer a { color: var(--text-secondary); }
+/* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
+.embed main { padding-top: 8px; }
+.embed h1, .embed .sub { display: none; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -132,11 +135,13 @@ footer a { color: var(--text-secondary); }
 </main>
 <div id="tip" role="tooltip"></div>
 <script>
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
 const FIELDS = [
-  ["hoh", "Head of Household"],
-  ["nominees_initial", "Nominees"],
+  ["hoh", "HOH"],
+  ["nominees_initial", "Noms"],
   ["veto_winners", "Veto"],
-  ["nominees_final", "Final nominees"],
+  ["nominees_final", "Final noms"],
 ];
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -182,7 +187,8 @@ function cellLabel(w) {
 
 function render(data) {
   const weeks = data.weeks;
-  const seasons = [...new Set(weeks.map(w => w.season))].sort((a, b) => a - b);
+  // Newest season first, so the season currently airing is on top.
+  const seasons = [...new Set(weeks.map(w => w.season))].sort((a, b) => b - a);
   // Columns keyed by week label as Wikipedia shows it; numbered weeks first, in order.
   const labels = [];
   for (const w of [...weeks].sort((a, b) => (a.week ?? 1e9) - (b.week ?? 1e9))) {
@@ -228,11 +234,20 @@ function wireTooltip(weeks) {
     tip.innerHTML = tipHtml(weeks[+btn.dataset.i]);
     tip.style.display = "block";
     const r = btn.getBoundingClientRect();
-    const px = x ?? r.right, py = y ?? r.top;
     const tw = tip.offsetWidth, th = tip.offsetHeight;
-    let left = px + 12, top = py + 12;
-    if (left + tw > innerWidth - 8) left = Math.max(8, px - tw - 12);
-    if (top + th > innerHeight - 8) top = Math.max(8, innerHeight - th - 8);
+    let left, top;
+    if (x != null) {
+      // Mouse: follow the pointer, flipping left/up at the viewport edges.
+      left = x + 12; top = y + 12;
+      if (left + tw > innerWidth - 8) left = Math.max(8, x - tw - 12);
+      if (top + th > innerHeight - 8) top = Math.max(8, innerHeight - th - 8);
+    } else {
+      // Tap or keyboard focus: sit below the cell (above if no room) so it stays visible.
+      left = Math.min(Math.max(8, r.left), innerWidth - tw - 8);
+      top = r.bottom + 6;
+      if (top + th > innerHeight - 8) top = r.top - th - 6;
+      if (top < 8) top = Math.max(8, innerHeight - th - 8);
+    }
     tip.style.left = left + "px"; tip.style.top = top + "px";
   };
   const hide = () => { tip.style.display = "none"; };
