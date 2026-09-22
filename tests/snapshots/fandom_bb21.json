@@ -1283,7 +1283,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698855
+   "revid": 698855,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/1/12/BB21_Jackson_Large.jpg/revision/latest"
   },
   "Holly Allen": {
    "page": "Holly Allen",
@@ -1313,7 +1314,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 690937
+   "revid": 690937,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/8/80/BB21_Holly_Large.jpg/revision/latest"
   },
   "Nicole Anthony": {
    "page": "Nicole Anthony",
@@ -1339,7 +1341,8 @@
     "Big Brother 22 (US)",
     "Big Brother 21 (US)"
    ],
-   "revid": 661813
+   "revid": 661813,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/5/54/BB21_Nicole_Large.jpg/revision/latest"
   },
   "Cliff Hogg III": {
    "page": "Cliff Hogg III",
@@ -1364,7 +1367,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698967
+   "revid": 698967,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/5/5d/BB21_Cliff_Large.jpg/revision/latest"
   },
   "Tommy Bracco": {
    "page": "Tommy Bracco",
@@ -1390,7 +1394,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698963
+   "revid": 698963,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/b/b4/BB21_Tommy_Large.jpg/revision/latest"
   },
   "Christie Murphy": {
    "page": "Christie Murphy",
@@ -1421,7 +1426,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698812
+   "revid": 698812,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/09/BB21_Christie_Large.jpg/revision/latest"
   },
   "Jessica Milagros": {
    "page": "Jessica Milagros",
@@ -1446,7 +1452,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 669630
+   "revid": 669630,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/04/BB21_Jessica_Large.jpg/revision/latest"
   },
   "Nick Maccarone": {
    "page": "Nick Maccarone",
@@ -1472,7 +1479,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698965
+   "revid": 698965,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/24/BB21_Nick_Large.jpg/revision/latest"
   },
   "Analyse Talavera": {
    "page": "Analyse Talavera",
@@ -1502,7 +1510,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698971
+   "revid": 698971,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/b/bd/BB21_Analyse_Large.jpg/revision/latest"
   },
   "Kathryn Dunn": {
    "page": "Kathryn Dunn",
@@ -1531,7 +1540,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698973
+   "revid": 698973,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/b/b1/BB21_Kathryn_Large.jpg/revision/latest"
   },
   "Jack Matthews": {
    "page": "Jack Matthews",
@@ -1557,7 +1567,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 669626
+   "revid": 669626,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2a/BB21_Jack_Large.jpg/revision/latest"
   },
   "Sam Smith": {
    "page": "Sam Smith",
@@ -1583,7 +1594,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 698969
+   "revid": 698969,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/ac/BB21_Sam_Large.jpg/revision/latest"
   },
   "Isabella Wang": {
    "page": "Isabella Wang",
@@ -1611,7 +1623,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 615105
+   "revid": 615105,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/7/7e/BB21_Isabella_Large.jpg/revision/latest"
   },
   "Kemi Fakunle": {
    "page": "Kemi Fakunle",
@@ -1634,7 +1647,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 648532
+   "revid": 648532,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/33/BB21_Kemi_Large.jpg/revision/latest"
   },
   "Ovi Kabir": {
    "page": "Ovi Kabir",
@@ -1657,7 +1671,8 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 691547
+   "revid": 691547,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d3/BB21_Ovi_Large.jpg/revision/latest"
   },
   "David Alexander": {
    "page": "David Alexander",
@@ -1678,7 +1693,26 @@
     "Big Brother 22 (US)",
     "Big Brother 21 (US)"
    ],
-   "revid": 669495
+   "revid": 669495,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/7/71/BB21_David_Large.jpg/revision/latest"
   }
+ },
+ "photos": {
+  "Jackson Michie": "https://static.wikia.nocookie.net/bigbrother/images/6/60/BB21_Small_Jackson.png/revision/latest?cb=20190622042807",
+  "Holly Allen": "https://static.wikia.nocookie.net/bigbrother/images/9/90/BB21_Small_Holly.png/revision/latest?cb=20190622042757",
+  "Nicole Anthony": "https://static.wikia.nocookie.net/bigbrother/images/4/4e/BB21_Small_Nicole.png/revision/latest?cb=20190622042825",
+  "Cliff Hogg III": "https://static.wikia.nocookie.net/bigbrother/images/2/23/BB21_Small_Cliff.png/revision/latest?cb=20190622042750",
+  "Tommy Bracco": "https://static.wikia.nocookie.net/bigbrother/images/8/80/BB21_Small_Tommy.png/revision/latest?cb=20190622042836",
+  "Christie Murphy": "https://static.wikia.nocookie.net/bigbrother/images/a/a6/BB21_Small_Christie.png/revision/latest?cb=20190622042747",
+  "Jessica Milagros": "https://static.wikia.nocookie.net/bigbrother/images/2/24/BB21_Small_Jessica.png/revision/latest?cb=20190622042810",
+  "Nick Maccarone": "https://static.wikia.nocookie.net/bigbrother/images/0/05/BB21_Small_Nick.png/revision/latest?cb=20190622042822",
+  "Analyse Talavera": "https://static.wikia.nocookie.net/bigbrother/images/3/34/BB21_Small_Analyse.png/revision/latest?cb=20190622042743",
+  "Kathryn Dunn": "https://static.wikia.nocookie.net/bigbrother/images/3/30/BB21_Small_Kathryn.png/revision/latest?cb=20190622042813",
+  "Jack Matthews": "https://static.wikia.nocookie.net/bigbrother/images/5/5e/BB21_Small_Jack.png/revision/latest?cb=20190622042803",
+  "Sam Smith": "https://static.wikia.nocookie.net/bigbrother/images/9/95/BB21_Small_Sam.png/revision/latest?cb=20190622042832",
+  "Isabella Wang": "https://static.wikia.nocookie.net/bigbrother/images/4/4c/BB21_Small_Isabella.png/revision/latest?cb=20190622042800",
+  "Kemi Fakunle": "https://static.wikia.nocookie.net/bigbrother/images/6/6e/BB21_Small_Kemi.png/revision/latest?cb=20190622042818",
+  "Ovi Kabir": "https://static.wikia.nocookie.net/bigbrother/images/3/31/BB21_Small_Ovi.png/revision/latest?cb=20190622042828",
+  "David Alexander": "https://static.wikia.nocookie.net/bigbrother/images/3/35/BB21_Small_David.png/revision/latest?cb=20190622042754"
  }
 }

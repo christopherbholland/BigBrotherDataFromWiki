@@ -5,8 +5,8 @@ records. This adds to details.json:
   weeks[key]["fandom"]   competitions (all of them, with names, formats and the
                          episode-summary sentence describing them),
                          Have-Nots, and where the two wikis disagree
-  players[i]["fandom"]   bio (full name, age, hometown, occupation, ...) and
-                         Have-Not weeks
+  players[i]["fandom"]   bio (full name, age, hometown, occupation, ...),
+                         headshot and portrait URLs, and Have-Not weeks
   seasons[season]        the season infobox (premiere, prize, host, ...)
 and returns report lines for anything that didn't match up.
 
@@ -236,6 +236,7 @@ def enrich_season(season, fandom_data, meta, weeks, details, players):
         p["fandom"] = {
             **({k: v for k, v in bio.items() if k != "revid"} if bio else {"page": title}),
             "url": fandom_url(title) if title else None,
+            "photo": fandom_data.get("photos", {}).get(title),
             "have_not": player_have_not.get(p["name"], []),
             "twist_wins": player_wins.get(p["name"], []),
         } if title else None

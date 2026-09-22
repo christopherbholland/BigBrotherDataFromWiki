@@ -92,6 +92,13 @@ History differs from Wikipedia on that week's HOH, nominations, veto winner or v
 
 **HOH view.** The Evicted / HOH switch above the grid shows whose HOH week each one was.
 
+**Photos.** Each houseguest's headshot from the Big Brother Wiki appears in the grid (above
+the evictee's or HOH's name), the players table, a player's details and the week's votes.
+Players still in the game have a blue ring, the winner a gold one, and everyone else is
+greyed out. The **Photos** button next to Evicted / HOH turns them off in the grid. The
+pictures are linked from where the wiki keeps them, not copied; initials stand in if one
+doesn't load.
+
 **Players**: a table for each season with each houseguest's age, hometown and occupation
 (from Wikipedia's cast table), then comps (HOHs, vetoes, AI Arena or Block Buster wins in
 the seasons that have them, and twists: powers, safety and other twist wins), nominations,
@@ -99,7 +106,8 @@ and votes: VTE (votes to evict them), votes cast and the share cast with the hou
 a player for a week-by-week timeline that names the competitions they won, their comp
 wins by type, and whether they were saved by the veto or by a twist. From the Big Brother
 Wiki it adds each player's full name, alliances and Have-Not weeks. The table also gets a
-line of season facts: premiere, days, cast size, prize and host.
+line of season facts: premiere, days, cast size, prize and host, and the season's top five
+by HOH and veto wins, ranked gold, silver and bronze.
 
 **Comps**: every HOH and veto competition of a season with its format and type
 (Endurance, Physical, Mental, Puzzle or Crapshoot), with a count of each type. Click a
@@ -191,4 +199,6 @@ format, are in [`docs/integration.md`](docs/integration.md).
 
 The grid's data comes from Wikipedia under CC BY-SA 4.0. The detail views also use the
 Big Brother Wiki (bigbrother.fandom.com) under CC BY-SA 3.0. The page credits each source
-article on both wikis and links to the exact revision used.
+article on both wikis and links to the exact revision used. Houseguest photos are CBS
+promotional images, not CC BY-SA content: the page links to them on the Big Brother Wiki
+(it doesn't copy them) and credits them in its footer.

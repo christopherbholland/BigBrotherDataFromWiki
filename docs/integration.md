@@ -78,7 +78,7 @@ The file has this shape:
 ```jsonc
 {
   "generated_at": "2026-09-22T18:20:46+00:00",
-  "license": "Wikipedia content, CC BY-SA 4.0; Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0",
+  "license": "Wikipedia content, CC BY-SA 4.0; Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; houseguest photos are CBS promotional images, linked from the Big Brother Wiki",
   "sources": [
     { "season": 26, "title": "Big Brother 26 (American season)",
       "url": "https://en.wikipedia.org/wiki/…", "revid": 1234, "fetched_at": "…",
@@ -109,7 +109,10 @@ The file has this shape:
       "raw": null,                     // for note/error weeks: the week's table text
       "footnotes": ["c"]               // Wikipedia footnote markers in the week's cells
     }
-  ]
+  ],
+  "photos": {                          // each houseguest's headshot, by season and Wikipedia name
+    "26": { "Angela": "https://static.wikia.nocookie.net/bigbrother/images/2/27/US26_Small_Angela.jpg/revision/latest?cb=20240715171442" }
+  }
 }
 ```
 
@@ -127,6 +130,12 @@ Things to know:
   sub-column.
 - **Week keys.** `week` is the number from the table header; `week_label` is the header
   text as shown.
+- **`photos`.** The Big Brother Wiki's 4:5 headshot of each houseguest, from the cards
+  in the season page's Houseguests section. A houseguest with no Big Brother Wiki page
+  has no entry. The wiki resizes on request: insert `/scale-to-width-down/<px>` after
+  `/revision/latest` (the page asks for 80px). These pictures are CBS promotional photos,
+  not CC BY-SA content: the page links to them where the wiki keeps them rather than
+  copying them, and credits them in its footer.
 - **Attribution.** If you publish anything built on this data, credit Wikipedia under
   CC BY-SA 4.0 and link the source pages. They're in `sources`, with `permalink` pointing
   at the exact revision used. If you use the Big Brother Wiki fields (everything under
@@ -214,6 +223,8 @@ Things to know:
       "hometown": ["Long Beach, CA", "Syracuse, UT"], "occupation": "Realtor", "nickname": ["Mama"],
       "place": "6th", "days": "73", "alliances": ["BB Guns", "…"], "other_prizes": [],
       "seasons": ["Big Brother 26 (US)", "Big Brother 28 (US)"],
+      "photo": "https://static.wikia.nocookie.net/…/US26_Small_Angela.jpg/revision/latest?cb=…",  // headshot, as in weeks.json
+      "portrait": "https://static.wikia.nocookie.net/…/US26_Angela_Large.jpg/revision/latest",   // this season's large picture; null if none
       "have_not": ["Week 5"],
       "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…", "outcome": "is saved", "prize": null }]
                                                    // twist wins, plus punishments that have a name
@@ -245,6 +256,10 @@ Things to know:
   show) have `winner: null`. `source` is the sentence the name came from.
 - **`episodes`.** From the season page's episode table, grouped by the week headings
   already in that table.
+- **`fandom.portrait`.** The larger picture in the houseguest's infobox for this season,
+  picked by the season in its file name or caption. Its URL is built from the file name
+  (the wiki stores files under the MD5 of the name), so it isn't checked when building;
+  the page falls back to `photo`, then initials, if it doesn't load.
 - **`fandom`.** Read from the Big Brother Wiki. Names are translated to Wikipedia's (the
   wiki says "Jackson" where Wikipedia says "Michie"). A name that can't be matched is kept
   as the wiki writes it and listed in `report.txt`. The page prefers `fandom.comps` over
