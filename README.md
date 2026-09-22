@@ -22,21 +22,29 @@ Implementation choices and open assumptions are in `docs/implementation-notes.md
 
 ## Screenshots
 
-These use the real data: all eight seasons as fetched on 2026-09-22.
+These show the real data: all eight seasons as fetched from Wikipedia on 2026-09-22.
 
-Hovering over BB26 Week 10 shows the double eviction's two rounds stacked:
+**A double eviction.** BB26 Week 10's two rounds are stacked in both the cell and the
+tooltip:
 
 ![Light-mode grid of BB21–BB28 with the BB26 Week 10 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
 
-A `note` week (marked `!`) shows why it isn't fully modeled, plus that week's raw table
-text. This is BB21 Week 3, where the second column is the Camp Comeback re-entry. Dark mode:
+**Two rounds that aren't a double eviction.** BB24 Week 7 was the split house, with
+separate "Inside" and "Outside" evictions. Both are modeled, and the note names the
+columns instead of calling it a double eviction. Dark mode:
 
-![Dark-mode grid with the BB21 Week 3 note tooltip](docs/screenshots/grid-note-dark.png)
+![Dark-mode grid with the BB24 Week 7 "Two rounds: Inside / Outside" tooltip](docs/screenshots/grid-split-house-dark.png)
 
-At phone width the grid scrolls sideways and tapping a cell pins its details. This is
-BB26 Week 4, with two HOHs and the AI Arena twist row:
+**A twist week.** Weeks marked `!` aren't fully modeled. The tooltip gives the reason and
+the week's table text as Wikipedia shows it. In BB21 Week 3 the regular eviction is
+modeled, and the Camp Comeback column (Cliff winning re-entry) is flagged:
 
-![Phone-width view with the BB26 Week 4 tooltip](docs/screenshots/mobile-week.png)
+![Light-mode grid with the BB21 Week 3 note tooltip and raw table text](docs/screenshots/grid-note.png)
+
+**Phone.** The grid scrolls sideways with the season labels pinned, and tapping a cell
+pins its details. BB26 Week 3 had two veto winners and the AI Arena twist:
+
+<img src="docs/screenshots/mobile-week.png" alt="Phone-width view with the BB26 Week 3 tooltip" width="390">
 
 ## Usage
 
