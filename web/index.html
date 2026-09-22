@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Brother Weeks</title>
+<style>
+:root {
+  color-scheme: light;
+  --surface-0: #f4f4f2;
+  --surface-1: #fcfcfb;
+  --cell: #ecebe7;
+  --cell-hover: #dcdad3;
+  --line: #d6d4cd;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #75736d;
+  --accent: #2a78d6;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --tip-bg: #ffffff;
+  --tip-shadow: 0 6px 24px rgba(0,0,0,.14);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-0: #121211;
+    --surface-1: #1a1a19;
+    --cell: #2a2a28;
+    --cell-hover: #3a3a37;
+    --line: #3a3a37;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #9a998f;
+    --accent: #3987e5;
+    --tip-bg: #242422;
+    --tip-shadow: 0 6px 24px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-0: #121211;
+  --surface-1: #1a1a19;
+  --cell: #2a2a28;
+  --cell-hover: #3a3a37;
+  --line: #3a3a37;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #9a998f;
+  --accent: #3987e5;
+  --tip-bg: #242422;
+  --tip-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--surface-0); color: var(--text-primary);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1400px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+.sub { color: var(--text-secondary); margin: 0 0 16px; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; color: var(--text-secondary); font-size: 13px; margin-bottom: 12px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 18px; height: 14px; border-radius: 3px; background: var(--cell); display: inline-grid; }
+.swatch.split { grid-template-rows: 1fr 1fr; gap: 2px; background: none; }
+.swatch.split i { background: var(--cell); border-radius: 2px; }
+.panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; }
+table.grid { border-collapse: separate; border-spacing: 2px; padding: 8px; }
+.grid th { font-weight: 600; color: var(--text-secondary); font-size: 12px; padding: 4px 6px; white-space: nowrap; }
+.grid thead th { text-align: center; }
+.grid tbody th { text-align: right; position: sticky; left: 0; background: var(--surface-1); z-index: 1; }
+.grid tbody th a { color: inherit; text-decoration: none; }
+.grid tbody th a:hover { text-decoration: underline; }
+.grid td { padding: 0; }
+.cell {
+  display: grid; gap: 2px; width: 84px; min-height: 40px; padding: 0; border: 0;
+  background: none; color: inherit; font: inherit; cursor: pointer; position: relative; text-align: left;
+}
+.cell .part {
+  background: var(--cell); border-radius: 4px; padding: 3px 6px; font-size: 12px;
+  display: flex; align-items: center; min-height: 19px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.cell:not(.multi) .part { min-height: 40px; }
+.cell:hover .part, .cell:focus-visible .part, .cell.active .part { background: var(--cell-hover); }
+.cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
+.cell .empty { color: var(--text-muted); }
+.badge {
+  position: absolute; top: -3px; right: -3px; width: 14px; height: 14px; border-radius: 50%;
+  font-size: 10px; line-height: 14px; text-align: center; font-weight: 700; color: #0b0b0b;
+  box-shadow: 0 0 0 2px var(--surface-1);
+}
+.badge.note { background: var(--warning); }
+.badge.error { background: var(--critical); color: #fff; }
+#tip {
+  position: fixed; z-index: 10; max-width: min(380px, calc(100vw - 32px)); pointer-events: none;
+  background: var(--tip-bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--tip-shadow);
+  padding: 10px 12px; font-size: 13px; display: none;
+}
+#tip.pinned { pointer-events: auto; }
+#tip h3 { margin: 0 0 2px; font-size: 14px; }
+#tip .status { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+#tip .round + .round { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; }
+#tip .round h4 { margin: 0 0 4px; font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+#tip dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin: 0; }
+#tip dt { color: var(--text-secondary); }
+#tip dd { margin: 0; }
+#tip .raw { margin-top: 8px; font-size: 12px; max-height: 260px; overflow: auto; }
+#tip .raw table { border-collapse: collapse; }
+#tip .raw td { border-top: 1px solid var(--line); padding: 2px 6px 2px 0; vertical-align: top; white-space: pre-line; }
+#tip .raw td:first-child { color: var(--text-secondary); }
+#tip .fn { margin-top: 6px; color: var(--text-muted); font-size: 12px; }
+.msg { padding: 24px; color: var(--text-secondary); }
+footer { margin-top: 16px; color: var(--text-muted); font-size: 12px; }
+footer a { color: var(--text-secondary); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Big Brother, week by week</h1>
+  <p class="sub">US seasons 21–28. Each cell names who was evicted that week. Hover, tap, or tab to a cell for details.</p>
+  <div class="legend" aria-hidden="true">
+    <span><i class="swatch"></i> One eviction</span>
+    <span><i class="swatch split"><i></i><i></i></i> Double eviction (stacked)</span>
+    <span><i class="badge note" style="position:static">!</i> Note: not fully modeled</span>
+    <span><i class="badge error" style="position:static">×</i> Error: failed a check</span>
+  </div>
+  <div class="panel" id="panel"><div class="msg">Loading weeks.json…</div></div>
+  <footer id="footer"></footer>
+</main>
+<div id="tip" role="tooltip"></div>
+<script>
+const FIELDS = [
+  ["hoh", "Head of Household"],
+  ["nominees_initial", "Nominees"],
+  ["veto_winners", "Veto"],
+  ["nominees_final", "Final nominees"],
+];
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function tallyText(t) {
+  if (!t) return "";
+  if (t.type === "vote") return `${t.votes_to_evict} of ${t.votes_cast} votes to evict`;
+  if (t.type === "sole_vote") return `${t.by}’s choice to evict`;
+  return "";
+}
+
+function roundHtml(r, label) {
+  const rows = FIELDS
+    .filter(([k]) => r[k] && r[k].length)
+    .map(([k, name]) => `<dt>${name}</dt><dd>${esc(r[k].join(", "))}</dd>`);
+  for (const [k, v] of Object.entries(r.extras || {})) rows.push(`<dt>${esc(k)}</dt><dd>${esc(v.join(", "))}</dd>`);
+  if (r.evicted) rows.push(`<dt>Evicted</dt><dd><strong>${esc(r.evicted)}</strong>${r.tally ? `<br><span style="color:var(--text-secondary)">${esc(tallyText(r.tally))}</span>` : ""}</dd>`);
+  return `<div class="round">${label ? `<h4>${esc(label)}</h4>` : ""}<dl>${rows.join("")}</dl></div>`;
+}
+
+function rawHtml(raw) {
+  if (!raw) return "";
+  const head = raw.columns.length > 1 ? `<tr><td></td>${raw.columns.map(c => `<td><strong>${esc(c)}</strong></td>`).join("")}</tr>` : "";
+  const body = raw.rows.map(r => `<tr><td>${esc(r.label)}</td>${r.cells.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+  return `<div class="raw"><h4 style="margin:0 0 4px;font-size:12px;color:var(--text-secondary)">Table text for this week</h4><table>${head}${body}</table></div>`;
+}
+
+function tipHtml(w) {
+  const multi = w.rounds.length > 1;
+  const status = w.status === "ok" ? (w.note || "") : `${w.status === "error" ? "Error" : "Note"}: ${w.note || ""}`;
+  return `<h3>BB${w.season} · ${esc(w.week_label)}</h3>`
+    + (status ? `<div class="status">${esc(status)}</div>` : "")
+    + w.rounds.map((r, i) => roundHtml(r, multi ? `Round ${i + 1}${r.sub_label ? " · " + r.sub_label : ""}` : "")).join("")
+    + (w.status !== "ok" ? rawHtml(w.raw) : "")
+    + (w.footnotes && w.footnotes.length ? `<div class="fn">Wikipedia footnotes: ${w.footnotes.map(f => `[${esc(f)}]`).join(" ")}</div>` : "");
+}
+
+function cellLabel(w) {
+  const names = w.rounds.map(r => r.evicted).filter(Boolean);
+  return `BB${w.season} ${w.week_label}: ` + (names.length ? `evicted ${names.join(" and ")}` : "no modeled eviction")
+    + (w.status !== "ok" ? `, ${w.status}` : "");
+}
+
+function render(data) {
+  const weeks = data.weeks;
+  const seasons = [...new Set(weeks.map(w => w.season))].sort((a, b) => a - b);
+  // Columns keyed by week label as Wikipedia shows it; numbered weeks first, in order.
+  const labels = [];
+  for (const w of [...weeks].sort((a, b) => (a.week ?? 1e9) - (b.week ?? 1e9))) {
+    if (!labels.includes(w.week_label)) labels.push(w.week_label);
+  }
+  const bySeason = new Map(seasons.map(s => [s, new Map()]));
+  weeks.forEach(w => bySeason.get(w.season).set(w.week_label, w));
+  const source = new Map((data.sources || []).map(s => [s.season, s]));
+
+  let html = `<table class="grid"><thead><tr><th><span class="sr">Season</span></th>${labels.map(l => `<th scope="col">${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
+  for (const s of seasons) {
+    const src = source.get(s);
+    html += `<tr><th scope="row">${src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">BB${s}</a>` : `BB${s}`}</th>`;
+    for (const l of labels) {
+      const w = bySeason.get(s).get(l);
+      if (!w) { html += "<td></td>"; continue; }
+      const idx = weeks.indexOf(w);
+      const parts = w.rounds.length
+        ? w.rounds.map(r => `<span class="part">${esc(r.evicted || "—")}</span>`).join("")
+        : `<span class="part empty">—</span>`;
+      const badge = w.status === "ok" ? "" : `<span class="badge ${w.status}" aria-hidden="true">${w.status === "error" ? "×" : "!"}</span>`;
+      html += `<td><button class="cell${w.rounds.length > 1 ? " multi" : ""}" data-i="${idx}" aria-label="${esc(cellLabel(w))}">${parts}${badge}</button></td>`;
+    }
+    html += "</tr>";
+  }
+  html += "</tbody></table>";
+  document.getElementById("panel").innerHTML = html;
+
+  const missing = (data.sources || []).filter(s => s.error).map(s => `BB${s.season} (${esc(s.error)})`);
+  document.getElementById("footer").innerHTML =
+    `Data from the “voting history” tables on Wikipedia, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>: `
+    + (data.sources || []).filter(s => !s.error).map(s => `<a href="${esc(s.permalink || s.url)}">${esc(s.title)}</a>`).join(", ")
+    + `. Generated ${esc(data.generated_at)}.`
+    + (missing.length ? ` Missing: ${missing.join(", ")}.` : "");
+
+  wireTooltip(weeks);
+}
+
+function wireTooltip(weeks) {
+  const tip = document.getElementById("tip");
+  let pinned = null;
+  const show = (btn, x, y) => {
+    tip.innerHTML = tipHtml(weeks[+btn.dataset.i]);
+    tip.style.display = "block";
+    const r = btn.getBoundingClientRect();
+    const px = x ?? r.right, py = y ?? r.top;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let left = px + 12, top = py + 12;
+    if (left + tw > innerWidth - 8) left = Math.max(8, px - tw - 12);
+    if (top + th > innerHeight - 8) top = Math.max(8, innerHeight - th - 8);
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  };
+  const hide = () => { tip.style.display = "none"; };
+  const unpin = () => { if (pinned) pinned.classList.remove("active"); pinned = null; tip.classList.remove("pinned"); hide(); };
+  const panel = document.getElementById("panel");
+  panel.addEventListener("mousemove", e => {
+    if (pinned) return;
+    const btn = e.target.closest(".cell");
+    btn ? show(btn, e.clientX, e.clientY) : hide();
+  });
+  panel.addEventListener("mouseleave", () => { if (!pinned) hide(); });
+  panel.addEventListener("focusin", e => { const btn = e.target.closest(".cell"); if (btn && !pinned) show(btn); });
+  panel.addEventListener("focusout", () => { if (!pinned) hide(); });
+  panel.addEventListener("click", e => {
+    const btn = e.target.closest(".cell");
+    if (!btn) return;
+    if (pinned === btn) return unpin();
+    unpin();
+    pinned = btn; btn.classList.add("active"); tip.classList.add("pinned");
+    show(btn);
+    e.stopPropagation();
+  });
+  document.addEventListener("click", e => { if (pinned && !tip.contains(e.target)) unpin(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") unpin(); });
+}
+
+fetch("weeks.json")
+  .then(r => { if (!r.ok) throw new Error(r.status + " " + r.statusText); return r.json(); })
+  .then(render)
+  .catch(err => {
+    document.getElementById("panel").innerHTML =
+      `<div class="msg">Couldn’t load weeks.json (${esc(err.message)}). Run <code>python -m bbgrid build</code>, then serve this folder, e.g. <code>python -m http.server -d web</code>.</div>`;
+  });
+</script>
+</body>
+</html>
