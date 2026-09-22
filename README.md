@@ -34,8 +34,8 @@ These show the real data: all eight seasons as fetched from Wikipedia on 2026-09
 
 **A double eviction.** BB26 Week 10's two rounds are stacked in both the cell and the
 tooltip. Only the second round (Angela, played in one night) is the double eviction, and
-it is marked **DE**; a week with two ordinary evictions days apart (BB27 Week 11) is
-just stacked:
+the week card says so; a week with two ordinary evictions days apart (BB27 Week 11) is
+just "Two evictions":
 
 ![Light-mode grid of BB21–BB28 with the BB26 Week 10 double-eviction tooltip](docs/screenshots/grid-double-eviction.png)
 
@@ -61,16 +61,20 @@ its details (see below).
 The main cards stay short. More detail sits behind two options:
 
 **Click or tap a week** to open its details:
-- **Summary**: the round as in the hover card: HOH, noms, the veto and what came of it
-  ("self-save; Taylor renominated"), final noms, and who was evicted by how much (`3–1`).
+- **Summary**: the round as in the hover card: HOH, noms, the veto (used or not), twist
+  rows like the Block Buster, final noms, and who was evicted by how much (`3–1`).
+  Previous / next buttons (or ← →) step through the season's weeks.
 - **Competitions**: the names of the HOH and veto competitions (e.g. "Eye Candy",
   "OTEV the Psychic Salamander", "The Wall"), taken from the episode summaries and tied
   to each round's winner. The summaries name them in about three weeks out of four.
 - **Veto**: what was done with it (not used, used on whom, who was named as the
   replacement, or who came off the block through a twist instead), plus the episode
   summaries' own lines about the veto meeting.
-- **Votes to evict**: each nominee with the houseguests who voted to evict them.
-- **What was different**: the week's twist rows (e.g. "AI Arena winner: Makensy"),
+- **Votes to evict**: each nominee with the houseguests who voted to evict them, A–Z.
+- **Other competitions**: twists such as BB28's Time Capsule, with the power or
+  punishment it gave when the episode summaries name it ("the “Diamond Power of Veto”
+  power").
+- **What was different**: the week's twist rows (e.g. "AI Arena: Makensy"),
   anything unusual about the eviction, and the explanatory notes Wikipedia attaches to
   that week, quoted as written. Left out when there's nothing but a Block Buster.
 - **Episodes**: that week's episodes from the season's episode table, with days, air
@@ -100,7 +104,7 @@ line of season facts: premiere, days, cast size, prize and host.
 **Comps**: every HOH and veto competition of a season with its format and type
 (Endurance, Physical, Mental, Puzzle or Crapshoot), with a count of each type. Click a
 format (e.g. `#comp=The%20Wall`) for its page: the Big Brother Wiki's one-line summary,
-how it played out (from an episode summary), every play across the seasons and who won,
+how it played out (from an episode summary), a table of every play across the seasons and who won,
 and a link to it on the Big Brother Wiki. Types come from the format's Big Brother Wiki
 page ("a recurring endurance competition") where it names one, otherwise from the
 episode summaries.

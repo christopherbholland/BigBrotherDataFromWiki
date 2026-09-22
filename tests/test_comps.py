@@ -76,3 +76,11 @@ def test_wiki_type_wins_over_guesses():
     comps = [{"format": "The Wall", "name": "A", "about": "Players answer questions.", "wiki_category": "Mental"}]
     categorize(comps)
     assert (comps[0]["category"], comps[0]["category_from"]) == ("Mental", "wiki")
+
+
+def test_twist_prize_is_read_from_the_summaries():
+    from bbgrid.comps import twist_prize
+    sents = sentences([{"summary": "Devens is voted to enter the BB Time Capsule. His attempt is successful, as "
+                                   'he earned the "Diamond Power of Veto" power first seen on Big Brother 4.'}])
+    assert twist_prize(["Devens"], sents) == {"name": "Diamond Power of Veto", "kind": "power"}
+    assert twist_prize(["Dee"], sents) is None

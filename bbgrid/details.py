@@ -8,6 +8,7 @@ import re
 
 OUT_OF_GAME_RE = re.compile(r"^(evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
 # Parts of a week's note that don't describe anything unusual about the game.
+WINNER_SUFFIX = re.compile(r"\s+winners?$", re.I)
 ROUTINE_NOTES = re.compile(r"^(finale|no eviction)$|: no eviction$", re.I)
 
 
@@ -56,7 +57,9 @@ def special(record, notes):
     for i, rnd in enumerate(record["rounds"], 1):
         for label, names in rnd["extras"].items():
             prefix = f"Round {i}: " if multi else ""
-            items.append(f"{prefix}{label}: {', '.join(names)}")
+            # "Block Buster: Melody", not Wikipedia's "Block Buster winner".
+            short = WINNER_SUFFIX.sub("", label)
+            items.append(f"{prefix}{short}: {', '.join(names)}")
     texts = [{"label": fn, "text": notes[fn]} for fn in record["footnotes"] if fn in notes]
     return {"items": items, "notes": texts}
 

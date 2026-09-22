@@ -137,7 +137,7 @@ def test_enrich_season(soup):
     assert f["comps"][0]["about"] == ('In the "Hold On Tight" HOH competition, HouseGuests had to hang on to '
                                       'a rope. Alex won.')
     assert players[4]["fandom"]["twist_wins"] == [
-        {"week": "Week 1", "type": "Arena", "name": "Last Chance", "outcome": "is saved"}]
+        {"week": "Week 1", "type": "Arena", "name": "Last Chance", "outcome": "is saved", "prize": None}]
     assert entry["premiere"] == "2020-07-19" and entry["permalink"].endswith("oldid=9")
     # Four houseguests have no bio in this test; that is reported, nothing else is.
     assert len(report) == 4 and all("no houseguest infobox" in line for line in report)

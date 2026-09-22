@@ -157,7 +157,7 @@ Things to know:
       ],
       "veto_notes": ["At the Veto Meeting, Makensy … used the Veto on Kimo."],
       "special": {
-        "items": ["AI Arena winner: Makensy"],     // twist rows and unusual outcomes
+        "items": ["AI Arena: Makensy"],     // twist rows and unusual outcomes
         "notes": [{ "label": "b", "text": "Quinn activated the Deepfake HoH, …" }]
       },
       "episodes": [{
@@ -176,7 +176,9 @@ Things to know:
           "category": "Mental",                    // Endurance | Physical | Mental | Puzzle | Crapshoot | null
           "category_from": "summary",              // "wiki" | "format" | "summary" | "other plays" | null
           "wiki_category": null,                   // the format page's own type, when fetched
-          "format_description": null               // the format page's one-line summary
+          "format_description": null,              // the format page's one-line summary
+          "prize": { "name": "Diamond Power of Veto", "kind": "power" }  // twists only: the named power or
+                                                   // punishment, from the type or the summaries; else null
         }],
         "have_nots": [{ "name": "Kimo", "chosen_by": null }],
         "checks": [{ "round": 1, "field": "Initial nominations",   // where the two wikis disagree
@@ -213,7 +215,8 @@ Things to know:
       "place": "6th", "days": "73", "alliances": ["BB Guns", "…"], "other_prizes": [],
       "seasons": ["Big Brother 26 (US)", "Big Brother 28 (US)"],
       "have_not": ["Week 5"],
-      "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…", "outcome": "is saved" }]
+      "twist_wins": [{ "week": "…", "type": "AI Arena", "name": "…", "outcome": "is saved", "prize": null }]
+                                                   // twist wins, plus punishments that have a name
     }
   }]
 }

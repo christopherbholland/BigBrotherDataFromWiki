@@ -31,7 +31,7 @@ def test_votes_split_into_votes_and_non_voters():
 
 def test_what_was_different():
     d = full()["details"]
-    assert d["99|Week 1"]["special"]["items"] == ["AI Arena winner: Dana"]
+    assert d["99|Week 1"]["special"]["items"] == ["AI Arena: Dana"]
     assert d["99|Week 2"]["special"]["items"] == []
     assert d["99|Week 3"]["special"]["items"] == ["Double eviction"]
     assert d["99|Week 4"]["special"]["items"] == []  # "Finale" alone isn't unusual

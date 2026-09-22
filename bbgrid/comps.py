@@ -122,6 +122,31 @@ def explains(text):
     return bool(text and HOW_RE.search(text))
 
 
+# 'earned the "Diamond Power of Veto" power', 'the "Adam and Eve" punishment from Big Brother 16'.
+PRIZE_RE = re.compile(r'["“]([^"”]{2,50}?)["”]\s+(power|punishment|advantage|curse)\b', re.I)
+
+
+def _mentions(text, name):
+    return re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text) is not None
+
+
+def twist_prize(winners, sents):
+    """The named power or punishment a twist gave its winner, from the summaries.
+
+    Looks in each sentence naming a winner and the sentence after it (which
+    often says "his attempt ... earned the "X" power"). Returns
+    {"name", "kind"} (kind "power", "punishment", ...) or None.
+    """
+    for i, sent in enumerate(sents):
+        if not any(_mentions(sent, w) for w in winners):
+            continue
+        for text in (sent, sents[i + 1] if i + 1 < len(sents) else ""):
+            m = PRIZE_RE.search(text)
+            if m:
+                return {"name": m.group(1).strip(), "kind": m.group(2).lower()}
+    return None
+
+
 def keyword_category(text):
     for cat, pat in KEYWORDS:
         if text and pat.search(text):

@@ -115,8 +115,6 @@ table.grid { border-collapse: collapse; margin: 8px; width: calc(100% - 16px); }
 .flag.error { border-right-color: var(--critical); }
 .legend .flag-swatch { position: relative; width: 18px; height: 14px; border-radius: 2px; background: var(--cell); border: 1px solid var(--line); overflow: hidden; display: inline-block; }
 .legend .flag-swatch .flag { border-width: 0 8px 8px 0; }
-/* A true (same-night) double eviction round. */
-.de { font-size: 9px; font-weight: 700; letter-spacing: .06em; color: var(--text-muted); margin-right: 5px; }
 #tip {
   position: fixed; z-index: 10; max-width: min(380px, calc(100vw - 32px)); pointer-events: none;
   background: var(--tip-bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--tip-shadow);
@@ -215,6 +213,16 @@ table.comps td.day { text-align: right; color: var(--text-secondary); }
 .cat { font-size: 11px; border-radius: 8px; padding: 1px 7px; background: var(--cell); color: var(--text-secondary); white-space: nowrap; }
 .cat-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 10px 12px 4px; font-size: 13px; color: var(--text-secondary); }
 .cat-bar b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+table.plays { border-collapse: collapse; width: 100%; font-size: 13px; }
+table.plays th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line); }
+table.plays td { padding: 5px 8px 5px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.plays td.n { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+table.plays tr:last-child td { border-bottom: 0; }
+.pager { display: flex; justify-content: space-between; gap: 8px; margin: 10px 0 2px; }
+.pager a, .pager span { font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: 6px; background: var(--cell); color: var(--text-primary); text-decoration: none; }
+.pager a:hover { background: var(--cell-hover); }
+.pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pager span { visibility: hidden; }
 .seg { display: inline-flex; gap: 2px; padding: 2px; background: var(--cell); border: 1px solid var(--line); border-radius: 7px; font-size: 12px; }
 .seg button { border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; padding: 3px 10px; border-radius: 5px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
@@ -253,7 +261,6 @@ dl.bio { margin-top: 12px !important; }
       <button data-mode="hoh" aria-pressed="false">HOH</button>
     </span>
     <span aria-hidden="true"><i class="swatch split"><i></i><i></i></i> Two evictions in one week (stacked)</span>
-    <span aria-hidden="true"><b class="de" style="margin:0">DE</b> Double eviction: a whole week played in one night</span>
     <span aria-hidden="true"><i class="flag-swatch"><i class="flag"></i></i> Not fully modeled (twist week)</span>
     <span aria-hidden="true"><i class="flag-swatch"><i class="flag error"></i></i> Failed a check</span>
   </div>
@@ -313,21 +320,21 @@ function vetoUse(r) {
   return { used: on.length > 0, on, replacements: r.nominees_final.filter(n => !initial.has(nkey(n))) };
 }
 
-// "not used", "used on Kimo; Leah renominated", "self-save; Taylor renominated".
+// "used" or "not used"; the Veto section has the details.
 function vetoBrief(r) {
   const u = vetoUse(r);
-  if (!u) return "";
-  if (!u.used) return "not used";
-  const self = u.on.length === 1 && r.veto_winners.map(nkey).includes(nkey(u.on[0]));
-  return (self ? "self-save" : `used on ${u.on.join(", ")}`) + (u.replacements.length ? `; ${u.replacements.join(", ")} renominated` : "");
+  return u ? (u.used ? "used" : "not used") : "";
 }
+
+// Twist row labels without Wikipedia's " winner": "Block Buster", "AI Arena".
+const extraLabel = label => label.replace(/\s+winners?$/i, "");
 
 function roundHtml(r, label) {
   const row = (name, names, extra) => `<dt>${esc(name)}</dt><dd>${esc(names.join(", "))}${extra || ""}</dd>`;
   const rows = [];
   for (const [k, name] of FIELDS) {
     // Twist rows (AI Arena, Block Buster, …) go before Final noms: they can take someone off the block.
-    if (k === "nominees_final") for (const [label, v] of Object.entries(r.extras || {})) rows.push(row(label, v));
+    if (k === "nominees_final") for (const [label, v] of Object.entries(r.extras || {})) rows.push(row(extraLabel(label), v));
     const brief = k === "veto_winners" ? vetoBrief(r) : "";
     if (r[k] && r[k].length) rows.push(row(name, r[k], brief ? ` <span class="muted">· ${esc(brief)}</span>` : ""));
   }
@@ -359,7 +366,6 @@ function cellLabel(w) {
   return `BB${w.season} ${w.week_label}: `
     + (gridMode === "hoh" ? (hohs.length ? `HOH ${hohs.join(", then ")}` : "no modeled HOH")
        : (names.length ? `evicted ${names.join(" and ")}` : "no modeled eviction"))
-    + (w.rounds.some(r => r.double_eviction) ? ", double eviction" : "")
     + (w.status !== "ok" ? `, ${w.status}` : "");
 }
 
@@ -371,7 +377,7 @@ function partHtml(r) {
   const text = gridMode === "hoh" ? r.hoh.join(" & ") : r.evicted;
   // Co-HOHs wrap onto two lines rather than being cut off.
   return `<span class="part${gridMode === "hoh" && r.hoh.length > 1 ? " wrap" : ""}">`
-    + (r.double_eviction ? `<b class="de" title="Double eviction">DE</b>` : "") + esc(text || "—") + `</span>`;
+    + esc(text || "—") + `</span>`;
 }
 
 function render(data) {
@@ -547,7 +553,8 @@ async function showWeek(season, label) {
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
   const different = specialHtml(d);
   openDrawer(title, statusText(w),
-    `<h3>Summary</h3>${summary}`
+    pagerHtml(season, label)
+    + `<h3>Summary</h3>${summary}`
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
     + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
@@ -555,6 +562,20 @@ async function showWeek(season, label) {
     + (different ? `<h3>What was different</h3>${different}` : "")
     + checksHtml(w, d)
     + `<h3>Episodes</h3>${episodesHtml(d)}`);
+}
+
+// The weeks before and after this one in the same season, in table order.
+function weekNeighbors(season, label) {
+  const list = DATA.weeks.filter(w => w.season === season);
+  const i = list.findIndex(w => w.week_label === label);
+  return { prev: list[i - 1] || null, next: list[i + 1] || null };
+}
+
+function pagerHtml(season, label) {
+  const { prev, next } = weekNeighbors(season, label);
+  const link = (w, text, rel) => w ? `<a href="${weekHash(season, w.week_label)}" rel="${rel}">${text}</a>` : `<span aria-hidden="true">${text}</span>`;
+  return `<nav class="pager" aria-label="Weeks">${link(prev, `‹ ${esc(prev ? prev.week_label : "")}`, "prev")}`
+    + `${link(next, `${esc(next ? next.week_label : "")} ›`, "next")}</nav>`;
 }
 
 function votesHtml(w, d) {
@@ -569,7 +590,7 @@ function votesHtml(w, d) {
     // One line per nominee: who voted to evict them (the count is in the summary's tally).
     html += `<dl class="votes">` + v.by_nominee.map(n =>
       `<dt>${plink(w.season, n.nominee)}${n.nominee === r.evicted ? `<span class="tag">Evicted</span>` : ""}</dt>`
-      + `<dd>${n.voters.length ? n.voters.map(x => plink(w.season, x)).join(", ") : `<span class="muted">No votes</span>`}</dd>`).join("") + `</dl>`;
+      + `<dd>${n.voters.length ? [...n.voters].sort((a, b) => a.localeCompare(b)).map(x => plink(w.season, x)).join(", ") : `<span class="muted">No votes</span>`}</dd>`).join("") + `</dl>`;
     return html;
   }).join("");
 }
@@ -597,7 +618,8 @@ function compsHtml(w, d) {
       const c = roundComp(d, i + 1, kind);
       const winners = kind === "hoh" ? r.hoh : r.veto_winners;
       if (!winners.length) return "";
-      return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”, won by ${plink(w.season, c.winner)}${fmt(c)}`
+      // The winner is already in the summary above, so only the competition is named here.
+      return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”${fmt(c)}`
         : `Won by ${winners.map(x => plink(w.season, x)).join(", ")} <span class="muted">(competition not named)</span>`}</dd>`;
     };
     const title = roundTitle(w, i);
@@ -607,11 +629,16 @@ function compsHtml(w, d) {
   const shown = new Set(w.rounds.flatMap((_, i) => ["hoh", "veto"].map(k => roundComp(d, i + 1, k)))
     .filter(c => c && c.fandom).map(c => c.name));
   const extra = d.fandom ? d.fandom.comps.filter(c => !shown.has(c.name)) : [];
+  // Twist rows the summary already shows (Block Buster, AI Arena) don't repeat their winner.
+  const inSummary = new Set(w.rounds.flatMap(r => Object.keys(r.extras || {}).map(k => nkey(extraLabel(k)))));
   if (extra.length) {
     html += `<h4>${w.rounds.length ? "Other competitions this week" : "Competitions this week"}</h4><dl>`
-      + extra.map(c => `<dt>${esc(c.type)}</dt><dd>${c.name ? `“${esc(c.name)}”${c.winners.length ? ": " : ""}` : ""}`
-        + (c.winners.length ? `${c.winners.map(x => plink(w.season, x)).join(" & ")} ${esc(c.outcome)}` : esc(c.outcome))
-        + `${c.day ? ` <span class="muted">(Day ${esc(c.day)})</span>` : ""}</dd>`).join("") + `</dl>`;
+      + extra.map(c => {
+        const who = inSummary.has(nkey(c.type)) ? ""
+          : c.winners.length ? `${c.winners.map(x => plink(w.season, x)).join(" & ")} ${esc(c.outcome)}` : esc(c.outcome);
+        return `<dt>${esc(c.type)}</dt><dd>${c.name ? `“${esc(c.name)}”` : ""}${c.name && who ? ": " : ""}${who}`
+          + prizeHtml(c.prize) + `${c.day ? ` <span class="muted">(Day ${esc(c.day)})</span>` : ""}</dd>`;
+      }).join("") + `</dl>`;
   }
   if (d.fandom && d.fandom.comps.length) {
     html += `<p class="voters" style="margin-top:8px">Big Brother Wiki</p>`;
@@ -624,6 +651,9 @@ function compsHtml(w, d) {
   }
   return html;
 }
+
+// "the “Diamond Power of Veto” power", from a twist's summary line.
+const prizeHtml = p => p ? ` — the “${esc(p.name)}” ${esc(p.kind)}` : "";
 
 function vetoHtml(w, d) {
   if (!d.rounds.length) return `<p class="muted">No veto to show.</p>`;
@@ -643,7 +673,7 @@ function vetoHtml(w, d) {
         if (u.replacements.length) lines.push(`${names(u.replacements)} ${u.replacements.length > 1 ? "were" : "was"} named as the replacement${u.replacements.length > 1 ? "s" : ""}.`);
       }
       if (u.twist_saved.length) {
-        const label = Object.keys(r.extras || {})[0] || "a twist";
+        const label = extraLabel(Object.keys(r.extras || {})[0] || "a twist");
         lines.push(`${names(u.twist_saved)} came off the block through the twist (${esc(label)}).`);
       }
       body = `<p style="margin:4px 0">${lines.join(" ")}</p>`;
@@ -676,9 +706,10 @@ function checksHtml(w, d) {
 // "" when nothing was different. A Block Buster alone is routine for its seasons, so it doesn't count.
 function specialHtml(d) {
   if (!d) return "";
-  let items = d.special.items;
-  if (items.every(x => /Block Buster/i.test(x))) items = [];
-  const notes = d.special.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia</cite></blockquote>`).join("");
+  let items = d.special.items, notes = d.special.notes;
+  const bb = x => /Block Buster/i.test(x);
+  if (items.every(bb) && notes.every(n => bb(n.text))) items = notes = [];
+  notes = notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia</cite></blockquote>`).join("");
   if (!items.length && !notes) return "";
   return (items.length ? `<ul class="plain">${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "") + notes;
 }
@@ -737,7 +768,8 @@ function arenaLabel(season) {
 // wiki has none for. AI Arena / Block Buster wins are counted on their own.
 function playerTwists(p) {
   const f = p.fandom || {};
-  const wiki = (f.twist_wins || []).filter(t => !ARENA_RE.test(t.type) && !MONEY_RE.test(t.outcome || "") && !/luxury/i.test(t.type))
+  const wiki = (f.twist_wins || []).filter(t => !ARENA_RE.test(t.type) && !MONEY_RE.test(t.outcome || "") && !/luxury/i.test(t.type)
+      && !/punish|downgrad/i.test(t.outcome || ""))
     .map(t => ({ week: t.week, label: t.type + (t.name ? ` (“${t.name}”)` : ""), outcome: t.outcome }));
   const weeks = new Set(wiki.map(t => t.week));
   const table = p.twist.filter(t => !ARENA_RE.test(t.label) && !weeks.has(weekOf(t.week)))
@@ -860,7 +892,7 @@ async function showPlayer(season, name) {
   };
   p.hoh.forEach(w => add(w, "Won HOH" + compName(w, "hoh")));
   p.veto.forEach(w => add(w, "Won the veto" + compName(w, "veto")));
-  p.twist.forEach(t => add(t.week, esc(t.label)));
+  p.twist.forEach(t => add(t.week, esc(extraLabel(t.label))));
   p.nominated.forEach(w => {
     if (p.on_block.includes(w)) return add(w, "Nominated");
     const v = roundInfo(w).veto;
@@ -877,7 +909,7 @@ async function showPlayer(season, name) {
   (f.have_not || []).forEach(label => firstKey.has(label) && add(firstKey.get(label), "Have-Not"));
   const wikiTwistWeeks = new Set(p.twist.map(t => keys.has(t.week) ? keys.get(t.week).label : t.week));
   (f.twist_wins || []).filter(t => !wikiTwistWeeks.has(t.week)).forEach(t =>
-    firstKey.has(t.week) && add(firstKey.get(t.week), `${esc(t.type)}: ${esc(t.outcome || "won")}${t.name ? ` <span class="muted">(“${esc(t.name)}”)</span>` : ""}`));
+    firstKey.has(t.week) && add(firstKey.get(t.week), `${esc(t.type)}: ${esc(t.outcome || "won")}${prizeHtml(t.prize)}${t.name ? ` <span class="muted">(“${esc(t.name)}”)</span>` : ""}`));
   const byCat = CATEGORY_NAMES.filter(c => wins[c]).map(c => `${c} ${wins[c]}`);
   const timeline = roundKeys(season).filter(([k]) => events.has(k)).map(([k, label]) =>
     `<li><a class="plink" href="${weekHash(season, label)}">${esc(k)}</a><div>${events.get(k).join("<br>")}</div></li>`).join("");
@@ -963,11 +995,14 @@ async function showFormat(format) {
     (f.description ? `<p style="font-size:15px">${esc(f.description)}</p>` : "")
     + (f.category ? `<p><span class="cat">${esc(f.category)}</span> <span class="muted">${esc(help[f.category] || "")}</span></p>` : "")
     + (about ? `<h3>${f.description ? "On the show" : "How it works"}</h3><blockquote class="wnote">${esc(about.text)}<cite>BB${about.season} ${esc(about.week)} · Wikipedia</cite></blockquote>` : "")
-    + `<h3>Every play</h3><ul class="timeline">` + f.plays.map(x =>
-      `<li><a class="plink" href="${weekHash(x.season, x.week)}">BB${x.season} · ${esc(x.week.replace(/^Week\s*/i, "Wk "))}</a>`
-      + `<div>${x.kind === "hoh" ? "HOH" : "Veto"}${x.name ? `: “${esc(x.name)}”` : ""}`
-      + `${x.winners.length ? ` · won by ${x.winners.map(n => plink(x.season, n)).join(" & ")}` : ""}${x.day ? ` <span class="muted">(Day ${esc(x.day)})</span>` : ""}</div></li>`).join("")
-    + `</ul>` + (repeat.length ? `<p class="voters" style="margin-top:10px">Won more than once: ${repeat.join(", ")}</p>` : "")
+    // One row per play, newest season first, so it skims like a table.
+    + `<h3>Every play</h3><table class="plays"><thead><tr><th scope="col">Season</th><th scope="col">Wk</th>`
+    + `<th scope="col">Comp</th><th scope="col">Name</th><th scope="col">Won by</th></tr></thead><tbody>`
+    + [...f.plays].reverse().map(x => `<tr><td><a class="plink" href="${weekHash(x.season, x.week)}">BB${x.season}</a></td>`
+      + `<td class="n">${esc(x.week.replace(/^Week\s*/i, ""))}</td><td>${x.kind === "hoh" ? "HOH" : "Veto"}</td>`
+      + `<td>${x.name ? esc(x.name) : `<span class="zero">–</span>`}</td>`
+      + `<td>${x.winners.map(n => plink(x.season, n)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+    + `</tbody></table>` + (repeat.length ? `<p class="voters" style="margin-top:10px">Won more than once: ${repeat.join(", ")}</p>` : "")
     + `<p class="voters" style="margin-top:12px"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
 }
 
@@ -1020,7 +1055,16 @@ $("grid-mode").addEventListener("click", e => {
 });
 $("drawer-close").addEventListener("click", closeDrawer);
 $("scrim").addEventListener("click", closeDrawer);
-document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("drawer").hidden) closeDrawer(); });
+document.addEventListener("keydown", e => {
+  if ($("drawer").hidden) return;
+  if (e.key === "Escape") closeDrawer();
+  // ← / → step through a season's weeks while a week is open.
+  const m = location.hash.match(/^#week=(\d+)\/(.*)$/);
+  if (m && (e.key === "ArrowLeft" || e.key === "ArrowRight") && !e.altKey && !e.metaKey && !e.ctrlKey) {
+    const n = weekNeighbors(+m[1], decodeURIComponent(m[2]))[e.key === "ArrowLeft" ? "prev" : "next"];
+    if (n) { e.preventDefault(); location.hash = weekHash(n.season, n.week_label); }
+  }
+});
 addEventListener("hashchange", route);
 
 fetch("weeks.json")
