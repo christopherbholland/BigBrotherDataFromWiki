@@ -1058,9 +1058,30 @@ function weekRecord(season, label) {
   return DATA.weeks.find(w => w.season === season && w.week_label === label);
 }
 
+// The line under a week's title, in plain words. weeks.json's "note" is written
+// for the report ("Finale; Two evictions", "Round 1 (Day 1): Non-standard
+// outcome: David Evicted by competition"); the folded corner already says the
+// week isn't fully modeled, so this just says what kind of week it was.
 function statusText(w) {
-  if (w.status === "ok") return w.note || "";
-  return `${w.status === "error" ? "Error" : "Note"}: ${w.note || ""}`;
+  const text = [...new Set((w.note || "").split("; ").filter(Boolean).map(notePhrase))].join(" · ");
+  const line = text.charAt(0).toUpperCase() + text.slice(1);
+  return w.status === "error" ? `Failed a check${line ? `: ${line}` : ""}` : line;
+}
+function notePhrase(note) {
+  let m;
+  if (note === "Finale") return "finale week";
+  if ((m = note.match(/^Round \d+ \([^)]*\): (.+)$/))) return notePhrase(m[1]);
+  // Rounds named by day are just two rounds; named columns say what they were.
+  if ((m = note.match(/^Two rounds: (.+) \/ (.+)$/)))
+    return /^Day \d/.test(m[1]) ? "two rounds" : `two rounds: ${m[1].toLowerCase()} and ${m[2].toLowerCase()}`;
+  if ((m = note.match(/^Non-standard outcome: (.+)$/))) {
+    const out = m[1];
+    if ((m = out.match(/^(.+?) (\S+(?: \S+)?)'s choice to (\w+)$/))) return `${m[2]} chose to ${m[3]} ${m[1]}`;
+    if ((m = out.match(/^(.+?) (Evicted|Eliminated|Won)\b(.*)$/))) return `${m[1]} ${m[2].toLowerCase()}${m[3].replace(/ into game$/, " into the game")}`;
+    return out.toLowerCase();
+  }
+  if (/sub-columns \(not modeled\)/.test(note)) return "not fully modeled";
+  return note.charAt(0).toLowerCase() + note.slice(1);
 }
 
 async function showWeek(season, label) {

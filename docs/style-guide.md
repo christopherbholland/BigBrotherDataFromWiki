@@ -145,6 +145,11 @@ the same look, add its selector to that list.
 - **Empty states** say what's missing and when it will appear ("Not named yet: the
   favorite is announced at the finale.").
 - **Instructions** say "Click or tap".
+- **Never show pipeline wording.** Notes in `weeks.json` are written for `report.txt`
+  ("Finale; Two evictions", "Non-standard outcome: …"). The page rewrites them as
+  plain phrases (`statusText()`: "Finale week · two evictions", "Cliff won re-entry
+  into the game"), without labels like "Note:" or "Error:". A new kind of note gets a
+  case in `notePhrase()`.
 
 ## Recipes
 
