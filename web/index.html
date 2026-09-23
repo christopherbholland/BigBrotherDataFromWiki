@@ -154,6 +154,8 @@ footer a { color: var(--text-secondary); white-space: nowrap; }
   border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600;
   padding: 6px 14px; border-radius: 6px; cursor: pointer;
 }
+/* Phones: the tabs scroll sideways rather than overflow the page. */
+@media (max-width: 480px) { .tabs { max-width: 100%; overflow-x: auto; } .tabs button { flex: none; } }
 .tabs button:hover { color: var(--text-primary); }
 /* Phones: five tabs fit a 390px screen; a narrower one scrolls the bar, not the page. */
 .tabs { max-width: 100%; overflow-x: auto; }
@@ -377,6 +379,23 @@ table.power thead th small { display: block; font-weight: 400; text-transform: n
 table.across th, table.across td { text-align: left; }
 table.across tr.here td { background: var(--cell); }
 table.across tr.here td:first-child { background: var(--cell); }
+/* America's Favorite HouseGuest */
+.tag.afh { border-color: var(--gold); color: var(--text-primary); }
+.afh-facts { margin: 4px 16px 0; }
+.afh-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; padding: 12px 16px 20px; }
+.afh-card { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px 14px; background: var(--surface-0); min-width: 0; }
+.afh-card.won { border-color: var(--gold); }
+.afh-card h2 { display: flex; align-items: baseline; gap: 8px; margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.afh-card h2 .n { margin-left: auto; font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 700; }
+.afh-who { display: flex; gap: 12px; align-items: center; }
+.afh-who .face { width: 72px; border-radius: 10px; font-size: 22px; flex: none; align-content: center; }
+.afh-who > span:not(.face) { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.afh-who a { font-size: 17px; font-weight: 700; }
+.afh-who small { color: var(--text-secondary); font-size: 12px; }
+.afh-card .voters { margin-top: 10px; }
+.afh-card blockquote.wnote { margin-top: 10px; background: var(--surface-1); }
+.afh-card .none { color: var(--text-muted); font-size: 14px; margin: 0; }
+@media (max-width: 640px) { .afh-list { padding: 10px 12px 16px; grid-template-columns: none; } }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -392,6 +411,7 @@ table.across tr.here td:first-child { background: var(--cell); }
       <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
       <button role="tab" id="tab-endgame" aria-selected="false" aria-controls="endgame-view">Endgame</button>
       <button role="tab" id="tab-finale" aria-selected="false" aria-controls="finale-view">Finale</button>
+      <button role="tab" id="tab-afh" aria-selected="false" aria-controls="afh-view" title="America’s Favorite HouseGuest">Favorite</button>
     </div>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
@@ -427,6 +447,9 @@ table.across tr.here td:first-child { background: var(--cell); }
   <section id="finale-view" role="tabpanel" aria-labelledby="tab-finale" hidden>
     <div class="controls"><span class="seg" id="finale-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="finale-panel"></div>
+  </section>
+  <section id="afh-view" role="tabpanel" aria-labelledby="tab-afh" hidden>
+    <div class="panel" id="afh-panel"></div>
   </section>
   <footer id="footer"></footer>
 </main>
@@ -782,7 +805,8 @@ async function showWeek(season, label) {
   openDrawer(title, statusText(w),
     pagerHtml(season, label)
     + `<h3>Summary</h3>${summary}`
-    + (fin && fin.week === label ? `<p><a class="plink" href="#finale=${season}">The final HOH and the jury vote ›</a></p>` : "")
+    + (fin && fin.week === label ? `<p><a class="plink" href="#finale=${season}">The final HOH and the jury vote ›</a>`
+      + ((DETAILS.afh || {})[season] ? ` · <a class="plink" href="#afh">America’s Favorite HouseGuest ›</a>` : "") + `</p>` : "")
     + (seasonRounds(season, DETAILS).rounds.some(x => x.label === label && x.size <= ENDGAME_DEFAULT) ? `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} played out ›</a></p>` : "")
     + (different ? `<h3>What was different</h3>${different}` : "")
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
@@ -992,15 +1016,23 @@ const VIEW_TEXT = {
   comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
   endgame: ["Endgame", "The last few rounds, where a single veto or vote can decide the game. Who held the power, who decided each eviction, and how it compares across seasons."],
   finale: ["Finale", "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote."],
+  afh: ["America’s Favorite HouseGuest", "The viewers’ vote for their favorite houseguest, announced at each finale, and how that houseguest’s game went."],
 };
 
 function setView(view) {
   currentView = view;
   $("view-title").textContent = VIEW_TEXT[view][0];
   $("view-sub").textContent = VIEW_TEXT[view][1];
-  for (const v of ["weeks", "players", "comps", "endgame", "finale"]) {
+  for (const v of ["weeks", "players", "comps", "endgame", "finale", "afh"]) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
+  }
+  // On a phone the tabs scroll sideways; keep the selected one in sight.
+  const tabs = $(`tab-${view}`).parentElement, tab = $(`tab-${view}`);
+  if (tabs.scrollWidth > tabs.clientWidth) {
+    const r = tab.getBoundingClientRect(), box = tabs.getBoundingClientRect();
+    if (r.right > box.right) tabs.scrollLeft += r.right - box.right + 4;
+    else if (r.left < box.left) tabs.scrollLeft -= box.left - r.left + 4;
   }
 }
 
@@ -1088,7 +1120,7 @@ async function showPlayers(season) {
       const s = playerStats(p);
       const b = playerBio(p);
       const full = b.full_name && b.full_name !== p.name ? `<small>${esc(b.full_name)}</small>` : "";
-      return `<tr><td><div class="pl">${faceHtml(season, p.name, faceState(p))}<span>${plink(season, p.name)}${full}</span></div></td><td class="result">${esc(p.result || "In the game")}</td>`
+      return `<tr><td><div class="pl">${faceHtml(season, p.name, faceState(p))}<span>${plink(season, p.name)}${full}</span></div></td><td class="result">${esc(p.result || "In the game")}${afhTagHtml(d, p)}</td>`
         + (hasBio ? `<td class="bio num">${b.age != null ? b.age : dash}</td><td class="bio">${b.hometown ? esc(b.hometown) : dash}</td><td class="bio">${b.occupation ? esc(b.occupation) : dash}</td>` : "")
         + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td>${num(s.arena)}</td>` : ""}<td>${num(s.twists)}</td>`
         + `<td class="gs">${num(s.noms)}</td><td>${num(s.block)}</td>`
@@ -1211,6 +1243,7 @@ function bioHtml(p, season) {
     ["Days", f.days],
     ["Alliances", (f.alliances || []).join(", ")],
     ["Other seasons", (f.seasons || []).filter(x => x !== `Big Brother ${season} (US)`).join(", ")],
+    ["America’s Favorite", afhPlace(DETAILS, p)],
   ].filter(([, v]) => v);
   const face = faceHtml(season, p.name, faceState(p), f.portrait || null);
   if (!rows.length) return `<div class="bio-head">${face}</div>`;
@@ -1331,6 +1364,7 @@ async function showFinale(season) {
     + juryBoardHtml(season, f, jury)
     + juryTableHtml(season, f, jury)
     + (f.decided ? duelHtml(season, f, jury, parts, people) : "")
+    + finaleAfhHtml(season, d, people)
     + (wd && wd.episodes.length ? `<h2>Finale week’s episodes</h2>${episodesHtml(wd)}` : "")
     + `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} got here ›</a></p>`
     + `<p class="src">Votes from Wikipedia’s voting table (<a href="${weekHash(season, f.week)}">${esc(f.week)}</a>); final HOH parts from the Big Brother Wiki.</p>`
@@ -1828,7 +1862,105 @@ function acrossSeasonsHtml(ctx) {
     + `</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #endgame=26 · #finale=26 ----------
+
+// ---------- America’s Favorite HouseGuest: the viewers’ vote, every season ----------
+
+// "Won", "Top 3" or "Runner-up" for a houseguest in their season's vote, else null.
+function afhPlace(d, p) {
+  const a = ((d || {}).afh || {})[p.season];
+  if (!a) return null;
+  if (a.winner === p.name) return `Won${a.prize ? ` (${a.prize})` : ""}`;
+  return a.others.includes(p.name) ? (a.others_label === "Top 3" ? "Top 3" : "Runner-up in the vote") : null;
+}
+function afhTagHtml(d, p) {
+  const place = afhPlace(d, p);
+  if (!place) return "";
+  const won = place.startsWith("Won");
+  return ` <span class="tag${won ? " afh" : ""}" title="America’s Favorite HouseGuest${won ? "" : `: ${esc(place)}`}">${won ? "AFH" : `AFH ${esc(place.toLowerCase())}`}</span>`;
+}
+
+// Where the favorite's game ended: won, runner-up, a juror, or out before the jury.
+function afhStanding(d, season, name) {
+  const p = d.players.find(x => x.season === season && x.name === name);
+  const f = (d.finales || {})[season];
+  const juror = f ? f.jury.findIndex(j => j.name === name) : -1;
+  if (!p) return { text: "", jury: false };
+  if (/^winner/i.test(p.result || "")) return { text: "Also won the season", kind: "winner" };
+  if (/^runner/i.test(p.result || "")) return { text: "Runner-up in the jury vote", kind: "final" };
+  if (juror >= 0) return { text: `${p.result || "Evicted"} · Juror ${juror + 1} of ${f.jury.length}`, kind: "juror" };
+  return { text: `${p.result || "Evicted"} · before the jury`, kind: "pre" };
+}
+
+// Who else placed: the whole top three, or the vote's runner-up.
+function afhOthersHtml(season, a) {
+  if (!a.others.length) return "";
+  const top = a.others_label === "Top 3";
+  const names = (top ? [a.winner, ...a.others] : a.others).filter(Boolean);
+  return `<p class="voters">${top ? "Top 3 in the vote" : "Runner-up in the vote"}: ${names.map(n => plink(season, n)).join(", ")}</p>`;
+}
+
+function afhCardHtml(d, season, a) {
+  const people = new Map(d.players.filter(p => p.season === season).map(p => [p.name, p]));
+  const p = people.get(a.winner);
+  const full = p ? playerBio(p).full_name : a.winner_text;
+  const st = a.winner ? afhStanding(d, season, a.winner) : { text: "" };
+  const name = a.winner ? plink(season, a.winner) : esc(a.winner_text);
+  const face = a.winner ? faceHtml(season, a.winner, p ? faceState(p) : "", ((p || {}).fandom || {}).portrait || null) : "";
+  const others = afhOthersHtml(season, a);
+  const notes = a.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>${esc(n.where)} · Wikipedia</cite></blockquote>`).join("");
+  return `<article class="afh-card won"><h2><a class="plink" href="#finale=${season}">BB${season}</a>${a.prize ? `<span class="n">${esc(a.prize)}</span>` : ""}</h2>`
+    + `<div class="afh-who">${face}<span>${name}${full && full !== a.winner ? `<small>${esc(full)}</small>` : ""}${st.text ? `<small>${esc(st.text)}</small>` : ""}</span></div>`
+    + others + notes + `</article>`;
+}
+
+// Patterns across the seasons: how far the favorites got.
+function afhFactsHtml(d, seasons) {
+  const st = seasons.map(s => afhStanding(d, s, d.afh[s].winner));
+  const count = kind => st.filter(x => x.kind === kind).length;
+  const bits = [
+    plural(seasons.length, "season"),
+    count("winner") && `${plural(count("winner"), "favorite")} also won the season`,
+    count("final") && `${plural(count("final"), "favorite")} finished runner-up`,
+    count("juror") && `${count("juror")} made the jury`,
+    count("pre") && `${count("pre")} left before the jury`,
+  ].filter(Boolean);
+  const prizes = [...new Set(seasons.map(s => d.afh[s].prize).filter(Boolean).map(x => (x.match(/\$[\d,]+/) || [x])[0]))];
+  return `<p class="season-info afh-facts">${esc(bits.join(" · "))}${prizes.length ? ` · prize ${esc(prizes.reverse().join(", then "))}` : ""}</p>`;
+}
+
+async function showAfh() {
+  setView("afh");
+  const panel = $("afh-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentView !== "afh") return;
+  const all = seasonList();
+  const done = all.filter(s => (d.afh || {})[s]);
+  const pending = all.filter(s => !(d.afh || {})[s]);
+  panel.innerHTML = (done.length ? afhFactsHtml(d, done) : "")
+    + `<div class="afh-list">`
+    + pending.map(s => `<article class="afh-card"><h2><a class="plink" href="#finale=${s}">BB${s}</a></h2>`
+      + `<p class="none">Not named yet: the favorite is announced at the finale.</p></article>`).join("")
+    + done.map(s => afhCardHtml(d, s, d.afh[s])).join("")
+    + `</div><p class="src" style="padding:0 16px 16px">The favorite from each season’s Wikipedia infobox, and the article’s own sentences about the vote; the prize from the Big Brother Wiki.</p>`;
+}
+
+// The Finale view's closing section: the viewers' own vote.
+function finaleAfhHtml(season, d, people) {
+  const a = (d.afh || {})[season];
+  if (!a) return "";
+  const st = a.winner ? afhStanding(d, season, a.winner) : { text: "" };
+  const p = people.get(a.winner);
+  return `<h2>America’s Favorite HouseGuest</h2>`
+    + `<div class="afh-who">${a.winner ? faceHtml(season, a.winner, p ? faceState(p) : "") : ""}<span>${a.winner ? plink(season, a.winner) : esc(a.winner_text)}`
+    + `<small>${esc([st.text, a.prize].filter(Boolean).join(" · "))}</small></span></div>`
+    + afhOthersHtml(season, a)
+    + (a.notes[0] ? `<blockquote class="wnote">${esc(a.notes[a.notes.length - 1].text)}<cite>${esc(a.notes[a.notes.length - 1].where)} · Wikipedia</cite></blockquote>` : "")
+    + `<p><a class="plink" href="#afh">Every season’s favorite ›</a></p>`;
+}
+
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #endgame=26 · #finale=26 · #afh ----------
 
 function route() {
   if (!DATA) return;
@@ -1838,6 +1970,7 @@ function route() {
     if (currentView === "weeks" && !currentSeason) currentSeason = newest;
     return showFormat(decodeURIComponent(fm[1]));
   }
+  if (location.hash === "#afh") { hideDrawer(); return showAfh(); }
   const m = location.hash.match(/^#(week|players|player|comps|endgame|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
@@ -1857,8 +1990,8 @@ function route() {
     hideDrawer();
     showPlayers(season || newest);
   } else {
-    // A player opened from the Comps, Endgame or Finale view keeps that view behind the drawer.
-    if (!(["players", "comps", "endgame", "finale"].includes(currentView) && currentSeason === season)) showPlayers(season);
+    // A player opened from the Comps, Endgame, Finale or Favorite view keeps that view behind the drawer.
+    if (!(["players", "comps", "endgame", "finale"].includes(currentView) && currentSeason === season) && currentView !== "afh") showPlayers(season);
     showPlayer(season, rest);
   }
 }
@@ -1868,6 +2001,7 @@ $("tab-players").addEventListener("click", () => { location.hash = `#players=${c
 $("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
 $("tab-endgame").addEventListener("click", () => { location.hash = endgameHash(currentSeason || seasonList()[0]); });
 $("tab-finale").addEventListener("click", () => { location.hash = `#finale=${currentSeason || seasonList()[0]}`; });
+$("tab-afh").addEventListener("click", () => { location.hash = "#afh"; });
 wireSeasonPicker("season-pick", s => `#players=${s}`);
 wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
 wireSeasonPicker("endgame-season-pick", s => endgameHash(s));
