@@ -37,6 +37,7 @@ SHOTS = {
     "details-player": (DESKTOP, "#player=26/Angela", None),
     "comps": (DESKTOP, "#comps=28", None),
     "comp-format": (DESKTOP, "#comp=The%20Wall", None),
+    "endgame": (DESKTOP, "#endgame=26", None),
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
     "afh": (DESKTOP, "#afh", None),
 }
@@ -67,7 +68,7 @@ def take(browser, base, name, viewport, path, hover):
     page.route(PHOTO_HOST, lambda route: route.abort())
     page.goto(base + path)
     page.wait_for_selector("table.grid", state="attached")
-    for view in ("players", "comps"):
+    for view in ("players", "comps", "endgame"):
         if f"#{view}=" in path:
             page.wait_for_selector(f"#{view}-panel table")
     if path.endswith("#afh"):

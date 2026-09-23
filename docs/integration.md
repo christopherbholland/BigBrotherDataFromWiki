@@ -63,9 +63,9 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
   `&theme=light`) to pin one, e.g. `?embed=1&theme=dark` for a stream overlay.
 - **Deep links.** Every view has its own link, so an iframe can open straight into
   one: `?embed=1#week=26/Week%2010` (a week's details), `?embed=1#players=28` (a
-  season's players), `?embed=1#player=26/Angela` (one player) or `?embed=1#finale=26`
-  (the finale and jury vote) or `?embed=1#afh` (every season's America's Favorite
-  HouseGuest).
+  season's players), `?embed=1#player=26/Angela` (one player), `?embed=1#endgame=26` (the final
+  five's rounds; `#endgame=26/6` starts at six), `?embed=1#finale=26` (the finale and jury vote)
+  or `?embed=1#afh` (every season's America's Favorite HouseGuest).
 - **Attribution.** The Wikipedia credit line stays visible in embed mode. It's needed
   for the CC BY-SA license, so don't hide it.
 

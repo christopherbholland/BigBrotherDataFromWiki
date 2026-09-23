@@ -157,6 +157,10 @@ footer a { color: var(--text-secondary); white-space: nowrap; }
 /* Phones: the tabs scroll sideways rather than overflow the page. */
 @media (max-width: 480px) { .tabs { max-width: 100%; overflow-x: auto; } .tabs button { flex: none; } }
 .tabs button:hover { color: var(--text-primary); }
+/* Phones: five tabs fit a 390px screen; a narrower one scrolls the bar, not the page. */
+.tabs { max-width: 100%; overflow-x: auto; }
+.tabs button { flex: none; }
+@media (max-width: 480px) { .tabs button { padding: 6px 7px; font-size: 13px; } }
 .tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
 .tabs button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* Details drawer: a side panel, or a bottom sheet on phones */
@@ -333,6 +337,48 @@ table.duel tr:last-child th { border-bottom: 0; }
   .fin-score { font-size: 30px; }
 }
 table.duel thead th { text-align: right; font-size: 13px; color: var(--text-primary); text-transform: none; letter-spacing: 0; }
+/* Endgame view */
+.eg-picks { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; }
+.eg-cast { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 12px; padding: 16px 0 4px; }
+.eg-cast .fin-card { min-width: 0; }
+.eg-cast .fin-card .face { width: 72px; font-size: 20px; }
+.eg-cast .fin-card a { font-size: 15px; }
+.eg-cast .fin-card small { font-size: 12px; color: var(--text-secondary); }
+@media (max-width: 640px) {
+  .eg-cast { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 6px; }
+  .eg-cast .fin-card .face { width: 52px; font-size: 16px; }
+  .eg-cast .fin-card a { font-size: 13px; }
+  .eg-cast .fin-card .role { font-size: 9px; letter-spacing: .06em; }
+}
+ul.eg-notes { margin: 0; padding-left: 18px; line-height: 1.55; }
+ul.eg-notes li { margin: 4px 0; }
+.eg-rounds { display: grid; gap: 12px; }
+.eg-round { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px 12px; background: var(--surface-0); }
+.eg-round h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0; font-size: 15px; }
+.eg-round h3 .size { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--accent); color: #fff; }
+.eg-round h3 a.wk { font-size: 13px; font-weight: 400; color: var(--text-secondary); }
+.eg-round .rule { color: var(--text-muted); font-size: 12px; margin: 4px 0 0; }
+.eg-round .story { margin: 8px 0 0; line-height: 1.55; }
+.eg-round .decider { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; color: var(--text-secondary); }
+.eg-round .decider .face { width: 22px; border-radius: 4px; font-size: 9px; }
+table.power th, table.power td { text-align: left; vertical-align: top; white-space: normal; }
+table.power td { min-width: 112px; }
+table.power td.gone { background: var(--surface-0); }
+table.power thead th small { display: block; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-muted); }
+.t { display: inline-block; font-size: 11px; line-height: 17px; border-radius: 8px; padding: 0 7px; margin: 1px 3px 1px 0; white-space: nowrap; background: var(--cell); color: var(--text-secondary); }
+.t.hoh { background: var(--accent); color: #fff; }
+.t.veto { background: var(--good); color: #fff; }
+.t.nom { background: color-mix(in srgb, var(--warning) 32%, transparent); color: var(--text-primary); }
+.t.out { background: var(--critical); color: #fff; }
+.t.dec { background: none; box-shadow: inset 0 0 0 1px var(--text-primary); color: var(--text-primary); font-weight: 600; }
+.t.won { background: var(--gold); color: #1a1200; font-weight: 700; }
+.t-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 10px; font-size: 12px; color: var(--text-secondary); }
+.eg-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; margin: 0 0 12px; }
+.eg-tiles .stat { margin: 0; }
+.eg-tiles .stat b small { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+table.across th, table.across td { text-align: left; }
+table.across tr.here td { background: var(--cell); }
+table.across tr.here td:first-child { background: var(--cell); }
 /* America's Favorite HouseGuest */
 .tag.afh { border-color: var(--gold); color: var(--text-primary); }
 .afh-facts { margin: 4px 16px 0; }
@@ -363,6 +409,7 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
       <button role="tab" id="tab-players" aria-selected="false" aria-controls="players-view">Players</button>
       <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
+      <button role="tab" id="tab-endgame" aria-selected="false" aria-controls="endgame-view">Endgame</button>
       <button role="tab" id="tab-finale" aria-selected="false" aria-controls="finale-view">Finale</button>
       <button role="tab" id="tab-afh" aria-selected="false" aria-controls="afh-view" title="America’s Favorite HouseGuest">Favorite</button>
     </div>
@@ -389,6 +436,13 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
   <section id="comps-view" role="tabpanel" aria-labelledby="tab-comps" hidden>
     <div class="controls"><span class="seg" id="comps-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="comps-panel"></div>
+  </section>
+  <section id="endgame-view" role="tabpanel" aria-labelledby="tab-endgame" hidden>
+    <div class="controls eg-picks">
+      <span class="seg" id="endgame-season-pick" role="group" aria-label="Season"></span>
+      <span class="seg" id="endgame-start-pick" role="group" aria-label="Start the endgame at"></span>
+    </div>
+    <div class="panel" id="endgame-panel"></div>
   </section>
   <section id="finale-view" role="tabpanel" aria-labelledby="tab-finale" hidden>
     <div class="controls"><span class="seg" id="finale-season-pick" role="group" aria-label="Season"></span></div>
@@ -753,6 +807,7 @@ async function showWeek(season, label) {
     + `<h3>Summary</h3>${summary}`
     + (fin && fin.week === label ? `<p><a class="plink" href="#finale=${season}">The final HOH and the jury vote ›</a>`
       + ((DETAILS.afh || {})[season] ? ` · <a class="plink" href="#afh">America’s Favorite HouseGuest ›</a>` : "") + `</p>` : "")
+    + (seasonRounds(season, DETAILS).rounds.some(x => x.label === label && x.size <= ENDGAME_DEFAULT) ? `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} played out ›</a></p>` : "")
     + (different ? `<h3>What was different</h3>${different}` : "")
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
@@ -959,6 +1014,7 @@ const VIEW_TEXT = {
   weeks: ["Week by week", "Who was evicted each week, or who was HOH. Click or tap a week for the full story."],
   players: ["Players", "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline."],
   comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
+  endgame: ["Endgame", "The last few rounds, where a single veto or vote can decide the game. Who held the power, who decided each eviction, and how it compares across seasons."],
   finale: ["Finale", "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote."],
   afh: ["America’s Favorite HouseGuest", "The viewers’ vote for their favorite houseguest, announced at each finale, and how that houseguest’s game went."],
 };
@@ -967,7 +1023,7 @@ function setView(view) {
   currentView = view;
   $("view-title").textContent = VIEW_TEXT[view][0];
   $("view-sub").textContent = VIEW_TEXT[view][1];
-  for (const v of ["weeks", "players", "comps", "finale", "afh"]) {
+  for (const v of ["weeks", "players", "comps", "endgame", "finale", "afh"]) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
@@ -1310,6 +1366,7 @@ async function showFinale(season) {
     + (f.decided ? duelHtml(season, f, jury, parts, people) : "")
     + finaleAfhHtml(season, d, people)
     + (wd && wd.episodes.length ? `<h2>Finale week’s episodes</h2>${episodesHtml(wd)}` : "")
+    + `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} got here ›</a></p>`
     + `<p class="src">Votes from Wikipedia’s voting table (<a href="${weekHash(season, f.week)}">${esc(f.week)}</a>); final HOH parts from the Big Brother Wiki.</p>`
     + `</div>`;
 }
@@ -1412,6 +1469,400 @@ function duelHtml(season, f, jury, parts, people) {
     + `</tbody></table></div>`;
 }
 
+// ---------- Endgame: the last few rounds, where one veto or one vote can decide the game ----------
+
+const ENDGAME_STARTS = [6, 5, 4];
+const ENDGAME_DEFAULT = 5;
+let endgameStart = ENDGAME_DEFAULT;
+const endgameHash = (season, start = endgameStart) => `#endgame=${season}${start !== ENDGAME_DEFAULT ? `/${start}` : ""}`;
+const ordinal = n => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] || "th"}`;
+const placeText = n => n === 1 ? "Winner" : n === 2 ? "Runner-up" : `${ordinal(n)} place`;
+// "A", "A and B", "A, B and C", as player links.
+const andList = (season, names) => {
+  const xs = names.map(n => plink(season, n));
+  return xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+};
+
+// A season's eviction rounds in order, each with how many houseguests were in the
+// house for it. That's counted back from who's left: each later eviction adds one,
+// as does a walk or expulsion on a later day. Also who decided each eviction:
+// the sole voter, the HOH breaking a tie, or the voters in the majority.
+function seasonRounds(season, d) {
+  const people = d.players.filter(p => p.season === season);
+  const byName = new Map(people.map(p => [p.name, p]));
+  const f = (d.finales || {})[season];
+  const left = f && f.decided ? f.finalists.map(x => x.name) : people.filter(p => !p.result).map(p => p.name);
+  const dayOf = p => { const m = p && p.result && p.result.match(/Day (\d+)/); return m ? +m[1] : null; };
+  const rounds = [];
+  for (const [key, label, i] of roundKeys(season)) {
+    const r = weekRecord(season, label).rounds[i];
+    if (!r || !r.evicted) continue;
+    const wd = d.weeks[`${season}|${label}`] || null;
+    const v = ((wd || {}).rounds || [])[i] || null;
+    const votes = v ? v.votes : [];
+    let how = null, deciders = [];
+    if (r.tally && r.tally.type === "sole_vote") { how = "sole"; deciders = [r.tally.by]; }
+    else if (votes.some(x => r.hoh.includes(x.voter))) { how = "tie"; deciders = votes.filter(x => r.hoh.includes(x.voter)).map(x => x.voter); }
+    else if (votes.length) { how = "vote"; deciders = votes.filter(x => x.vote === r.evicted).map(x => x.voter); }
+    rounds.push({ key, label, i, r, wd, v, votes, how, deciders, use: v && v.veto ? v.veto : vetoUse(r),
+                  day: dayOf(byName.get(r.evicted)) });
+  }
+  const gone = new Set(rounds.map(x => x.r.evicted));
+  const walked = people.filter(p => p.result && !gone.has(p.name) && !left.includes(p.name)).map(dayOf).filter(n => n != null);
+  rounds.forEach((x, j) => {
+    x.size = left.length + rounds.length - j + (x.day != null ? walked.filter(n => n > x.day).length : 0);
+  });
+  return { rounds, left, finale: f, people: byName };
+}
+
+// The rule that shaped a round, from how many were left and how many could vote.
+function stageRule(x) {
+  const voters = x.size - x.r.hoh.length - x.r.nominees_final.length;
+  if (x.size === 3) return "No nominations and no veto: whoever wins the three-part final HOH evicts one of the other two and picks their partner for the final two.";
+  if (x.size === 4) return "One vote: after the veto meeting, the only houseguest who’s neither HOH nor nominated evicts alone. Win the veto and that’s usually you.";
+  if (voters === 2) return "Two votes, so a split hands the eviction to the HOH.";
+  return `${plural(voters, "vote")}; the HOH breaks a tie.`;
+}
+
+// The HOH or veto competition's name, if either source names it.
+function compName(x, kind) {
+  const c = x.wd ? roundComp(x.wd, x.i + 1, kind) : null;
+  return c && c.name ? ` in “${esc(c.name)}”` : "";
+}
+
+// The final HOH's parts, from the finale week's Big Brother Wiki comps.
+function finalParts(d, f) {
+  const wd = f ? d.weeks[`${f.season}|${f.week}`] : null;
+  return ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => /final hoh/i.test(c.outcome || ""))
+    .sort((a, b) => dayNum(a.day) - dayNum(b.day))
+    .map(c => ({ ...c, part: ((c.outcome.match(/part\s*\d+/i) || ["Part"])[0]).replace(/^p/, "P") }));
+}
+
+// One round in a few sentences.
+function roundStory(season, x, parts) {
+  const { r, use } = x;
+  const L = names => andList(season, names);
+  const out = [];
+  if (x.size === 3) {
+    const won = parts.filter(c => c.winners.length);
+    out.push(`${L(r.hoh)} won the final HOH` + (won.length ? ` (${won.map(c => `${esc(c.part)}: ${L(c.winners)}`).join(", ")})` : "") + ".");
+    const kept = r.nominees_final.filter(n => n !== r.evicted);
+    out.push(`${L(r.hoh)} evicted ${plink(season, r.evicted)}` + (kept.length ? ` and took ${L(kept)} to the final two.` : "."));
+    return out.join(" ");
+  }
+  if (r.hoh.length) out.push(`${L(r.hoh)} won HOH${compName(x, "hoh")}` + (r.nominees_initial.length ? ` and nominated ${L(r.nominees_initial)}.` : "."));
+  for (const [label, names] of Object.entries(r.extras || {})) if (names.length) out.push(`${L(names)} won the ${esc(extraLabel(label))}.`);
+  if (r.veto_winners.length) {
+    let s = `${L(r.veto_winners)} won the veto${compName(x, "veto")}`;
+    if (use && use.used) {
+      const self = use.on.length === 1 && r.veto_winners.includes(use.on[0]);
+      s += self ? " and used it on themselves" : ` and used it on ${L(use.on)}`;
+      if (use.replacements.length) s += `; ${L(use.replacements)} went up in their place`;
+    } else if (use) s += " and left the nominations as they were";
+    out.push(s + ".");
+  }
+  const against = x.votes.filter(v => v.vote !== x.r.evicted);
+  if (x.how === "sole") {
+    out.push(`${plink(season, x.deciders[0])} cast the only vote and evicted ${plink(season, r.evicted)}.`);
+  } else if (x.how === "tie") {
+    const n = (x.votes.length - 1) / 2;
+    out.push(`The vote tied ${n}–${n}, and ${L(x.deciders)} broke it by evicting ${plink(season, r.evicted)}.`);
+  } else if (x.how === "vote") {
+    out.push(`${plink(season, r.evicted)} was evicted ${x.deciders.length}–${against.length}`
+      + (x.deciders.length ? `, by ${L(x.deciders)}` : "")
+      + (against.length ? `; ${L(against.map(v => v.voter))} voted to evict ${L([...new Set(against.map(v => v.vote))])}` : "") + ".");
+  } else {
+    out.push(`${plink(season, r.evicted)} was evicted${r.tally ? ` (${esc(tallyText(r.tally))})` : ""}.`);
+  }
+  return out.join(" ");
+}
+
+// What someone did in a round, as small tags.
+function roleTags(season, x, name, parts) {
+  const { r, use } = x;
+  const tags = [];
+  const t = (cls, text) => tags.push(`<span class="t ${cls}">${esc(text)}</span>`);
+  if (x.size === 3) {
+    parts.filter(c => c.winners.includes(name)).forEach(c => t("", `Won ${c.part}`));
+    if (r.hoh.includes(name)) t("hoh", "Final HOH");
+  } else {
+    if (r.hoh.includes(name)) t("hoh", "HOH");
+    for (const [label, names] of Object.entries(r.extras || {})) if (names.includes(name)) t("", extraLabel(label));
+    if (r.veto_winners.includes(name)) t("veto", "Veto");
+    if (r.nominees_initial.includes(name)) t("nom", "Nominated");
+    if (use && use.used && use.on.includes(name)) t("", r.veto_winners.includes(name) ? "Saved self" : "Vetoed off");
+    if (use && use.replacements.includes(name)) t("nom", "Renominated");
+  }
+  if (r.evicted === name) t("out", "Evicted");
+  else if (x.deciders.includes(name)) t("dec", x.how === "sole" || x.size === 3 ? "Sole vote" : x.how === "tie" ? "Tie-break" : "Deciding vote");
+  else if (x.votes.some(v => v.voter === name)) t("", `Voted ${x.votes.find(v => v.voter === name).vote}`);
+  if (x.size === 3 && r.nominees_final.includes(name) && r.evicted !== name) t("", "Taken to final 2");
+  return tags.join("") || `<span class="zero">Safe</span>`;
+}
+
+async function showEndgame(season, start) {
+  setView("endgame");
+  currentSeason = season;
+  endgameStart = start;
+  $("endgame-season-pick").innerHTML = seasonPickerHtml(season);
+  $("endgame-start-pick").innerHTML = ENDGAME_STARTS.map(n =>
+    `<button aria-pressed="${n === start}" data-start="${n}">From final ${n}</button>`).join("");
+  const panel = $("endgame-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading the endgame…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentSeason !== season || currentView !== "endgame" || endgameStart !== start) return;
+  const S = seasonRounds(season, d);
+  const f = S.finale, decided = !!(f && f.decided);
+  const eg = S.rounds.filter(x => x.size <= start);
+  if (!eg.length) {
+    panel.innerHTML = `<div class="msg">BB${season} hasn’t reached the final ${start} yet.</div>`;
+    return;
+  }
+  const parts = finalParts(d, f);
+  // Everyone in the house when the endgame began, best finish first.
+  const place = new Map();
+  if (decided) { place.set(f.winner, 1); place.set(f.runner_up, 2); }
+  eg.forEach(x => place.set(x.r.evicted, x.size));
+  const cast = [...S.left, ...eg.map(x => x.r.evicted).reverse()]
+    .sort((a, b) => (place.get(a) || 0) - (place.get(b) || 0));
+  const ctx = { season, d, S, f, decided, eg, parts, place, cast, start };
+
+  panel.innerHTML = `<div class="fin eg">`
+    + endgameCastHtml(ctx)
+    + endgameNotesHtml(ctx)
+    + `<h2>Round by round</h2><div class="eg-rounds">${eg.map(x => endgameRoundHtml(ctx, x)).join("")}</div>`
+    + endgameLaterHtml(ctx)
+    + powerGridHtml(ctx)
+    + endgameTableHtml(ctx)
+    + acrossSeasonsHtml(ctx)
+    + `<p class="src">Rounds and votes from Wikipedia’s voting table; competition names and the final HOH’s parts from the Big Brother Wiki.`
+    + (decided ? ` <a href="#finale=${season}">The jury vote is on the Finale tab ›</a>` : "") + `</p>`
+    + `</div>`;
+}
+
+function endgameCastHtml({ season, S, cast, place, start, eg }) {
+  const first = eg[0];
+  const portrait = n => ((S.people.get(n) || {}).fandom || {}).portrait || null;
+  const cards = cast.map(n => {
+    const pl = place.get(n);
+    const state = pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live";
+    return `<div class="fin-card${pl === 1 ? " win" : ""}">${faceHtml(season, n, state, portrait(n))}${plink(season, n)}`
+      + `<span class="role">${pl ? esc(placeText(pl)) : "Still in"}</span></div>`;
+  }).join("");
+  return `<div class="eg-cast">${cards}</div>`
+    + `<p class="fin-lede">From the final ${first.size}, ${plural(eg.length, "eviction")}${S.finale && S.finale.decided ? " and the jury vote decided the game" : " so far"}.</p>`;
+}
+
+// Endgame comp wins for one player: HOH, veto and final HOH parts. The final HOH
+// counts as one win when the Big Brother Wiki doesn't list its parts.
+function endgameWins(ctx, name) {
+  const hoh = ctx.eg.filter(x => x.size > 3 && x.r.hoh.includes(name)).length;
+  const veto = ctx.eg.filter(x => x.r.veto_winners.includes(name)).length;
+  const f3 = ctx.eg.find(x => x.size === 3);
+  const listed = f3 ? ctx.parts.filter(c => c.winners.length) : [];
+  const parts = listed.filter(c => c.winners.includes(name)).length;
+  const finalHoh = f3 && f3.r.hoh.includes(name) ? 1 : 0;
+  return { hoh, veto, parts, finalHoh, total: hoh + veto + (listed.length ? parts : finalHoh) };
+}
+
+// How many HOH, veto and final HOH part competitions the endgame had.
+function endgameComps(ctx) {
+  return ctx.eg.reduce((n, x) => n + (x.size === 3 ? Math.max(ctx.parts.filter(c => c.winners.length).length, 1)
+    : x.r.hoh.length + x.r.veto_winners.length), 0);
+}
+
+function endgameNotesHtml(ctx) {
+  const { season, S, f, decided, eg, cast, place } = ctx;
+  const L = names => andList(season, names);
+  const notes = [];
+  const f4 = eg.find(x => x.size === 4), f3 = eg.find(x => x.size === 3);
+  const comps = endgameComps(ctx);
+  if (decided) {
+    const w = endgameWins(ctx, f.winner);
+    const noms = eg.filter(x => x.r.nominees_final.includes(f.winner) && x.size > 3).length;
+    notes.push(`${plink(season, f.winner)} won ${w.total} of the endgame’s ${comps} competitions`
+      + (noms ? ` and sat on the block at ${plural(noms, "eviction")}.` : " and was never on the block at an eviction."));
+  }
+  if (f4 && f4.how === "sole") {
+    const voter = f4.deciders[0], out = plink(season, f4.r.evicted);
+    const hohVeto = f4.r.veto_winners.filter(n => f4.r.hoh.includes(n));
+    notes.push(`At the final four, `
+      + (f4.r.veto_winners.includes(voter) ? `${plink(season, voter)} won the veto and cast the only vote, evicting ${out}.`
+        : hohVeto.length ? `${L(hohVeto)} won both HOH and the veto, which left ${plink(season, voter)} to cast the only vote, evicting ${out}.`
+        : `${plink(season, voter)} cast the only vote, evicting ${out}.`)
+      + (decided ? (f.finalists.some(x => x.name === voter) ? ` ${plink(season, voter)} made the final two.` : ` ${plink(season, voter)} still didn’t make the final two.`) : ""));
+  }
+  if (f3) {
+    const h = f3.r.hoh[0], took = f3.r.nominees_final.filter(n => n !== f3.r.evicted);
+    let s = `${plink(season, h)} won the final HOH and took ${L(took)} over ${plink(season, f3.r.evicted)}`;
+    if (decided) {
+      const me = f.finalists.find(x => x.name === h), them = f.finalists.find(x => x.name !== h);
+      if (me && them) s += me.name === f.winner ? `, then won the jury vote ${me.votes}–${them.votes}.` : `, then lost the jury vote ${me.votes}–${them.votes}.`;
+      else s += ".";
+    } else s += ".";
+    notes.push(s);
+  }
+  // The season's comp leader, to set the endgame against the whole game.
+  const all = cast.map(n => { const p = ctx.d.players.find(x => x.season === season && x.name === n); return { n, wins: p ? p.hoh.length + p.veto.length : 0 }; })
+    .sort((a, b) => b.wins - a.wins);
+  if (all.length && all[0].wins) {
+    const top = all.filter(x => x.wins === all[0].wins).map(x => x.n);
+    const pl = top.length === 1 ? place.get(top[0]) : null;
+    notes.push(`Over the whole season, ${L(top)} had the most HOH and veto wins of the final ${eg[0].size} (${all[0].wins})`
+      + (pl ? ` and finished ${pl === 1 ? "as the winner" : pl === 2 ? "as runner-up" : ordinal(pl)}.` : "."));
+  }
+  // Who decided the most evictions.
+  const count = new Map();
+  eg.forEach(x => x.deciders.forEach(n => count.set(n, (count.get(n) || 0) + 1 / x.deciders.length)));
+  const [who] = [...count.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+  if (who && eg.length > 1) {
+    const alone = eg.filter(x => x.deciders.length === 1 && x.deciders[0] === who).length;
+    if (alone > 1) notes.push(`${plink(season, who)} decided ${alone} of the ${eg.length} evictions alone.`);
+  }
+  if (!decided && S.left.length) notes.push(`${L(S.left)} ${S.left.length > 1 ? "are" : "is"} still in the game.`);
+  return notes.length ? `<h2>What decided it</h2><ul class="eg-notes">${notes.map(x => `<li>${x}</li>`).join("")}</ul>` : "";
+}
+
+function endgameRoundHtml(ctx, x) {
+  const { season } = ctx;
+  const who = x.deciders.length && x.how
+    ? `<div class="decider">Decided by ${x.deciders.map(n => `${faceHtml(season, n)}${plink(season, n)}`).join(" ")}`
+      + ` <span class="muted">· ${x.how === "sole" ? "sole vote" : x.how === "tie" ? "tie-break" : "the majority"}</span></div>`
+    : "";
+  return `<article class="eg-round"><h3><span class="size">Final ${x.size}</span>`
+    + `<span>${x.size === 3 ? "The final HOH" : `${plink(season, x.r.evicted)} evicted`}</span>`
+    + `<a class="plink wk" href="${weekHash(season, x.label)}">${esc(x.key)}${x.day != null && !/Day/.test(x.key) ? ` · Day ${x.day}` : ""}</a></h3>`
+    + `<p class="rule">${esc(stageRule(x))}</p>`
+    + `<p class="story">${roundStory(season, x, ctx.parts)}</p>${who}</article>`;
+}
+
+// A season still airing: a round in the table that isn't modeled yet.
+function endgameLaterHtml({ season, decided, eg }) {
+  if (decided) return "";
+  const last = eg[eg.length - 1];
+  const weeks = DATA.weeks.filter(w => w.season === season);
+  const at = weeks.findIndex(w => w.week_label === last.label);
+  const next = weeks.slice(at).find(w => w.status !== "ok" && w.raw);
+  return `<p class="muted" style="margin-top:12px">`
+    + (next ? `Later rounds aren’t fully modeled yet: see <a class="plink" href="${weekHash(season, next.week_label)}">${esc(next.week_label)}</a>.`
+      : `Later rounds aren’t in the table yet.`) + `</p>`;
+}
+
+// Who did what, round by round: one row per houseguest, one column per round.
+function powerGridHtml(ctx) {
+  const { season, eg, cast, place, decided, f, parts } = ctx;
+  const head = eg.map(x => `<th scope="col">Final ${x.size}<small>${esc(x.key)}</small></th>`).join("")
+    + (decided ? `<th scope="col">Jury vote<small>${esc(f.week)}</small></th>` : "");
+  const rows = cast.map(n => {
+    const pl = place.get(n);
+    const cells = eg.map(x => x.size < (pl || 0) ? `<td class="gone"></td>` : `<td>${roleTags(season, x, n, parts)}</td>`).join("");
+    let jury = "";
+    if (decided) {
+      const me = f.finalists.find(x => x.name === n), j = f.jury.find(x => x.name === n);
+      jury = me ? `<td><span class="t ${me.name === f.winner ? "won" : ""}">${me.name === f.winner ? "Won" : "Lost"} ${me.votes}–${f.finalists.find(x => x.name !== n).votes}</span></td>`
+        : `<td>${j && j.vote ? `<span class="t">Voted ${esc(j.vote)}</span>` : `<span class="zero">–</span>`}</td>`;
+    }
+    const state = pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live";
+    return `<tr><td><div class="pl">${faceHtml(season, n, state)}<span>${plink(season, n)}<small>${pl ? esc(placeText(pl)) : "Still in"}</small></span></div></td>${cells}${jury}</tr>`;
+  }).join("");
+  return `<h2>Who held the power</h2>`
+    + `<div class="t-legend"><span><span class="t hoh">HOH</span> Head of Household</span><span><span class="t veto">Veto</span> won the veto</span>`
+    + `<span><span class="t nom">Nominated</span> on the block</span><span><span class="t dec">Sole vote</span> decided the eviction</span><span><span class="t out">Evicted</span></span></div>`
+    + `<div class="scroll"><table class="players power"><thead><tr><th scope="col">Houseguest</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+// Endgame numbers per houseguest, against their numbers before it.
+function endgameTableHtml(ctx) {
+  const { season, d, eg, cast, place } = ctx;
+  const keys = new Set(eg.map(x => x.key));
+  const num = n => n ? n : `<span class="zero">0</span>`;
+  const hasParts = eg.some(x => x.size === 3) && ctx.parts.length;
+  const rows = cast.map(n => {
+    const p = d.players.find(x => x.season === season && x.name === n) || { hoh: [], veto: [] };
+    const w = endgameWins(ctx, n);
+    const before = { hoh: p.hoh.filter(k => !keys.has(k)).length, veto: p.veto.filter(k => !keys.has(k)).length };
+    const block = eg.filter(x => x.size > 3 && x.r.nominees_final.includes(n)).length;
+    const decided = eg.filter(x => x.deciders.includes(n)).length;
+    const alone = eg.filter(x => x.deciders.length === 1 && x.deciders[0] === n).length;
+    const pl = place.get(n);
+    return `<tr><td><div class="pl">${faceHtml(season, n, pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live")}<span>${plink(season, n)}</span></div></td>`
+      + `<td class="result">${pl ? esc(placeText(pl)) : "Still in"}</td>`
+      + `<td class="gs">${num(before.hoh)}</td><td>${num(before.veto)}</td>`
+      + `<td class="gs">${num(w.hoh + w.finalHoh)}</td><td>${num(w.veto)}</td>${hasParts ? `<td>${num(w.parts)}</td>` : ""}`
+      + `<td class="gs">${num(block)}</td><td>${num(decided)}</td><td>${num(alone)}</td></tr>`;
+  }).join("");
+  const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
+  return `<h2>Before the endgame and in it</h2><div class="scroll"><table class="players"><thead>`
+    + `<tr class="grp"><th colspan="2"></th><th colspan="2" class="gs">Before</th><th colspan="${hasParts ? 3 : 2}" class="gs">Endgame comps</th><th colspan="3" class="gs">Endgame evictions</th></tr><tr>`
+    + `<th scope="col">Houseguest</th><th scope="col" style="text-align:left">Finish</th>`
+    + th("HOHs", "HOH wins before the endgame", "gs") + th("Vetoes", "Veto wins before the endgame")
+    + th("HOHs", "HOH wins in the endgame, including the final HOH", "gs") + th("Vetoes") + (hasParts ? th("Final HOH parts", "Parts of the three-part final HOH won") : "")
+    + th("On the block", "Nominated at the eviction (not counting the final three)", "gs") + th("Had a say", "Evictions they voted with the majority on, broke a tie on or cast the sole vote for")
+    + th("Alone", "Evictions they decided alone: a sole vote, a tie-break or the final HOH")
+    + `</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+// Every finished season's endgame side by side, and how often the big powers paid off.
+function acrossSeasonsHtml(ctx) {
+  const { d, season: here, start } = ctx;
+  const rows = [];
+  for (const s of seasonList()) {
+    const S = seasonRounds(s, d);
+    if (!S.finale || !S.finale.decided) continue;
+    const eg = S.rounds.filter(x => x.size <= start);
+    const f4 = eg.find(x => x.size === 4), f3 = eg.find(x => x.size === 3);
+    if (!f3) continue;
+    const f = S.finale;
+    const c = { season: s, d, eg, parts: finalParts(d, f) };
+    const w = endgameWins(c, f.winner);
+    const leaderPool = [...S.left, ...eg.map(x => x.r.evicted)].map(n => {
+      const p = d.players.find(x => x.season === s && x.name === n);
+      return { n, wins: p ? p.hoh.length + p.veto.length : 0 };
+    }).sort((a, b) => b.wins - a.wins);
+    const leaders = leaderPool.filter(x => x.wins === leaderPool[0].wins).map(x => x.n);
+    const egBest = Math.max(...leaderPool.map(x => endgameWins(c, x.n).total));
+    rows.push({
+      s, f, w, f4, f3,
+      f4voter: f4 && f4.how === "sole" ? f4.deciders[0] : null,
+      winnerNoms: eg.filter(x => x.size > 3 && x.r.nominees_final.includes(f.winner)).length,
+      leaders, egTop: w.total === egBest,
+    });
+  }
+  if (rows.length < 2) return "";
+  const n = rows.length;
+  const count = fn => rows.filter(fn).length;
+  const tile = (k, text) => `<div class="stat"><b>${k}<small> of ${n}</small></b><span>${text}</span></div>`;
+  const fin = r => r.f.finalists.map(x => x.name);
+  const tiles = tile(count(r => r.f3.r.hoh[0] === r.f.winner), "final HOH winners went on to win the game")
+    + tile(count(r => r.f4voter && fin(r).includes(r.f4voter)), "final-four evictors (the lone vote) made the final two")
+    + tile(count(r => !r.winnerNoms), `winners were never on the block from the final ${start}`)
+    + tile(count(r => r.egTop), `winners had the most endgame comp wins (or tied)`)
+    + tile(count(r => r.leaders.length === 1 && r.leaders[0] === r.f.winner), `winners were their final ${start}’s season-long comp leader`);
+  const L = (s, names) => andList(s, names);
+  const body = rows.map(r => {
+    const mine = r.s === here;
+    const other = fin(r).find(x => x !== r.f.winner);
+    const wv = r.f.finalists.find(x => x.name === r.f.winner).votes, lv = r.f.finalists.find(x => x.name === other).votes;
+    return `<tr${mine ? ` class="here"` : ""}><td><a class="plink" href="${endgameHash(r.s)}">BB${r.s}</a></td>`
+      + `<td>${plink(r.s, r.f.winner)} <span class="muted">${wv}–${lv} over</span> ${plink(r.s, other)}</td>`
+      + `<td>${r.w.total} <span class="muted">(${[r.w.hoh && plural(r.w.hoh, "HOH"), r.w.veto && plural(r.w.veto, "veto", "vetoes"),
+          r.w.parts && plural(r.w.parts, "final HOH part"), r.w.total > r.w.hoh + r.w.veto + r.w.parts && "the final HOH"].filter(Boolean).join(", ") || "none"})</span></td>`
+      + `<td>${r.winnerNoms || `<span class="zero">0</span>`}</td>`
+      + `<td>${r.f4 ? `${L(r.s, r.f4.r.veto_winners)}${r.f4voter && !r.f4.r.veto_winners.includes(r.f4voter) ? ` <span class="muted">(${plink(r.s, r.f4voter)} voted)</span>` : ""} <span class="muted">out:</span> ${plink(r.s, r.f4.r.evicted)}` : `<span class="zero">–</span>`}</td>`
+      + `<td>${plink(r.s, r.f3.r.hoh[0])} <span class="muted">out:</span> ${plink(r.s, r.f3.r.evicted)}</td>`
+      + `<td>${L(r.s, r.leaders)}</td></tr>`;
+  }).join("");
+  return `<h2>Every season’s endgame</h2><div class="eg-tiles stats">${tiles}</div>`
+    + `<div class="scroll"><table class="players across"><thead><tr><th scope="col">Season</th><th scope="col">Result</th>`
+    + `<th scope="col"><abbr title="HOH, veto and final HOH part wins from the final ${start}">Winner’s endgame wins</abbr></th>`
+    + `<th scope="col"><abbr title="Times the winner was nominated at an eviction from the final ${start}">Winner on the block</abbr></th>`
+    + `<th scope="col">Final 4 veto</th><th scope="col">Final HOH</th>`
+    + `<th scope="col"><abbr title="Most HOH and veto wins all season among the final ${start}">Season’s comp leader</abbr></th>`
+    + `</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+
 // ---------- America’s Favorite HouseGuest: the viewers’ vote, every season ----------
 
 // "Won", "Top 3" or "Runner-up" for a houseguest in their season's vote, else null.
@@ -1509,7 +1960,7 @@ function finaleAfhHtml(season, d, people) {
     + `<p><a class="plink" href="#afh">Every season’s favorite ›</a></p>`;
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #finale=26 · #afh ----------
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #endgame=26 · #finale=26 · #afh ----------
 
 function route() {
   if (!DATA) return;
@@ -1520,7 +1971,7 @@ function route() {
     return showFormat(decodeURIComponent(fm[1]));
   }
   if (location.hash === "#afh") { hideDrawer(); return showAfh(); }
-  const m = location.hash.match(/^#(week|players|player|comps|finale)=(\d+)(?:\/(.*))?$/);
+  const m = location.hash.match(/^#(week|players|player|comps|endgame|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
   if (kind === "week") {
@@ -1529,6 +1980,9 @@ function route() {
   } else if (kind === "comps") {
     hideDrawer();
     showComps(season || newest);
+  } else if (kind === "endgame") {
+    hideDrawer();
+    showEndgame(season || newest, ENDGAME_STARTS.includes(+rest) ? +rest : ENDGAME_DEFAULT);
   } else if (kind === "finale") {
     hideDrawer();
     showFinale(season || newest);
@@ -1536,8 +1990,8 @@ function route() {
     hideDrawer();
     showPlayers(season || newest);
   } else {
-    // A player opened from the Comps, Finale or Fan favorite view keeps that view behind the drawer.
-    if (!(["players", "comps", "finale"].includes(currentView) && currentSeason === season) && currentView !== "afh") showPlayers(season);
+    // A player opened from the Comps, Endgame, Finale or Favorite view keeps that view behind the drawer.
+    if (!(["players", "comps", "endgame", "finale"].includes(currentView) && currentSeason === season) && currentView !== "afh") showPlayers(season);
     showPlayer(season, rest);
   }
 }
@@ -1545,10 +1999,16 @@ function route() {
 $("tab-weeks").addEventListener("click", () => { location.hash = ""; });
 $("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
 $("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
+$("tab-endgame").addEventListener("click", () => { location.hash = endgameHash(currentSeason || seasonList()[0]); });
 $("tab-finale").addEventListener("click", () => { location.hash = `#finale=${currentSeason || seasonList()[0]}`; });
 $("tab-afh").addEventListener("click", () => { location.hash = "#afh"; });
 wireSeasonPicker("season-pick", s => `#players=${s}`);
 wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
+wireSeasonPicker("endgame-season-pick", s => endgameHash(s));
+$("endgame-start-pick").addEventListener("click", e => {
+  const b = e.target.closest("button[data-start]");
+  if (b) location.hash = endgameHash(currentSeason, +b.dataset.start);
+});
 wireSeasonPicker("finale-season-pick", s => `#finale=${s}`);
 $("grid-mode").addEventListener("click", e => {
   const b = e.target.closest("button[data-mode]");
