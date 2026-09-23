@@ -96,7 +96,7 @@ between things should be on it.
 | Width | What changes |
 |---|---|
 | ≤ 900px | the leaders strip scrolls sideways |
-| ≤ 640px (phone) | tabs become two rows of four; pickers wrap; the drawer becomes a bottom sheet; `--inset` drops to 12px; tables' name column hides full names |
+| ≤ 640px (phone) | tabs become two rows (five, then four); pickers wrap; the drawer becomes a bottom sheet; `--inset` drops to 12px; tables' name column hides full names |
 | ≤ 400px | the drawer portrait shrinks |
 
 Check every change at 390px wide as well as on a desktop.
@@ -110,7 +110,7 @@ the same look, add its selector to that list.
 | Component | Markup | Notes |
 |---|---|---|
 | Page header | `.kicker`, `h1` + `.pill`, `.sub` | Title and intro change with the tab (`VIEWS` in the script). |
-| View tabs | `.tabs` > `button[role=tab]` | Eight tabs make two rows of four on phones. A ninth adds a third row, so rethink the labels first. |
+| View tabs | `.tabs` > `button[role=tab]` | Nine tabs make two rows on phones, five then four. A tenth would need a third row, so rethink the labels first. |
 | Picker / toggle | `.seg` > `button[aria-pressed]` (or a `select`) | Every secondary control, season pickers included. Wraps on phones. |
 | Panel | `.panel` | The box each tab renders into. Tables go straight inside. |
 | Panel body | `.view-body` | Pads a panel of prose, charts and sections (Finale, Endgame, HOH, Veto). |

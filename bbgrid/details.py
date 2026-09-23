@@ -145,13 +145,71 @@ def episode_insights(record, episodes):
     return {"comps": comps, "veto_notes": veto_notes}
 
 
+# --- Who played in the veto ---------------------------------------------------
+# The HOH and the nominees always play; the rest are drawn (or picked by
+# "houseguest's choice"), six players in all. Neither wiki's tables list them,
+# so they come from the episode summaries ("Angela and Barrett are selected to
+# compete alongside the nominees"), or from the house being small enough that
+# everyone plays.
+VETO_PLAYERS = 6
+_VETO_WORD = re.compile(r"\b(?:veto|pov)\b", re.I)
+_DRAWN = re.compile(
+    r"\b(?:(?:was|were|is|are|get|gets|got|been|being)\s+(?:randomly\s+)?(?:selected|chosen|picked|drawn)"
+    r"|(?:competes?|competing|plays?|playing)\s+(?:for|in)\s+the\s+(?:power\s+of\s+)?(?:veto|pov)"
+    r"|selects?\s+the\s+(?:third|last|other))\b", re.I)
+# Out of the house that week: already evicted, or waiting in a comeback twist.
+_NOT_IN_HOUSE = re.compile(r"evicted|comeback|zombie", re.I)
+
+
+def _named(text, name):
+    """True if text names this houseguest as a person (not "Rome's backdoor plan")."""
+    return re.search(r"(?<!\w)" + re.escape(name) + r"(?![\w’'])", text, re.I) is not None
+
+
+def veto_players(rnd, votes, sentences):
+    """Who played in the round's veto competition, as far as the sources say.
+
+    Returns {"players": [...], "complete": bool}: complete is True when every
+    player is known (the whole house played, or the summaries name everyone
+    drawn), so someone missing from the list didn't play. None without a veto.
+    """
+    if not rnd["veto_winners"]:
+        return None
+    in_house = [v["voter"] for v in votes["votes"]] + [
+        v["voter"] for v in votes["not_voting"] if not _NOT_IN_HOUSE.search(v["reason"])]
+    in_house += [n for n in rnd["hoh"] + rnd["nominees_initial"] if n not in in_house]
+    if len(in_house) <= VETO_PLAYERS:
+        return {"players": in_house, "complete": True}
+    cast = [n for n, _ in rnd.get("_voters", [])]
+    sure = list(dict.fromkeys(rnd["hoh"] + rnd["nominees_initial"] + rnd["veto_winners"]))
+    drawn = []
+    for i, sent in enumerate(sentences):
+        # A split after an initial ("Derek X.") leaves "were chosen …" on its own.
+        if i and sent[:1].islower():
+            sent = sentences[i - 1] + " " + sent
+        if not (_VETO_WORD.search(sent) and _DRAWN.search(sent)):
+            continue
+        drawn += [n for n in cast if _named(sent, n) and n not in sure and n not in drawn]
+        if len(sure) + len(drawn) >= VETO_PLAYERS:
+            break
+    return {"players": sure + drawn, "complete": len(sure) + len(drawn) >= VETO_PLAYERS}
+
+
 def week_details(records, notes, episodes):
     """{week_key: {"rounds": [...], "special", "episodes", "comps", "veto_notes"}}."""
     out = {}
     for record in records:
         eps = episodes.get(record["week_label"], [])
+        sentences = [s for ep in eps for s in split_sentences(ep.get("summary") or "")]
+        rounds = []
+        for r in record["rounds"]:
+            votes = round_votes(r)
+            veto = veto_use(r)
+            if veto is not None:
+                veto["players"] = veto_players(r, votes, sentences)
+            rounds.append({"sub_label": r["sub_label"], **votes, "veto": veto})
         out[week_key(record["season"], record["week_label"])] = {
-            "rounds": [{"sub_label": r["sub_label"], **round_votes(r), "veto": veto_use(r)} for r in record["rounds"]],
+            "rounds": rounds,
             "special": special(record, notes),
             "episodes": eps,
             **episode_insights(record, eps),

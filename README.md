@@ -181,7 +181,7 @@ for one. "All seasons" has a few headline numbers, a row per season, a board of 
 (the HOH colored by the type of competition, the veto winner by what they did with it),
 a chart by week of the season, and the most wins in a season. One season lists each round:
 for HOH, the competition, the nominees, who went home and whether it was one of the HOH's
-nominees or a backdoor (a replacement nominee), and what happened to the HOH the next round;
+nominees or a replacement nominee (a backdoor when they hadn't played in the veto, as far as the episode summaries say who played), and what happened to the HOH the next round;
 for the veto, whether the winner was the HOH or a nominee and what they did with it. Seasons
 with a third nominee (BB26–BB28) use the veto much more, mostly as nominees saving themselves.
 
@@ -196,6 +196,17 @@ player's details say "America's Favorite: Won ($50,000)" or "Top 3".
 
 ![America's Favorite HouseGuest for BB21–BB27](docs/screenshots/afh.png)
 
+**Analytics**: patterns across every season, recomputed from the data each time the
+page loads. It opens with a short "What stands out" list, then: comp beasts (most HOH and
+veto wins in a season), whether the house got each season's comp leader out, back-to-back
+wins and immunity runs (rounds in a row safe by holding HOH or the veto), how the first
+HOH and the week-one nominees fared, the longest runs off the block and who was never
+nominated, competition types by how many houseguests were left (every part of the final
+HOH counted), age against comp wins and making the jury, and a season-by-season table of
+what winning took.
+
+![Analytics view across BB21–BB28](docs/screenshots/analytics.png)
+
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 
 ![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
@@ -209,7 +220,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#analytics`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage

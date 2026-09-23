@@ -115,6 +115,30 @@ def test_veto_use_from_nominations():
     assert veto_use(_round(veto_winners=[])) is None
 
 
+def _votes(in_house, out=()):
+    return {"votes": [{"voter": n, "vote": "x"} for n in in_house], "not_voting": [{"voter": n, "reason": "Remained evicted (Day 30)"} for n in out]}
+
+
+def test_veto_players_from_the_draw():
+    """The HOH and nominees play; the summaries name the rest. Then anyone else didn't play."""
+    from bbgrid.details import veto_players
+    cast = ["Hana", "Alex", "Casey", "Dana", "Eli", "Fay", "Gus", "Rome"]
+    rnd = _round(_voters=[(n, []) for n in cast])
+    house = _votes(cast)
+    said = ["During the Veto draw, Rome's backdoor plan is set in place as Eli and Fay are selected to compete alongside the nominees.",
+            "Gus was chosen by houseguest's choice to play in the veto."]
+    out = veto_players(rnd, house, said)
+    assert out == {"players": ["Hana", "Alex", "Casey", "Eli", "Fay", "Gus"], "complete": True}  # not Rome: only his plan is named
+    # Only two of the three named: someone missing may still have played.
+    assert veto_players(rnd, house, said[:1])["complete"] is False
+    # Nothing said and a big house: only the HOH and nominees are known.
+    assert veto_players(rnd, house, []) == {"players": ["Hana", "Alex", "Casey"], "complete": False}
+    # Six or fewer left in the house: everyone plays.
+    small = _votes(cast[:6], out=cast[6:])
+    assert veto_players(rnd, small, []) == {"players": cast[:6], "complete": True}
+    assert veto_players(_round(veto_winners=[]), house, said) is None
+
+
 def test_competition_names_tied_to_the_winner():
     from bbgrid.details import episode_insights
     record = {"rounds": [_round(hoh=["Makensy"], veto_winners=["Kimo"])]}
@@ -134,7 +158,8 @@ def test_competition_names_tied_to_the_winner():
 def test_week_details_include_veto_and_comps():
     d = full()["details"]["99|Week 1"]
     # Three nominees; Casey vetoes themselves off and nobody replaces them.
-    assert d["rounds"][0]["veto"] == {"used": True, "on": ["Casey"], "replacements": [], "twist_saved": []}
+    assert d["rounds"][0]["veto"] == {"used": True, "on": ["Casey"], "replacements": [], "twist_saved": [],
+                                      "players": {"players": ["Alex", "Blair", "Casey", "Dana"], "complete": False}}
     assert d["comps"] == [] and d["veto_notes"] == []
 
 
