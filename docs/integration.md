@@ -304,10 +304,10 @@ browser:
 
 If you host with the Pages workflow above, it redeploys after every fetch run.
 
-After a refresh, read `report.txt` for new `note`/`error` weeks. The snapshot tests
-(`tests/snapshots/`) will fail on any week whose data changed. That's expected after new
-episodes: review the diff, then accept it with
-`UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
+After a refresh, read `report.txt` for new `note`/`error` weeks. The workflow also updates
+the test snapshots (`tests/snapshots/`) in the same commit, so the commit's snapshot diff
+shows exactly which weeks changed. After a local `fetch`, accept the changes yourself with
+`UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py tests/test_fandom_snapshots.py`.
 
 To add a season, widen the range in `seasons.yaml` (e.g. `seasons: "21-29"`) and push.
 The workflow runs automatically when that file changes. For older seasons, see
