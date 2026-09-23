@@ -1,11 +1,13 @@
 # BigBrotherDataFromWiki
 
-A week-by-week grid of US Big Brother seasons 21–28. Each cell is one week of one season.
-Hovering shows that week's HOH, noms, veto winner(s), final noms, who was evicted, and the
-vote tally. The season currently airing (BB28) is on top. The grid comes from the "Voting history" table on each season's
-Wikipedia page. The detail views add data from the fan-run
-[Big Brother Wiki](https://bigbrother.fandom.com/) (Fandom): every competition's name,
-weekly Have-Nots, houseguest bios and season facts. It's also used to cross-check Wikipedia.
+A week-by-week grid of US Big Brother seasons 21–28. Each cell is one week of one season,
+with the season currently airing (BB28) on top. Hovering shows that week's HOH, noms, veto
+winner(s), final noms, who was evicted, and the vote tally.
+
+The grid comes from the "Voting history" table on each season's Wikipedia page. The detail
+views add data from the fan-run [Big Brother Wiki](https://bigbrother.fandom.com/)
+(Fandom): every competition's name, weekly Have-Nots, houseguest bios and season facts.
+It's also used to cross-check Wikipedia.
 
 ## Launch the site
 
@@ -36,6 +38,8 @@ for Week 11 in every season. ← → and ↑ ↓ step through weeks and seasons.
 `#week=`, the simple view is the whole grid laid out like the dashboard's boards. See
 [On a stream](docs/integration.md#on-a-stream).
 
+![Stream week board for BB26 Week 11: HOH, nominees, veto, the eviction and its vote, episodes](docs/screenshots/stream-week.png)
+
 ## How it works
 
 ```
@@ -51,10 +55,13 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 | 3. Interpreter | `bbgrid/interpret.py` | Big Brother only: row labels, weeks, rounds, statuses |
 | 4. Validator + exporter | `bbgrid/validate.py`, `bbgrid/export.py` | checks each round, writes the outputs |
 | 5. Web page | `web/index.html` | static page that reads `weeks.json` |
+| Detail data | `bbgrid/details.py` | the click-through views; writes `details.json` |
+| Cast, episodes, comps | `bbgrid/cast.py`, `bbgrid/episodes.py`, `bbgrid/comps.py` | Wikipedia's cast and episode tables; each competition's description and type |
 | Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
 | Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
 | America's Favorite HouseGuest | `bbgrid/afh.py` | the infobox winner and the article's sentences about the vote |
-| Shared helpers | `bbgrid/util.py` | name comparison, sentences, dates, timestamps |
+| Proofreading sheet | `bbgrid/proofread.py` | every extracted fact in `proofread.xlsx` |
+| Config and shared helpers | `bbgrid/config.py`, `bbgrid/util.py` | `seasons.yaml`, paths; name comparison, sentences, dates |
 | Screenshots | `tools/screenshots.py` | retakes `docs/screenshots/` from `web/` |
 
 - **Hosting, embedding, or using the data elsewhere:** see
@@ -66,7 +73,7 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 
 ## Screenshots
 
-These show the real data: all eight seasons as fetched from both wikis on 2026-09-22.
+These show the real data: all eight seasons as fetched from both wikis on 2026-09-23.
 Houseguests appear as initials. The photos are CBS's images, and this repository links to
 them rather than copying them, so the screenshots leave them out (see
 [`docs/licensing.md`](docs/licensing.md)). To retake them all, run `python tools/screenshots.py`.
@@ -84,8 +91,8 @@ columns instead of calling it a double eviction. Dark mode:
 
 ![Dark-mode grid with the BB24 Week 7 "Two rounds: inside and outside" tooltip](docs/screenshots/grid-split-house-dark.png)
 
-**A twist week.** Weeks with a folded yellow corner aren't fully modeled. The tooltip gives the reason and
-the week's table text as Wikipedia shows it. In BB21 Week 3 the regular eviction is
+**A twist week.** Weeks with a folded yellow corner aren't fully modeled. The tooltip gives
+the reason and the week's table text as Wikipedia shows it. In BB21 Week 3 the regular eviction is
 modeled, and the Camp Comeback column (Cliff winning re-entry) is flagged:
 
 ![Light-mode grid with the BB21 Week 3 note tooltip and raw table text](docs/screenshots/grid-note.png)
@@ -121,13 +128,18 @@ The main cards stay short. More detail sits behind two options:
 
 ![Week details for BB26 Week 4: competitions, veto, votes and the Deepfake HoH twist](docs/screenshots/details-week.png)
 
+On a phone, details open as a bottom sheet:
+
+<img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
+
 **Competitions** name every HOH and veto competition (210 of 213 rounds) from the Big
 Brother Wiki's Competition History, with the recurring format where the wiki gives one
-(e.g. "Bad AI" (Knockout)), linked to a page for the format, and its type. The same table lists the week's other competitions:
-AI Arena, Block Buster, Safety Suite, final HOH parts and so on. Episode summaries fill in
-the few names the wiki doesn't have. **Have-Nots** lists each week's Have-Nots, with who
-picked them where the wiki says. **Sources disagree** appears only when the wiki's Game
-History differs from Wikipedia on that week's HOH, nominations, veto winner or veto use.
+(e.g. "Bad AI" (Knockout)), linked to a page for the format, and its type. The same table
+lists the week's other competitions: AI Arena, Block Buster, Safety Suite, final HOH parts
+and so on. Episode summaries fill in the few names the wiki doesn't have. **Have-Nots**
+lists each week's Have-Nots, with who picked them where the wiki says. **Sources disagree**
+appears only when the wiki's Game History differs from Wikipedia on that week's HOH,
+nominations, veto winner or veto use.
 
 **HOH view.** The Evicted / HOH switch above the grid shows whose HOH week each one was.
 
@@ -148,6 +160,10 @@ Wiki it adds each player's full name, alliances and Have-Not weeks. The table al
 line of season facts: premiere, days, cast size, prize and host, and the season's top five
 by HOH and veto wins, ranked gold, silver and bronze.
 
+![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
+
+![Angela's BB26 timeline](docs/screenshots/details-player.png)
+
 **Comps**: every HOH and veto competition of a season with its format and type
 (Endurance, Physical, Skill, Mental, Hybrid, Puzzle or Crapshoot), with a count of each type.
 Physical is races, obstacle courses and strength; Skill is aim, stacking and balancing
@@ -159,10 +175,16 @@ and a link to it on the Big Brother Wiki. Types come from the format's Big Broth
 page ("a recurring endurance competition") where it names one, otherwise from the
 episode summaries.
 
+![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
+
+![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
+
 **Major comps** (the first button in the Comps tab, `#comps=major`): the competitions played
 every season (The Wall, OTEV, BB Comics, Knockout and the final HOH's jury statements) with
 who won each one, season by season, and a table of every double eviction: its HOH, veto,
 final nominees, who went home and the vote.
+
+![Major comps: who won The Wall, OTEV, BB Comics and the rest each season, and every double eviction](docs/screenshots/comps-major.png)
 
 **Endgame**: the last few rounds, from the final five (or six, or four: `#endgame=26/6`),
 where one veto or one vote can decide the game. A card per round tells what happened
@@ -178,25 +200,27 @@ those rounds and the Finale view link to it.
 
 ![Endgame view for BB26: round by round, and who held the power](docs/screenshots/endgame.png)
 
-**Finale**: how each season's winner was decided. The final two and the jury vote
-(`7–0`), the final HOH's three parts with their formats and winners, and who the final HOH
-evicted at the final three. A vote board shows which jurors voted for whom. Then a row per juror, in the
-order they left: when they were evicted, who was HOH that week, and what each finalist had to
-do with it (HOH, held the veto, voted to evict). Last, the final two's games side by
-side: HOH and veto wins, final HOH parts, nominations, votes against, and how many jurors
-each helped evict. The votes are counted from each juror's own cell in Wikipedia's Finale
-column. The table's own "N votes to win" line isn't used because it can be wrong (BB22's reads
-"Enzo 0 votes to win"). While a season is airing the view shows who's left and the
-jury so far. The finale week's details link to it.
+**Finale**: how each season's winner was decided. The final two and the jury vote (`7–0`),
+the final HOH's three parts with their formats and winners, and who the final HOH evicted
+at the final three. A vote board shows which jurors voted for whom. Then a row per juror,
+in the order they left: when they were evicted, who was HOH that week, and what each
+finalist had to do with it (HOH, held the veto, voted to evict). Last, the final two's
+games side by side: HOH and veto wins, final HOH parts, nominations, votes against, and how
+many jurors each helped evict. The votes are counted from each juror's own cell in
+Wikipedia's Finale column. The table's own "N votes to win" line isn't used because it can
+be wrong (BB22's reads "Enzo 0 votes to win"). While a season is airing the view shows
+who's left and the jury so far. The finale week's details link to it.
 
 **HOH** and **Veto**: trends in who won and what came of it, for every season at once or
 for one. "All seasons" has a few headline numbers, a row per season, a board of every week
-(the HOH colored by the type of competition, the veto winner by what they did with it),
-a chart by week of the season, and the most wins in a season. One season lists each round:
+(the HOH colored by the type of competition, the veto winner by what they did with it), a
+chart by week of the season, and the most wins in a season. One season lists each round:
 for HOH, the competition, the nominees, who went home and whether it was one of the HOH's
-nominees or a replacement nominee (a backdoor when they hadn't played in the veto, as far as the episode summaries say who played), and what happened to the HOH the next round;
-for the veto, whether the winner was the HOH or a nominee and what they did with it. Seasons
-with a third nominee (BB26–BB28) use the veto much more, mostly as nominees saving themselves.
+nominees or a replacement nominee (a backdoor when they hadn't played in the veto, as far
+as the episode summaries say who played), and what happened to the HOH the next round; for
+the veto, whether the winner was the HOH or a nominee and what they did with it. Seasons
+with a third nominee (BB26–BB28) use the veto much more, mostly as nominees saving
+themselves.
 
 **Favorite**: America's Favorite HouseGuest for every season, the viewers' vote announced
 at each finale. Each season's card shows the winner, the prize, how their game ended
@@ -220,23 +244,10 @@ what winning took.
 
 ![Analytics view across BB21–BB28](docs/screenshots/analytics.png)
 
-![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
-
-![Major comps: who won The Wall, OTEV, BB Comics and the rest each season, and every double eviction](docs/screenshots/comps-major.png)
-
-![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
-
-![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
-
-![Angela's BB26 timeline](docs/screenshots/details-player.png)
-
-On a phone, details open as a bottom sheet:
-
-<img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
-
-Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comps=major`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#analytics`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
-`web/details.json`, which loads only when a detail view is first opened.
+Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`, `#player=26/Angela`,
+`#comps=28`, `#comps=major`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`,
+`#analytics`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail
+data lives in `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage
 
@@ -270,7 +281,8 @@ says what's ready and what to check before building BB1–BB20.
 
 The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 
-- **Host it** on GitHub Pages: `.github/workflows/pages.yml` publishes `web/`, so you can use it from a phone. See [Launch the site](#launch-the-site) for setup.
+- **Host it** on GitHub Pages (`.github/workflows/pages.yml`): see
+  [Launch the site](#launch-the-site).
 - **Embed it** in another site with an iframe; `?embed=1` hides the page's title:
   ```html
   <iframe src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
@@ -306,6 +318,10 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_afh.py`: America's Favorite HouseGuest on a **synthetic** page: the
   infobox winner, the top three or runner-up, the prize and the cross-check.
 - `tests/test_config.py`: `seasons.yaml` ranges, title patterns and exceptions.
+- `tests/test_fetch.py`: the fetcher with a stubbed HTTP session (no network).
+- `tests/test_proofread.py`: `proofread.xlsx`'s formulas agree with the site's numbers.
+- `tests/test_style.py`: `web/index.html` takes its colors, sizes and radii from the
+  style guide's tokens.
 - `tests/test_export.py`: the whole build for one cached season, written to a temporary
   folder: the top-level shape of `weeks.json` and `details.json`, and `report.txt`.
 

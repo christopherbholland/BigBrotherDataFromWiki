@@ -1,7 +1,7 @@
 # Screenshots
 
 All screenshots use the real data for BB21–BB28, fetched from Wikipedia and the Big Brother
-Wiki on 2026-09-22. Houseguests appear as initials: the photos are CBS's images, which the
+Wiki on 2026-09-23. Houseguests appear as initials: the photos are CBS's images, which the
 page links to but the repository doesn't copy.
 
 ## Double eviction
