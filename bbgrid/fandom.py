@@ -489,7 +489,8 @@ FORMAT_TYPE_WORDS = [
     ("Puzzle", re.compile(r"\bpuzzle\b", re.I)),
     ("Mental", re.compile(r"\b(mental|trivia|memory|quiz|knowledge|question|counting)\b", re.I)),
     ("Crapshoot", re.compile(r"\b(luck|luck-based|chance|crapshoot|random)\b", re.I)),
-    ("Physical", re.compile(r"\b(physical|skill|speed|agility|aim|obstacle|athletic)\b", re.I)),
+    ("Skill", re.compile(r"\b(skill|aim|precision|dexterity|stacking)\b", re.I)),
+    ("Physical", re.compile(r"\b(physical|speed|agility|obstacle|athletic)\b", re.I)),
 ]
 OPENING_RE = re.compile(r"\bis (?:a|an|the)\b(.*?)(?:\[\[|\bcompetition\b|\.)", re.I | re.S)
 
