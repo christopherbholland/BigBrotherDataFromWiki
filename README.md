@@ -75,7 +75,7 @@ just "Two evictions":
 separate "Inside" and "Outside" evictions. Both are modeled, and the note names the
 columns instead of calling it a double eviction. Dark mode:
 
-![Dark-mode grid with the BB24 Week 7 "Two rounds: Inside / Outside" tooltip](docs/screenshots/grid-split-house-dark.png)
+![Dark-mode grid with the BB24 Week 7 "Two rounds: inside and outside" tooltip](docs/screenshots/grid-split-house-dark.png)
 
 **A twist week.** Weeks with a folded yellow corner aren't fully modeled. The tooltip gives the reason and
 the week's table text as Wikipedia shows it. In BB21 Week 3 the regular eviction is
