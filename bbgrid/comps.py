@@ -18,6 +18,7 @@ import re
 from collections import Counter
 
 from .details import SENTENCE_SPLIT
+from .util import mentions
 
 CATEGORIES = ["Endurance", "Physical", "Mental", "Puzzle", "Crapshoot"]
 CATEGORY_HELP = {
@@ -126,10 +127,6 @@ def explains(text):
 PRIZE_RE = re.compile(r'["“]([^"”]{2,50}?)["”]\s+(power|punishment|advantage|curse)\b', re.I)
 
 
-def _mentions(text, name):
-    return re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text) is not None
-
-
 def twist_prize(winners, sents):
     """The named power or punishment a twist gave its winner, from the summaries.
 
@@ -138,7 +135,7 @@ def twist_prize(winners, sents):
     {"name", "kind"} (kind "power", "punishment", ...) or None.
     """
     for i, sent in enumerate(sents):
-        if not any(_mentions(sent, w) for w in winners):
+        if not any(mentions(sent, w) for w in winners):
             continue
         for text in (sent, sents[i + 1] if i + 1 < len(sents) else ""):
             m = PRIZE_RE.search(text)

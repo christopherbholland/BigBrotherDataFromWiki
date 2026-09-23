@@ -150,7 +150,7 @@ the first.
 
 ## Output shape
 
-`web/weeks.json` is `{generated_at, license, sources: [...], weeks: [...]}`. Each entry in
+`web/weeks.json` is `{schema_version, generated_at, license, sources: [...], weeks: [...], photos: {...}}`. Each entry in
 `weeks` is exactly the per-week record from the design doc. `sources` holds each season's
 title, URL, revision ID, and a permalink to that revision, which the page uses for
 attribution.
@@ -158,18 +158,21 @@ attribution.
 `raw` is `{columns: [sub-labels], rows: [{label, cells: [text per sub-column]}]}` and is
 filled in only for `note` and `error` weeks.
 
-`footnotes` lists the markers (e.g. `"a"`) from any cell in the week's columns. The
-footnote text itself isn't extracted in v1.
+`footnotes` lists the markers (e.g. `"a"`) from any cell in the week's columns. Their
+text is in `details.json`, under each week's `special.notes`.
 
 ## Web page
 
 - Seasons are rows. Columns are keyed by week label, with numbered weeks first.
 - Each cell names the evicted houseguest. A week with two modeled rounds shows two stacked
   halves.
-- `note` and `error` weeks get an icon badge (`!` / `×`) with a legend. Color is never the
-  only signal.
-- The tooltip appears on hover or keyboard focus, and clicking pins it (useful on touch).
-  Escape or clicking outside closes it.
+- `note` and `error` weeks get a folded corner (yellow for `note`, red for `error`), with a
+  legend. Each cell's accessible label also states the status, so color isn't the only
+  signal.
+- The tooltip appears on hover or keyboard focus. Clicking or tapping a week opens its
+  details; Escape or the close button closes them.
+- `?seasons=26-28` limits the page to some seasons, and `?embed=1` / `?theme=` are for
+  embedding (see `docs/integration.md`).
 - Light and dark themes are supported.
 - The page fetches `weeks.json`, so serve it over HTTP. `file://` won't work.
 

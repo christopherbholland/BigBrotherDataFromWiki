@@ -1055,6 +1055,20 @@
    "outcome": "wins HOH",
    "result": "Taylor wins HOH",
    "extra": {}
+  },
+  {
+   "week": 11,
+   "day": "78",
+   "type": "POV",
+   "kind": "veto",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Drew"
+   ],
+   "outcome": "wins the Veto",
+   "result": "Drew wins the Veto",
+   "extra": {}
   }
  ],
  "have_nots": {
@@ -1561,7 +1575,9 @@
     "Dee",
     "Drew"
    ],
-   "veto_holders": [],
+   "veto_holders": [
+    "Drew"
+   ],
    "veto_used": null,
    "nominees_final": [],
    "evicted": [],
@@ -1635,7 +1651,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699154,
+   "revid": 699356,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c7/US28_Dee_Large.jpg/revision/latest"
   },
   "Rick Devens": {
@@ -1671,7 +1687,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 698742,
+   "revid": 699357,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/40/US28_Devens_Large.jpg/revision/latest"
   },
   "Drew Campbell": {
@@ -1705,7 +1721,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699155,
+   "revid": 699355,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2b/US28_Drew_Large.jpg/revision/latest"
   },
   "Taylor Brown": {
@@ -1731,7 +1747,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699152,
+   "revid": 699359,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d7/US28_Taylor_Large.jpg/revision/latest"
   },
   "Melody Morris": {
@@ -2313,7 +2329,7 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 697441,
+   "revid": 699503,
    "portrait": null
   },
   "Keanu Soto": {

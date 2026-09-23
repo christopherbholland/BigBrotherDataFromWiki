@@ -54,6 +54,9 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 
 - **Height.** About 560px fits all eight seasons with the legend. The grid scrolls
   sideways inside the frame on narrow screens.
+- **Only some seasons.** `&seasons=26-28` (or `21,26`, or `21-23,28`) shows just those
+  seasons, e.g. `?embed=1&seasons=27-28` for a short embed. It also limits the Players and
+  Comps season pickers.
 - **Theme.** The page follows the viewer's light/dark setting. The dark theme is a navy
   board styled to sit next to Taran's stock-watch graphics. Add `&theme=dark` (or
   `&theme=light`) to pin one, e.g. `?embed=1&theme=dark` for a stream overlay.
@@ -77,8 +80,9 @@ The file has this shape:
 
 ```jsonc
 {
+  "schema_version": 1,                 // see "Versioning" below
   "generated_at": "2026-09-22T18:20:46+00:00",
-  "license": "Wikipedia content, CC BY-SA 4.0; Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; houseguest photos are CBS promotional images, linked from the Big Brother Wiki",
+  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/): adapted from Wikipedia (CC BY-SA 4.0) and the Big Brother Wiki, … Houseguest photos are CBS promotional images, … not covered by this license.",
   "sources": [
     { "season": 26, "title": "Big Brother 26 (American season)",
       "url": "https://en.wikipedia.org/wiki/…", "revid": 1234, "fetched_at": "…",
@@ -140,13 +144,15 @@ Things to know:
   CC BY-SA 4.0 and link the source pages. They're in `sources`, with `permalink` pointing
   at the exact revision used. If you use the Big Brother Wiki fields (everything under
   `fandom` and `seasons` in details.json), also credit the Big Brother Wiki under
-  CC BY-SA 3.0; its pages are in `sources[].fandom`.
+  CC BY-SA 3.0; its pages are in `sources[].fandom`. What you build from the data must
+  be shared under CC BY-SA 4.0 too, and should say it was adapted. See
+  [`DATA_LICENSE.md`](../DATA_LICENSE.md).
 
 ### details.json
 
 ```jsonc
 {
-  "generated_at": "…", "license": "Wikipedia content, CC BY-SA 4.0",
+  "schema_version": 1, "generated_at": "…", "license": "…",   // as in weeks.json
   "weeks": {
     "26|Week 4": {                                 // "<season>|<week_label>"
       "rounds": [{                                 // same order as weeks.json rounds
@@ -265,6 +271,16 @@ Things to know:
   as the wiki writes it and listed in `report.txt`. The page prefers `fandom.comps` over
   `comps` for competition names.
 
+### Versioning
+
+Both files carry `schema_version`, currently `1`. It goes up only when a field is
+removed or renamed, or changes meaning. New fields can appear without a version change,
+so ignore keys you don't know. To be safe, check the version before reading:
+
+```js
+if (data.schema_version !== 1) console.warn("weeks.json format changed; see docs/integration.md");
+```
+
 Example: every HOH in BB26.
 
 ```js
@@ -288,10 +304,11 @@ browser:
 
 If you host with the Pages workflow above, it redeploys after every fetch run.
 
-After a refresh, read `report.txt` for new `note`/`error` weeks. The snapshot tests
-(`tests/snapshots/`) will fail on any week whose data changed. That's expected after new
-episodes: review the diff, then accept it with
-`UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
+After a refresh, read `report.txt` for new `note`/`error` weeks. The workflow also updates
+the test snapshots (`tests/snapshots/`) in the same commit, so the commit's snapshot diff
+shows exactly which weeks changed. After a local `fetch`, accept the changes yourself with
+`UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py tests/test_fandom_snapshots.py`.
 
-To add a season, add a line to `seasons.yaml` and push. The workflow runs automatically
-when that file changes.
+To add a season, widen the range in `seasons.yaml` (e.g. `seasons: "21-29"`) and push.
+The workflow runs automatically when that file changes. For older seasons, see
+[`all-seasons.md`](all-seasons.md).

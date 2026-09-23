@@ -11,11 +11,11 @@ Two wikis, both MediaWiki:
 """
 import json
 import time
-from datetime import datetime, timezone
 
 import requests
 
 from .config import CACHE_DIR, FANDOM_CACHE_DIR
+from .util import utc_now
 
 API_URL = "https://en.wikipedia.org/w/api.php"
 FANDOM_API_URL = "https://bigbrother.fandom.com/api.php"
@@ -68,7 +68,7 @@ def fetch_season(season, title, cache_dir=CACHE_DIR, session=None):
         "season": season,
         "title": title,
         "revid": revid,
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": utc_now(),
     }
     meta_path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
     return meta
@@ -163,7 +163,7 @@ def fetch_fandom_season(season, title, cache_dir=FANDOM_CACHE_DIR, session=None)
         "houseguest_pages": len(leads),
         "missing_pages": sorted(t for t, _ in links if t not in leads),
         "format_pages": len(format_leads),
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": utc_now(),
     }
     paths["meta"].write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
     return meta

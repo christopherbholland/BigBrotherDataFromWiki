@@ -7,7 +7,7 @@ currently airing (BB28) is on top.
 
 Clicking a week opens its details: the HOH and veto competitions, what was done with the
 veto, who voted for whom, what was different that week, and its episodes. The **Players** view tracks each houseguest's HOH and veto wins, noms, and
-votes for and against.
+votes for and against, and **Comps** lists every competition with its format and type.
 
 - [[Screenshots]]
 - [Integration guide](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/integration.md): host the page, embed it, or use the data
@@ -15,4 +15,6 @@ votes for and against.
 
 ![The week grid with BB26 Week 10's double eviction open](https://github.com/christopherbholland/BigBrotherDataFromWiki/blob/main/docs/screenshots/grid-double-eviction.png?raw=true)
 
-Data from Wikipedia, used under CC BY-SA 4.0.
+Data from Wikipedia (CC BY-SA 4.0) and the Big Brother Wiki (CC BY-SA 3.0), shared under
+CC BY-SA 4.0. Houseguest photos are CBS's, linked from the Big Brother Wiki. Not affiliated
+with CBS or the show's producers.

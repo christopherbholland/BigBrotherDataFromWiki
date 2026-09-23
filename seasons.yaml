@@ -1,21 +1,16 @@
-# One entry per season. Adding a season is a one-line change in each list.
-# seasons: the Wikipedia article (the grid's source).
-# fandom: the Big Brother Wiki page (extra detail: competitions, Have-Nots, bios).
-seasons:
-  21: Big Brother 21 (American season)
-  22: Big Brother 22 (American season)
-  23: Big Brother 23 (American season)
-  24: Big Brother 24 (American season)
-  25: Big Brother 25 (American season)
-  26: Big Brother 26 (American season)
-  27: Big Brother 27 (American season)
-  28: Big Brother 28 (American season)
-fandom:
-  21: Big Brother 21 (US)
-  22: Big Brother 22 (US)
-  23: Big Brother 23 (US)
-  24: Big Brother 24 (US)
-  25: Big Brother 25 (US)
-  26: Big Brother 26 (US)
-  27: Big Brother 27 (US)
-  28: Big Brother 28 (US)
+# Which seasons to build, and each one's page on the two wikis.
+#
+# seasons:     a range ("21-28"), a number, or a list of both (["1-5", "21-28"]).
+#              For every US season so far, use "1-28" (see docs/all-seasons.md first).
+# titles:      each wiki's page title, with {n} standing for the season number.
+#   wikipedia  the Wikipedia article (the grid's source)
+#   fandom     the Big Brother Wiki page (extra detail: competitions, Have-Nots, bios)
+# exceptions:  a season whose title doesn't follow the pattern, per wiki. null leaves
+#              that season out of that wiki.
+seasons: "21-28"
+titles:
+  wikipedia: "Big Brother {n} (American season)"
+  fandom: "Big Brother {n} (US)"
+exceptions:
+  wikipedia: {}
+  fandom: {}

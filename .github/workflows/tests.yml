@@ -1,0 +1,41 @@
+name: Tests
+
+# Runs the tests, then rebuilds web/ from cache/ and checks the result matches
+# what's committed, so a code change can't land without its rebuilt outputs.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - name: Committed outputs match a fresh build
+        run: |
+          for f in weeks details; do git show HEAD:web/$f.json > /tmp/$f.json; done
+          python -m bbgrid build
+          python - <<'PY'
+          import json, sys
+          stale = []
+          for name in ("weeks", "details"):
+              old, new = (json.load(open(p)) for p in (f"/tmp/{name}.json", f"web/{name}.json"))
+              old.pop("generated_at", None), new.pop("generated_at", None)
+              if old != new:
+                  stale.append(f"web/{name}.json")
+          if stale:
+              sys.exit(f"::error::{', '.join(stale)} out of date: run `python -m bbgrid build` and commit the result")
+          print("web/weeks.json and web/details.json match a fresh build")
+          PY
+          git diff --exit-code report.txt

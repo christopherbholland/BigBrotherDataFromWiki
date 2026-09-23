@@ -42,3 +42,9 @@ def test_birth_date_and_bold_lead():
     assert wt.birth_date("{{Birth date and age|1990|4|2|mf=yes}}") == date(1990, 4, 2)
     assert wt.birth_date("unknown") is None
     assert wt.bold_lead(INFOBOX) == "Alex Quinn Stone"
+
+
+def test_after_template():
+    text = "{{Recurring Competition\n|description=Hang on. {{nowrap|x}}\n}}\n'''The Wall''' is a recurring endurance competition."
+    assert wt.after_template(text, "Recurring Competition") == "\n'''The Wall''' is a recurring endurance competition."
+    assert wt.after_template("no infobox here", "Recurring Competition") == "no infobox here"

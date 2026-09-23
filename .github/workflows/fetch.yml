@@ -2,7 +2,7 @@ name: Fetch wiki pages
 
 # Fetches each season's Wikipedia page and Big Brother Wiki (Fandom) page into cache/,
 # rebuilds web/weeks.json, details.json, report.txt and proofread.xlsx, and commits
-# them back to the branch if any page changed.
+# them back to the branch, with updated test snapshots, if any page changed.
 # Runs daily, when this file or seasons.yaml changes, or by hand from the Actions tab.
 on:
   push:
@@ -36,17 +36,26 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt
       - name: Fetch pages
-        run: python -m bbgrid fetch ${{ github.event.inputs.seasons }}
+        # Passed through the environment, not pasted into the script, so the input
+        # is only ever read as season numbers.
+        env:
+          SEASONS: ${{ github.event.inputs.seasons }}
+        run: python -m bbgrid fetch $SEASONS
       - name: Build weeks.json and report.txt
         run: |
           python -m bbgrid build
           python -m bbgrid proofread
           cat report.txt
+      - name: Update test snapshots
+        # The snapshots record what's read from each cached page, so they change with
+        # the pages. Updating them here keeps the Tests workflow green; the snapshot
+        # diff in the commit shows exactly what the refresh changed.
+        run: UPDATE_SNAPSHOTS=1 pytest -q tests/test_snapshots.py tests/test_fandom_snapshots.py
       - name: Commit if the pages changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cache/ web/weeks.json web/details.json report.txt proofread.xlsx
+          git add cache/ web/weeks.json web/details.json report.txt proofread.xlsx tests/snapshots/
           # Only the fetch timestamps change when a page hasn't been edited, so compare
           # the pages themselves. Staged, so newly added pages count too.
           if git diff --cached --quiet -- 'cache/*.html' 'cache/*.wikitext' 'cache/*.houseguests.json' 'cache/*.formats.json'; then

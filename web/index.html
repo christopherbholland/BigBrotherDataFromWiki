@@ -233,6 +233,8 @@ table.plays tr:last-child td { border-bottom: 0; }
 .seg button:hover { color: var(--text-primary); }
 .seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
 .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.seg select { border: 0; background: var(--surface-1); color: var(--text-primary); font: inherit; font-weight: 600; padding: 4px 8px; border-radius: 5px; cursor: pointer; }
+.seg select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .zero { color: var(--text-muted); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
 .stat { background: var(--surface-0); border-radius: 8px; padding: 8px 10px; }
@@ -346,6 +348,24 @@ const params = new URLSearchParams(location.search);
 if (params.has("embed")) document.documentElement.classList.add("embed");
 // ?theme=dark or ?theme=light pins the look, e.g. to match a host page.
 if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
+// ?seasons=26-28 (or 21,26 or 21-23,28) shows only those seasons, e.g. to keep an embed short.
+function seasonFilter(text) {
+  if (!text) return null;
+  const want = new Set();
+  for (const part of text.split(",")) {
+    const m = part.trim().match(/^(\d+)(?:-(\d+))?$/);
+    if (m) for (let n = +m[1]; n <= +(m[2] || m[1]); n++) want.add(n);
+  }
+  return want.size ? want : null;
+}
+function onlySeasons(data, want) {
+  if (!want) return data;
+  const keep = s => want.has(+s);
+  return { ...data,
+    weeks: data.weeks.filter(w => keep(w.season)),
+    sources: (data.sources || []).filter(s => keep(s.season)),
+    photos: Object.fromEntries(Object.entries(data.photos || {}).filter(([s]) => keep(s))) };
+}
 
 const FIELDS = [
   ["hoh", "HOH"],
@@ -541,6 +561,8 @@ function renderFooter(data) {
     + `<p><a href="https://bigbrother.fandom.com/">Big Brother Wiki</a>, seasons ${links(sources.filter(s => s.fandom), s => s.fandom.permalink || s.fandom.url) || "(not fetched yet)"} `
     + `· <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>`
     + (data.photos ? `<p>Houseguest photos: CBS, via the Big Brother Wiki</p>` : "")
+    + `<p>Rearranged and summarized from these pages; this page’s data is CC BY-SA 4.0. `
+    + `Not affiliated with CBS or the makers of Big Brother.</p>`
     + `<p>Updated ${esc((data.generated_at || "").slice(0, 10))}${missing.length ? ` · Missing: ${missing.join(", ")}` : ""}</p>`;
 }
 
@@ -601,6 +623,10 @@ function loadDetails() {
 
 const weekHash = (season, label) => `#week=${season}/${encodeURIComponent(label)}`;
 const playerHash = (season, name) => `#player=${season}/${encodeURIComponent(name)}`;
+// True while the address still shows this view. Compared decoded, since a shared
+// link may encode characters ("Da%27Vonne") that encodeURIComponent leaves as is.
+const decodeHash = h => { try { return decodeURIComponent(h); } catch (err) { return h; } };
+const isCurrent = hash => decodeHash(location.hash) === decodeHash(hash);
 const plink = (season, name) => `<a class="plink" href="${playerHash(season, name)}">${esc(name)}</a>`;
 const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + "s")}`;
 
@@ -651,7 +677,7 @@ async function showWeek(season, label) {
   let d;
   try { d = (await loadDetails()).weeks[`${season}|${label}`]; }
   catch (err) { return openDrawer(title, statusText(w), errorHtml(err)); }
-  if (location.hash !== weekHash(season, label)) return;  // moved on while loading
+  if (!isCurrent(weekHash(season, label))) return;  // moved on while loading
   const summary = w.rounds.length
     ? w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
@@ -839,6 +865,24 @@ function episodesHtml(d) {
 
 let currentView = "weeks", currentSeason = null;
 
+// A button per season while they fit on one line; a drop-down once there are more.
+const SEASON_BUTTONS_MAX = 10;
+function seasonPickerHtml(season) {
+  const list = seasonList();
+  if (list.length <= SEASON_BUTTONS_MAX) {
+    return list.map(s => `<button aria-pressed="${s === season}" data-season="${s}">BB${s}</button>`).join("");
+  }
+  return `<select aria-label="Season">${list.map(s =>
+    `<option value="${s}"${s === season ? " selected" : ""}>BB${s}</option>`).join("")}</select>`;
+}
+function wireSeasonPicker(id, hashFor) {
+  $(id).addEventListener("click", e => {
+    const b = e.target.closest("button[data-season]");
+    if (b) location.hash = hashFor(b.dataset.season);
+  });
+  $(id).addEventListener("change", e => { location.hash = hashFor(e.target.value); });
+}
+
 function seasonList() {
   return [...new Set(DATA.weeks.map(w => w.season))].sort((a, b) => b - a);
 }
@@ -913,8 +957,7 @@ const pct = (n, d) => d ? `${Math.round(100 * n / d)}%` : "";
 async function showPlayers(season) {
   setView("players");
   currentSeason = season;
-  $("season-pick").innerHTML = seasonList().map(s =>
-    `<button aria-pressed="${s === season}" data-season="${s}">BB${s}</button>`).join("");
+  $("season-pick").innerHTML = seasonPickerHtml(season);
   const panel = $("players-panel");
   if (!DETAILS) panel.innerHTML = `<div class="msg">Loading players…</div>`;
   let d;
@@ -999,7 +1042,7 @@ async function showPlayer(season, name) {
   openDrawer(title, status, `<p class="muted">Loading…</p>`);
   let d;
   try { d = await loadDetails(); } catch (err) { return openDrawer(title, status, errorHtml(err)); }
-  if (location.hash !== playerHash(season, name)) return;
+  if (!isCurrent(playerHash(season, name))) return;
   const p = d.players.find(x => x.season === season && x.name === name);
   if (!p) return openDrawer(title, status, `<p class="muted">No player by that name in BB${season}.</p>`);
   const s = playerStats(p);
@@ -1079,8 +1122,7 @@ function bioHtml(p, season) {
 async function showComps(season) {
   setView("comps");
   currentSeason = season;
-  $("comps-season-pick").innerHTML = seasonList().map(s =>
-    `<button aria-pressed="${s === season}" data-season="${s}">BB${s}</button>`).join("");
+  $("comps-season-pick").innerHTML = seasonPickerHtml(season);
   const panel = $("comps-panel");
   if (!DETAILS) panel.innerHTML = `<div class="msg">Loading competitions…</div>`;
   let d;
@@ -1112,7 +1154,7 @@ async function showFormat(format) {
   openDrawer(format, "Competition format", `<p class="muted">Loading…</p>`);
   let d;
   try { d = await loadDetails(); } catch (err) { return openDrawer(format, "", errorHtml(err)); }
-  if (location.hash !== compHash(format)) return;
+  if (!isCurrent(compHash(format))) return;
   const f = (d.formats || {})[format];
   if (!f) return openDrawer(format, "Competition format", `<p class="muted">No competition by that format in these seasons.</p>`);
   const help = Object.fromEntries((d.categories || []).map(c => [c.name, c.help]));
@@ -1168,14 +1210,8 @@ function route() {
 $("tab-weeks").addEventListener("click", () => { location.hash = ""; });
 $("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
 $("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
-$("comps-season-pick").addEventListener("click", e => {
-  const b = e.target.closest("button[data-season]");
-  if (b) location.hash = `#comps=${b.dataset.season}`;
-});
-$("season-pick").addEventListener("click", e => {
-  const b = e.target.closest("button[data-season]");
-  if (b) location.hash = `#players=${b.dataset.season}`;
-});
+wireSeasonPicker("season-pick", s => `#players=${s}`);
+wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
 $("grid-mode").addEventListener("click", e => {
   const b = e.target.closest("button[data-mode]");
   if (!b || !DATA) return;
@@ -1205,7 +1241,15 @@ addEventListener("hashchange", route);
 
 fetch("weeks.json")
   .then(r => { if (!r.ok) throw new Error(r.status + " " + r.statusText); return r.json(); })
-  .then(data => { DATA = data; render(data); route(); })
+  .then(data => {
+    DATA = onlySeasons(data, seasonFilter(params.get("seasons")));
+    if (!DATA.weeks.length) {
+      document.getElementById("panel").innerHTML =
+        `<div class="msg">No seasons match <code>?seasons=${esc(params.get("seasons"))}</code>. Try e.g. <code>?seasons=26-28</code>.</div>`;
+      return;
+    }
+    render(DATA); route();
+  })
   .catch(err => {
     document.getElementById("panel").innerHTML =
       `<div class="msg">Couldn’t load weeks.json (${esc(err.message)}). Run <code>python -m bbgrid build</code>, then serve this folder, e.g. <code>python -m http.server -d web</code>.</div>`;

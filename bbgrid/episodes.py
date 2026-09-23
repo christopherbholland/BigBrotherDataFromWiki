@@ -5,9 +5,9 @@ already grouped by week: a full-width "Week N" row, then each episode's row
 followed by a full-width summary row.
 """
 import re
-from datetime import datetime
 
 from .grid import Grid
+from .util import parse_date
 
 WEEK_HEADING_RE = re.compile(r"^(week\s*\d+|finale\b.*)$", re.I)
 COLUMNS = {
@@ -34,15 +34,6 @@ def _column_map(grid):
 def _full_width(row):
     """A row made of one cell spanning (nearly) the whole table: a heading or a summary."""
     return row[0].colspan > 1 and row[0] is row[1]
-
-
-def _iso_date(text):
-    for fmt in ("%B %d, %Y", "%b %d, %Y"):
-        try:
-            return datetime.strptime(text.strip(), fmt).date().isoformat()
-        except ValueError:
-            pass
-    return None
 
 
 def _number(text):
@@ -77,12 +68,13 @@ def episodes_by_week(grid: Grid):
         if not title and not cell("number_overall"):
             continue
         date_text = cell("air_date")
+        air_date = parse_date(date_text)
         last = {
             "number_overall": cell("number_overall") or None,
             "number": cell("number") or None,
             "title": title,
             "days": cell("days") or None,
-            "air_date": _iso_date(date_text),
+            "air_date": air_date.isoformat() if air_date else None,
             "air_date_text": date_text or None,
             "viewers_millions": _number(cell("viewers")),
             "summary": None,

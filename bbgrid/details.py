@@ -6,14 +6,12 @@ table. Nothing here is shown on the main cards.
 """
 import re
 
+from .util import mentions, name_key
+
 OUT_OF_GAME_RE = re.compile(r"^(evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
 # Parts of a week's note that don't describe anything unusual about the game.
 WINNER_SUFFIX = re.compile(r"\s+winners?$", re.I)
 ROUTINE_NOTES = re.compile(r"^(finale|no eviction)$|: no eviction$", re.I)
-
-
-def _key(name):
-    return " ".join(name.split()).casefold()
 
 
 def week_key(season, week_label):
@@ -27,12 +25,12 @@ def round_votes(rnd):
     "by_nominee": [{"nominee", "voters": [...]}]} with by_nominee in the order
     of nominees_final.
     """
-    finals = {_key(n): n for n in rnd["nominees_final"]}
+    finals = {name_key(n): n for n in rnd["nominees_final"]}
     votes, not_voting = [], []
     for voter, names in rnd.get("_voters", []):
         text = " ".join(names)
-        if len(names) == 1 and _key(names[0]) in finals:
-            votes.append({"voter": voter, "vote": finals[_key(names[0])]})
+        if len(names) == 1 and name_key(names[0]) in finals:
+            votes.append({"voter": voter, "vote": finals[name_key(names[0])]})
         elif text and not OUT_OF_GAME_RE.match(text):
             not_voting.append({"voter": voter, "reason": text})
     by_nominee = [
@@ -75,12 +73,12 @@ def veto_use(rnd):
     if not rnd["veto_winners"] or not rnd["nominees_initial"] or not rnd["nominees_final"]:
         return None
     initial, final = rnd["nominees_initial"], rnd["nominees_final"]
-    finals = {_key(n) for n in final}
-    removed = [n for n in initial if _key(n) not in finals]
-    added = [n for n in final if _key(n) not in {_key(i) for i in initial}]
-    twist_names = {_key(n) for names in rnd["extras"].values() for n in names}
-    twist_saved = [n for n in removed if _key(n) in twist_names]
-    saved = [n for n in removed if _key(n) not in twist_names]
+    finals = {name_key(n) for n in final}
+    removed = [n for n in initial if name_key(n) not in finals]
+    added = [n for n in final if name_key(n) not in {name_key(i) for i in initial}]
+    twist_names = {name_key(n) for names in rnd["extras"].values() for n in names}
+    twist_saved = [n for n in removed if name_key(n) in twist_names]
+    saved = [n for n in removed if name_key(n) not in twist_names]
     return {
         "used": bool(saved),
         "on": saved,
@@ -105,10 +103,6 @@ VETO_DECISION_RE = re.compile(
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"“])")
 
 
-def _mentions(text, name):
-    return re.search(r"(?<![\w])" + re.escape(name) + r"(?![\w])", text) is not None
-
-
 def episode_insights(record, episodes):
     """Competition names and veto-meeting sentences found in the week's episode summaries.
 
@@ -131,7 +125,7 @@ def episode_insights(record, episodes):
                 winner, round_no = None, None
                 for n, rnd in enumerate(record["rounds"], 1):
                     field = "veto_winners" if kind == "veto" else "hoh"
-                    hit = next((w for w in rnd[field] if _mentions(context, w)), None)
+                    hit = next((w for w in rnd[field] if mentions(context, w)), None)
                     if hit and (n, kind) not in taken:
                         winner, round_no = hit, n
                         break
@@ -174,7 +168,7 @@ def players(season, records, guests):
     """
     table = {}
     for g in guests:
-        table[_key(g["name"])] = {
+        table[name_key(g["name"])] = {
             "season": season, "name": g["name"], "result": g["result"],
             "hoh": [], "veto": [], "nominated": [], "on_block": [], "evicted": None,
             "votes_against": [], "votes_cast": [], "twist": [],
@@ -182,7 +176,7 @@ def players(season, records, guests):
     unmatched = set()
 
     def add(name, field, value):
-        p = table.get(_key(name))
+        p = table.get(name_key(name))
         if p is None:
             unmatched.add(name)
         elif field == "evicted":
