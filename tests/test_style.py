@@ -66,7 +66,7 @@ def test_radii_are_tokens():
 
 def test_every_token_used_is_defined():
     """A var(--name) with a typo would silently fall back to nothing."""
-    defined = set(re.findall(r"(--[\w-]+)\s*:", CSS)) | {"--strip"}  # --strip is set inline by the script
+    defined = set(re.findall(r"(--[\w-]+)\s*:", CSS)) | {"--strip", "--zoom"}  # set inline by the script
     # A name the script completes (var(--cat-${...})) is checked by its prefix.
     used = {n for n in re.findall(r"var\((--[\w-]+)", PAGE) if not n.endswith("-")}
     assert all(any(d.startswith(n) for d in defined) for n in re.findall(r"var\((--[\w-]+-)\$", PAGE))

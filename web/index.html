@@ -220,6 +220,11 @@ a.plink:hover { text-decoration-color: currentColor; }
 .tag.afh { box-shadow: inset 0 0 0 1px var(--gold); color: var(--text-primary); }
 .cat, .t { background: var(--cell); }
 .t { margin: 1px 3px 1px 0; }
+/* Icon: an inline drawing (the HOH key, the veto medal) sized to the text around it. */
+.icon { display: inline-block; width: 1.3em; height: 1.3em; vertical-align: -.3em; }
+.t.icon-only { padding: 0 5px; }
+.t .icon { width: 1.35em; height: 1.35em; }
+th .icon { width: 1.8em; height: 1.8em; vertical-align: middle; }
 .t.hoh { background: var(--accent); color: var(--on-accent); }
 .t.veto { background: var(--good); color: var(--on-good); }
 .t.nom { background: color-mix(in srgb, var(--warning) 32%, transparent); color: var(--text-primary); }
@@ -316,6 +321,8 @@ table.plays tr:last-child td { border-bottom: 0; }
   object-fit: cover; object-position: 50% 15%; background: var(--cell-hover); color: var(--text-secondary);
   font-size: var(--fs-xs); font-weight: var(--fw-bold); line-height: 1; overflow: hidden; vertical-align: middle;
 }
+/* A zoomed portrait (a full-length shot): scaled up from near the top, so the head stays in frame. */
+.face.zoom img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transform: scale(var(--zoom)); transform-origin: 50% 4%; }
 .face.out { filter: grayscale(1); opacity: .75; }
 .face.live { box-shadow: 0 0 0 2px var(--accent); }
 .face.won { box-shadow: 0 0 0 2px var(--gold); }
@@ -494,7 +501,7 @@ table.comps th.day, table.comps td.day { text-align: right; color: var(--text-se
 .fin-card { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; min-width: 120px; }
 .fin-card .face { width: 96px; border-radius: var(--r-xl); font-size: var(--fs-3xl); }
 .fin-card a { font-size: var(--fs-xl); font-weight: var(--fw-bold); }
-.fin-card .role { white-space: nowrap; font-size: var(--fs-2xs); color: var(--text-muted); }
+.fin-card .role { font-size: var(--fs-2xs); line-height: 1.3; color: var(--text-muted); }
 .fin-card.win .role { color: var(--text-primary); }
 .fin-score { font-size: var(--fs-4xl); font-weight: var(--fw-heavy); font-variant-numeric: tabular-nums; }
 .fin-lede { text-align: center; color: var(--text-secondary); margin: var(--sp-2) auto 0; font-size: var(--fs-lg); max-width: 640px; }
@@ -572,8 +579,7 @@ table.duel tr:last-child th { border-bottom: 0; }
   .eg-cast { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 6px; }
   .eg-cast .fin-card .face { width: 52px; font-size: var(--fs-xl); }
   .eg-cast .fin-card a { font-size: var(--fs-sm); }
-  /* Placings wrap at the space ("3rd / place"); "Runner-up" has a non-breaking hyphen. */
-  .eg-cast .fin-card .role { font-size: var(--fs-3xs); letter-spacing: 0; white-space: normal; line-height: 1.2; }
+  .eg-cast .fin-card .role { font-size: var(--fs-3xs); letter-spacing: 0; }
 }
 ul.eg-notes { margin: 0; padding-left: 18px; line-height: 1.55; }
 ul.eg-notes li { margin: var(--sp-1) 0; }
@@ -741,6 +747,10 @@ const initials = name => String(name).split(/\s+/).map(w => (w.match(/[A-Za-z]/)
 const sized = (url, w) => url.replace(/\/revision\/latest(?=\?|$)/, `/revision/latest/scale-to-width-down/${w}`);
 const photoOf = (season, name) => (((DATA && DATA.photos) || {})[season] || {})[name] || null;
 
+// How far to zoom a season's large portraits toward the head. Most seasons' are
+// waist-up and need none; BB28's are full-length, so the face would be tiny.
+const PORTRAIT_ZOOM = { 28: 2.1 };
+
 // An <img> of a houseguest's headshot, or their initials when there's none. The
 // name always sits next to it, so the picture itself is decorative (alt="").
 // large: a bigger portrait to try first, falling back to the headshot.
@@ -748,21 +758,31 @@ function faceHtml(season, name, cls = "", large = null) {
   const small = photoOf(season, name);
   const ini = esc(initials(name));
   if (!small && !large) return `<span class="face ${cls}" aria-hidden="true">${ini}</span>`;
-  const src = large ? sized(large, 240) : sized(small, 80);
+  const src = large ? sized(large, large && PORTRAIT_ZOOM[season] ? 480 : 240) : sized(small, 80);
   const fallback = large && small ? ` data-fallback="${esc(sized(small, 80))}"` : "";
-  return `<img class="face ${cls}" src="${esc(src)}"${fallback} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-ini="${ini}">`;
+  const img = cl => `<img class="${cl}" src="${esc(src)}"${fallback} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-ini="${ini}">`;
+  // A zoomed portrait is an <img> inside the .face box, which clips it.
+  return large && PORTRAIT_ZOOM[season]
+    ? `<span class="face zoom ${cls}" style="--zoom:${PORTRAIT_ZOOM[season]}" aria-hidden="true">${img("")}</span>`
+    : img(`face ${cls}`);
 }
 
 // A picture that fails to load becomes the next one down, then initials.
 document.addEventListener("error", e => {
   const img = e.target;
-  if (!(img instanceof HTMLImageElement) || !img.classList.contains("face")) return;
-  if (img.dataset.fallback) { img.src = img.dataset.fallback; delete img.dataset.fallback; return; }
+  if (!(img instanceof HTMLImageElement)) return;
+  const box = img.classList.contains("face") ? img : img.closest(".face.zoom");
+  if (!box) return;
+  if (img.dataset.fallback) {
+    // The headshot is already framed on the face, so it isn't zoomed.
+    if (box !== img) box.style.setProperty("--zoom", 1);
+    img.src = img.dataset.fallback; delete img.dataset.fallback; return;
+  }
   const span = document.createElement("span");
-  span.className = img.className;
+  span.className = box.className.replace(/\bzoom\b/, "");
   span.setAttribute("aria-hidden", "true");
   span.textContent = img.dataset.ini || "";
-  img.replaceWith(span);
+  box.replaceWith(span);
 }, true);
 
 // Out of the game: grey. Still playing: an accent ring. The winner: a gold ring.
@@ -980,6 +1000,17 @@ const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + "s")}`;
 const ZERO = `<span class="zero">–</span>`;
 const num = n => n ? n : `<span class="zero">0</span>`;
 // A column header; title explains an abbreviation on hover.
+// Icons for the two powers: the HOH room's key and the veto medal. Drawn in
+// currentColor, so they take the color of the chip or text around them.
+const POWER = {
+  hoh: { label: "HOH", svg: `<circle cx="7.5" cy="12" r="4.5"/><path d="M12 12h10M18.5 12v4M22 12v3"/>` },
+  veto: { label: "Veto", svg: `<path d="M7.5 2.5 12 9.5l4.5-7"/><circle cx="12" cy="15.5" r="6"/><path d="M12 12.5v6"/>` },
+};
+const iconHtml = kind => `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${POWER[kind].svg}</svg>`;
+// A table head that's an icon: the title says what the column counts.
+const thIcon = (kind, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}><abbr title="${esc(title)}">${iconHtml(kind)}<span class="sr">${POWER[kind].label === "HOH" ? "HOHs" : "Vetoes"}</span></abbr></th>`;
+// A placing or state under a portrait. The non-breaking hyphen keeps "Runner-up" on one line.
+const roleHtml = text => `<span class="role">${esc(text).replace(/-/g, "\u2011")}</span>`;
 const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
 // "Jul 17, 2024" from "2024-07-17"; month "long" gives "July 17, 2024".
 const dateText = (iso, month = "short") => new Date(iso + "T12:00:00Z").toLocaleDateString(undefined, { month, day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -1646,13 +1677,13 @@ function finaleHeadHtml(season, f, info, last, people) {
   if (!f.decided) {
     const left = [...people.values()].filter(p => !p.result).map(p => p.name);
     const due = info.finale ? dateText(info.finale, "long") : "";
-    return `<div class="fin-head">${left.map(n => `<div class="fin-card">${faceHtml(season, n, "live", portrait(n))}${plink(season, n)}<span class="role">Still in the game</span></div>`).join("")}</div>`
+    return `<div class="fin-head">${left.map(n => `<div class="fin-card">${faceHtml(season, n, "live", portrait(n))}${plink(season, n)}${roleHtml("Still in the game")}</div>`).join("")}</div>`
       + `<p class="fin-lede">The finale hasn’t aired yet${due ? ` (due ${esc(due)})` : ""}. `
       + `${plural(f.jury.length, "juror")} so far; the rest of the jury is decided by the evictions still to come.</p>`;
   }
   const [a, b] = byVotes(f);
   const card = (x, role) => `<div class="fin-card${role === "Winner" ? " win" : ""}">`
-    + faceHtml(season, x.name, role === "Winner" ? "won" : "", portrait(x.name)) + plink(season, x.name) + `<span class="role">${role}</span></div>`;
+    + faceHtml(season, x.name, role === "Winner" ? "won" : "", portrait(x.name)) + plink(season, x.name) + roleHtml(role) + `</div>`;
   const third = last ? last.evicted : null;
   const lede = `${plink(season, a.name)} beat ${plink(season, b.name)} ${a.votes}–${b.votes}`
     + (b.votes === 0 ? ", a unanimous jury vote" : "")
@@ -2297,18 +2328,21 @@ function roundStory(season, x, parts) {
   return out.join(" ");
 }
 
-// What someone did in a round, as small tags.
+// What someone did in a round, as small tags. HOH and the veto are icons (a key,
+// a medal), explained by the legend above the table.
 function roleTags(season, x, name, parts) {
   const { r, use } = x;
   const tags = [];
   const t = (cls, text) => tags.push(`<span class="t ${cls}">${esc(text)}</span>`);
+  const power = (kind, text = "") => tags.push(`<span class="t ${kind}${text ? "" : " icon-only"}" title="${POWER[kind].label}">`
+    + `${iconHtml(kind)}${text ? ` ${esc(text)}` : ""}<span class="sr">${POWER[kind].label}</span></span>`);
   if (x.size === 3) {
     parts.filter(c => c.winners.includes(name)).forEach(c => t("", `Won ${c.part}`));
-    if (r.hoh.includes(name)) t("hoh", "Final HOH");
+    if (r.hoh.includes(name)) power("hoh", "Final");
   } else {
-    if (r.hoh.includes(name)) t("hoh", "HOH");
+    if (r.hoh.includes(name)) power("hoh");
     for (const [label, names] of Object.entries(r.extras || {})) if (names.includes(name)) t("", extraLabel(label));
-    if (r.veto_winners.includes(name)) t("veto", "Veto");
+    if (r.veto_winners.includes(name)) power("veto");
     if (r.nominees_initial.includes(name)) t("nom", "Nominated");
     if (use && use.used && use.on.includes(name)) t("", r.veto_winners.includes(name) ? "Saved self" : "Vetoed off");
     if (use && use.replacements.includes(name)) t("nom", "Renominated");
@@ -2361,7 +2395,7 @@ function endgameCastHtml({ season, S, cast, place, start, eg }) {
   const cards = cast.map(n => {
     const pl = place.get(n);
     return `<div class="fin-card${pl === 1 ? " win" : ""}">${faceHtml(season, n, placeState(pl), portraitOf(S.people.get(n)))}${plink(season, n)}`
-      + `<span class="role">${esc(placeLabel(pl)).replace("-", "\u2011")}</span></div>`;
+      + roleHtml(placeLabel(pl)) + `</div>`;
   }).join("");
   return `<div class="eg-cast">${cards}</div>`
     + `<p class="fin-lede">From the final ${first.size}, ${plural(eg.length, "eviction")}${S.finale && S.finale.decided ? " and the jury vote decided the game" : " so far"}.</p>`;
@@ -2486,7 +2520,7 @@ function powerGridHtml(ctx) {
     return `<tr><td><div class="pl">${faceHtml(season, n, placeState(pl))}<span>${plink(season, n)}<small>${esc(placeLabel(pl))}</small></span></div></td>${cells}${jury}</tr>`;
   }).join("");
   return `<h2>Who held the power</h2>`
-    + `<div class="t-legend"><span><span class="t hoh">HOH</span> Head of Household</span><span><span class="t veto">Veto</span> won the veto</span>`
+    + `<div class="t-legend"><span><span class="t hoh icon-only">${iconHtml("hoh")}</span> Head of Household</span><span><span class="t veto icon-only">${iconHtml("veto")}</span> won the veto</span>`
     + `<span><span class="t nom">Nominated</span> on the block</span><span><span class="t dec">Sole vote</span> decided the eviction</span><span><span class="t out">Evicted</span></span></div>`
     + `<div class="scroll"><table class="players power"><thead><tr><th scope="col">Houseguest</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
@@ -2513,8 +2547,8 @@ function endgameTableHtml(ctx) {
   return `<h2>Before the endgame and in it</h2><div class="scroll"><table class="players"><thead>`
     + `<tr class="grp"><th colspan="2"></th><th colspan="2" class="gs">Before</th><th colspan="${hasParts ? 3 : 2}" class="gs">Endgame comps</th><th colspan="3" class="gs">Endgame evictions</th></tr><tr>`
     + `<th scope="col">Houseguest</th><th scope="col" class="l">Finish</th>`
-    + th("HOHs", "HOH wins before the endgame", "gs") + th("Vetoes", "Veto wins before the endgame")
-    + th("HOHs", "HOH wins in the endgame, including the final HOH", "gs") + th("Vetoes") + (hasParts ? th("Final HOH parts", "Parts of the three-part final HOH won") : "")
+    + thIcon("hoh", "HOH wins before the endgame", "gs") + thIcon("veto", "Veto wins before the endgame")
+    + thIcon("hoh", "HOH wins in the endgame, including the final HOH", "gs") + thIcon("veto", "Veto wins in the endgame") + (hasParts ? `<th scope="col"><abbr title="Parts of the three-part final HOH won">${iconHtml("hoh")} Final parts<span class="sr"> of the final HOH</span></abbr></th>` : "")
     + th("On the block", "Nominated at the eviction (not counting the final three)", "gs") + th("Had a say", "Evictions they voted with the majority on, broke a tie on or cast the sole vote for")
     + th("Alone", "Evictions they decided alone: a sole vote, a tie-break or the final HOH")
     + `</tr></thead><tbody>${rows}</tbody></table></div>`;
