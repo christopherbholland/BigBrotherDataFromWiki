@@ -144,12 +144,18 @@ by HOH and veto wins, ranked gold, silver and bronze.
 **Comps**: every HOH and veto competition of a season with its format and type
 (Endurance, Physical, Skill, Mental, Hybrid, Puzzle or Crapshoot), with a count of each type.
 Physical is races, obstacle courses and strength; Skill is aim, stacking and balancing
-(Microbrews, Shootout, Coin Stacking); Hybrid is a question you run for, like OTEV. Click a
+(Microbrews, Shootout, Coin Stacking); Hybrid is a question or memory test you run, climb or
+zip-line for, like OTEV and BB Comics. Click a
 format (e.g. `#comp=The%20Wall`) for its page: the Big Brother Wiki's one-line summary,
 how it played out (from an episode summary), a table of every play across the seasons and who won,
 and a link to it on the Big Brother Wiki. Types come from the format's Big Brother Wiki
 page ("a recurring endurance competition") where it names one, otherwise from the
 episode summaries.
+
+**Major comps** (the first button in the Comps tab, `#comps=major`): the competitions played
+every season (The Wall, OTEV, BB Comics, Knockout and the final HOH's jury statements) with
+who won each one, season by season, and a table of every double eviction: its HOH, veto,
+final nominees, who went home and the vote.
 
 **Endgame**: the last few rounds, from the final five (or six, or four: `#endgame=26/6`),
 where one veto or one vote can decide the game. A card per round tells what happened
@@ -209,6 +215,8 @@ what winning took.
 
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 
+![Major comps: who won The Wall, OTEV, BB Comics and the rest each season, and every double eviction](docs/screenshots/comps-major.png)
+
 ![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
 
 ![Players view for BB28 in dark mode](docs/screenshots/players-dark.png)
@@ -220,7 +228,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#analytics`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comps=major`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#analytics`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage

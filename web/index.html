@@ -492,6 +492,12 @@ table.players th.bio { text-align: left; }
 /* Comps */
 table.comps th, table.comps td, table.jury th, table.jury td { text-align: left; }
 table.comps th.day, table.comps td.day { text-align: right; color: var(--text-secondary); }
+/* Major comps: a winner per season per comp, and the double evictions. Stacked winners (a co-veto, two plays) get a gap. */
+table.major td { vertical-align: top; }
+table.major td .pl + .pl { margin-top: var(--sp-1); }
+table.major td.wrap { min-width: 120px; }
+.major-guide { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); max-width: 820px; font-size: var(--fs-md); }
+.major-guide p { margin: 2px 0 0; color: var(--text-secondary); font-size: var(--fs-sm); }
 .cat-bar { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); margin: 10px var(--sp-3) var(--sp-1); font-size: var(--fs-sm); color: var(--text-secondary); }
 .view-body .cat-bar { margin: var(--sp-1) 0 10px; }
 .cat-bar b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
@@ -1060,8 +1066,11 @@ function hideDrawer() {
 }
 
 // Closing returns to the current view's own address.
+// A tab's address as it's showing now: Comps stays on Major comps once picked.
+const viewHash = (view, season) => view === "comps" && compsScope === "major" ? "#comps=major" : VIEWS[view].hash(season);
+
 function closeDrawer() {
-  location.hash = VIEWS[currentView].hash(currentSeason);
+  location.hash = viewHash(currentView, currentSeason);
 }
 
 function errorHtml(err) {
@@ -1334,8 +1343,8 @@ const VIEWS = {
            hash: () => "" },
   players: { title: "Players", sub: "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline.",
              hash: s => `#players=${s}`, show: s => showPlayers(s) },
-  comps: { title: "Competitions", sub: "Every HOH and veto competition of a season. Click or tap a format to see each time it was played.",
-           hash: s => `#comps=${s}`, show: s => showComps(s) },
+  comps: { title: "Competitions", sub: "Every HOH and veto competition of a season, or the major comps and double evictions of every season. Click or tap a format to see each time it was played.",
+           hash: s => `#comps=${s}`, show: s => showComps(s), picker: s => compsPickerHtml(s) },
   endgame: { title: "Endgame", sub: "The last few rounds, where a single veto or vote can decide the game. Who held the power, who decided each eviction, and how it compares across seasons.",
              hash: s => endgameHash(s), show: (s, rest) => showEndgame(s, ENDGAME_STARTS.includes(+rest) ? +rest : ENDGAME_DEFAULT) },
   finale: { title: "Finale", sub: "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote.",
@@ -1377,7 +1386,7 @@ async function openView(view, season, loading) {
   setView(view);
   if (season != null) {
     currentSeason = season;
-    $(`${view}-season-pick`).innerHTML = seasonPickerHtml(season);
+    $(`${view}-season-pick`).innerHTML = (VIEWS[view].picker || seasonPickerHtml)(season);
   }
   const panel = $(`${view}-panel`);
   if (!DETAILS) panel.innerHTML = `<div class="msg">${loading}</div>`;
@@ -1605,6 +1614,7 @@ function compCells(season, c) {
 }
 
 async function showComps(season) {
+  compsScope = null;
   const d = await openView("comps", season, "Loading competitions…");
   if (!d) return;
   const panel = $("comps-panel");
@@ -1652,6 +1662,132 @@ async function showFormat(format) {
       + `<td>${x.winners.map(n => plink(x.season, n)).join(" & ") || ZERO}</td></tr>`).join("")
     + `</tbody></table>` + (repeat.length ? `<p class="voters mt-2">Won more than once: ${repeat.join(", ")}</p>` : "")
     + `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
+}
+
+// ---------- Comps · Major comps: the ones played every season, and double evictions ----------
+
+// The competitions the show brings back every season. format: the Big Brother
+// Wiki's format page, when it has one (BB Comics has none, so it's matched by name).
+const MAJOR_COMPS = [
+  { label: "The Wall", format: "The Wall" },
+  { label: "OTEV", format: "OTEV" },
+  { label: "BB Comics", name: "BB Comics" },
+  { label: "Knockout", format: "Knockout" },
+  { label: "Jury statements", format: "Jury Statements" },
+];
+let compsScope = null;  // "major" while Major comps is showing, else null (a season)
+
+function compsPickerHtml(scope) {
+  return `<button aria-pressed="${scope === "major"}" data-season="major">Major comps</button>` + seasonPickerHtml(scope);
+}
+
+// Every HOH and veto play of a major comp, by season: [{ season, week, c }].
+function majorPlays(d, m) {
+  const out = [];
+  DATA.weeks.forEach(w => fandomComps(weekDetail(d, w.season, w.week_label)).forEach(c => {
+    if (c.kind === "twist" || !(m.format ? c.format === m.format : c.name === m.name)) return;
+    out.push({ season: w.season, week: w.week_label, c });
+  }));
+  return out;
+}
+
+// A winner with their face, and a line under the name.
+function winnerHtml(season, name, sub, people) {
+  const p = people.get(`${season}|${name}`);
+  return `<div class="pl">${faceHtml(season, name, p ? faceState(p) : "")}<span>${plink(season, name)}${sub ? `<small>${sub}</small>` : ""}</span></div>`;
+}
+
+async function showMajorComps() {
+  setView("comps");
+  compsScope = "major";
+  $("comps-season-pick").innerHTML = compsPickerHtml("major");
+  const panel = $("comps-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading competitions…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentView !== "comps" || compsScope !== "major") return;
+  const people = new Map(d.players.map(p => [`${p.season}|${p.name}`, p]));
+  const seasons = seasonList();
+  const kindWord = c => c.kind === "hoh" ? "HOH" : "Veto";
+  const where = (season, week, c) => `<a class="plink" href="${weekHash(season, week)}">${esc(week)}</a> · ${kindWord(c)}`;
+  const comps = MAJOR_COMPS.map(m => ({ ...m, plays: majorPlays(d, m) })).filter(m => m.plays.length);
+
+  // Wins by the season's eventual winner, in finished seasons.
+  let wins = 0, byWinner = 0;
+  comps.forEach(m => m.plays.forEach(({ season, c }) => c.winners.forEach(n => {
+    const p = people.get(`${season}|${n}`);
+    if (!p || !p.result || !d.players.some(q => q.season === season && /^winner/i.test(q.result || ""))) return;
+    wins++;
+    if (/^winner/i.test(p.result)) byWinner++;
+  })));
+
+  // Double evictions: the HOH, nominations, veto and vote all in one live show.
+  const doubles = [];
+  DATA.weeks.forEach(w => w.rounds.forEach((r, i) => { if (r.double_eviction) doubles.push({ w, r, i }); }));
+  doubles.sort((a, b) => b.w.season - a.w.season || b.w.week - a.w.week);
+  const outNext = doubles.filter(({ w, r }) => {
+    const keys = roundKeys(w.season), at = keys.findIndex(([, label, j]) => label === w.week_label && w.rounds[j] === r);
+    const prev = at > 0 ? weekRecord(w.season, keys[at - 1][1]).rounds[keys[at - 1][2]] : null;
+    return prev && prev.hoh.includes(r.evicted);
+  }).length;
+
+  const head = comps.map(m => `<th scope="col" class="l">${m.format && (d.formats || {})[m.format]
+    ? `<a class="plink" href="${compHash(m.format)}">${esc(m.label)}</a>` : esc(m.label)}</th>`).join("");
+  const rows = seasons.map(s => `<tr><td class="l"><a class="plink" href="#comps=${s}">BB${s}</a></td>`
+    + comps.map(m => {
+      const ps = m.plays.filter(x => x.season === s);
+      return `<td class="l wrap">${ps.flatMap(({ week, c }) => c.winners.map(n => winnerHtml(s, n, where(s, week, c), people))).join("")
+        || `<span class="zero" title="Not played, or not yet">–</span>`}</td>`;
+    }).join("") + `</tr>`).join("");
+
+  // What each comp is: the format page's one line, else how the show described it.
+  const about = m => {
+    const f = m.format && (d.formats || {})[m.format];
+    if (f && f.description) return f.description;
+    const last = [...m.plays].reverse().find(x => x.c.about);
+    return last ? last.c.about : "";
+  };
+  const kinds = m => [...new Set(m.plays.map(x => kindWord(x.c)))].join(" and ");
+  const guide = comps.map(m => {
+    const cat = m.plays.map(x => x.c.category).find(Boolean);
+    const n = new Set(m.plays.map(x => x.season)).size;
+    return `<li><b>${m.format && (d.formats || {})[m.format] ? `<a class="plink" href="${compHash(m.format)}">${esc(m.label)}</a>` : esc(m.label)}</b>`
+      + `${cat ? ` <span class="cat">${swatch(catVar(cat))}${esc(cat)}</span>` : ""}`
+      + ` <span class="muted">${esc(kinds(m))} · ${plural(n, "season")}</span>`
+      + `${about(m) ? `<p>${esc(about(m))}</p>` : ""}</li>`;
+  }).join("");
+
+  const dRows = doubles.map(({ w, r, i }) => {
+    const wd = weekDetail(d, w.season, w.week_label) || { comps: [] };
+    const hc = roundComp(wd, i + 1, "hoh"), vc = roundComp(wd, i + 1, "veto");
+    const compLine = c => c && c.name ? `“${esc(c.name)}”` : "";
+    const who = (names, c) => names.map(n => winnerHtml(w.season, n, compLine(c), people)).join("") || ZERO;
+    const saved = (vetoUse(r) || { on: [] }).on;
+    return `<tr><td class="l"><a class="plink" href="${weekHash(w.season, w.week_label)}">BB${w.season} · ${esc(w.week_label)}</a>`
+      + `${r.sub_label ? `<small class="muted"> · ${esc(r.sub_label)}</small>` : ""}</td>`
+      + `<td class="l">${who(r.hoh, hc)}</td><td class="l">${who(r.veto_winners, vc)}</td>`
+      + `<td class="l wrap">${saved.length ? saved.map(n => plink(w.season, n)).join(", ") : `<span class="muted">Not used</span>`}</td>`
+      + `<td class="l wrap">${r.nominees_final.map(n => plink(w.season, n)).join(", ") || ZERO}</td>`
+      + `<td class="l">${r.evicted ? winnerHtml(w.season, r.evicted, esc(tallyText(r.tally)), people) : ZERO}</td></tr>`;
+  }).join("");
+
+  const plays = comps.reduce((n, m) => n + m.plays.length, 0);
+  panel.innerHTML = `<div class="view-body trend">`
+    + `<p class="lede">The competitions Big Brother brings back every season, and every double eviction, across ${seasonsText(seasons.map(season => ({ season })))}.</p>`
+    + `<div class="stats">${statTile(plays, "Major comps played", `${comps.length} comps, HOH and veto`)}`
+    + statTile(wins ? `${pctOf(byWinner, wins)}%` : "–", "Won by the eventual winner", `${byWinner} of ${wins}, finished seasons`)
+    + statTile(doubles.length, "Double evictions", `in ${new Set(doubles.map(x => x.w.season)).size} seasons`)
+    + statTile(doubles.length ? outNext : "–", "Last week’s HOH evicted", `of ${doubles.length} double evictions`) + `</div>`
+    + `<h2>Who won them</h2><p class="note">One row per season, newest first. Click or tap a comp for every time it was played, or a week for the full story.</p>`
+    + `<div class="scroll"><table class="players major"><thead><tr><th scope="col" class="l">Season</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
+    + `<h2>The comps</h2><p class="note">What each one is. Jury statements is the third part of the final HOH.</p>`
+    + `<ul class="major-guide">${guide}</ul>`
+    + `<h2>Double evictions</h2><p class="note">A whole week in one live hour: a new HOH, nominations, a veto and a vote, right after the first eviction. Newest first.</p>`
+    + (doubles.length
+      ? `<div class="scroll"><table class="players major"><thead><tr><th scope="col" class="l">Week</th><th scope="col" class="l">HOH</th><th scope="col" class="l">Veto</th>`
+        + `<th scope="col" class="l">Veto used on</th><th scope="col" class="l">Final noms</th><th scope="col" class="l">Evicted</th></tr></thead><tbody>${dRows}</tbody></table></div>`
+      : `<p class="muted">No double evictions in these seasons yet.</p>`)
+    + `<p class="src">Competitions from the Big Brother Wiki’s competition history; double evictions and votes from Wikipedia’s voting tables.</p></div>`;
 }
 
 // ---------- Finale: the final HOH, the last eviction and the jury vote ----------
@@ -2760,8 +2896,6 @@ function finaleAfhHtml(season, d, people) {
     + `<p><a class="plink" href="#afh">Every season’s favorite ›</a></p>`;
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #endgame=26 · #finale=26 · #afh · #hoh=all · #veto=26 ----------
-
 // ---------- Analytics: patterns across every season ----------
 
 let ANALYTICS = null;
@@ -3094,6 +3228,8 @@ function seasonPatternsHtml(A) {
     + `</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comps=major · #comp=The%20Wall · #endgame=26 · #finale=26 · #afh · #analytics · #hoh=all · #veto=26 ----------
+
 function route() {
   if (!DATA) return;
   const newest = seasonList()[0];
@@ -3106,6 +3242,7 @@ function route() {
   if (tm) { hideDrawer(); return showTrend(tm[1], tm[2] === "all" ? "all" : +tm[2]); }
   if (location.hash === "#afh") { hideDrawer(); return showAfh(); }
   if (location.hash === "#analytics") { hideDrawer(); return showAnalytics(); }
+  if (location.hash === "#comps=major") { hideDrawer(); return showMajorComps(); }
   const m = location.hash.match(/^#(week|players|player|comps|endgame|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
@@ -3114,8 +3251,9 @@ function route() {
     showWeek(season, rest);
   } else if (kind === "player") {
     // A player opened from another tab keeps that tab behind the drawer, if it's for their season.
-    // Favorite, HOH, Veto and Analytics can show every season, so they always stay.
-    const keep = currentView === "afh" || currentView === "analytics" || TREND[currentView] || (currentView !== "weeks" && currentSeason === season);
+    // Favorite, HOH, Veto, Analytics and Major comps show every season, so they always stay.
+    const keep = currentView === "afh" || currentView === "analytics" || TREND[currentView] || (currentView === "comps" && compsScope === "major")
+      || (currentView !== "weeks" && currentSeason === season);
     if (!keep) showPlayers(season);
     showPlayer(season, rest);
   } else {
@@ -3124,8 +3262,8 @@ function route() {
   }
 }
 
-for (const [view, { hash }] of Object.entries(VIEWS)) {
-  $(`tab-${view}`).addEventListener("click", () => { location.hash = hash(currentSeason || seasonList()[0]); });
+for (const view of Object.keys(VIEWS)) {
+  $(`tab-${view}`).addEventListener("click", () => { location.hash = viewHash(view, currentSeason || seasonList()[0]); });
 }
 for (const view of SEASON_VIEWS) wireSeasonPicker(`${view}-season-pick`, VIEWS[view].hash);
 $("endgame-start-pick").addEventListener("click", e => {
