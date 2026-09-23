@@ -115,7 +115,9 @@ line of season facts: premiere, days, cast size, prize and host, and the season'
 by HOH and veto wins, ranked gold, silver and bronze.
 
 **Comps**: every HOH and veto competition of a season with its format and type
-(Endurance, Physical, Mental, Puzzle or Crapshoot), with a count of each type. Click a
+(Endurance, Physical, Skill, Mental, Hybrid, Puzzle or Crapshoot), with a count of each type.
+Physical is races, obstacle courses and strength; Skill is aim, stacking and balancing
+(Microbrews, Shootout, Coin Stacking); Hybrid is a question you run for, like OTEV. Click a
 format (e.g. `#comp=The%20Wall`) for its page: the Big Brother Wiki's one-line summary,
 how it played out (from an episode summary), a table of every play across the seasons and who won,
 and a link to it on the Big Brother Wiki. Types come from the format's Big Brother Wiki

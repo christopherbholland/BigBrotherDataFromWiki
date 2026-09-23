@@ -39,12 +39,16 @@ def test_categories_from_format_keywords_and_other_plays():
         {"format": "Mystery", "name": "B", "about": "Players answer true or false questions."},
         {"format": "Mystery", "name": "C", "about": None},  # same format, no description
         {"format": None, "name": "D", "about": "Players race to roll balls down a ramp."},
+        {"format": None, "name": "E", "about": "Players race across a balance beam obstacle course."},
         {"format": None, "name": "E", "about": None},
+        {"format": None, "name": "Microbrews", "about": None},  # a known format, by name
+        {"format": "OTEV", "name": "OTEV the Hog Father", "about": "Answer OTEV's questions."},
     ]
     categorize(comps)
     assert [(c["category"], c["category_from"]) for c in comps] == [
         ("Endurance", "format"), ("Mental", "summary"), ("Mental", "other plays"),
-        ("Physical", "summary"), (None, None)]
+        ("Skill", "summary"), ("Physical", "summary"), (None, None), ("Skill", "format"),
+        ("Hybrid", "format")]
 
 
 def test_same_winner_gets_one_comp_per_round():

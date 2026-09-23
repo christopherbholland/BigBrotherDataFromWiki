@@ -188,7 +188,7 @@ Things to know:
           "round": 1,                              // round whose HOH/veto winner it is; null otherwise
           "extra": {},                             // other columns, e.g. BB25's {"Multiverse": "…"}
           "about": "In the \"Bad A.I.\" Head of Household competition, …",  // episode-summary sentence, or null
-          "category": "Mental",                    // Endurance | Physical | Mental | Puzzle | Crapshoot | null
+          "category": "Mental",                    // Endurance | Physical | Skill | Mental | Hybrid | Puzzle | Crapshoot | null
           "category_from": "summary",              // "wiki" | "format" | "summary" | "other plays" | null
           "wiki_category": null,                   // the format page's own type, when fetched
           "format_description": null,              // the format page's one-line summary
@@ -252,7 +252,7 @@ Things to know:
   recurring endurance Head of Household competition"), then a list of recurring formats
   whose type is settled, then keywords in the format page's one-line description ("Hang
   on to a moving wall as long as you can"), then in the competition's episode-summary
-  sentence, then the most common type among the format's other plays. About five in six
+  sentence, then the most common type among the format's other plays. About 19 in 20
   HOH and veto competitions get one.
 - **`bio` vs `fandom`.** The page shows age, hometown and occupation from `bio`
   (Wikipedia, age as listed there) and falls back to `fandom`.
