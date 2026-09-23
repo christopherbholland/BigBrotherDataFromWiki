@@ -37,8 +37,8 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
 2. *Non-standard outcomes are notes, not errors.* An `Evicted` cell that is neither a vote
    tally nor a sole vote is a readable twist, not a structural failure. The round isn't
    modeled; the week becomes `note: Non-standard outcome: …` and keeps its raw text. Any
-   other round in the same week is still modeled. The same goes for a round with an empty
-   `Evicted` cell, which covers a double eviction that's half finished. The six cases:
+   other round in the same week is still modeled. A round with an empty `Evicted` cell
+   (a round still airing) is noted too, but is modeled when it has an HOH. The six cases:
    - BB21 Week 1, Day 1: David, "Evicted by competition"
    - BB21 Week 3, Comeback: Cliff, "Won re-entry into game"
    - BB24 Week 1: "Eviction cancelled"
@@ -60,8 +60,8 @@ Claude sandbox can't reach Wikipedia. The first build gave 100 weeks: 85 `ok`, 1
   each double-eviction round's HOH and veto are on the same day.
 - BB25's last week has three columns (Day 94, Day 100, Finale): two sole-vote rounds plus
   the Finale.
-- BB28 was still airing when fetched. Week 11's second round and Week 12 have no
-  eviction yet. BB28's caption on Wikipedia reads "Big Brother 26 voting history", a
+- BB28 was still airing when fetched. Week 11's second round (Taylor's HOH) and Week 12
+  have no eviction yet. BB28's caption on Wikipedia reads "Big Brother 26 voting history", a
   mistake on the page itself that doesn't affect parsing.
 
 ## Detail views (details.json)
@@ -140,8 +140,11 @@ the first.
 - A Finale sub-column is never a round. It sets `note` / `Finale`, and the week's regular
   column is still modeled as a round and validated.
 - Three or more non-Finale sub-columns: `note`, no rounds, raw text kept.
-- A round with an empty or missing Evicted cell: `note` / `No eviction`. That round isn't
-  modeled, but the week's other rounds are. This covers BB28's in-progress weeks.
+- A round with an empty or missing Evicted cell: `note` / `No eviction`. If it has an HOH
+  it's still modeled, with `evicted` and `tally` null, so a round in progress (BB28 Week
+  11's Day 77: Taylor's HOH, nominations and veto) shows up; the validator checks only
+  its HOH. With no HOH either, the round isn't modeled. The week's other rounds are
+  modeled either way.
 - An Evicted cell that isn't a vote tally or a sole vote: `note` /
   `Non-standard outcome: …`. That round isn't modeled.
 - A plain eviction round with no HOH: `error`.

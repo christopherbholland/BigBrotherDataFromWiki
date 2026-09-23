@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-23T18:15:52+00:00",
+ "generated_at": "2026-09-23T18:52:05+00:00",
  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/): adapted from Wikipedia (CC BY-SA 4.0) and the Big Brother Wiki, bigbrother.fandom.com (CC BY-SA 3.0); sources and revisions are listed in each file. Houseguest photos are CBS promotional images, linked from the Big Brother Wiki and not covered by this license.",
  "sources": [
   {
@@ -6324,6 +6324,24 @@
       "votes_to_evict": 2,
       "votes_cast": 3
      },
+     "extras": {},
+     "double_eviction": false
+    },
+    {
+     "sub_label": "Day 77",
+     "hoh": [
+      "Taylor"
+     ],
+     "nominees_initial": [
+      "Dee",
+      "Drew"
+     ],
+     "veto_winners": [
+      "Drew"
+     ],
+     "nominees_final": [],
+     "evicted": null,
+     "tally": null,
      "extras": {},
      "double_eviction": false
     }
