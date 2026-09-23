@@ -42,6 +42,7 @@ SHOTS = {
     "endgame": (DESKTOP, "#endgame=26", None),
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
     "afh": (DESKTOP, "#afh", None),
+    "analytics": (DESKTOP, "#analytics", None),
     "stream-dark": (STREAM, "?simple=1&embed=1&theme=dark", None),
     "stream-week": (STREAM, "?simple=1&embed=1&theme=dark#week=26/11", None),
     "stream-across": (STREAM, "?simple=1&embed=1&theme=dark#weekall=11", None),
@@ -76,6 +77,8 @@ def take(browser, base, name, viewport, path, hover):
     for view in ("players", "comps", "endgame"):
         if f"#{view}=" in path:
             page.wait_for_selector(f"#{view}-panel table")
+    if path.endswith("#analytics"):
+        page.wait_for_selector("#analytics-panel table")
     if path.endswith("#afh"):
         page.wait_for_selector("#afh-panel .afh-card")
     if "simple=1" in path and ("#week=" in path or "#weekall=" in path):
