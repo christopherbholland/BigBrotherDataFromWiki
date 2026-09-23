@@ -18,14 +18,44 @@ def _load(path):
         return yaml.safe_load(f)
 
 
+def season_numbers(spec):
+    """Season numbers from seasons.yaml's `seasons`: "21-28", 26, or a list of those."""
+    items = spec if isinstance(spec, list) else [spec]
+    out = set()
+    for item in items:
+        if isinstance(item, int):
+            out.add(item)
+            continue
+        first, sep, last = str(item).partition("-")
+        if not (first.strip().isdigit() and (not sep or last.strip().isdigit())):
+            raise ValueError(f"seasons.yaml: can't read season {item!r}; use a number or a range like 21-28")
+        out.update(range(int(first), int(last if sep else first) + 1))
+    return sorted(out)
+
+
+def _titles(config, wiki):
+    """{season: page title} for one wiki: the title pattern for each season, then its exceptions.
+
+    A season can be left out of one wiki with an exception of null.
+    """
+    pattern = (config.get("titles") or {}).get(wiki)
+    exceptions = {int(k): v for k, v in ((config.get("exceptions") or {}).get(wiki) or {}).items()}
+    out = {}
+    for n in season_numbers(config["seasons"]):
+        title = exceptions[n] if n in exceptions else (pattern.format(n=n) if pattern else None)
+        if title:
+            out[n] = title
+    return out
+
+
 def load_seasons(path=SEASONS_FILE):
     """Return {season_number: Wikipedia page title}, sorted by season."""
-    return {int(k): v for k, v in sorted(_load(path)["seasons"].items())}
+    return _titles(_load(path), "wikipedia")
 
 
 def load_fandom_seasons(path=SEASONS_FILE):
-    """Return {season_number: Big Brother Wiki page title}; empty if the file has no fandom list."""
-    return {int(k): v for k, v in sorted((_load(path).get("fandom") or {}).items())}
+    """Return {season_number: Big Brother Wiki page title}, sorted by season."""
+    return _titles(_load(path), "fandom")
 
 
 def page_url(title):
