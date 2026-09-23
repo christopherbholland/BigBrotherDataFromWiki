@@ -29,10 +29,11 @@ Opening `web/index.html` directly (`file://`) won't work: the page has to load
 `weeks.json` over HTTP. More hosting options, phone setup and embedding are in
 [`docs/integration.md`](docs/integration.md#1-host-the-page).
 
-**On a stream:** click **Simple view** (or add `?simple=1`) for a board laid out like the
-show's other stream graphics: every week of every season on one screen, bold names, the
-airing week outlined, and data that refreshes by itself. For an OBS browser source at
-1280 × 720, use `?simple=1&embed=1&theme=dark`; see
+**On a stream:** when the stock-watch dashboard raises "why did BB26 score a 4.6 in Week
+11?", open `?simple=1&embed=1&theme=dark#week=26/11` for that week's story on one screen
+(HOH, nominees, veto, eviction and vote, twists, episodes with viewers), or `#weekall=11`
+for Week 11 in every season. ← → and ↑ ↓ step through weeks and seasons. Without a
+`#week=`, the simple view is the whole grid laid out like the dashboard's boards. See
 [On a stream](docs/integration.md#on-a-stream).
 
 ## How it works

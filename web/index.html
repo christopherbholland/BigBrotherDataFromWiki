@@ -197,7 +197,7 @@ a.plink:hover { text-decoration-color: currentColor; }
 .view-body h2:first-child { border-top: 0; margin-top: var(--sp-2); }
 .leaders h2 { font-size: var(--fs-xs); margin: 0 0 var(--sp-2); }
 /* Subheading: a round or part inside a section. */
-#drawer-body h4 { font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-secondary); margin: var(--sp-3) 0 var(--sp-1); }
+#drawer-body h4, .wk-board h4 { font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-secondary); margin: var(--sp-3) 0 var(--sp-1); }
 
 /* Panel: the white box each tab renders into; .view-body pads a panel of prose and charts. */
 .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-lg); overflow-x: auto; }
@@ -484,9 +484,9 @@ table.grid { border-collapse: collapse; margin: var(--sp-2); width: calc(100% - 
   border-radius: var(--r-lg); font-size: var(--fs-xl); cursor: pointer;
 }
 #drawer-body { overflow: auto; padding: var(--sp-1) var(--sp-4) 32px; font-size: var(--fs-md); }
-#drawer-body dl { display: grid; grid-template-columns: auto 1fr; gap: 3px var(--sp-3); margin: 0; }
-#drawer-body dt { color: var(--text-secondary); }
-#drawer-body dd { margin: 0; }
+#drawer-body dl, .wk-board dl { display: grid; grid-template-columns: auto 1fr; gap: 3px var(--sp-3); margin: 0; }
+#drawer-body dt, .wk-board dt { color: var(--text-secondary); }
+#drawer-body dd, .wk-board dd { margin: 0; }
 #drawer-body dt.result, #drawer-body dd.result { margin-top: var(--sp-2); }
 .round + .round { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
 dl.votes { grid-template-columns: minmax(90px, max-content) 1fr !important; row-gap: 6px !important; align-items: center; }
@@ -652,6 +652,16 @@ table.power thead th small { display: block; font-weight: var(--fw-regular); tex
 table.across th, table.across td { text-align: left; }
 table.across tr.here td, table.across tr.here td:first-child { background: var(--cell); }
 
+/* Week board (#week=26/11 in the simple view) and one week across seasons (#weekall=11):
+   the story behind a week on the stream's stock-watch dashboard, on one screen. */
+.wk-board .stats { max-width: none; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.wk-board .stat b { line-height: 1.15; }
+.wk-board .stat.out b { color: var(--critical); }
+.wk-board .lede { max-width: none; }
+.wk-board table.across td { white-space: normal; vertical-align: top; }
+.wk-board table.across td.why { min-width: 180px; color: var(--text-secondary); }
+.embed.simple .wk-board .pager { display: none; }
+
 /* America's Favorite HouseGuest */
 .afh-facts { margin: var(--sp-1) var(--inset) 0; }
 .afh-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-3); padding: var(--sp-3) var(--inset) var(--sp-5); }
@@ -732,6 +742,9 @@ table.across tr.here td, table.across tr.here td:first-child { background: var(-
   </section>
   <section id="afh-view" role="tabpanel" aria-labelledby="tab-afh" hidden>
     <div class="panel" id="afh-panel"></div>
+  </section>
+  <section id="board-view" aria-labelledby="view-title" hidden>
+    <div class="panel" id="board-panel"></div>
   </section>
   <footer id="footer"></footer>
 </main>
@@ -949,7 +962,6 @@ function renderGrid(data) {
   const now = l => l === nowLabel ? ` class="now"` : "";
   NOW = { first: seasons[seasons.length - 1], season: seasons[0], label: nowLabel };
   renderHeader();
-  $("now-pill").hidden = false;
 
   let html = `<table class="grid"><thead><tr><th scope="col">Season</th>${labels.map(l => `<th scope="col"${now(l)}>${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
   for (const s of seasons) {
@@ -979,8 +991,15 @@ function renderGrid(data) {
 // The page header. On the simple view's grid it reads like the stream's boards:
 // "Season 28", then what the grid shows, then the week that's airing.
 let NOW = null;
+let BOARD_HEAD = null;  // { kicker, title } while a week board is showing
 function renderHeader() {
   if (!NOW) return;
+  $("now-pill").hidden = currentView === "board";
+  if (currentView === "board" && BOARD_HEAD) {
+    $("kicker").textContent = BOARD_HEAD.kicker;
+    $("view-title").textContent = BOARD_HEAD.title;
+    return;
+  }
   const board = simple && currentView === "weeks";
   $("kicker").textContent = board ? `Season ${NOW.season}` : `Big Brother US · Seasons ${NOW.first}–${NOW.season}`;
   $("view-title").textContent = board ? (gridMode === "hoh" ? "HOH reigns" : "Evictions") : VIEWS[currentView].title;
@@ -1411,6 +1430,9 @@ const VIEWS = {
   // HOH and Veto show every season ("all") or one; their address keeps whichever is showing.
   hoh: { title: "Head of Household", sub: "Who won HOH, in what kind of competition, and whether their nominee went home. Every season, one season, or week by week.",
          hash: () => `#hoh=${currentScope}` },
+  // A week board has no tab: it's opened from the grid or a link (#week=26/11 in the simple view, #weekall=11).
+  board: { title: "Week", sub: "One week’s story: who held the power, who went home, and how it compares with the same week in other seasons.",
+           hash: () => "" },
   veto: { title: "Power of Veto", sub: "Who won the veto, what they did with it, and who went home because of it. Every season, one season, or week by week.",
           hash: () => `#veto=${currentScope}` },
 };
@@ -1423,12 +1445,12 @@ function setView(view) {
   renderHeader();
   for (const v of Object.keys(VIEWS)) {
     $(`${v}-view`).hidden = view !== v;
-    $(`tab-${v}`).setAttribute("aria-selected", view === v);
+    if ($(`tab-${v}`)) $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
   if (view === "weeks") fitGrid();
   // On a phone the tabs scroll sideways; keep the selected one in sight.
-  const tabs = $(`tab-${view}`).parentElement, tab = $(`tab-${view}`);
-  if (tabs.scrollWidth > tabs.clientWidth) {
+  const tab = $(`tab-${view}`), tabs = tab && tab.parentElement;
+  if (tab && tabs.scrollWidth > tabs.clientWidth) {
     const r = tab.getBoundingClientRect(), box = tabs.getBoundingClientRect();
     if (r.right > box.right) tabs.scrollLeft += r.right - box.right + 4;
     else if (r.left < box.left) tabs.scrollLeft -= box.left - r.left + 4;
@@ -2816,6 +2838,133 @@ function finaleAfhHtml(season, d, people) {
     + `<p><a class="plink" href="#afh">Every season’s favorite ›</a></p>`;
 }
 
+// ---------- Week board: the story behind a week on the stream's dashboard ----------
+
+// Names as links, joined for a tile ("Angela, Kimo").
+const names = (season, xs) => xs.map(x => plink(season, x)).join(", ");
+
+// One round as tiles: HOH, the nominations, the veto, any twist rows, and who went home.
+function roundTilesHtml(w, r, i, d) {
+  const S = w.season, v = d && d.rounds[i] ? d.rounds[i].veto : null;
+  const comp = kind => {
+    const c = d ? roundComp(d, i + 1, kind) : null;
+    return c ? `“${esc(c.name)}”${c.category ? ` · ${esc(c.category)}` : ""}` : "";
+  };
+  const tiles = [];
+  if (r.hoh.length) tiles.push(statTile(names(S, r.hoh), "Head of Household", comp("hoh")));
+  if (r.nominees_initial.length) {
+    const changed = r.nominees_final.length && r.nominees_final.map(nkey).join() !== r.nominees_initial.map(nkey).join();
+    tiles.push(statTile(names(S, r.nominees_initial), "Nominated", changed ? `On the block at the vote: ${esc(r.nominees_final.join(", "))}` : "Still on the block at the vote"));
+  }
+  if (r.veto_winners.length) {
+    let what = "";
+    if (v) {
+      const self = v.on.length === 1 && r.veto_winners.includes(v.on[0]);
+      what = !v.used ? "Not used" : `Used on ${self ? "themselves" : esc(v.on.join(", "))}`
+        + (v.replacements.length ? ` · ${esc(v.replacements.join(", "))} named instead` : "");
+      if (v.twist_saved.length) what += `${what ? " · " : ""}${esc(v.twist_saved.join(", "))} saved by a twist`;
+    } else what = esc(vetoBrief(r) ? vetoBrief(r).replace(/^./, c => c.toUpperCase()) : "");
+    tiles.push(statTile(names(S, r.veto_winners), "Veto", [what, comp("veto")].filter(Boolean).join(" · ")));
+  }
+  for (const [label, xs] of Object.entries(r.extras || {})) tiles.push(statTile(names(S, xs), esc(extraLabel(label)), ""));
+  if (r.evicted) {
+    const t = r.tally;
+    const how = !t ? "" : t.type === "vote" ? `${t.votes_to_evict === t.votes_cast ? "Unanimous, " : ""}${tallyText(t)} vote` : esc(tallyText(t));
+    tiles.push(statTile(plink(S, r.evicted), "Evicted", how).replace(`class="stat"`, `class="stat out"`));
+  }
+  return `<div class="stats">${tiles.join("")}</div>`;
+}
+
+// The same week number in every season, one row each; the season on the board is highlighted.
+function acrossTableHtml(week, here) {
+  const rows = DATA.weeks.filter(w => w.week === week).sort((a, b) => b.season - a.season);
+  if (!rows.length) return `<p class="muted">No season has a week ${week} yet.</p>`;
+  const col = (w, f) => w.rounds.length ? w.rounds.map(f).join("<br>") : ZERO;
+  return `<div class="scroll"><table class="players across"><thead><tr>${th("Season")}${th("HOH", "", "l")}${th("Nominated", "", "l")}`
+    + `${th("Veto", "", "l")}${th("Evicted", "", "l")}${th("Vote", "", "l")}${th("What was different", "", "l")}</tr></thead><tbody>`
+    + rows.map(w => `<tr${w.season === here ? ` class="here"` : ""}><td><a class="plink" href="#week=${w.season}/${week}">BB${w.season}</a></td>`
+      + `<td>${col(w, r => esc(r.hoh.join(" & ")) || ZERO)}</td>`
+      + `<td>${col(w, r => esc(r.nominees_initial.join(", ")) || ZERO)}</td>`
+      + `<td>${col(w, r => r.veto_winners.length ? `${esc(r.veto_winners.join(" & "))} <span class="muted">${esc(vetoBrief(r))}</span>` : ZERO)}</td>`
+      + `<td>${col(w, r => r.evicted ? `<strong>${esc(r.evicted)}</strong>` : ZERO)}</td>`
+      + `<td>${col(w, r => esc(tallyText(r.tally)) || ZERO)}</td>`
+      + `<td class="why">${esc([statusText(w), ...w.rounds.flatMap(r => Object.keys(r.extras || {}).map(extraLabel))].filter(Boolean).join(" · ")) || ZERO}</td></tr>`).join("")
+    + `</tbody></table></div>`;
+}
+
+function showBoard(kicker, title, body) {
+  BOARD_HEAD = { kicker, title };
+  setView("board");
+  $("board-panel").innerHTML = body;
+}
+
+async function showWeekBoard(season, label) {
+  const hash = location.hash;
+  const w = weekRecord(season, label);
+  if (!w) {
+    return showBoard(`Season ${season}`, label || "Week", `<div class="msg">BB${season} has no week “${esc(label)}”. Try e.g. <code>#week=${season}/5</code>.</div>`);
+  }
+  const head = [`Season ${season}`, w.week_label];
+  if (!DETAILS) showBoard(...head, `<div class="msg">Loading…</div>`);
+  let d = null;
+  try { d = weekDetail(await loadDetails(), season, label); } catch (err) { /* the tiles still work from weeks.json */ }
+  if (location.hash !== hash) return;  // moved on while loading
+  const eps = d ? d.episodes : [];
+  // "Days 24–31": the first and last day of the week's episodes.
+  const dayNums = eps.flatMap(e => (e.days || "").match(/\d+/g) || []).map(Number);
+  const days = dayNums.length ? (Math.min(...dayNums) === Math.max(...dayNums) ? `Day ${dayNums[0]}` : `Days ${Math.min(...dayNums)}–${Math.max(...dayNums)}`) : "";
+  const lede = [statusText(w), days].filter(Boolean).join(" · ");
+  const different = d ? specialHtml(d) : "";
+  const epList = eps.length ? `<ul class="plain">` + eps.map(ep => `<li><strong>${esc(ep.title)}</strong> <span class="muted">${esc(
+    [ep.days, fmtDate(ep), ep.viewers_millions != null ? `${ep.viewers_millions}M viewers` : ""].filter(Boolean).join(" · "))}</span></li>`).join("") + `</ul>` : "";
+  const nav = `<nav class="pager" aria-label="Weeks">`
+    + pagerHtml(season, label).replace(/^<nav[^>]*>|<\/nav>$/g, "")
+    + `</nav><p class="src"><a class="plink" href="#">All weeks</a>${w.week != null ? ` · <a class="plink" href="#weekall=${w.week}">${esc(w.week_label)} in every season</a>` : ""} · ← → change week, ↑ ↓ change season</p>`;
+  showBoard(...head, `<div class="view-body trend wk-board">`
+    + (lede ? `<p class="lede">${esc(lede)}</p>` : "")
+    + (w.rounds.length ? w.rounds.map((r, i) => (w.rounds.length > 1 ? `<h2>${esc(roundLabel(w, i))}</h2>` : "") + roundTilesHtml(w, r, i, d)).join("")
+      : `<p class="muted">No round was modeled this week.</p>`)
+    + (different ? `<h2>What was different</h2>${different}` : "")
+    + (d && d.rounds.length ? `<h2>Votes to evict</h2>${votesHtml(w, d)}` : "")
+    + (epList ? `<h2>Episodes</h2>${epList}` : "")
+    + `<p class="src">Source: Wikipedia’s voting history and episode table; competitions from the Big Brother Wiki.</p>`
+    + nav + `</div>`);
+}
+
+function showAcross(week) {
+  showBoard("Every season", `Week ${week}`, `<div class="view-body trend wk-board">`
+    + `<p class="lede">How week ${week} went in each season. Click or tap a season for the full week.</p>`
+    + acrossTableHtml(week, null)
+    + `<p class="src">Source: Wikipedia’s voting history tables.</p>`
+    + `<nav class="pager" aria-label="Weeks">${week > 1 ? `<a href="#weekall=${week - 1}">‹ Week ${week - 1}</a>` : `<span aria-hidden="true">‹</span>`}`
+    + `<a href="#weekall=${week + 1}">Week ${week + 1} ›</a></nav></div>`);
+}
+
+// On a board, ← → step through the weeks and ↑ ↓ through the seasons (newest on top).
+function boardKeys(e) {
+  if (currentView !== "board" || e.altKey || e.metaKey || e.ctrlKey) return;
+  if (e.key === "Escape") { location.hash = "#"; return; }
+  if (!/^Arrow/.test(e.key)) return;
+  const am = location.hash.match(/^#weekall=(\d+)$/);
+  if (am) {
+    const n = +am[1] + (e.key === "ArrowLeft" ? -1 : e.key === "ArrowRight" ? 1 : 0);
+    if (n !== +am[1] && n >= 1) { e.preventDefault(); location.hash = `#weekall=${n}`; }
+    return;
+  }
+  const m = location.hash.match(/^#week=(\d+)\/(.*)$/);
+  if (!m) return;
+  const season = +m[1], raw = decodeURIComponent(m[2]);
+  const w = /^\d+$/.test(raw) ? DATA.weeks.find(x => x.season === season && x.week === +raw) : weekRecord(season, raw);
+  if (!w) return;
+  let to = null;
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") to = weekNeighbors(season, w.week_label)[e.key === "ArrowLeft" ? "prev" : "next"];
+  else if (w.week != null) {
+    const list = seasonList(), i = list.indexOf(season) + (e.key === "ArrowUp" ? -1 : 1);
+    to = list[i] != null ? DATA.weeks.find(x => x.season === list[i] && x.week === w.week) : null;
+  }
+  if (to) { e.preventDefault(); location.hash = to.week != null ? `#week=${to.season}/${to.week}` : weekHash(to.season, to.week_label); }
+}
+
 // ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #endgame=26 · #finale=26 · #afh · #hoh=all · #veto=26 ----------
 
 function route() {
@@ -2829,12 +2978,18 @@ function route() {
   const tm = location.hash.match(/^#(hoh|veto)=(all|\d+)$/);
   if (tm) { hideDrawer(); return showTrend(tm[1], tm[2] === "all" ? "all" : +tm[2]); }
   if (location.hash === "#afh") { hideDrawer(); return showAfh(); }
+  const am = location.hash.match(/^#weekall=(\d+)$/);
+  if (am) { hideDrawer(); return showAcross(+am[1]); }
   const m = location.hash.match(/^#(week|players|player|comps|endgame|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
   if (kind === "week") {
-    if (currentView === "weeks") setView("weeks");
-    showWeek(season, rest);
+    // "#week=26/11" names the week by number, the way the stream's dashboard does.
+    const label = /^\d+$/.test(rest || "") ? ((DATA.weeks.find(w => w.season === season && w.week === +rest) || {}).week_label || rest) : rest;
+    // The simple view shows a week as a full board, sized for the stream, instead of the drawer.
+    if (simple) { hideDrawer(); return showWeekBoard(season, label); }
+    if (currentView === "weeks" || currentView === "board") setView("weeks");
+    showWeek(season, label);
   } else if (kind === "player") {
     // A player opened from another tab keeps that tab behind the drawer, if it's for their season.
     // Favorite, HOH and Veto can show every season, so they always stay.
@@ -2848,7 +3003,7 @@ function route() {
 }
 
 for (const [view, { hash }] of Object.entries(VIEWS)) {
-  $(`tab-${view}`).addEventListener("click", () => { location.hash = hash(currentSeason || seasonList()[0]); });
+  if ($(`tab-${view}`)) $(`tab-${view}`).addEventListener("click", () => { location.hash = hash(currentSeason || seasonList()[0]); });
 }
 for (const view of SEASON_VIEWS) wireSeasonPicker(`${view}-season-pick`, VIEWS[view].hash);
 $("endgame-start-pick").addEventListener("click", e => {
@@ -2908,7 +3063,7 @@ addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout
 $("drawer-close").addEventListener("click", closeDrawer);
 $("scrim").addEventListener("click", closeDrawer);
 document.addEventListener("keydown", e => {
-  if ($("drawer").hidden) return;
+  if ($("drawer").hidden) return boardKeys(e);
   if (e.key === "Escape") closeDrawer();
   // ← / → step through a season's weeks while a week is open.
   const m = location.hash.match(/^#week=(\d+)\/(.*)$/);

@@ -42,6 +42,8 @@ SHOTS = {
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
     "afh": (DESKTOP, "#afh", None),
     "stream-dark": (STREAM, "?simple=1&embed=1&theme=dark", None),
+    "stream-week": (STREAM, "?simple=1&embed=1&theme=dark#week=26/11", None),
+    "stream-across": (STREAM, "?simple=1&embed=1&theme=dark#weekall=11", None),
 }
 
 # True once every face picture on screen has given way to initials.
@@ -75,7 +77,10 @@ def take(browser, base, name, viewport, path, hover):
             page.wait_for_selector(f"#{view}-panel table")
     if path.endswith("#afh"):
         page.wait_for_selector("#afh-panel .afh-card")
-    if "#week=" in path or "#player=" in path or "#comp=" in path:
+    if "simple=1" in path and ("#week=" in path or "#weekall=" in path):
+        # The simple view shows a week as a full board instead of the drawer.
+        page.wait_for_selector("#board-view:not([hidden]) .wk-board")
+    elif "#week=" in path or "#player=" in path or "#comp=" in path:
         page.wait_for_selector("#drawer:not([hidden])")
         page.wait_for_function("!document.querySelector('#drawer-body').innerText.includes('Loading')")
     if hover:

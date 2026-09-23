@@ -119,6 +119,7 @@ the same look, add its selector to that list.
 | Page header | `.kicker`, `h1` + `.pill`, `.sub` | Title and intro change with the tab (`VIEWS` in the script). |
 | View tabs | `.tabs` > `button[role=tab]` | Eight tabs make two rows of four on phones. A ninth adds a third row, so rethink the labels first. |
 | Simple view toggle | `#simple-btn` in a `.seg`, after `.tabs` | Adds or removes `?simple=1` in the address. `?embed=1&simple=1` hides the whole toolbar and the `.controls`. |
+| Week board | `.view-body.trend.wk-board` in `#board-panel` | A view with no tab (`VIEWS.board`), opened by `#week=` in the simple view and by `#weekall=`. Each round is a row of `.stat` tiles (a name as the big text, the role, then the context); `.stat.out` is the eviction. The header comes from `BOARD_HEAD`. |
 | Picker / toggle | `.seg` > `button[aria-pressed]` (or a `select`) | Every secondary control, season pickers included. Wraps on phones. |
 | Panel | `.panel` | The box each tab renders into. Tables go straight inside. |
 | Panel body | `.view-body` | Pads a panel of prose, charts and sections (Finale, Endgame, HOH, Veto). |
