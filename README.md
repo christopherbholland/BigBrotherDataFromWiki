@@ -54,6 +54,8 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
   [`docs/integration.md`](docs/integration.md).
 - **Implementation choices and what the real tables showed:** see
   [`docs/implementation-notes.md`](docs/implementation-notes.md).
+- **Changing how the page looks:** follow [`docs/style-guide.md`](docs/style-guide.md)
+  (tokens, components, writing). `tests/test_style.py` checks the stylesheet against it.
 
 ## Screenshots
 
