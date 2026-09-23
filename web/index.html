@@ -1834,7 +1834,8 @@ function trendRounds(d) {
     x.next = n && n.season === x.season ? n : null;
     if (x.next && !x.final && x.r.hoh.length) {
       const nr = x.next.r;
-      x.exEvicted = x.r.hoh.includes(nr.evicted);
+      // A next round still airing has no eviction to count yet.
+      if (nr.evicted) x.exEvicted = x.r.hoh.includes(nr.evicted);
       x.exNominated = x.r.hoh.some(h => nr.nominees_initial.includes(h) || nr.nominees_final.includes(h));
     }
   });

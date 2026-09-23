@@ -659,6 +659,24 @@
     },
     "extras": {},
     "double_eviction": false
+   },
+   {
+    "sub_label": "Day 77",
+    "hoh": [
+     "Taylor"
+    ],
+    "nominees_initial": [
+     "Dee",
+     "Drew"
+    ],
+    "veto_winners": [
+     "Drew"
+    ],
+    "nominees_final": [],
+    "evicted": null,
+    "tally": null,
+    "extras": {},
+    "double_eviction": false
    }
   ],
   "raw": {

@@ -5,10 +5,12 @@ from .util import name_key
 def check_round(rnd):
     """Return a list of failed-check messages for one round."""
     failures = []
-    for field in ("hoh", "nominees_final", "evicted"):
+    evicted = rnd.get("evicted")
+    # A round still airing (HOH but no eviction yet) is checked as far as it goes.
+    required = ("hoh", "nominees_final", "evicted") if evicted else ("hoh",)
+    for field in required:
         if not rnd.get(field):
             failures.append(f"missing {field}")
-    evicted = rnd.get("evicted")
     finals = {name_key(n) for n in rnd.get("nominees_final") or []}
     if evicted and finals and name_key(evicted) not in finals:
         failures.append(f"evicted {evicted!r} not in final nominees {rnd['nominees_final']}")
