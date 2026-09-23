@@ -141,6 +141,19 @@
   --cat-hybrid: #d55181; --cat-puzzle: #008300; --cat-crapshoot: #9085e9; --cat-none: #36415f;
   --out-self: #3987e5; --out-other: #d95926; --out-kept: #36415f;
 }
+/* ?simple=1, the stream view: every size steps up so it reads on a shrunk-down stream. */
+:root.simple {
+  --fs-3xs: 12px;
+  --fs-2xs: 13px;
+  --fs-xs: 14px;
+  --fs-sm: 16px;
+  --fs-md: 17px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 28px;
+  --fs-3xl: 32px;
+  --fs-4xl: 48px;
+}
 
 /* 2. Base ------------------------------------------------------------------ */
 * { box-sizing: border-box; }
@@ -347,6 +360,20 @@ footer a { white-space: nowrap; }
 /* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
 .embed main { padding-top: var(--sp-2); }
 .embed .kicker, .embed h1, .embed .sub { display: none; }
+/* ?simple=1, the stream view: bigger cells and only what an audience needs. The intro,
+   the grid's legend, the twist-week corners and the tooltip's table text go; with
+   ?embed=1 the tabs and pickers go too, for a browser source that nobody clicks. */
+.simple .kicker, .simple .sub, .simple #weeks-view .legend, .simple .cell .flag,
+.simple #tip .raw, .embed.simple .toolbar, .embed.simple .controls { display: none; }
+/* The credits stay (the licenses need them) but run as one paragraph under an overlay. */
+.embed.simple footer p { display: inline; }
+.embed.simple footer p + p::before { content: " · "; }
+.simple .cell { min-width: 112px; min-height: 64px; }
+.simple .cell:not(.multi) .part { min-height: 64px; }
+.simple .cell:has(.faces) { min-width: 120px; }
+.simple .cell .part .face { width: 44px; }
+.simple .cell .part.wrap .who .face { width: 34px; }
+.simple .cell.multi .part .face, .simple .cell.multi .part.wrap .who .face { width: 26px; }
 
 /* Weeks: the grid */
 .swatch { width: 18px; height: 14px; border-radius: var(--r-xs); background: var(--cell); border: 1px solid var(--line); display: inline-grid; }
@@ -642,6 +669,7 @@ table.across tr.here td, table.across tr.here td:first-child { background: var(-
       <button role="tab" id="tab-veto" aria-selected="false" aria-controls="veto-view">Veto</button>
       <button role="tab" id="tab-afh" aria-selected="false" aria-controls="afh-view" title="America’s Favorite HouseGuest">Favorite</button>
     </div>
+    <span class="seg" role="group" aria-label="Layout"><button id="simple-btn" aria-pressed="false" title="Bigger and plainer, for showing on a stream">Simple view</button></span>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
   <div class="controls">
@@ -704,6 +732,9 @@ const params = new URLSearchParams(location.search);
 if (params.has("embed")) document.documentElement.classList.add("embed");
 // ?theme=dark or ?theme=light pins the look, e.g. to match a host page.
 if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
+// ?simple=1 is the stream view: bigger, with less on screen (the Simple view button toggles it).
+let simple = params.has("simple") && params.get("simple") !== "0";
+document.documentElement.classList.toggle("simple", simple);
 // ?seasons=26-28 (or 21,26 or 21-23,28) shows only those seasons, e.g. to keep an embed short.
 function seasonFilter(text) {
   if (!text) return null;
@@ -852,10 +883,14 @@ function cellLabel(w) {
 // What each grid cell shows: who was evicted (default) or whose HOH week it was.
 let gridMode = "evicted";
 try { if (localStorage.getItem("gridMode") === "hoh") gridMode = "hoh"; } catch (e) {}
+// ?mode=hoh or ?mode=evicted picks it in the address, e.g. for a stream overlay.
+if (["hoh", "evicted"].includes(params.get("mode"))) gridMode = params.get("mode");
 
 // Grid cells show a face above each name unless photos are switched off.
 let showFaces = true;
 try { if (localStorage.getItem("faces") === "off") showFaces = false; } catch (e) {}
+// ?photos=0 or ?photos=1 sets it in the address, for a stream overlay with no buttons.
+if (["0", "1"].includes(params.get("photos"))) showFaces = params.get("photos") === "1";
 
 function partHtml(r, season) {
   const text = gridMode === "hoh" ? r.hoh.join(" & ") : r.evicted;
@@ -872,7 +907,7 @@ function partHtml(r, season) {
 function render(data) {
   renderGrid(data);
   renderFooter(data);
-  wireTooltip(data.weeks);
+  wireTooltip();
 }
 
 function renderGrid(data) {
@@ -917,6 +952,16 @@ function renderGrid(data) {
   document.getElementById("legend-error").hidden = !weeks.some(w => w.status === "error");
   document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
   $("faces-btn").setAttribute("aria-pressed", showFaces);
+  $("simple-btn").setAttribute("aria-pressed", simple);
+  if (simple) scrollToNow();
+}
+
+// Simple view: scroll the grid so the week that's airing is in sight at the right edge.
+function scrollToNow() {
+  const panel = $("panel"), th = panel.querySelector("thead th.now");
+  if (!th || panel.offsetParent === null) return;
+  const past = th.getBoundingClientRect().right - panel.getBoundingClientRect().right;
+  if (past > 0) panel.scrollLeft += past + 8;
 }
 
 function renderFooter(data) {
@@ -936,10 +981,11 @@ function renderFooter(data) {
     + `<p>Updated ${esc((data.generated_at || "").slice(0, 10))}${missing.length ? ` · Missing: ${missing.join(", ")}` : ""}</p>`;
 }
 
-function wireTooltip(weeks) {
+// Reads DATA.weeks at the time of the event, so it keeps working after a refresh.
+function wireTooltip() {
   const tip = document.getElementById("tip");
   const show = (btn, x, y) => {
-    tip.innerHTML = tipHtml(weeks[+btn.dataset.i]);
+    tip.innerHTML = tipHtml(DATA.weeks[+btn.dataset.i]);
     tip.style.display = "block";
     const r = btn.getBoundingClientRect();
     const tw = tip.offsetWidth, th = tip.offsetHeight;
@@ -973,7 +1019,7 @@ function wireTooltip(weeks) {
     const btn = e.target.closest(".cell");
     if (!btn) return;
     hide();
-    const w = weeks[+btn.dataset.i];
+    const w = DATA.weeks[+btn.dataset.i];
     location.hash = weekHash(w.season, w.week_label);
   });
 }
@@ -1339,6 +1385,7 @@ function setView(view) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
+  if (view === "weeks" && simple) scrollToNow();
   // On a phone the tabs scroll sideways; keep the selected one in sight.
   const tabs = $(`tab-${view}`).parentElement, tab = $(`tab-${view}`);
   if (tabs.scrollWidth > tabs.clientWidth) {
@@ -2786,6 +2833,35 @@ $("faces-btn").addEventListener("click", () => {
   try { localStorage.setItem("faces", showFaces ? "on" : "off"); } catch (err) {}
   renderGrid(DATA);
 });
+// Simple view lives in the address (?simple=1), so a stream's browser source can link straight to it.
+$("simple-btn").addEventListener("click", () => {
+  simple = !simple;
+  document.documentElement.classList.toggle("simple", simple);
+  $("simple-btn").setAttribute("aria-pressed", simple);
+  if (simple) scrollToNow();
+  if (simple) params.set("simple", "1"); else params.delete("simple");
+  const query = params.toString();
+  history.replaceState(null, "", location.pathname + (query ? "?" + query : "") + location.hash);
+});
+// Simple view is left open for a whole show, so it picks up new data by itself: every
+// 10 minutes it rereads weeks.json and, if it was rebuilt, redraws the grid and the open tab.
+const REFRESH_MS = 10 * 60 * 1000;
+async function refreshData() {
+  let data;
+  try {
+    const r = await fetch("weeks.json", { cache: "no-cache" });
+    if (!r.ok) return;
+    data = await r.json();
+  } catch (err) { return; }
+  if (!DATA || data.generated_at === DATA.generated_at) return;
+  const fresh = onlySeasons(data, seasonFilter(params.get("seasons")));
+  if (!fresh.weeks.length) return;
+  DATA = fresh; DETAILS = null; detailsPromise = null;
+  renderGrid(DATA); renderFooter(DATA);
+  // An open drawer isn't redrawn under the reader; it picks up the new data when it next opens.
+  if ($("drawer").hidden) route();
+}
+setInterval(() => { if (simple && !document.hidden) refreshData(); }, REFRESH_MS);
 $("drawer-close").addEventListener("click", closeDrawer);
 $("scrim").addEventListener("click", closeDrawer);
 document.addEventListener("keydown", e => {

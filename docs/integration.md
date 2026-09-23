@@ -60,7 +60,8 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
   Comps season pickers.
 - **Theme.** The page follows the viewer's light/dark setting. The dark theme is a navy
   board styled to sit next to Taran's stock-watch graphics. Add `&theme=dark` (or
-  `&theme=light`) to pin one, e.g. `?embed=1&theme=dark` for a stream overlay.
+  `&theme=light`) to pin one, e.g. `?embed=1&theme=dark`. For a stream overlay, see
+  [On a stream](#on-a-stream).
 - **Deep links.** Every view has its own link, so an iframe can open straight into
   one: `?embed=1#week=26/Week%2010` (a week's details), `?embed=1#players=28` (a
   season's players), `?embed=1#player=26/Angela` (one player), `?embed=1#endgame=26` (the final
@@ -68,6 +69,43 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
   or `?embed=1#afh` (every season's America's Favorite HouseGuest).
 - **Attribution.** The Wikipedia credit line stays visible in embed mode. It's needed
   for the CC BY-SA license, so don't hide it.
+
+### On a stream
+
+Add `?simple=1` for the simple view, or click **Simple view** next to the tabs (the
+button adds `?simple=1` to the address, so you can bookmark it). It's made for showing
+the page on a stream:
+
+- **Bigger.** Every text size steps up, and the grid's cells and faces are larger, so the
+  names still read once the stream is scaled down.
+- **Less on screen.** The intro, the grid's legend, the folded twist-week corners and
+  the table text in the hover card are left out. Tabs, the drawer and deep links
+  still work.
+- **The current week in sight.** The grid scrolls to the week that's airing, so it sits
+  at the right edge instead of off screen.
+- **Updates itself.** While it's open, the page rereads `weeks.json` every 10 minutes
+  and redraws when the data has been rebuilt. You don't need to refresh the source
+  during a show.
+
+**As an OBS (or Streamlabs) browser source**, add `&embed=1` as well. That also hides
+the tabs and pickers, since nobody clicks a browser source, and puts the credits in one
+short paragraph. For example, the airing season's evictions in the dark theme:
+
+```
+https://<user>.github.io/BigBrotherDataFromWiki/?simple=1&embed=1&theme=dark&seasons=28
+```
+
+![Simple view as a stream overlay: BB26–BB28, dark theme, scrolled to the current week](screenshots/stream-dark.png)
+
+- **Size.** Set the source to your canvas width (e.g. 1280 or 1920). The height is about
+  95px per season plus 170px for the header and credits: 270px for one season, 460px for
+  three. Crop the source rather than hiding the credits: the licenses require them.
+- **HOH instead of evictions.** `&mode=hoh` shows whose HOH week it was (`&mode=evicted`
+  is the default). Without it, the page uses whatever was last picked in that browser.
+- **Photos.** Houseguest photos load from the Big Brother Wiki. `&photos=0` shows
+  names only, which also makes each row a little shorter.
+- **One view.** Any deep link works in the simple view too, e.g.
+  `?simple=1&embed=1&theme=dark#finale=28` for the jury vote on finale night.
 
 ## 3. Use the data directly
 
