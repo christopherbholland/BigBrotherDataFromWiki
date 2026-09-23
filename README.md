@@ -148,6 +148,20 @@ and a link to it on the Big Brother Wiki. Types come from the format's Big Broth
 page ("a recurring endurance competition") where it names one, otherwise from the
 episode summaries.
 
+**Endgame**: the last few rounds, from the final five (or six, or four: `#endgame=26/6`),
+where one veto or one vote can decide the game. A card per round tells what happened
+(HOH, nominations, veto, who voted which way) and names who decided the eviction: the
+sole voter, the HOH breaking a tie, or the voters in the majority. "What decided it" picks out
+the final-four veto, the final HOH and the season's comp leader. A grid shows what each
+houseguest did in each round, and a table sets their HOH and veto wins before the endgame
+against their wins, time on the block and evictions they decided in it. Last, every
+finished season's endgame side by side, with how often the big powers paid off (how many
+final HOH winners won the game, how many final-four evictors made the final two). The
+number left for each round is counted back from the finalists. The week details for
+those rounds and the Finale view link to it.
+
+![Endgame view for BB26: round by round, and who held the power](docs/screenshots/endgame.png)
+
 **Finale**: how each season's winner was decided. The final two and the jury vote
 (`7–0`), the final HOH's three parts with their formats and winners, and who the final HOH
 evicted at the final three. A vote board shows which jurors voted for whom. Then a row per juror, in the
@@ -181,7 +195,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#finale=26`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage
