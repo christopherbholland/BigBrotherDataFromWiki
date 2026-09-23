@@ -25,7 +25,7 @@ CATEGORY_HELP = {
     "Physical": "races, obstacle courses and strength",
     "Skill": "aim, stacking, balancing and steady hands",
     "Mental": "trivia, memory, booth and estimate comps",
-    "Hybrid": "a question answered by running for it",
+    "Hybrid": "a question or memory test answered by running, climbing or zip-lining",
     "Puzzle": "puzzles and word or picture assembly",
     "Crapshoot": "mostly luck",
 }
@@ -58,8 +58,9 @@ _SETTLED = {
         "Stay or Fold", "HouseguestsOnly.com", "BB Flix & Chill",
     ],
     # OTEV: each round is a question, but you run, dig and climb for the answer, and
-    # the last one back is out.
-    "Hybrid": ["OTEV"],
+    # the last one back is out. BB Comics: memorize comics from a zip line, then
+    # rebuild them on a board; the ride is as hard as the memory.
+    "Hybrid": ["OTEV", "BB Comics"],
     "Puzzle": [
         "Kaitlyn's Puzzle", "Fitting In", "Tower of Hanoi", "Gear Puzzle", "Pipeline",
         "Spelling Search", "Blockbusters", "Faster Than A Speeding Veto",
@@ -69,7 +70,6 @@ _SETTLED = {
 KNOWN_FORMATS = {fmt: cat for cat, fmts in _SETTLED.items() for fmt in fmts}
 # Competitions the wiki gives no format page, by name.
 KNOWN_NAMES = {
-    "BB Comics": "Mental",
     "Knight Moves": "Mental",
     "Artifact Stack": "Skill",
     "Domino Effect": "Skill",

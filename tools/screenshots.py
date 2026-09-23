@@ -36,6 +36,7 @@ SHOTS = {
     "players-dark": (DESKTOP, "?theme=dark#players=28", None),
     "details-player": (DESKTOP, "#player=26/Angela", None),
     "comps": (DESKTOP, "#comps=28", None),
+    "comps-major": (DESKTOP, "#comps=major", None),
     "comp-format": (DESKTOP, "#comp=The%20Wall", None),
     "endgame": (DESKTOP, "#endgame=26", None),
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
