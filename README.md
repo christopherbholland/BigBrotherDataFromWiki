@@ -23,6 +23,7 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 | Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
 | Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
 | Shared helpers | `bbgrid/util.py` | name comparison, dates, timestamps |
+| Screenshots | `tools/screenshots.py` | retakes `docs/screenshots/` from `web/` |
 
 - **Hosting, embedding, or using the data elsewhere:** see
   [`docs/integration.md`](docs/integration.md).
@@ -31,7 +32,10 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 
 ## Screenshots
 
-These show the real data: all eight seasons as fetched from Wikipedia on 2026-09-22.
+These show the real data: all eight seasons as fetched from both wikis on 2026-09-22.
+Houseguests appear as initials. The photos are CBS's images, and this repository links to
+them rather than copying them, so the screenshots leave them out (see
+[`docs/licensing.md`](docs/licensing.md)). To retake them all, run `python tools/screenshots.py`.
 
 **A double eviction.** BB26 Week 10's two rounds are stacked in both the cell and the
 tooltip. Only the second round (Angela, played in one night) is the double eviction, and
@@ -149,14 +153,18 @@ python -m bbgrid inspect-fandom 26  # what was read from the cached Big Brother 
 
 python -m http.server -d web      # then open http://localhost:8000
 pytest
+python tools/screenshots.py       # retake docs/screenshots/ (needs `pip install playwright`)
 ```
 
 `report.txt` lists every week that isn't `ok`. It's the main acceptance check. A "Big Brother
 Wiki" block near the top lists anything that didn't line up: disagreements with Wikipedia,
 houseguests with no wiki page, and names the reader couldn't match.
 
-To add a season, add a line to each list in `seasons.yaml`: the Wikipedia article under
-`seasons`, and the Big Brother Wiki page (e.g. `Big Brother 29 (US)`) under `fandom`.
+To add a season, widen the range in `seasons.yaml` (e.g. `seasons: "21-29"`). Page titles
+come from the patterns under `titles` ("Big Brother {n} (American season)" on Wikipedia,
+"Big Brother {n} (US)" on the Big Brother Wiki), with `exceptions` for any page named
+differently. Older seasons work the same way. [`docs/all-seasons.md`](docs/all-seasons.md)
+says what's ready and what to check before building BB1–BB20.
 
 ## Integrating
 
@@ -195,6 +203,7 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_snapshots.py`: one snapshot per cached season in `tests/snapshots/`. A season
   with no cache file is skipped. The first run writes the snapshot. After an intended
   change, update with `UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
+- `tests/test_config.py`: `seasons.yaml` ranges, title patterns and exceptions.
 - `tests/test_export.py`: the whole build for one cached season, written to a temporary
   folder: the top-level shape of `weeks.json` and `details.json`, and `report.txt`.
 
@@ -203,10 +212,14 @@ request and push to `main`. It then rebuilds `web/` from `cache/` and fails if t
 `weeks.json`, `details.json` or `report.txt` differ from the rebuild. After a code change
 that alters the data, run `python -m bbgrid build` and commit the result with it.
 
-## Attribution
+## Attribution and license
 
 The grid's data comes from Wikipedia under CC BY-SA 4.0. The detail views also use the
 Big Brother Wiki (bigbrother.fandom.com) under CC BY-SA 3.0. The page credits each source
-article on both wikis and links to the exact revision used. Houseguest photos are CBS
-promotional images, not CC BY-SA content: the page links to them on the Big Brother Wiki
-(it doesn't copy them) and credits them in its footer.
+article on both wikis and links to the exact revision used. The data in this repository
+(`web/*.json`, `proofread.xlsx`, `report.txt`, `cache/`) is shared under CC BY-SA 4.0: see
+[`DATA_LICENSE.md`](DATA_LICENSE.md). Houseguest photos are CBS promotional images, not
+CC BY-SA content: the page links to them on the Big Brother Wiki (it doesn't copy them) and
+credits them in its footer. [`docs/licensing.md`](docs/licensing.md) is the full review of
+what's used and how. *Big Brother* is a trademark of its owners, and this project isn't
+affiliated with CBS or the show's producers.

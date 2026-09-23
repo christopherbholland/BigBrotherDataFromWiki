@@ -350,7 +350,8 @@ def build(web_dir=WEB_DIR, out=ROOT / "proofread.xlsx"):
     lines = [
         ("Big Brother data: proofreading sheet", True),
         (f"Generated {weeks_doc['generated_at']} from the Wikipedia and Big Brother Wiki pages cached in this "
-         f"repo (data: Wikipedia, CC BY-SA 4.0; Big Brother Wiki, CC BY-SA 3.0).", False),
+         f"repo. Adapted from Wikipedia (CC BY-SA 4.0) and the Big Brother Wiki (CC BY-SA 3.0); "
+         f"this workbook is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).", False),
         ("", False),
         ("How to proofread", True),
         ("Only the yellow columns are for you: set “Looks right?” to OK, Wrong or Unsure, "

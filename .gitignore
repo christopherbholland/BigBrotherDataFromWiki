@@ -1,3 +1,15 @@
+# Python
 __pycache__/
 *.pyc
 .pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Excel's lock file while proofread.xlsx is open
+~$*.xlsx

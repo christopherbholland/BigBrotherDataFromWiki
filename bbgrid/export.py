@@ -23,9 +23,11 @@ from .validate import validate_week
 # field is removed, renamed or changes meaning; adding a field doesn't change it.
 SCHEMA_VERSION = 1
 
-LICENSE = ("Wikipedia content, CC BY-SA 4.0; "
-           "Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; "
-           "houseguest photos are CBS promotional images, linked from the Big Brother Wiki")
+# See DATA_LICENSE.md. Big Brother Wiki text is CC BY-SA 3.0, whose adaptations may use 4.0.
+LICENSE = ("CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/): adapted from Wikipedia "
+           "(CC BY-SA 4.0) and the Big Brother Wiki, bigbrother.fandom.com (CC BY-SA 3.0); sources "
+           "and revisions are listed in each file. Houseguest photos are CBS promotional images, "
+           "linked from the Big Brother Wiki and not covered by this license.")
 
 # Keys the interpreter adds to each round for the validator and details.py only.
 INTERNAL_ROUND_KEYS = ("_vote_cells", "_voters", "_col")
