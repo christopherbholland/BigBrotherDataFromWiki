@@ -46,6 +46,7 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 | 5. Web page | `web/index.html` | static page that reads `weeks.json` |
 | Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
 | Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
+| America's Favorite HouseGuest | `bbgrid/afh.py` | the infobox winner and the article's sentences about the vote |
 | Shared helpers | `bbgrid/util.py` | name comparison, dates, timestamps |
 | Screenshots | `tools/screenshots.py` | retakes `docs/screenshots/` from `web/` |
 
@@ -182,6 +183,17 @@ nominees or a backdoor (a replacement nominee), and what happened to the HOH the
 for the veto, whether the winner was the HOH or a nominee and what they did with it. Seasons
 with a third nominee (BB26–BB28) use the veto much more, mostly as nominees saving themselves.
 
+**Favorite**: America's Favorite HouseGuest for every season, the viewers' vote announced
+at each finale. Each season's card shows the winner, the prize, how their game ended
+(juror, out before the jury, or winner, like BB24's Taylor), who else placed where the article
+says ("Top 3 in the vote: Tucker, Angela, Quinn"), and Wikipedia's own sentences about
+the vote, such as "with over 65% of the vote". The winner comes from Wikipedia's
+infobox and is checked against the Big Brother Wiki, which also gives the prize. The
+Finale view ends with the season's favorite, the Players table tags them `AFH`, and a
+player's details say "America's Favorite: Won ($50,000)" or "Top 3".
+
+![America's Favorite HouseGuest for BB21–BB27](docs/screenshots/afh.png)
+
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 
 ![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
@@ -195,7 +207,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#endgame=26`, `#finale=26`, `#afh`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage
@@ -263,6 +275,8 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_snapshots.py`: one snapshot per cached season in `tests/snapshots/`. A season
   with no cache file is skipped. The first run writes the snapshot. After an intended
   change, update with `UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
+- `tests/test_afh.py`: America's Favorite HouseGuest on a **synthetic** page: the
+  infobox winner, the top three or runner-up, the prize and the cross-check.
 - `tests/test_config.py`: `seasons.yaml` ranges, title patterns and exceptions.
 - `tests/test_export.py`: the whole build for one cached season, written to a temporary
   folder: the top-level shape of `weeks.json` and `details.json`, and `report.txt`.

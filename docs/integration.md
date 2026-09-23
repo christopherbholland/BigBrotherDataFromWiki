@@ -64,7 +64,8 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 - **Deep links.** Every view has its own link, so an iframe can open straight into
   one: `?embed=1#week=26/Week%2010` (a week's details), `?embed=1#players=28` (a
   season's players), `?embed=1#player=26/Angela` (one player), `?embed=1#endgame=26` (the final
-  five's rounds; `#endgame=26/6` starts at six) or `?embed=1#finale=26` (the finale and jury vote).
+  five's rounds; `#endgame=26/6` starts at six), `?embed=1#finale=26` (the finale and jury vote)
+  or `?embed=1#afh` (every season's America's Favorite HouseGuest).
 - **Attribution.** The Wikipedia credit line stays visible in embed mode. It's needed
   for the CC BY-SA license, so don't hide it.
 
@@ -227,6 +228,17 @@ Things to know:
                  "left": "Evicted", "day": 59 }]       // from their last "Evicted (Day N)" cell
     }
   },
+  "afh": {                                        // America's Favorite HouseGuest, newest season first;
+    "26": {                                       // a season is left out until its infobox names one
+      "winner": "Tucker",                          // voting-table name; null if it matches no houseguest
+      "winner_text": "Tucker Des Lauriers",        // the infobox's own text
+      "others": ["Angela", "Quinn"],               // others the article says placed
+      "others_label": "Top 3",                     // "Top 3", "Runner-up" or null
+      "prize": "$50,000",                          // the Big Brother Wiki's prize line, else Wikipedia's
+      "notes": [{ "text": "Tucker Des Lauriers was voted America's Favorite HouseGuest, …",
+                  "where": "Introduction" }]       // the article's sentences about the vote, as written
+    }
+  },
   "players": [{
     "season": 26, "name": "Angela", "result": "Evicted (Day 73)",  // null while still in the game
     "hoh": ["Week 1", "Week 4"], "veto": ["Week 9"],
@@ -271,6 +283,11 @@ Things to know:
   read from the table's "N votes to win" line, which can be wrong (BB22's says "Enzo 0
   votes to win" for a 9–0 vote). The final HOH's parts are in the finale week's
   `fandom.comps` (outcome "wins Final HOH Part N").
+- **`afh`.** The winner is Wikipedia's infobox row. `others` comes from a sentence
+  naming a "top 3" or "with … as runner-up" / "being the next closest"; seasons whose
+  article says neither have `others: []`. The winner is checked against the Big Brother
+  Wiki houseguest page whose prizes list "(Fan Favorite)"; a mismatch goes in
+  `report.txt`.
 - **`bio` vs `fandom`.** The page shows age, hometown and occupation from `bio`
   (Wikipedia, age as listed there) and falls back to `fandom`.
 - **`comps`.** Competition names found in the episode summaries. A competition has a

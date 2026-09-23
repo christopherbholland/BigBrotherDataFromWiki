@@ -5,6 +5,7 @@ run() is the whole build; the functions it calls can be used on their own
 """
 import json
 
+from .afh import afh, check as check_afh
 from .cast import bios
 from .comps import CATEGORIES, CATEGORY_HELP, categorize, explains
 from .config import (CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, fandom_url, load_fandom_seasons, load_seasons,
@@ -52,15 +53,17 @@ def process_season(season, html):
 def process_season_full(season, html):
     """Week records plus the detail-view data for one season.
 
-    Returns {"weeks", "details", "players", "unmatched", "finale"}; see details.py.
-    Each player also gets "bio" from the cast table (see cast.py), or None.
+    Returns {"weeks", "details", "players", "unmatched", "finale", "afh"}; see
+    details.py and afh.py. Each player also gets "bio" from the cast table (see
+    cast.py), or None.
     """
     grid = build_grid(html)
     records = interpret(grid, season)
     for record in records:
         validate_week(record)
     # Details need the interpreter's internal keys, so build them before finalize().
-    detail = week_details(records, grid.notes, episodes_by_week(build_episode_grid(html)))
+    episodes = episodes_by_week(build_episode_grid(html))
+    detail = week_details(records, grid.notes, episodes)
     people, unmatched = players(season, records, houseguests(grid))
     # The season's last Finale column holds the jury vote.
     final = next((f for f in map(finale, reversed(records)) if f), None)
@@ -68,12 +71,15 @@ def process_season_full(season, html):
     cast = bios(html, [p["name"] for p in people])
     for p in people:
         p["bio"] = cast.get(p["name"])
+    favorite = afh(html, [(p["name"], (p["bio"] or {}).get("full_name")) for p in people],
+                   [ep for eps in episodes.values() for ep in eps])
     return {
         "weeks": [finalize(r) for r in records],
         "details": detail,
         "players": people,
         "unmatched": unmatched,
         "finale": final,
+        "afh": favorite,
     }
 
 
@@ -162,7 +168,7 @@ def add_wikipedia(seasons, cache_dir):
     Returns {"sources", "weeks", "details", "players", "finales", "unmatched", "season_errors"}.
     A season that isn't cached or fails to parse is reported, not fatal.
     """
-    out = {"sources": [], "weeks": [], "details": {}, "players": [], "finales": {}, "unmatched": [],
+    out = {"sources": [], "weeks": [], "details": {}, "players": [], "finales": {}, "afh": {}, "unmatched": [],
            "season_errors": []}
     for season, title in seasons.items():
         cached = load_cached(season, cache_dir)
@@ -182,6 +188,7 @@ def add_wikipedia(seasons, cache_dir):
             out["players"].extend(result["players"])
             if result["finale"]:
                 out["finales"][str(season)] = result["finale"]
+            out["afh"][str(season)] = result["afh"]
             out["unmatched"].extend((season, name) for name in result["unmatched"])
         except Exception as e:  # a whole-season failure is reported, not fatal
             out["season_errors"].append((season, f"{type(e).__name__}: {e}"))
@@ -206,6 +213,14 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         {s: t for s, t in fandom_seasons.items() if s in seasons}, fandom_dir,
         wiki["sources"], wiki["weeks"], wiki["details"], wiki["players"], wiki["season_errors"])
 
+    # America's Favorite HouseGuest, checked against the Big Brother Wiki's prize lists.
+    for season, result in list(wiki["afh"].items()):
+        decided = (wiki["finales"].get(season) or {}).get("decided", False)
+        fandom_lines.extend(check_afh(season, result, [p for p in wiki["players"] if str(p["season"]) == season],
+                                      decided))
+        if result is None:
+            del wiki["afh"][season]
+
     out_dir.mkdir(parents=True, exist_ok=True)
     header = {"schema_version": SCHEMA_VERSION, "generated_at": utc_now(), "license": LICENSE}
     doc = {**header, "sources": wiki["sources"], "weeks": wiki["weeks"], "photos": photo_index(wiki["players"])}
@@ -217,6 +232,7 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
         "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
         "formats": formats, "weeks": wiki["details"], "players": wiki["players"], "finales": wiki["finales"],
+        "afh": dict(sorted(wiki["afh"].items(), key=lambda kv: -int(kv[0]))),
     }, compact=True)
     report = make_report(wiki["weeks"], wiki["season_errors"], wiki["unmatched"], fandom_lines)
     (out_dir.parent / "report.txt").write_text(report, encoding="utf-8")
