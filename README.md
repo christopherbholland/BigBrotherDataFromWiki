@@ -29,6 +29,8 @@ Opening `web/index.html` directly (`file://`) won't work: the page has to load
 `weeks.json` over HTTP. More hosting options, phone setup and embedding are in
 [`docs/integration.md`](docs/integration.md#1-host-the-page).
 
+## How it works
+
 ```
 Wikipedia API ---------> fetch -> cache/        -> grid builder -> interpreter -> validator/exporter
 Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader --------------> merge (details.json)
