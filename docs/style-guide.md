@@ -61,6 +61,13 @@ One family (`--font`, the system UI font). Ten sizes:
 | `--fs-3xl` | 28 | initials on portrait faces, the phone jury score |
 | `--fs-4xl` | 40 | the jury score |
 
+**Simple view** (`?simple=1`, the stream board) redefines every `--fs-*` token larger
+in the `:root.simple` block, from 12px up to 48px. A new size token gets a value there
+too. Its layout rules sit with the embed rules in the Views part: the grid's columns
+share the width (above 640px), cells are text only and bold, and `fitGrid()` adds
+`.fit` / `.fit-2` to step a name that doesn't fit down to `--fs-xs` / `--fs-2xs`. Don't
+set `nowrap` or an ellipsis on those cells.
+
 Weights: `--fw-regular` (400), `--fw-semibold` (600, controls and grid cells),
 `--fw-bold` (700, names and caps labels), `--fw-heavy` (800, big numbers and badges).
 
@@ -111,6 +118,8 @@ the same look, add its selector to that list.
 |---|---|---|
 | Page header | `.kicker`, `h1` + `.pill`, `.sub` | Title and intro change with the tab (`VIEWS` in the script). |
 | View tabs | `.tabs` > `button[role=tab]` | Eight tabs make two rows of four on phones. A ninth adds a third row, so rethink the labels first. |
+| Simple view toggle | `#simple-btn` in a `.seg`, after `.tabs` | Adds or removes `?simple=1` in the address. `?embed=1&simple=1` hides the whole toolbar and the `.controls`. |
+| Week board | `.view-body.trend.wk-board` in `#board-panel` | A view with no tab (`VIEWS.board`), opened by `#week=` in the simple view and by `#weekall=`. Each round is a row of `.stat` tiles (a name as the big text, the role, then the context); `.stat.out` is the eviction. The header comes from `BOARD_HEAD`. |
 | Picker / toggle | `.seg` > `button[aria-pressed]` (or a `select`) | Every secondary control, season pickers included. Wraps on phones. |
 | Panel | `.panel` | The box each tab renders into. Tables go straight inside. |
 | Panel body | `.view-body` | Pads a panel of prose, charts and sections (Finale, Endgame, HOH, Veto). |
@@ -170,7 +179,7 @@ add it to the table above, and (for colors) give it a dark value in both dark bl
 not the places that use it.
 
 **Before pushing** run `pytest -q` and look at the change at desktop and 390px, in light
-and dark (`?theme=dark`). If it shows in the README's screenshots, run
+and dark (`?theme=dark`), and in the simple view (`?simple=1`) if it's on the Weeks tab. If it shows in the README's screenshots, run
 `python tools/screenshots.py` to retake them.
 
 ## What the test checks
