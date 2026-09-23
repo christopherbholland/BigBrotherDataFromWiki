@@ -38,6 +38,7 @@ SHOTS = {
     "comps": (DESKTOP, "#comps=28", None),
     "comp-format": (DESKTOP, "#comp=The%20Wall", None),
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
+    "afh": (DESKTOP, "#afh", None),
 }
 
 # True once every face picture on screen has given way to initials.
@@ -69,6 +70,8 @@ def take(browser, base, name, viewport, path, hover):
     for view in ("players", "comps"):
         if f"#{view}=" in path:
             page.wait_for_selector(f"#{view}-panel table")
+    if path.endswith("#afh"):
+        page.wait_for_selector("#afh-panel .afh-card")
     if "#week=" in path or "#player=" in path or "#comp=" in path:
         page.wait_for_selector("#drawer:not([hidden])")
         page.wait_for_function("!document.querySelector('#drawer-body').innerText.includes('Loading')")
