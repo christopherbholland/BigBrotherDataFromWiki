@@ -136,3 +136,32 @@ def test_week_details_include_veto_and_comps():
     # Three nominees; Casey vetoes themselves off and nobody replaces them.
     assert d["rounds"][0]["veto"] == {"used": True, "on": ["Casey"], "replacements": [], "twist_saved": []}
     assert d["comps"] == [] and d["veto_notes"] == []
+
+
+def test_finale_without_jury_votes():
+    # The fixture's Finale column names the final three but has no jurors.
+    f = full()["finale"]
+    assert (f["week"], f["decided"], f["winner"], f["runner_up"]) == ("Week 4", True, "Alex", "Casey")
+    assert f["finalists"] == [{"name": "Alex", "votes": 0, "jurors": []}, {"name": "Casey", "votes": 0, "jurors": []}]
+    assert f["jury"] == []
+
+
+def test_finale_jury_votes_counted_from_the_jurors():
+    html = (FIXTURE
+            .replace('<td colspan="2" style="background:salmon">Evicted (Day 23)</td>', "<td>Evicted (Day 23)</td><td>Casey</td>")
+            .replace('<td colspan="3">Evicted (Day 20)</td>', '<td colspan="2">Evicted (Day 20)</td><td>Alex</td>')
+            .replace('<td colspan="4">Evicted (Day 13)</td>', '<td colspan="3">Evicted (Day 13)</td><td>Alex</td>'))
+    f = full(html)["finale"]
+    assert f["finalists"] == [{"name": "Alex", "votes": 2, "jurors": ["Fran", "Gus"]},
+                              {"name": "Casey", "votes": 1, "jurors": ["Dana"]}]
+    # In the order they left, with how and when.
+    assert [(j["name"], j["vote"], j["left"], j["day"]) for j in f["jury"]] == [
+        ("Fran", "Alex", "Evicted", 13), ("Gus", "Alex", "Evicted", 20), ("Dana", "Casey", "Evicted", 23)]
+
+
+def test_finale_while_airing():
+    html = (FIXTURE.replace("<td>Winner</td>", "<td></td>").replace("<td>Runner-up</td>", "<td></td>")
+            .replace('<td colspan="2" style="background:salmon">Evicted (Day 23)</td>', "<td>Evicted (Day 23)</td><td>Jury Member</td>"))
+    f = full(html)["finale"]
+    assert (f["decided"], f["winner"], f["finalists"]) == (False, None, [])
+    assert f["jury"] == [{"name": "Dana", "vote": None, "left": "Evicted", "day": 23}]

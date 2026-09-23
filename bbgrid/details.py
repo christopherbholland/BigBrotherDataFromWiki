@@ -211,3 +211,49 @@ def players(season, records, guests):
                 if row["voters"]:
                     add(row["nominee"], "votes_against", {"week": week, "voters": row["voters"]})
     return list(table.values()), sorted(unmatched)
+
+
+# --- The finale: every juror's vote, from the Finale column ------------------
+FINALIST_RE = re.compile(r"^(winner|runner-up)\b", re.I)
+JUROR_PENDING_RE = re.compile(r"^jury member\b", re.I)  # a juror while the season is still airing
+EXIT_RE = re.compile(r"^(.*?)\s*\(day\s*(\d+)\)", re.I | re.S)
+
+
+def finale(record):
+    """The jury vote for a week with a Finale column, else None.
+
+    The votes are counted from the jurors' own cells rather than read from the
+    Evicted row, which can be wrong (BB22's says "Enzo 0 votes to win"). While
+    a season is airing the finalists aren't known and jurors have no vote yet:
+    "decided" is False and each juror's "vote" is None.
+
+    Returns {"season", "week", "decided", "winner", "runner_up",
+    "finalists": [{"name", "votes", "jurors": [...]}], "jury": [{"name",
+    "vote", "left", "day"}]}, jurors in the order they left the game.
+    """
+    cells = record.get("_finale")
+    if not cells:
+        return None
+    result = {name: text.split("\n")[0].strip().lower() for name, text, _ in cells if FINALIST_RE.match(text)}
+    finalists = {name_key(n): n for n in result}
+    jury = []
+    for name, text, exit_cell in cells:
+        vote = finalists.get(name_key(text.replace("\n", " ")))
+        if vote is None and not JUROR_PENDING_RE.match(text):
+            continue
+        m = EXIT_RE.match(exit_cell or "")
+        left = " ".join(m.group(1).split()) if m else None
+        jury.append({"name": name, "vote": vote, "left": left, "day": int(m.group(2)) if m else None})
+    # The table lists the latest to leave first; a juror with no exit day goes last.
+    jury.sort(key=lambda j: j["day"] if j["day"] is not None else 10**6)
+    pick = lambda word: next((n for n, r in result.items() if r == word), None)
+    return {
+        "season": record["season"],
+        "week": record["week_label"],
+        "decided": bool(pick("winner")),
+        "winner": pick("winner"),
+        "runner_up": pick("runner-up"),
+        "finalists": [{"name": n, "votes": sum(j["vote"] == n for j in jury),
+                       "jurors": [j["name"] for j in jury if j["vote"] == n]} for n in result],
+        "jury": jury,
+    }

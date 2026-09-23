@@ -9,7 +9,7 @@ from .cast import bios
 from .comps import CATEGORIES, CATEGORY_HELP, categorize, explains
 from .config import (CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, fandom_url, load_fandom_seasons, load_seasons,
                      page_permalink, page_url)
-from .details import players, week_details
+from .details import finale, players, week_details
 from .enrich import enrich_season
 from .episodes import episodes_by_week
 from .fandom import parse_season as parse_fandom_season
@@ -36,6 +36,7 @@ INTERNAL_ROUND_KEYS = ("_vote_cells", "_voters", "_col")
 def finalize(record):
     """Drop interpreter-internal keys; keep raw text only for note/error weeks."""
     raw = record.pop("_raw", None)
+    record.pop("_finale", None)
     record["raw"] = raw if record["status"] != "ok" else None
     for rnd in record["rounds"]:
         for key in INTERNAL_ROUND_KEYS:
@@ -51,7 +52,7 @@ def process_season(season, html):
 def process_season_full(season, html):
     """Week records plus the detail-view data for one season.
 
-    Returns {"weeks", "details", "players", "unmatched"}; see details.py.
+    Returns {"weeks", "details", "players", "unmatched", "finale"}; see details.py.
     Each player also gets "bio" from the cast table (see cast.py), or None.
     """
     grid = build_grid(html)
@@ -61,6 +62,8 @@ def process_season_full(season, html):
     # Details need the interpreter's internal keys, so build them before finalize().
     detail = week_details(records, grid.notes, episodes_by_week(build_episode_grid(html)))
     people, unmatched = players(season, records, houseguests(grid))
+    # The season's last Finale column holds the jury vote.
+    final = next((f for f in map(finale, reversed(records)) if f), None)
     # Age, occupation and hometown from the season's cast table.
     cast = bios(html, [p["name"] for p in people])
     for p in people:
@@ -70,6 +73,7 @@ def process_season_full(season, html):
         "details": detail,
         "players": people,
         "unmatched": unmatched,
+        "finale": final,
     }
 
 
@@ -155,10 +159,11 @@ def add_fandom(fandom_seasons, fandom_dir, sources, weeks, details, people, seas
 def add_wikipedia(seasons, cache_dir):
     """Run the grid pipeline over each cached Wikipedia page.
 
-    Returns {"sources", "weeks", "details", "players", "unmatched", "season_errors"}.
+    Returns {"sources", "weeks", "details", "players", "finales", "unmatched", "season_errors"}.
     A season that isn't cached or fails to parse is reported, not fatal.
     """
-    out = {"sources": [], "weeks": [], "details": {}, "players": [], "unmatched": [], "season_errors": []}
+    out = {"sources": [], "weeks": [], "details": {}, "players": [], "finales": {}, "unmatched": [],
+           "season_errors": []}
     for season, title in seasons.items():
         cached = load_cached(season, cache_dir)
         source = {"season": season, "title": title, "url": page_url(title)}
@@ -175,6 +180,8 @@ def add_wikipedia(seasons, cache_dir):
             out["weeks"].extend(result["weeks"])
             out["details"].update(result["details"])
             out["players"].extend(result["players"])
+            if result["finale"]:
+                out["finales"][str(season)] = result["finale"]
             out["unmatched"].extend((season, name) for name in result["unmatched"])
         except Exception as e:  # a whole-season failure is reported, not fatal
             out["season_errors"].append((season, f"{type(e).__name__}: {e}"))
@@ -209,7 +216,7 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         **header,
         "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
         "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
-        "formats": formats, "weeks": wiki["details"], "players": wiki["players"],
+        "formats": formats, "weeks": wiki["details"], "players": wiki["players"], "finales": wiki["finales"],
     }, compact=True)
     report = make_report(wiki["weeks"], wiki["season_errors"], wiki["unmatched"], fandom_lines)
     (out_dir.parent / "report.txt").write_text(report, encoding="utf-8")

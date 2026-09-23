@@ -268,6 +268,22 @@ def two_round_note(round_cols, rounds, problem):
     return "Two rounds: " + " / ".join(labels)
 
 
+def finale_cells(rows, col):
+    """Each houseguest's Finale cell, for details.py's jury vote.
+
+    Returns [(name, finale cell text, exit cell text or None)], in table order.
+    The exit cell is the last "Evicted (Day N)"-style cell before the Finale
+    column, which dates a juror's eviction.
+    """
+    out = []
+    for kind, _, label, row in rows:
+        if kind != "vote":
+            continue
+        exit_cell = next((row[c].text for c in reversed(range(col)) if EXIT_DAY_RE.search(row[c].text)), None)
+        out.append((label, row[col].text, exit_cell))
+    return out
+
+
 def worst(a, b):
     return a if STATUS_RANK[a] >= STATUS_RANK[b] else b
 
@@ -328,6 +344,8 @@ def interpret(grid: Grid, season: int):
                         record["footnotes"].append(fn)
         record["note"] = "; ".join(notes) or None
         record["_raw"] = raw_text(rows, cols, [s or week_label for s, _ in subcols])
+        if finale:
+            record["_finale"] = finale_cells(rows, finale[-1][1])
         records.append(record)
     return records
 
