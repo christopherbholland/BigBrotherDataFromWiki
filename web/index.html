@@ -601,6 +601,10 @@ function loadDetails() {
 
 const weekHash = (season, label) => `#week=${season}/${encodeURIComponent(label)}`;
 const playerHash = (season, name) => `#player=${season}/${encodeURIComponent(name)}`;
+// True while the address still shows this view. Compared decoded, since a shared
+// link may encode characters ("Da%27Vonne") that encodeURIComponent leaves as is.
+const decodeHash = h => { try { return decodeURIComponent(h); } catch (err) { return h; } };
+const isCurrent = hash => decodeHash(location.hash) === decodeHash(hash);
 const plink = (season, name) => `<a class="plink" href="${playerHash(season, name)}">${esc(name)}</a>`;
 const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + "s")}`;
 
@@ -651,7 +655,7 @@ async function showWeek(season, label) {
   let d;
   try { d = (await loadDetails()).weeks[`${season}|${label}`]; }
   catch (err) { return openDrawer(title, statusText(w), errorHtml(err)); }
-  if (location.hash !== weekHash(season, label)) return;  // moved on while loading
+  if (!isCurrent(weekHash(season, label))) return;  // moved on while loading
   const summary = w.rounds.length
     ? w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
@@ -999,7 +1003,7 @@ async function showPlayer(season, name) {
   openDrawer(title, status, `<p class="muted">Loading…</p>`);
   let d;
   try { d = await loadDetails(); } catch (err) { return openDrawer(title, status, errorHtml(err)); }
-  if (location.hash !== playerHash(season, name)) return;
+  if (!isCurrent(playerHash(season, name))) return;
   const p = d.players.find(x => x.season === season && x.name === name);
   if (!p) return openDrawer(title, status, `<p class="muted">No player by that name in BB${season}.</p>`);
   const s = playerStats(p);
@@ -1112,7 +1116,7 @@ async function showFormat(format) {
   openDrawer(format, "Competition format", `<p class="muted">Loading…</p>`);
   let d;
   try { d = await loadDetails(); } catch (err) { return openDrawer(format, "", errorHtml(err)); }
-  if (location.hash !== compHash(format)) return;
+  if (!isCurrent(compHash(format))) return;
   const f = (d.formats || {})[format];
   if (!f) return openDrawer(format, "Competition format", `<p class="muted">No competition by that format in these seasons.</p>`);
   const help = Object.fromEntries((d.categories || []).map(c => [c.name, c.help]));

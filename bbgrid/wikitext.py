@@ -81,6 +81,13 @@ def template_params(text, name):
     return params
 
 
+def after_template(text, name):
+    """The text after the first {{name ...}} (e.g. an infobox's article body); all of text if absent."""
+    m = re.search(r"\{\{\s*" + re.escape(name), text, re.I)
+    body = _template_body(text, m.start()) if m else None
+    return text if body is None else text[m.start() + len(body) + 4:]
+
+
 def links(value):
     """Page titles linked from a value, in order: "[[A|B]] and [[C]]" -> ["A", "C"]."""
     return [m.group(1).strip() for m in LINK_RE.finditer(value or "")]

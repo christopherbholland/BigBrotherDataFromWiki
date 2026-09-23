@@ -36,7 +36,11 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt
       - name: Fetch pages
-        run: python -m bbgrid fetch ${{ github.event.inputs.seasons }}
+        # Passed through the environment, not pasted into the script, so the input
+        # is only ever read as season numbers.
+        env:
+          SEASONS: ${{ github.event.inputs.seasons }}
+        run: python -m bbgrid fetch $SEASONS
       - name: Build weeks.json and report.txt
         run: |
           python -m bbgrid build

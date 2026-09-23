@@ -1,8 +1,5 @@
 """Step 4a: per-round consistency checks. Failures downgrade the week to `error`."""
-
-
-def _key(name):
-    return " ".join(name.split()).casefold()
+from .util import name_key
 
 
 def check_round(rnd):
@@ -12,15 +9,15 @@ def check_round(rnd):
         if not rnd.get(field):
             failures.append(f"missing {field}")
     evicted = rnd.get("evicted")
-    finals = {_key(n) for n in rnd.get("nominees_final") or []}
-    if evicted and finals and _key(evicted) not in finals:
+    finals = {name_key(n) for n in rnd.get("nominees_final") or []}
+    if evicted and finals and name_key(evicted) not in finals:
         failures.append(f"evicted {evicted!r} not in final nominees {rnd['nominees_final']}")
 
     tally = rnd.get("tally")
     if evicted and tally and tally["type"] == "vote":
         # A vote is a vote-row cell holding exactly one final nominee's name.
-        votes = [_key(c[0]) for c in rnd.get("_vote_cells", []) if len(c) == 1 and _key(c[0]) in finals]
-        to_evict = votes.count(_key(evicted))
+        votes = [name_key(c[0]) for c in rnd.get("_vote_cells", []) if len(c) == 1 and name_key(c[0]) in finals]
+        to_evict = votes.count(name_key(evicted))
         if to_evict != tally["votes_to_evict"]:
             failures.append(f"vote rows show {to_evict} votes to evict {evicted}, tally says {tally['votes_to_evict']}")
         if len(votes) != tally["votes_cast"]:

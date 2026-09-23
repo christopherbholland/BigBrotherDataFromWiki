@@ -1,18 +1,34 @@
-"""Step 4b: run the pipeline over the cache and write weeks.json + report.txt."""
-import json
-from datetime import datetime, timezone
+"""Step 4b: run the pipeline over the cache and write weeks.json, details.json and report.txt.
 
-from .comps import CATEGORIES, CATEGORY_HELP, categorize, explains
-from .config import CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, fandom_url, load_fandom_seasons, load_seasons, page_url
-from .fetch import load_cached, load_fandom_cached
+run() is the whole build; the functions it calls can be used on their own
+(process_season_full for one season's HTML, make_report for the report text).
+"""
+import json
+
 from .cast import bios
+from .comps import CATEGORIES, CATEGORY_HELP, categorize, explains
+from .config import (CACHE_DIR, FANDOM_CACHE_DIR, WEB_DIR, fandom_url, load_fandom_seasons, load_seasons,
+                     page_permalink, page_url)
 from .details import players, week_details
 from .enrich import enrich_season
-from .fandom import parse_season as parse_fandom_season
 from .episodes import episodes_by_week
+from .fandom import parse_season as parse_fandom_season
+from .fetch import load_cached, load_fandom_cached
 from .grid import build_episode_grid, build_grid
 from .interpret import houseguests, interpret
+from .util import utc_now
 from .validate import validate_week
+
+# Written to weeks.json and details.json as "schema_version". Raised whenever a
+# field is removed, renamed or changes meaning; adding a field doesn't change it.
+SCHEMA_VERSION = 1
+
+LICENSE = ("Wikipedia content, CC BY-SA 4.0; "
+           "Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; "
+           "houseguest photos are CBS promotional images, linked from the Big Brother Wiki")
+
+# Keys the interpreter adds to each round for the validator and details.py only.
+INTERNAL_ROUND_KEYS = ("_vote_cells", "_voters", "_col")
 
 
 def finalize(record):
@@ -20,9 +36,8 @@ def finalize(record):
     raw = record.pop("_raw", None)
     record["raw"] = raw if record["status"] != "ok" else None
     for rnd in record["rounds"]:
-        rnd.pop("_vote_cells", None)
-        rnd.pop("_voters", None)
-        rnd.pop("_col", None)
+        for key in INTERNAL_ROUND_KEYS:
+            rnd.pop(key, None)
     return record
 
 
@@ -56,6 +71,12 @@ def process_season_full(season, html):
     }
 
 
+def _first_day(day):
+    """The first day of a "Day" cell ("24", "31-32") as a number, for sorting; 0 if blank."""
+    first = (day or "").split("-")[0]
+    return int(first) if first.isdigit() else 0
+
+
 def comp_index(details):
     """Categorize every HOH and veto competition in place; return the format index.
 
@@ -80,7 +101,7 @@ def comp_index(details):
                                "winners": c["winners"], "day": c["day"], "category": c["category"],
                                "about": c["about"]})
     for entry in index.values():
-        entry["plays"].sort(key=lambda p: (p["season"], int(p["day"].split("-")[0]) if (p["day"] or "").split("-")[0].isdigit() else 0))
+        entry["plays"].sort(key=lambda p: (p["season"], _first_day(p["day"])))
         cats = [p["category"] for p in entry["plays"] if p["category"]]
         entry["category"] = max(set(cats), key=cats.count) if cats else None
         # The newest description that says how it's played, else the newest one.
@@ -99,11 +120,6 @@ def photo_index(people):
         if url:
             out.setdefault(str(p["season"]), {})[p["name"]] = url
     return dict(sorted(out.items(), key=lambda kv: -int(kv[0])))
-
-
-LICENSE = ("Wikipedia content, CC BY-SA 4.0; "
-           "Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; "
-           "houseguest photos are CBS promotional images, linked from the Big Brother Wiki")
 
 
 def add_fandom(fandom_seasons, fandom_dir, sources, weeks, details, people, season_errors):
@@ -134,55 +150,66 @@ def add_fandom(fandom_seasons, fandom_dir, sources, weeks, details, people, seas
     return seasons_info, lines
 
 
-def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None, fandom_dir=FANDOM_CACHE_DIR):
-    seasons = seasons or load_seasons()
-    fandom_seasons = load_fandom_seasons() if fandom_seasons is None else fandom_seasons
-    sources, weeks, season_errors = [], [], []
-    details, people, unmatched = {}, [], []
+def add_wikipedia(seasons, cache_dir):
+    """Run the grid pipeline over each cached Wikipedia page.
+
+    Returns {"sources", "weeks", "details", "players", "unmatched", "season_errors"}.
+    A season that isn't cached or fails to parse is reported, not fatal.
+    """
+    out = {"sources": [], "weeks": [], "details": {}, "players": [], "unmatched": [], "season_errors": []}
     for season, title in seasons.items():
         cached = load_cached(season, cache_dir)
         source = {"season": season, "title": title, "url": page_url(title)}
         if cached is None:
-            season_errors.append((season, "not in cache (run `python -m bbgrid fetch`)"))
-            sources.append({**source, "error": "not fetched"})
+            out["season_errors"].append((season, "not in cache (run `python -m bbgrid fetch`)"))
+            out["sources"].append({**source, "error": "not fetched"})
             continue
         html, meta = cached
         source.update(revid=meta.get("revid"), fetched_at=meta.get("fetched_at"))
         if meta.get("revid"):
-            source["permalink"] = f"https://en.wikipedia.org/w/index.php?oldid={meta['revid']}"
+            source["permalink"] = page_permalink(meta["revid"])
         try:
             result = process_season_full(season, html)
-            weeks.extend(result["weeks"])
-            details.update(result["details"])
-            people.extend(result["players"])
-            unmatched.extend((season, name) for name in result["unmatched"])
+            out["weeks"].extend(result["weeks"])
+            out["details"].update(result["details"])
+            out["players"].extend(result["players"])
+            out["unmatched"].extend((season, name) for name in result["unmatched"])
         except Exception as e:  # a whole-season failure is reported, not fatal
-            season_errors.append((season, f"{type(e).__name__}: {e}"))
+            out["season_errors"].append((season, f"{type(e).__name__}: {e}"))
             source["error"] = str(e)
-        sources.append(source)
+        out["sources"].append(source)
+    return out
 
+
+def write_json(path, doc, compact=False):
+    """weeks.json is indented so its diffs are readable; details.json is compact to stay small."""
+    text = json.dumps(doc, ensure_ascii=False, **({"separators": (",", ":")} if compact else {"indent": 1}))
+    path.write_text(text + "\n", encoding="utf-8")
+
+
+def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None, fandom_dir=FANDOM_CACHE_DIR):
+    """Build everything from the cache: out_dir/weeks.json, out_dir/details.json and
+    report.txt beside out_dir. Returns (the weeks.json document, the report text)."""
+    seasons = seasons or load_seasons()
+    fandom_seasons = load_fandom_seasons() if fandom_seasons is None else fandom_seasons
+    wiki = add_wikipedia(seasons, cache_dir)
     seasons_info, fandom_lines = add_fandom(
         {s: t for s, t in fandom_seasons.items() if s in seasons}, fandom_dir,
-        sources, weeks, details, people, season_errors)
+        wiki["sources"], wiki["weeks"], wiki["details"], wiki["players"], wiki["season_errors"])
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    doc = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "license": LICENSE,
-        "sources": sources,
-        "weeks": weeks,
-        "photos": photo_index(people),
-    }
-    (out_dir / "weeks.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    header = {"schema_version": SCHEMA_VERSION, "generated_at": utc_now(), "license": LICENSE}
+    doc = {**header, "sources": wiki["sources"], "weeks": wiki["weeks"], "photos": photo_index(wiki["players"])}
+    write_json(out_dir / "weeks.json", doc)
     # Detail views load this separately, so the main grid stays light.
-    formats = comp_index(details)
-    detail_doc = {"generated_at": doc["generated_at"], "license": doc["license"],
-                  "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
-                  "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
-                  "formats": formats, "weeks": details, "players": people}
-    (out_dir / "details.json").write_text(json.dumps(detail_doc, ensure_ascii=False, separators=(",", ":")) + "\n",
-                                          encoding="utf-8")
-    report = make_report(weeks, season_errors, unmatched, fandom_lines)
+    formats = comp_index(wiki["details"])
+    write_json(out_dir / "details.json", {
+        **header,
+        "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
+        "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
+        "formats": formats, "weeks": wiki["details"], "players": wiki["players"],
+    }, compact=True)
+    report = make_report(wiki["weeks"], wiki["season_errors"], wiki["unmatched"], fandom_lines)
     (out_dir.parent / "report.txt").write_text(report, encoding="utf-8")
     return doc, report
 

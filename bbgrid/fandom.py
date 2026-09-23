@@ -14,13 +14,14 @@ each recurring competition's {{Recurring Competition}} with its opening sentence
 """
 import hashlib
 import re
-from datetime import date, datetime
+from datetime import date
 from urllib.parse import quote
 
 from bs4 import BeautifulSoup, Tag
 
 from . import wikitext as wt
 from .grid import expand_table, split_header
+from .util import parse_date
 
 HAVE_NOT_COLOR = "#cc6666"  # the wiki's Have-Not colour, used when the key table is missing
 PLACEHOLDER_RE = re.compile(r"^(tba|tbd|\?+|-+|—)$", re.I)
@@ -392,15 +393,6 @@ def game_history(soup):
 
 # --- Infoboxes --------------------------------------------------------------
 
-def _date(text):
-    for fmt in ("%B %d, %Y", "%b %d, %Y"):
-        try:
-            return datetime.strptime(text.strip(), fmt).date()
-        except ValueError:
-            pass
-    return None
-
-
 def season_info(wikitext):
     """Fields from the {{Season}} infobox, as display text (None if absent)."""
     p = wt.template_params(wikitext or "", "Season")
@@ -408,7 +400,7 @@ def season_info(wikitext):
         return None
     run = wt.plain(p.get("seasonrun", ""))
     start_text, _, end_text = run.partition(" - ")
-    start, end = _date(start_text) if start_text else None, _date(end_text) if end_text else None
+    start, end = parse_date(start_text) if start_text else None, parse_date(end_text) if end_text else None
 
     def field(key):
         return wt.plain(p.get(key, "")) or None
@@ -512,12 +504,7 @@ def format_info(lead):
     if not lead:
         return None
     p = wt.template_params(lead, "Recurring Competition") or {}
-    body = lead
-    m = re.search(r"\{\{\s*Recurring Competition", lead, re.I)
-    if m:
-        inner = wt._template_body(lead, m.start())
-        if inner is not None:
-            body = lead[m.start() + len(inner) + 4:]
+    body = wt.after_template(lead, "Recurring Competition")
     opening = OPENING_RE.search(wt.COMMENT_RE.sub("", body))
     words = opening.group(1) if opening else ""
     category = next((cat for cat, pat in FORMAT_TYPE_WORDS if pat.search(words)), None)

@@ -1,15 +1,16 @@
 """Command line entry point.
 
-  python -m bbgrid fetch [SEASON ...]    refetch Wikipedia and Big Brother Wiki pages into cache/
-                                         (all seasons if none given)
-  python -m bbgrid build                 cache/ -> web/weeks.json + report.txt
-  python -m bbgrid inspect [SEASON ...]  print each cached table's headers and row labels
-  python -m bbgrid refresh SEASON ...    fetch the given seasons, then build
-  python -m bbgrid proofread             web/*.json -> proofread.xlsx (a sheet to check every fact)
+  python -m bbgrid fetch [SEASON ...]           refetch Wikipedia and Big Brother Wiki pages into cache/
+                                                (all seasons if none given)
+  python -m bbgrid build                        cache/ -> web/weeks.json, web/details.json, report.txt
+  python -m bbgrid refresh SEASON ...           fetch the given seasons, then build
+  python -m bbgrid proofread                    web/*.json -> proofread.xlsx (a sheet to check every fact)
+  python -m bbgrid inspect [SEASON ...]         print each cached table's headers and row labels
   python -m bbgrid inspect-fandom [SEASON ...]  summarize what was read from each cached Big Brother Wiki page
 """
 import argparse
 import sys
+from collections import Counter
 
 from .config import load_fandom_seasons, load_seasons
 from .export import run
@@ -53,16 +54,20 @@ def cmd_inspect_fandom(seasons):
         print(f"  roster ({len(data['roster'])}): " + ", ".join(f"{short} = {title}" for title, short in data["roster"]))
         print(f"  bios: {len(data['bios'])}; competitions: {len(data['competitions'])}; "
               f"game history rows: {len(data['game'])}; Have-Not weeks: {sorted(data['have_nots']['weeks'])}")
-        kinds = {}
-        for c in data["competitions"]:
-            kinds[c["type"]] = kinds.get(c["type"], 0) + 1
+        kinds = Counter(c["type"] for c in data["competitions"])
         print("  competition types: " + ", ".join(f"{k} ({n})" for k, n in kinds.items()) + "\n")
 
 
 def cmd_build():
     _, report = run()
     print(report.splitlines()[0])
-    print("wrote web/weeks.json and report.txt")
+    print("wrote web/weeks.json, web/details.json and report.txt")
+
+
+def cmd_proofread():
+    from .proofread import build as build_sheet  # openpyxl is only needed here
+    out, counts = build_sheet()
+    print(f"wrote {out.name}: " + ", ".join(f"{n} {k}" for k, n in counts.items()))
 
 
 def cmd_inspect(seasons):
@@ -85,33 +90,28 @@ def cmd_inspect(seasons):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog="bbgrid")
-    parser.add_argument("command", choices=["fetch", "build", "inspect", "refresh", "proofread", "inspect-fandom"])
-    parser.add_argument("seasons", nargs="*", type=int)
+    parser = argparse.ArgumentParser(prog="python -m bbgrid", description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("command", choices=["fetch", "build", "refresh", "proofread", "inspect", "inspect-fandom"])
+    parser.add_argument("seasons", nargs="*", type=int, help="season numbers from seasons.yaml (default: all)")
     args = parser.parse_args(argv)
     all_seasons = load_seasons()
     unknown = [s for s in args.seasons if s not in all_seasons]
     if unknown:
         parser.error(f"seasons not in seasons.yaml: {unknown}")
+    if args.command == "refresh" and not args.seasons:
+        parser.error("refresh needs at least one season, e.g. `refresh 28`")
     chosen = {s: all_seasons[s] for s in args.seasons} or all_seasons
 
-    if args.command == "fetch":
-        cmd_fetch(chosen)
-    elif args.command == "build":
-        cmd_build()
-    elif args.command == "inspect":
-        cmd_inspect(chosen)
-    elif args.command == "inspect-fandom":
-        cmd_inspect_fandom(chosen)
-    elif args.command == "proofread":
-        from .proofread import build as build_sheet
-        out, counts = build_sheet()
-        print(f"wrote {out.name}: " + ", ".join(f"{n} {k}" for k, n in counts.items()))
-    elif args.command == "refresh":
-        if not args.seasons:
-            parser.error("refresh needs at least one season, e.g. `refresh 28`")
-        cmd_fetch(chosen)
-        cmd_build()
+    commands = {
+        "fetch": lambda: cmd_fetch(chosen),
+        "build": cmd_build,
+        "refresh": lambda: (cmd_fetch(chosen), cmd_build()),
+        "proofread": cmd_proofread,
+        "inspect": lambda: cmd_inspect(chosen),
+        "inspect-fandom": lambda: cmd_inspect_fandom(chosen),
+    }
+    commands[args.command]()
     return 0
 
 

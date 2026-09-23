@@ -77,6 +77,7 @@ The file has this shape:
 
 ```jsonc
 {
+  "schema_version": 1,                 // see "Versioning" below
   "generated_at": "2026-09-22T18:20:46+00:00",
   "license": "Wikipedia content, CC BY-SA 4.0; Big Brother Wiki (bigbrother.fandom.com) content, CC BY-SA 3.0; houseguest photos are CBS promotional images, linked from the Big Brother Wiki",
   "sources": [
@@ -146,7 +147,7 @@ Things to know:
 
 ```jsonc
 {
-  "generated_at": "…", "license": "Wikipedia content, CC BY-SA 4.0",
+  "schema_version": 1, "generated_at": "…", "license": "…",   // as in weeks.json
   "weeks": {
     "26|Week 4": {                                 // "<season>|<week_label>"
       "rounds": [{                                 // same order as weeks.json rounds
@@ -264,6 +265,16 @@ Things to know:
   wiki says "Jackson" where Wikipedia says "Michie"). A name that can't be matched is kept
   as the wiki writes it and listed in `report.txt`. The page prefers `fandom.comps` over
   `comps` for competition names.
+
+### Versioning
+
+Both files carry `schema_version`, currently `1`. It goes up only when a field is
+removed or renamed, or changes meaning. New fields can appear without a version change,
+so ignore keys you don't know. To be safe, check the version before reading:
+
+```js
+if (data.schema_version !== 1) console.warn("weeks.json format changed; see docs/integration.md");
+```
 
 Example: every HOH in BB26.
 

@@ -32,6 +32,10 @@ def page_url(title):
     return "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
 
 
+def page_permalink(revid):
+    return f"https://en.wikipedia.org/w/index.php?oldid={revid}"
+
+
 def fandom_url(title):
     # "?" and "#" occur in titles ("What Did They Just Do?") and must be escaped.
     return f"{FANDOM_BASE}/wiki/" + quote(title.replace(" ", "_"), safe="/:,()'!&$*+;=@")

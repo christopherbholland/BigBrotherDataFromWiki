@@ -22,6 +22,7 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 | 5. Web page | `web/index.html` | static page that reads `weeks.json` |
 | Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
 | Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
+| Shared helpers | `bbgrid/util.py` | name comparison, dates, timestamps |
 
 - **Hosting, embedding, or using the data elsewhere:** see
   [`docs/integration.md`](docs/integration.md).
@@ -194,6 +195,13 @@ format, are in [`docs/integration.md`](docs/integration.md).
 - `tests/test_snapshots.py`: one snapshot per cached season in `tests/snapshots/`. A season
   with no cache file is skipped. The first run writes the snapshot. After an intended
   change, update with `UPDATE_SNAPSHOTS=1 pytest tests/test_snapshots.py`.
+- `tests/test_export.py`: the whole build for one cached season, written to a temporary
+  folder: the top-level shape of `weeks.json` and `details.json`, and `report.txt`.
+
+The **Tests** GitHub Action (`.github/workflows/tests.yml`) runs `pytest` on every pull
+request and push to `main`. It then rebuilds `web/` from `cache/` and fails if the committed
+`weeks.json`, `details.json` or `report.txt` differ from the rebuild. After a code change
+that alters the data, run `python -m bbgrid build` and commit the result with it.
 
 ## Attribution
 
