@@ -29,9 +29,10 @@ Opening `web/index.html` directly (`file://`) won't work: the page has to load
 `weeks.json` over HTTP. More hosting options, phone setup and embedding are in
 [`docs/integration.md`](docs/integration.md#1-host-the-page).
 
-**On a stream:** click **Simple view** (or add `?simple=1`) for bigger type, less on
-screen, the airing week scrolled into sight and data that refreshes by itself. For an OBS
-browser source, use `?simple=1&embed=1&theme=dark&seasons=28`; see
+**On a stream:** click **Simple view** (or add `?simple=1`) for a board laid out like the
+show's other stream graphics: every week of every season on one screen, bold names, the
+airing week outlined, and data that refreshes by itself. For an OBS browser source at
+1280 × 720, use `?simple=1&embed=1&theme=dark`; see
 [On a stream](docs/integration.md#on-a-stream).
 
 ## How it works

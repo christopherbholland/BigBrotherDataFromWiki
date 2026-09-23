@@ -185,7 +185,7 @@ a.plink:hover { text-decoration-color: currentColor; }
 
 /* Caps label: every UPPERCASE label shares its case, tracking and weight. Size is set where used. */
 .kicker, .grid th, table.players th, table.plays th, .fin-card .role, .eg-round h3 .size,
-.view-body h2, #drawer-body h3, .leaders h2, .afh-card h2 {
+.view-body h2, #drawer-body h3, .leaders h2, .afh-card h2, .simple .kicker {
   text-transform: uppercase; letter-spacing: var(--track-caps); font-weight: var(--fw-bold);
 }
 
@@ -360,20 +360,37 @@ footer a { white-space: nowrap; }
 /* ?embed=1: drop the page's own title and intro so a host page can supply its own. */
 .embed main { padding-top: var(--sp-2); }
 .embed .kicker, .embed h1, .embed .sub { display: none; }
-/* ?simple=1, the stream view: bigger cells and only what an audience needs. The intro,
-   the grid's legend, the twist-week corners and the tooltip's table text go; with
-   ?embed=1 the tabs and pickers go too, for a browser source that nobody clicks. */
-.simple .kicker, .simple .sub, .simple #weeks-view .legend, .simple .cell .flag,
+/* ?simple=1, the stream view, laid out like the stream's own boards: a season line, a
+   title with the week pill, then every week in one text-only grid (photos are off unless
+   ?photos=1). The intro, the legend, the twist-week corners and the tooltip's table text
+   go; with ?embed=1 the tabs and pickers go too, for a browser source nobody clicks, but
+   the title stays. */
+.simple .sub, .simple #weeks-view .legend, .simple .cell .flag,
 .simple #tip .raw, .embed.simple .toolbar, .embed.simple .controls { display: none; }
+.embed.simple .kicker { display: block; }
+.embed.simple h1 { display: flex; }
 /* The credits stay (the licenses need them) but run as one paragraph under an overlay. */
 .embed.simple footer p { display: inline; }
 .embed.simple footer p + p::before { content: " · "; }
-.simple .cell { min-width: 112px; min-height: 64px; }
-.simple .cell:not(.multi) .part { min-height: 64px; }
-.simple .cell:has(.faces) { min-width: 120px; }
-.simple .cell .part .face { width: 44px; }
-.simple .cell .part.wrap .who .face { width: 34px; }
-.simple .cell.multi .part .face, .simple .cell.multi .part.wrap .who .face { width: 26px; }
+/* Every week fits the width, so the whole season is on screen at once. A phone is too
+   narrow for that, so there the grid keeps scrolling sideways (to the airing week). */
+@media (min-width: 641px) {
+  .simple table.grid { table-layout: fixed; }
+  .simple .grid thead th:first-child { width: 80px; }
+  .simple .cell, .simple .cell:has(.faces) { min-width: 0; }
+}
+.simple .cell { min-height: 58px; }
+.simple .cell:not(.multi) .part { min-height: 58px; }
+/* Names wrap at a space; one still too wide for its column steps down a size or two (.fit,
+   .fit-2, set by fitGrid()), and only then breaks, so it's never cut off. */
+.simple .cell .part { font-weight: var(--fw-bold); padding: 3px 2px; white-space: normal; line-height: 1.15; }
+.simple .cell .part.fit { font-size: var(--fs-xs); }
+.simple .cell .part.fit-2 { font-size: var(--fs-2xs); overflow-wrap: anywhere; }
+/* The season that's airing is marked along its left edge. */
+.simple .grid tbody tr:first-child th { box-shadow: inset 3px 0 0 var(--text-primary); }
+.simple .cell .part .face { width: 40px; }
+.simple .cell .part.wrap .who .face { width: 30px; }
+.simple .cell.multi .part .face, .simple .cell.multi .part.wrap .who .face { width: 24px; }
 
 /* Weeks: the grid */
 .swatch { width: 18px; height: 14px; border-radius: var(--r-xs); background: var(--cell); border: 1px solid var(--line); display: inline-grid; }
@@ -886,11 +903,15 @@ try { if (localStorage.getItem("gridMode") === "hoh") gridMode = "hoh"; } catch 
 // ?mode=hoh or ?mode=evicted picks it in the address, e.g. for a stream overlay.
 if (["hoh", "evicted"].includes(params.get("mode"))) gridMode = params.get("mode");
 
-// Grid cells show a face above each name unless photos are switched off.
-let showFaces = true;
-try { if (localStorage.getItem("faces") === "off") showFaces = false; } catch (e) {}
-// ?photos=0 or ?photos=1 sets it in the address, for a stream overlay with no buttons.
-if (["0", "1"].includes(params.get("photos"))) showFaces = params.get("photos") === "1";
+// Grid cells show a face above each name unless photos are switched off. ?photos=0 or
+// ?photos=1 sets it in the address, for a stream overlay with no buttons; the simple
+// view is text only, like the stream's other boards, unless it says ?photos=1.
+function defaultFaces() {
+  if (["0", "1"].includes(params.get("photos"))) return params.get("photos") === "1";
+  if (simple) return false;
+  try { return localStorage.getItem("faces") !== "off"; } catch (e) { return true; }
+}
+let showFaces = defaultFaces();
 
 function partHtml(r, season) {
   const text = gridMode === "hoh" ? r.hoh.join(" & ") : r.evicted;
@@ -926,10 +947,9 @@ function renderGrid(data) {
   const latest = weeks.filter(w => w.season === seasons[0]).reduce((a, w) => (w.week ?? -1) > (a.week ?? -1) ? w : a);
   const nowLabel = latest.week_label;
   const now = l => l === nowLabel ? ` class="now"` : "";
-  document.getElementById("kicker").textContent = `Big Brother US · Seasons ${seasons[seasons.length - 1]}–${seasons[0]}`;
-  const pill = document.getElementById("now-pill");
-  pill.textContent = `BB${seasons[0]} · ${nowLabel}`;
-  pill.hidden = false;
+  NOW = { first: seasons[seasons.length - 1], season: seasons[0], label: nowLabel };
+  renderHeader();
+  $("now-pill").hidden = false;
 
   let html = `<table class="grid"><thead><tr><th scope="col">Season</th>${labels.map(l => `<th scope="col"${now(l)}>${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
   for (const s of seasons) {
@@ -953,13 +973,33 @@ function renderGrid(data) {
   document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
   $("faces-btn").setAttribute("aria-pressed", showFaces);
   $("simple-btn").setAttribute("aria-pressed", simple);
-  if (simple) scrollToNow();
+  fitGrid();
 }
 
-// Simple view: scroll the grid so the week that's airing is in sight at the right edge.
-function scrollToNow() {
-  const panel = $("panel"), th = panel.querySelector("thead th.now");
-  if (!th || panel.offsetParent === null) return;
+// The page header. On the simple view's grid it reads like the stream's boards:
+// "Season 28", then what the grid shows, then the week that's airing.
+let NOW = null;
+function renderHeader() {
+  if (!NOW) return;
+  const board = simple && currentView === "weeks";
+  $("kicker").textContent = board ? `Season ${NOW.season}` : `Big Brother US · Seasons ${NOW.first}–${NOW.season}`;
+  $("view-title").textContent = board ? (gridMode === "hoh" ? "HOH reigns" : "Evictions") : VIEWS[currentView].title;
+  $("now-pill").textContent = board ? NOW.label : `BB${NOW.season} · ${NOW.label}`;
+}
+
+// Simple view: step down any name too wide for its column, then scroll the grid so the
+// week that's airing is in sight at the right edge. Needs the grid on screen to measure.
+function fitGrid() {
+  const panel = $("panel");
+  if (!simple || panel.offsetParent === null) return;
+  const over = p => p.scrollWidth > p.clientWidth + 1;
+  panel.querySelectorAll(".cell .part").forEach(p => {
+    p.classList.remove("fit", "fit-2");
+    if (over(p)) p.classList.add("fit");
+    if (over(p)) p.classList.add("fit-2");
+  });
+  const th = panel.querySelector("thead th.now");
+  if (!th) return;
   const past = th.getBoundingClientRect().right - panel.getBoundingClientRect().right;
   if (past > 0) panel.scrollLeft += past + 8;
 }
@@ -1379,13 +1419,13 @@ const SEASON_VIEWS = Object.keys(VIEWS).filter(v => VIEWS[v].show);
 
 function setView(view) {
   currentView = view;
-  $("view-title").textContent = VIEWS[view].title;
   $("view-sub").textContent = VIEWS[view].sub;
+  renderHeader();
   for (const v of Object.keys(VIEWS)) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
-  if (view === "weeks" && simple) scrollToNow();
+  if (view === "weeks") fitGrid();
   // On a phone the tabs scroll sideways; keep the selected one in sight.
   const tabs = $(`tab-${view}`).parentElement, tab = $(`tab-${view}`);
   if (tabs.scrollWidth > tabs.clientWidth) {
@@ -2837,8 +2877,8 @@ $("faces-btn").addEventListener("click", () => {
 $("simple-btn").addEventListener("click", () => {
   simple = !simple;
   document.documentElement.classList.toggle("simple", simple);
-  $("simple-btn").setAttribute("aria-pressed", simple);
-  if (simple) scrollToNow();
+  showFaces = defaultFaces();
+  if (DATA) renderGrid(DATA);
   if (simple) params.set("simple", "1"); else params.delete("simple");
   const query = params.toString();
   history.replaceState(null, "", location.pathname + (query ? "?" + query : "") + location.hash);
@@ -2862,6 +2902,9 @@ async function refreshData() {
   if ($("drawer").hidden) route();
 }
 setInterval(() => { if (simple && !document.hidden) refreshData(); }, REFRESH_MS);
+// A resized browser source changes the column widths, so the names are measured again.
+let fitTimer = null;
+addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitGrid, 150); });
 $("drawer-close").addEventListener("click", closeDrawer);
 $("scrim").addEventListener("click", closeDrawer);
 document.addEventListener("keydown", e => {

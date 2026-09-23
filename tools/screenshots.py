@@ -25,7 +25,7 @@ PHOTO_HOST = "**/static.wikia.nocookie.net/**"
 DESKTOP = {"width": 1320, "height": 900}
 GRID = {"width": 1320, "height": 740}
 PHONE = {"width": 390, "height": 800}
-STREAM = {"width": 1280, "height": 420}
+STREAM = {"width": 1280, "height": 720}
 
 # name: (viewport, URL after the host, grid cell to hover as (season, week label) or None)
 SHOTS = {
@@ -41,7 +41,7 @@ SHOTS = {
     "endgame": (DESKTOP, "#endgame=26", None),
     "mobile-details": (PHONE, "#week=26/Week%2010", None),
     "afh": (DESKTOP, "#afh", None),
-    "stream-dark": (STREAM, "?simple=1&embed=1&theme=dark&seasons=26-28", None),
+    "stream-dark": (STREAM, "?simple=1&embed=1&theme=dark", None),
 }
 
 # True once every face picture on screen has given way to initials.

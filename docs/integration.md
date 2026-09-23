@@ -73,37 +73,42 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 ### On a stream
 
 Add `?simple=1` for the simple view, or click **Simple view** next to the tabs (the
-button adds `?simple=1` to the address, so you can bookmark it). It's made for showing
-the page on a stream:
+button adds `?simple=1` to the address, so you can bookmark it). It's laid out to sit in
+a rotation next to the show's other stream boards (Episodes, HOH reigns, Production):
 
-- **Bigger.** Every text size steps up, and the grid's cells and faces are larger, so the
-  names still read once the stream is scaled down.
+- **A board header.** A small "Season 28" line, then what the grid shows ("Evictions",
+  or "HOH reigns" with `&mode=hoh`) and a pill for the week that's airing.
+- **Every week at once.** The columns share the full width, so a whole season fits
+  without scrolling. The airing week is outlined and the airing season has a bar on its
+  left edge. On a phone the grid still scrolls sideways, starting at the airing week.
+- **Text only, and bigger.** Names are bold and every text size steps up. Photos are off
+  unless you add `&photos=1`. A name too wide for its column drops a size instead of
+  being cut off.
 - **Less on screen.** The intro, the grid's legend, the folded twist-week corners and
-  the table text in the hover card are left out. Tabs, the drawer and deep links
-  still work.
-- **The current week in sight.** The grid scrolls to the week that's airing, so it sits
-  at the right edge instead of off screen.
+  the table text in the hover card are left out. Tabs, the drawer and deep links still
+  work.
 - **Updates itself.** While it's open, the page rereads `weeks.json` every 10 minutes
-  and redraws when the data has been rebuilt. You don't need to refresh the source
+  and redraws when the data has been rebuilt, so the source doesn't need refreshing
   during a show.
 
-**As an OBS (or Streamlabs) browser source**, add `&embed=1` as well. That also hides
-the tabs and pickers, since nobody clicks a browser source, and puts the credits in one
-short paragraph. For example, the airing season's evictions in the dark theme:
+**As an OBS (or Streamlabs) browser source**, add `&embed=1` as well. That hides the tabs
+and pickers (nobody clicks a browser source), keeps the board header, and puts the
+credits in one short paragraph under the grid:
 
 ```
-https://<user>.github.io/BigBrotherDataFromWiki/?simple=1&embed=1&theme=dark&seasons=28
+https://<user>.github.io/BigBrotherDataFromWiki/?simple=1&embed=1&theme=dark
 ```
 
-![Simple view as a stream overlay: BB26–BB28, dark theme, scrolled to the current week](screenshots/stream-dark.png)
+![Simple view as a stream board: every season's evictions, dark theme, Week 12 outlined](screenshots/stream-dark.png)
 
-- **Size.** Set the source to your canvas width (e.g. 1280 or 1920). The height is about
-  95px per season plus 170px for the header and credits: 270px for one season, 460px for
-  three. Crop the source rather than hiding the credits: the licenses require them.
-- **HOH instead of evictions.** `&mode=hoh` shows whose HOH week it was (`&mode=evicted`
-  is the default). Without it, the page uses whatever was last picked in that browser.
-- **Photos.** Houseguest photos load from the Big Brother Wiki. `&photos=0` shows
-  names only, which also makes each row a little shorter.
+- **Size.** 1280 × 720 fits all eight seasons and 14 weeks, credits included; 1920 × 1080
+  works too, with room to spare. With `&seasons=28` (one season) 1280 × 300 is enough.
+  Crop the source rather than hiding the credits: the licenses require them.
+- **HOH instead of evictions.** `&mode=hoh` shows whose HOH week it was and titles the
+  board "HOH reigns" (`&mode=evicted` is the default).
+- **Photos.** `&photos=1` puts the houseguests' photos back. They fit best at 1920 wide;
+  at 1280, long names are shortened with "…" next to them.
+- **Theme.** `&theme=dark` is the navy board that matches the other stream graphics.
 - **One view.** Any deep link works in the simple view too, e.g.
   `?simple=1&embed=1&theme=dark#finale=28` for the jury vote on finale night.
 

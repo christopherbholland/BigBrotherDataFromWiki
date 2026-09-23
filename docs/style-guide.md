@@ -61,10 +61,12 @@ One family (`--font`, the system UI font). Ten sizes:
 | `--fs-3xl` | 28 | initials on portrait faces, the phone jury score |
 | `--fs-4xl` | 40 | the jury score |
 
-**Simple view** (`?simple=1`, the stream view) redefines every `--fs-*` token larger
+**Simple view** (`?simple=1`, the stream board) redefines every `--fs-*` token larger
 in the `:root.simple` block, from 12px up to 48px. A new size token gets a value there
-too. Its layout rules (bigger cells and faces, what it hides) sit with the embed rules
-in the Views part.
+too. Its layout rules sit with the embed rules in the Views part: the grid's columns
+share the width (above 640px), cells are text only and bold, and `fitGrid()` adds
+`.fit` / `.fit-2` to step a name that doesn't fit down to `--fs-xs` / `--fs-2xs`. Don't
+set `nowrap` or an ellipsis on those cells.
 
 Weights: `--fw-regular` (400), `--fw-semibold` (600, controls and grid cells),
 `--fw-bold` (700, names and caps labels), `--fw-heavy` (800, big numbers and badges).
