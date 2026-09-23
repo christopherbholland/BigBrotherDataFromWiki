@@ -12,8 +12,7 @@ import re
 
 from bs4 import BeautifulSoup
 
-from .details import SENTENCE_SPLIT
-from .enrich import norm
+from .util import norm, split_sentences
 
 LABEL_RE = re.compile(r"america['’]?s\s+favou?rite\s+house\s*guest", re.I)
 MENTION_RE = re.compile(r"america['’]?s\s+favou?rite\s+house\s*guest|\bAF[HP]\b|fan favou?rite", re.I)
@@ -33,7 +32,7 @@ def infobox_winner(soup):
         if LABEL_RE.search(th.get_text(" ")):
             td = th.find_next_sibling("td")
             text = " ".join(td.get_text(" ").split()) if td else ""
-            return re.sub(r"\s*\[\s*\w+\s*\]", "", text) or None
+            return re.sub(r"\s*\[\s*\w+\s*\]", "", text) or None  # footnote marks
     return None
 
 
@@ -52,9 +51,13 @@ def page_sentences(soup):
             section = _clean(el.get_text(" ")).replace(" [ edit ]", "").replace("[edit]", "").strip()
             continue
         if el.name == "p":
-            for s in SENTENCE_SPLIT.split(_clean(el.get_text(" "))):
-                out.append((s.strip(), section))
+            out += [(s, section) for s in split_sentences(_clean(el.get_text(" ")))]
     return out
+
+
+def _first_names(name, full):
+    """The voting table's first word and the full name's: "Derek" for ("Derek X.", "Derek Xiao")."""
+    return {name.split()[0], (full or name).split()[0]}
 
 
 def names_in(text, people):
@@ -65,14 +68,14 @@ def names_in(text, people):
     no one else in the season shares it.
     """
     text = MENTION_RE.sub(" ", text)  # BB25 has a houseguest named America
-    firsts = {}
+    firsts = {}  # norm(first name) -> the houseguests it could be
     for name, full in people:
-        for n in {name.split()[0], (full or name).split()[0]}:
+        for n in _first_names(name, full):
             firsts.setdefault(norm(n), set()).add(name)
     found = []
     for name, full in people:
         options = [name] + ([full] if full else [])
-        options += [n for n in {name.split()[0], (full or name).split()[0]} if firsts[norm(n)] == {name}]
+        options += [n for n in _first_names(name, full) if firsts[norm(n)] == {name}]
         hits = [m.start() for o in options for m in re.finditer(r"(?<!\w)" + re.escape(o.rstrip(".")) + r"(?!\w)", text)]
         if hits:
             found.append((min(hits), name))
@@ -108,8 +111,7 @@ def afh(html, people, episodes=()):
     found = [(s, where or "Introduction") for s, where in page_sentences(soup)]
     for ep in episodes:
         for para in (ep.get("summary") or "").split("\n"):
-            found += [(s.strip(), ep.get("title") or "Episode summary")
-                      for s in SENTENCE_SPLIT.split(_clean(para)) if s.strip()]
+            found += [(s, ep.get("title") or "Episode summary") for s in split_sentences(_clean(para))]
     notes, seen = [], set()
     for s, where in found:
         # Outside the introduction, only sentences that name someone: the Format

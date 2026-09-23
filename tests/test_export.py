@@ -47,7 +47,8 @@ def test_details_json(built):
     details = json.loads((out / "details.json").read_text(encoding="utf-8"))
     assert details["schema_version"] == SCHEMA_VERSION
     assert details["generated_at"] == doc["generated_at"]
-    assert set(details) >= {"seasons", "categories", "formats", "weeks", "players", "finales"}
+    assert set(details) >= {"seasons", "categories", "formats", "weeks", "players", "finales", "afh"}
+    assert details["afh"][str(SEASON)]["winner"] == "Tucker"
     finale = details["finales"][str(SEASON)]
     assert (finale["winner"], finale["runner_up"]) == ("Chelsie", "Makensy")
     assert [(f["name"], f["votes"]) for f in finale["finalists"]] == [("Chelsie", 7), ("Makensy", 0)]

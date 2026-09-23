@@ -47,7 +47,7 @@ Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader -------------->
 | Big Brother Wiki reader | `bbgrid/fandom.py`, `bbgrid/wikitext.py` | the wiki's tables and infoboxes |
 | Merge | `bbgrid/enrich.py` | matching the two wikis' names; adds to `details.json`, cross-checks |
 | America's Favorite HouseGuest | `bbgrid/afh.py` | the infobox winner and the article's sentences about the vote |
-| Shared helpers | `bbgrid/util.py` | name comparison, dates, timestamps |
+| Shared helpers | `bbgrid/util.py` | name comparison, sentences, dates, timestamps |
 | Screenshots | `tools/screenshots.py` | retakes `docs/screenshots/` from `web/` |
 
 - **Hosting, embedding, or using the data elsewhere:** see
