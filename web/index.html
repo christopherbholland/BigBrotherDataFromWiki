@@ -154,13 +154,14 @@ footer a { color: var(--text-secondary); white-space: nowrap; }
   border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: 600;
   padding: 6px 14px; border-radius: 6px; cursor: pointer;
 }
-/* Phones: the tabs scroll sideways rather than overflow the page. */
-@media (max-width: 480px) { .tabs { max-width: 100%; overflow-x: auto; } .tabs button { flex: none; } }
 .tabs button:hover { color: var(--text-primary); }
-/* Phones: five tabs fit a 390px screen; a narrower one scrolls the bar, not the page. */
 .tabs { max-width: 100%; overflow-x: auto; }
 .tabs button { flex: none; }
-@media (max-width: 480px) { .tabs button { padding: 6px 7px; font-size: 13px; } }
+/* Phones: eight tabs don't fit one row, so they sit in two rows of four, all in sight. */
+@media (max-width: 640px) {
+  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; overflow: visible; }
+  .tabs button { padding: 7px 4px; font-size: 13px; }
+}
 .tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
 .tabs button:focus-visible, #drawer-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* Details drawer: a side panel, or a bottom sheet on phones */
@@ -239,6 +240,8 @@ table.plays tr:last-child td { border-bottom: 0; }
 .seg button:hover { color: var(--text-primary); }
 .seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
 .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* Phones: a long picker (every season) wraps instead of hiding its last buttons. */
+@media (max-width: 640px) { .seg { flex-wrap: wrap; overflow: visible; } }
 .seg select { border: 0; background: var(--surface-1); color: var(--text-primary); font: inherit; font-weight: 600; padding: 4px 8px; border-radius: 5px; cursor: pointer; }
 .seg select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .zero { color: var(--text-muted); }
@@ -275,7 +278,7 @@ dl.bio { margin-top: 12px !important; }
 .pl .face { width: 32px; }
 .pl small { display: block; color: var(--text-muted); font-size: 11px; }
 .leaders { margin: 12px 12px 4px; }
-.leaders h2 { margin: 0 0 8px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-secondary); }
+.leaders h2 { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .leaders ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 10px; }
 .leaders li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-0); }
 .leaders li:nth-child(1) { border-color: var(--gold); }
@@ -302,12 +305,12 @@ dl.votes dt { display: flex; align-items: center; gap: 8px; }
 dl.votes dt .face { width: 24px; border-radius: 4px; font-size: 10px; }
 /* Finale view */
 .fin { padding: 4px 16px 20px; }
-.fin h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 22px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.fin h2, .trend h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 24px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
 .fin-head { display: flex; align-items: center; justify-content: center; gap: 12px 32px; flex-wrap: wrap; padding: 18px 0 4px; }
 .fin-card { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; min-width: 120px; }
 .fin-card .face { width: 96px; border-radius: 10px; font-size: 26px; }
 .fin-card a { font-size: 16px; font-weight: 700; }
-.fin-card .role { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.fin-card .role { white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
 .fin-card.win .role { color: var(--text-primary); }
 .fin-score { font-size: 40px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .fin-lede { text-align: center; color: var(--text-secondary); margin: 8px auto 0; font-size: 15px; max-width: 640px; }
@@ -327,6 +330,7 @@ table.jury td { vertical-align: middle; }
 table.jury td.why { white-space: normal; min-width: 180px; }
 table.jury .tag { margin: 0 4px 0 0; }
 table.duel th[scope="row"] { text-align: left; font-size: 13px; font-weight: 400; color: var(--text-secondary); text-transform: none; letter-spacing: 0; position: sticky; left: 0; background: var(--surface-1); }
+table.duel { min-width: 0; width: 100%; max-width: 560px; }
 table.duel tr:last-child th { border-bottom: 0; }
 .fin .scroll { overflow-x: auto; }
 @media (max-width: 640px) {
@@ -358,7 +362,7 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
   --out-self: #3987e5; --out-other: #d95926; --out-kept: #36415f;
 }
 .trend { padding: 4px 16px 20px; }
-.trend h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 26px 0 4px; padding-top: 14px; border-top: 1px solid var(--line); }
+.trend h2 { margin-bottom: 4px; }
 .trend h2:first-child { border-top: 0; margin-top: 8px; }
 .trend .note { color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; max-width: 760px; }
 .trend .lede { font-size: 15px; margin: 14px 0 4px; max-width: 820px; }
@@ -409,7 +413,7 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
   .eg-cast { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 6px; }
   .eg-cast .fin-card .face { width: 52px; font-size: 16px; }
   .eg-cast .fin-card a { font-size: 13px; }
-  .eg-cast .fin-card .role { font-size: 9px; letter-spacing: .06em; }
+  .eg-cast .fin-card .role { font-size: 9px; letter-spacing: 0; }
 }
 ul.eg-notes { margin: 0; padding-left: 18px; line-height: 1.55; }
 ul.eg-notes li { margin: 4px 0; }
