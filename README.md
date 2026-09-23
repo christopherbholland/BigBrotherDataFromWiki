@@ -159,6 +159,15 @@ column. The table's own "N votes to win" line isn't used because it can be wrong
 "Enzo 0 votes to win"). While a season is airing the view shows who's left and the
 jury so far. The finale week's details link to it.
 
+**HOH** and **Veto**: trends in who won and what came of it, for every season at once or
+for one. "All seasons" has a few headline numbers, a row per season, a board of every week
+(the HOH colored by the type of competition, the veto winner by what they did with it),
+a chart by week of the season, and the most wins in a season. One season lists each round:
+for HOH, the competition, the nominees, who went home and whether it was one of the HOH's
+nominees or a backdoor (a replacement nominee), and what happened to the HOH the next round;
+for the veto, whether the winner was the HOH or a nominee and what they did with it. Seasons
+with a third nominee (BB26–BB28) use the veto much more, mostly as nominees saving themselves.
+
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 
 ![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
@@ -172,7 +181,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall` or `#finale=26`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall`, `#finale=26`, `#hoh=all` or `#veto=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage

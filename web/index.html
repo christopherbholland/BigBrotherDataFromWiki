@@ -331,6 +331,69 @@ table.duel tr:last-child th { border-bottom: 0; }
   .fin-score { font-size: 30px; }
 }
 table.duel thead th { text-align: right; font-size: 13px; color: var(--text-primary); text-transform: none; letter-spacing: 0; }
+/* HOH and Veto views: trends across seasons, a season's weeks, and each week of the game.
+   Series colors: comp types in the Big Brother Wiki's order, and what the veto did.
+   Validated as a categorical set on both surfaces (dataviz validate_palette.js). */
+:root {
+  --cat-endurance: #2a78d6; --cat-physical: #eb6834; --cat-skill: #1baf7a; --cat-mental: #eda100;
+  --cat-hybrid: #e87ba4; --cat-puzzle: #008300; --cat-crapshoot: #4a3aa7; --cat-none: #c3c9d6;
+  --out-self: #2a78d6; --out-other: #eb6834; --out-kept: #c3c9d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cat-endurance: #3987e5; --cat-physical: #d95926; --cat-skill: #199e70; --cat-mental: #c98500;
+    --cat-hybrid: #d55181; --cat-puzzle: #008300; --cat-crapshoot: #9085e9; --cat-none: #36415f;
+    --out-self: #3987e5; --out-other: #d95926; --out-kept: #36415f;
+  }
+}
+:root[data-theme="dark"] {
+  --cat-endurance: #3987e5; --cat-physical: #d95926; --cat-skill: #199e70; --cat-mental: #c98500;
+  --cat-hybrid: #d55181; --cat-puzzle: #008300; --cat-crapshoot: #9085e9; --cat-none: #36415f;
+  --out-self: #3987e5; --out-other: #d95926; --out-kept: #36415f;
+}
+.trend { padding: 4px 16px 20px; }
+.trend h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 26px 0 4px; padding-top: 14px; border-top: 1px solid var(--line); }
+.trend h2:first-child { border-top: 0; margin-top: 8px; }
+.trend .note { color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; max-width: 760px; }
+.trend .lede { font-size: 15px; margin: 14px 0 4px; max-width: 820px; }
+.trend .scroll { overflow-x: auto; }
+.trend .stats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-width: 900px; }
+.stat small { display: block; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.key { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--text-secondary); margin: 0 0 10px; }
+.key span { display: inline-flex; align-items: center; gap: 6px; }
+.key i, .tipkey { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex: none; }
+/* A horizontal stacked bar: segments split by a 2px surface gap, rounded at the ends. */
+.sbar { display: flex; gap: 2px; min-width: 150px; height: 18px; }
+.sbar i { display: block; height: 100%; min-width: 3px; font: 600 11px/18px system-ui, sans-serif; font-style: normal; color: #fff; text-align: center; overflow: hidden; }
+.sbar i.lt { color: #0a1024; }
+.sbar i:first-child { border-radius: 4px 0 0 4px; }
+.sbar i:last-child { border-radius: 0 4px 4px 0; }
+.sbar i:only-child { border-radius: 4px; }
+/* Columns by week of the season. */
+.wkchart { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(34px, 1fr); gap: 6px; max-width: 820px; }
+.wkcol { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+.wkcol .bar { height: 140px; display: flex; flex-direction: column-reverse; gap: 2px; border-bottom: 1px solid var(--line); }
+.wkcol .bar i { display: block; min-height: 3px; }
+.wkcol .bar i:last-child { border-radius: 4px 4px 0 0; }
+.wkcol .top { font-size: 11px; color: var(--text-secondary); text-align: center; font-variant-numeric: tabular-nums; min-height: 15px; }
+.wkcol .lbl { font-size: 11px; color: var(--text-muted); text-align: center; }
+.wkcol .spacer { flex: 1; }
+/* The week board: the grid's cells, with a strip in the series color along the bottom. */
+.board-grid .cell { text-decoration: none; }
+.board-grid .cell .part { position: relative; padding-bottom: 7px; }
+.board-grid .cell .part::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--strip, transparent); }
+.board-grid .cell .part.faces .face { width: 30px; }
+.board-grid .cell.multi .part::after { height: 3px; }
+.trend table.players td.l, .trend table.players th.l { text-align: left; }
+.trend table.players td.wrap { white-space: normal; min-width: 150px; }
+.trend table.players td .tag { margin: 0 4px 0 0; }
+.trend .pl .face { width: 28px; }
+.pct { font-variant-numeric: tabular-nums; }
+.pct small { color: var(--text-muted); font-size: 11px; margin-left: 3px; }
+#tip .tipkey { margin-right: 6px; vertical-align: -1px; }
+.cat .tipkey, .cat-bar .tipkey { margin-right: 4px; vertical-align: 0; }
+.tabs { max-width: 100%; overflow-x: auto; }
+.tabs button { flex: none; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -345,6 +408,8 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
       <button role="tab" id="tab-players" aria-selected="false" aria-controls="players-view">Players</button>
       <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
       <button role="tab" id="tab-finale" aria-selected="false" aria-controls="finale-view">Finale</button>
+      <button role="tab" id="tab-hoh" aria-selected="false" aria-controls="hoh-view">HOH</button>
+      <button role="tab" id="tab-veto" aria-selected="false" aria-controls="veto-view">Veto</button>
     </div>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
@@ -373,6 +438,14 @@ table.duel thead th { text-align: right; font-size: 13px; color: var(--text-prim
   <section id="finale-view" role="tabpanel" aria-labelledby="tab-finale" hidden>
     <div class="controls"><span class="seg" id="finale-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="finale-panel"></div>
+  </section>
+  <section id="hoh-view" role="tabpanel" aria-labelledby="tab-hoh" hidden>
+    <div class="controls"><span class="seg" id="hoh-season-pick" role="group" aria-label="Seasons"></span></div>
+    <div class="panel" id="hoh-panel"></div>
+  </section>
+  <section id="veto-view" role="tabpanel" aria-labelledby="tab-veto" hidden>
+    <div class="controls"><span class="seg" id="veto-season-pick" role="group" aria-label="Seasons"></span></div>
+    <div class="panel" id="veto-panel"></div>
   </section>
   <footer id="footer"></footer>
 </main>
@@ -695,7 +768,7 @@ function hideDrawer() {
 
 // Closing returns to the current view's own address.
 function closeDrawer() {
-  location.hash = currentView === "weeks" ? "" : `#${currentView}=${currentSeason}`;
+  location.hash = currentView === "weeks" ? "" : `#${currentView}=${TREND[currentView] ? currentScope : currentSeason}`;
 }
 
 function errorHtml(err) {
@@ -936,13 +1009,15 @@ const VIEW_TEXT = {
   players: ["Players", "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline."],
   comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
   finale: ["Finale", "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote."],
+  hoh: ["Head of Household", "Who won HOH, in what kind of competition, and whether their nominee went home. Every season, one season, or week by week."],
+  veto: ["Power of Veto", "Who won the veto, what they did with it, and who went home because of it. Every season, one season, or week by week."],
 };
 
 function setView(view) {
   currentView = view;
   $("view-title").textContent = VIEW_TEXT[view][0];
   $("view-sub").textContent = VIEW_TEXT[view][1];
-  for (const v of ["weeks", "players", "comps", "finale"]) {
+  for (const v of ["weeks", "players", "comps", "finale", "hoh", "veto"]) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
@@ -1378,7 +1453,465 @@ function duelHtml(season, f, jury, parts, people) {
     + `</tbody></table></div>`;
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #finale=26 ----------
+// ---------- HOH and Veto: every round's HOH and veto, across seasons, in one season, and by week ----------
+
+// "all", or a season number.
+let currentScope = "all";
+let TREND_ROUNDS = null;
+
+// One record per modeled round, in season order, with what came of its HOH and veto.
+function trendRounds(d) {
+  if (TREND_ROUNDS) return TREND_ROUNDS;
+  const people = new Map(d.players.map(p => [`${p.season}|${p.name}`, p]));
+  // How far a houseguest got: "won", "live" (still playing) or "out".
+  const finish = (season, name) => {
+    const p = people.get(`${season}|${name}`);
+    return !p ? null : !p.result ? "live" : /^winner/i.test(p.result) ? "won" : "out";
+  };
+  const rounds = [];
+  for (const w of DATA.weeks) {
+    const wd = d.weeks[`${w.season}|${w.week_label}`] || { rounds: [], comps: [] };
+    w.rounds.forEach((r, i) => {
+      const v = ((wd.rounds || [])[i] || {}).veto || null;
+      const multi = w.rounds.length > 1;
+      const x = { season: w.season, week: w.week, label: w.week_label, i, r, v,
+        key: multi && r.sub_label ? `${w.week_label} (${r.sub_label})` : w.week_label,
+        hohComp: roundComp(wd, i + 1, "hoh"), vetoComp: roundComp(wd, i + 1, "veto"),
+        finish: n => finish(w.season, n), done: !!((d.finales || {})[w.season] || {}).decided };
+      // The final HOH evicts one of the other two directly: no nominations, no veto.
+      x.final = !r.nominees_initial.length && !!r.tally && r.tally.type === "sole_vote";
+      x.hohOutcome = x.final ? "final" : !r.evicted || !r.nominees_initial.length ? null
+        : r.nominees_initial.includes(r.evicted) ? "theirs" : "backdoor";
+      x.hasVeto = r.veto_winners.length > 0 && !!v;
+      if (x.hasVeto) {
+        const winners = new Set(r.veto_winners);
+        x.vetoOutcome = !v.used ? "kept" : v.on.some(n => winners.has(n)) ? "self" : "other";
+        x.vetoRoles = r.veto_winners.map(n => r.hoh.includes(n) ? "hoh" : r.nominees_initial.includes(n) ? "nominee" : "hg");
+        x.backdoor = v.used && !!r.evicted && v.replacements.includes(r.evicted);
+        x.vetoDecided = !!r.tally && r.tally.type === "sole_vote" && winners.has(r.tally.by);
+      }
+      rounds.push(x);
+    });
+  }
+  rounds.forEach((x, k) => {
+    const n = rounds[k + 1];
+    x.next = n && n.season === x.season ? n : null;
+    if (x.next && !x.final && x.r.hoh.length) {
+      const nr = x.next.r;
+      x.exEvicted = x.r.hoh.includes(nr.evicted);
+      x.exNominated = x.r.hoh.some(h => nr.nominees_initial.includes(h) || nr.nominees_final.includes(h));
+    }
+  });
+  return (TREND_ROUNDS = rounds);
+}
+
+const TREND = { hoh: { title: "HOH", word: "HOH", words: "HOHs" }, veto: { title: "Veto", word: "veto", words: "vetoes" } };
+const catVar = c => `var(--cat-${CATEGORY_NAMES.includes(c) ? c.toLowerCase() : "none"})`;
+const VETO_OUT = [
+  ["self", "A nominee saved themselves", "var(--out-self)"],
+  ["other", "Used on someone else", "var(--out-other)"],
+  ["kept", "Not used", "var(--out-kept)"],
+];
+const outColor = Object.fromEntries(VETO_OUT.map(([k, , c]) => [k, c]));
+const pctOf = (n, d) => d ? Math.round(100 * n / d) : null;
+const pctCell = (n, d) => d ? `<span class="pct">${pctOf(n, d)}%<small>${n}/${d}</small></span>` : `<span class="zero">–</span>`;
+const seasonsText = rounds => { const s = [...new Set(rounds.map(x => x.season))].sort((a, b) => a - b); return s.length > 1 ? `BB${s[0]}–BB${s[s.length - 1]}` : `BB${s[0]}`; };
+const tipAttr = html => ` data-tip="${esc(html)}" tabindex="0"`;
+const swatch = color => `<i class="tipkey" style="background:${color}"></i>`;
+
+// Totals for a set of rounds (a season, or every season).
+function hohStats(rounds) {
+  const hr = rounds.filter(x => x.r.hoh.length);
+  const wins = new Map();
+  hr.forEach(x => x.r.hoh.forEach(n => { const k = `${x.season}|${n}`; wins.set(k, (wins.get(k) || 0) + 1); }));
+  const names = hr.flatMap(x => x.r.hoh.map(n => ({ x, n })));
+  // Who won the season is only known once it's over.
+  const done = names.filter(({ x }) => x.done);
+  const decided = hr.filter(x => x.hohOutcome === "theirs" || x.hohOutcome === "backdoor");
+  const after = hr.filter(x => x.exEvicted != null);
+  const withVeto = hr.filter(x => x.hasVeto);
+  const cats = Object.fromEntries([...CATEGORY_NAMES, ""].map(c => [c, 0]));
+  hr.forEach(x => { const c = x.hohComp && x.hohComp.category; cats[CATEGORY_NAMES.includes(c) ? c : ""]++; });
+  return {
+    rounds: hr.length, wins: names.length, people: wins.size, top: topOf(wins), doneWins: done.length,
+    byWinner: done.filter(({ x, n }) => x.finish(n) === "won").length,
+    theirs: decided.filter(x => x.hohOutcome === "theirs").length, decided: decided.length,
+    exEvicted: after.filter(x => x.exEvicted).length, exNominated: after.filter(x => x.exNominated).length, after: after.length,
+    alsoVeto: withVeto.filter(x => x.r.hoh.some(n => x.r.veto_winners.includes(n))).length, withVeto: withVeto.length,
+    cats,
+  };
+}
+
+function vetoStats(rounds) {
+  const vr = rounds.filter(x => x.hasVeto);
+  const wins = new Map();
+  vr.forEach(x => x.r.veto_winners.forEach(n => { const k = `${x.season}|${n}`; wins.set(k, (wins.get(k) || 0) + 1); }));
+  const count = k => vr.filter(x => x.vetoOutcome === k).length;
+  const used = vr.filter(x => x.v.used);
+  // The usual number on the block before the veto (most common, ties to the larger).
+  const blocks = new Map();
+  vr.forEach(x => { const n = x.r.nominees_initial.length; if (n) blocks.set(n, (blocks.get(n) || 0) + 1); });
+  const block = [...blocks].sort((a, b) => b[1] - a[1] || b[0] - a[0]).map(([n]) => n)[0] || 0;
+  return {
+    rounds: vr.length, people: wins.size, top: topOf(wins),
+    self: count("self"), other: count("other"), kept: count("kept"), used: used.length,
+    byHoh: vr.filter(x => x.vetoRoles.includes("hoh")).length,
+    byNominee: vr.filter(x => x.vetoRoles.includes("nominee")).length,
+    byOther: vr.filter(x => x.vetoRoles.every(r => r === "hg")).length,
+    backdoor: used.filter(x => x.backdoor).length,
+    twist: vr.filter(x => x.v.twist_saved.length).length,
+    block,
+  };
+}
+
+// The most wins by one houseguest in a season: [{season, name, n}], best first.
+function topOf(wins) {
+  return [...wins].map(([k, n]) => { const [season, name] = k.split("|"); return { season: +season, name, n }; })
+    .sort((a, b) => b.n - a.n || b.season - a.season);
+}
+
+// " The most in one season: 4, by Vince (BB27) and Chelsie (BB26)."
+function mostInSeason(top) {
+  if (!top.length) return "";
+  const best = top.filter(t => t.n === top[0].n);
+  const who = best.map(t => `${plink(t.season, t.name)} (BB${t.season})`);
+  return ` The most in one season: ${top[0].n}, by ${who.length > 1 ? who.slice(0, -1).join(", ") + " and " + who[who.length - 1] : who[0]}.`;
+}
+
+function statTile(big, label, sub) {
+  return `<div class="stat"><b>${big}</b><span>${label}</span>${sub ? `<small>${sub}</small>` : ""}</div>`;
+}
+
+function keyHtml(items) {
+  return `<p class="key" aria-hidden="true">${items.map(([label, color]) => `<span><i style="background:${color}"></i>${esc(label)}</span>`).join("")}</p>`;
+}
+
+// A 100% bar: [[label, n, color], …]. The counts are in the tooltip and the table beside it.
+function stackBar(parts, title) {
+  const total = parts.reduce((a, [, n]) => a + n, 0);
+  if (!total) return `<span class="zero">–</span>`;
+  const tip = `<h3>${esc(title)}</h3>` + parts.filter(([, n]) => n).map(([l, n, c]) => `<div>${swatch(c)}${esc(l)}: <b>${n}</b> (${pctOf(n, total)}%)</div>`).join("");
+  return `<div class="sbar" role="img" aria-label="${esc(parts.filter(([, n]) => n).map(([l, n]) => `${l} ${n}`).join(", "))}"${tipAttr(tip)}>`
+    + parts.filter(([, n]) => n).map(([, n, c]) => `<i style="width:${(100 * n / total).toFixed(1)}%;background:${c}"></i>`).join("") + `</div>`;
+}
+
+const catParts = cats => [...CATEGORY_NAMES.map(c => [c, cats[c], catVar(c)]), ["Not typed", cats[""], catVar("")]];
+
+// Columns by week of the season, each a stack of [label, n, color] parts.
+function weekChart(groups, topText) {
+  const unit = 128 / Math.max(1, ...groups.map(g => g.parts.reduce((a, [, n]) => a + n, 0)));
+  return `<div class="scroll"><div class="wkchart">` + groups.map(g => {
+    const total = g.parts.reduce((a, [, n]) => a + n, 0);
+    const tip = `<h3>Week ${g.week}</h3><div class="status">${plural(total, "round")} across the seasons</div>`
+      + g.parts.filter(([, n]) => n).map(([l, n, c]) => `<div>${swatch(c)}${esc(l)}: <b>${n}</b></div>`).join("");
+    return `<div class="wkcol"${tipAttr(tip)} aria-label="Week ${g.week}: ${esc(g.parts.filter(([, n]) => n).map(([l, n]) => `${l} ${n}`).join(", "))}">`
+      + `<span class="top">${topText(g)}</span><div class="bar">`
+      + g.parts.filter(([, n]) => n).map(([, n, c]) => `<i style="height:${(n * unit).toFixed(1)}px;background:${c}"></i>`).join("")
+      + `</div><span class="lbl">Wk ${g.week}</span></div>`;
+  }).join("") + `</div></div>`;
+}
+
+function byWeekNumber(rounds) {
+  const by = new Map();
+  rounds.filter(x => x.week != null).forEach(x => { if (!by.has(x.week)) by.set(x.week, []); by.get(x.week).push(x); });
+  return [...by].sort((a, b) => a[0] - b[0]).map(([week, xs]) => ({ week, xs }));
+}
+
+// The seasons × weeks board: the grid's cells, showing the HOH or veto winner, with a strip in the series color.
+function trendBoard(kind, rounds) {
+  const seasons = [...new Set(rounds.map(x => x.season))].sort((a, b) => b - a);
+  const labels = [];
+  for (const w of [...DATA.weeks].sort((a, b) => (a.week ?? 1e9) - (b.week ?? 1e9))) {
+    if (seasons.includes(w.season) && !labels.includes(w.week_label)) labels.push(w.week_label);
+  }
+  const at = new Map();
+  rounds.forEach(x => { const k = `${x.season}|${x.label}`; if (!at.has(k)) at.set(k, []); at.get(k).push(x); });
+  let html = `<table class="grid board-grid"><thead><tr><th scope="col">Season</th>${labels.map(l => `<th scope="col">${esc(l.replace(/^Week\s*/i, "Wk "))}</th>`).join("")}</tr></thead><tbody>`;
+  for (const s of seasons) {
+    html += `<tr><th scope="row"><a href="#${kind}=${s}">BB${s}</a></th>`;
+    for (const l of labels) {
+      const xs = at.get(`${s}|${l}`);
+      if (!xs) { html += `<td></td>`; continue; }
+      const parts = xs.map(x => boardPart(kind, x)).join("");
+      html += `<td><a class="cell${xs.length > 1 ? " multi" : ""}" href="${weekHash(s, l)}"${tipAttr(xs.map(x => boardTip(kind, x)).join(""))}`
+        + ` aria-label="${esc(`BB${s} ${l}: ${xs.map(x => boardText(kind, x)).join("; ")}`)}">${parts}</a></td>`;
+    }
+    html += `</tr>`;
+  }
+  return `<div class="scroll">${html}</tbody></table></div>`;
+}
+
+function boardPart(kind, x) {
+  const names = kind === "hoh" ? x.r.hoh : x.r.veto_winners;
+  const color = kind === "hoh" ? (names.length ? catVar(x.hohComp && x.hohComp.category) : "transparent")
+    : x.hasVeto ? outColor[x.vetoOutcome] : "transparent";
+  const text = names.join(" & ");
+  const wrap = names.length > 1 ? " wrap" : "";
+  if (showFaces && names.length) {
+    return `<span class="part faces${wrap}" style="--strip:${color}"><span class="who">${names.map(n => faceHtml(x.season, n)).join("")}</span><span class="nm">${esc(text)}</span></span>`;
+  }
+  return `<span class="part${wrap}${names.length ? "" : " empty"}" style="--strip:${color}">${esc(text || "—")}</span>`;
+}
+
+function boardText(kind, x) {
+  if (kind === "hoh") return x.r.hoh.length ? `HOH ${x.r.hoh.join(" & ")}${x.hohComp && x.hohComp.category ? `, ${x.hohComp.category}` : ""}` : "no HOH";
+  return x.hasVeto ? `veto ${x.r.veto_winners.join(" & ")}, ${vetoSentence(x, false)}` : "no veto";
+}
+
+function boardTip(kind, x) {
+  const head = `<h3>BB${x.season} · ${esc(x.key)}</h3>`;
+  const c = kind === "hoh" ? x.hohComp : x.vetoComp;
+  const comp = c ? `<div class="status">${c.category ? swatch(kind === "hoh" ? catVar(c.category) : "var(--line)") : ""}“${esc(c.name)}”${c.format ? ` (${esc(c.format)})` : ""}${c.category ? ` · ${esc(c.category)}` : ""}</div>` : "";
+  const row = (dt, dd) => dd ? `<dt>${dt}</dt><dd>${dd}</dd>` : "";
+  if (kind === "hoh") {
+    return `<div class="round">${head}${comp}<dl>${row("HOH", esc(x.r.hoh.join(" & ")))}${row("Noms", esc(x.r.nominees_initial.join(", ")))}`
+      + row("Evicted", x.r.evicted ? `${esc(x.r.evicted)} <span class="muted">${esc(hohOutcomeText(x))}</span>` : "") + `</dl></div>`;
+  }
+  return `<div class="round">${head}${comp}<dl>${row("Veto", esc(x.r.veto_winners.join(" & ")) + (x.hasVeto ? ` <span class="muted">(${esc(x.vetoRoles.map(roleText).join(", "))})</span>` : ""))}`
+    + row("Outcome", x.hasVeto ? `${swatch(outColor[x.vetoOutcome])}${esc(vetoSentence(x, false))}` : "")
+    + row("Evicted", x.r.evicted ? `${esc(x.r.evicted)}${x.backdoor ? ` <span class="muted">(the replacement)</span>` : ""}` : "") + `</dl></div>`;
+}
+
+const roleText = r => ({ hoh: "the HOH", nominee: "a nominee", hg: "not nominated" })[r];
+
+function hohOutcomeText(x) {
+  return { theirs: "one of the HOH’s nominees", backdoor: "a replacement nominee", final: "the final HOH’s choice" }[x.hohOutcome] || "";
+}
+
+// "Used on themselves", "Used on Cam; Angela named", "Not used", plus anyone a twist took off the block.
+function vetoSentence(x, links = true) {
+  const name = n => links ? plink(x.season, n) : esc(n);
+  const v = x.v, winners = x.r.veto_winners;
+  let s;
+  if (!v.used) s = "Not used";
+  else {
+    const self = v.on.filter(n => winners.includes(n)), others = v.on.filter(n => !winners.includes(n));
+    s = "Used on " + [...(self.length ? [winners.length > 1 ? `${self.map(name).join(" and ")} (themselves)` : "themselves"] : []), ...others.map(name)].join(" and ");
+    if (v.replacements.length) s += `; ${v.replacements.map(name).join(" and ")} named`;
+  }
+  if (v.twist_saved.length) s += `; ${v.twist_saved.map(name).join(" and ")} saved by a twist`;
+  return s;
+}
+
+function scopePickerHtml(scope) {
+  const list = seasonList();
+  if (list.length + 1 <= SEASON_BUTTONS_MAX) {
+    return `<button aria-pressed="${scope === "all"}" data-season="all">All seasons</button>`
+      + list.map(s => `<button aria-pressed="${s === scope}" data-season="${s}">BB${s}</button>`).join("");
+  }
+  return `<select aria-label="Seasons"><option value="all"${scope === "all" ? " selected" : ""}>All seasons</option>${list.map(s =>
+    `<option value="${s}"${s === scope ? " selected" : ""}>BB${s}</option>`).join("")}</select>`;
+}
+
+async function showTrend(kind, scope) {
+  setView(kind);
+  currentScope = scope;
+  if (scope !== "all") currentSeason = scope;
+  $(`${kind}-season-pick`).innerHTML = scopePickerHtml(scope);
+  const panel = $(`${kind}-panel`);
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentView !== kind || currentScope !== scope) return;
+  const all = trendRounds(d);
+  if (scope !== "all" && !all.some(x => x.season === scope)) { panel.innerHTML = `<div class="msg">No rounds modeled for BB${scope}.</div>`; return; }
+  const body = kind === "hoh"
+    ? (scope === "all" ? hohAllHtml(all) : hohSeasonHtml(all, scope))
+    : (scope === "all" ? vetoAllHtml(all) : vetoSeasonHtml(all, scope));
+  panel.innerHTML = `<div class="trend">${body}</div>`;
+}
+
+// Top five for one season or every season, in the Players view's leaders strip.
+function trendLeaders(title, top, word, words, allSeasons) {
+  const list = top.filter(t => t.n > 1).slice(0, 5);
+  if (list.length < 3) return "";
+  const people = new Map(DETAILS.players.map(p => [`${p.season}|${p.name}`, p]));
+  return `<h2>${esc(title)}</h2><section class="leaders" style="margin:10px 0 4px" aria-label="${esc(title)}"><ol>`
+    + list.map((t, i) => {
+      const p = people.get(`${t.season}|${t.name}`);
+      return `<li><span class="rank" aria-label="Rank ${i + 1}">${i + 1}</span>${faceHtml(t.season, t.name, p ? faceState(p) : "")}`
+        + `<span class="who">${plink(t.season, t.name)}<span>${allSeasons ? `BB${t.season} · ` : ""}${esc(p && p.result ? p.result.replace(/\s*\(.*\)$/, "") : "In the game")}</span></span>`
+        + `<span class="n" title="${esc(`${t.n} ${t.n === 1 ? word : words}`)}">${t.n}</span></li>`;
+    }).join("") + `</ol></section>`;
+}
+
+// ---- HOH ----
+
+function hohAllHtml(all) {
+  const t = hohStats(all);
+  const seasons = [...new Set(all.map(x => x.season))].sort((a, b) => b - a);
+  const per = seasons.map(s => ({ s, st: hohStats(all.filter(x => x.season === s)) }));
+  const lede = `Across ${seasonsText(all)}, ${t.wins} HOH wins went to ${t.people} houseguests. `
+    + `The HOH’s own nominee went home ${pctOf(t.theirs, t.decided)}% of the time; the rest were backdoors, a replacement nominee evicted after the veto. `
+    + `In finished seasons, eventual winners won ${pctOf(t.byWinner, t.doneWins)}% of the HOHs, and ${pctOf(t.exEvicted, t.after)}% of HOHs were evicted the very next round.`
+    + mostInSeason(t.top);
+  const rows = per.map(({ s, st }) => {
+    const best = st.top[0];
+    return `<tr><td class="l"><a class="plink" href="#hoh=${s}">BB${s}</a></td><td>${st.rounds}</td><td>${st.people}</td>`
+      + `<td class="l">${best ? `<div class="pl">${faceHtml(s, best.name)}<span>${plink(s, best.name)} <span class="muted">×${best.n}</span></span></div>` : ""}</td>`
+      + `<td>${pctCell(st.byWinner, st.doneWins)}</td><td>${pctCell(st.theirs, st.decided)}</td><td>${pctCell(st.decided - st.theirs, st.decided)}</td>`
+      + `<td>${pctCell(st.exEvicted, st.after)}</td><td>${pctCell(st.alsoVeto, st.withVeto)}</td>`
+      + `<td class="l">${stackBar(catParts(st.cats), `BB${s} HOH competitions`)}</td></tr>`;
+  }).join("");
+  const foot = `<tr><td class="l"><strong>All</strong></td><td>${t.rounds}</td><td>${t.people}</td><td></td>`
+    + `<td>${pctCell(t.byWinner, t.doneWins)}</td><td>${pctCell(t.theirs, t.decided)}</td><td>${pctCell(t.decided - t.theirs, t.decided)}</td>`
+    + `<td>${pctCell(t.exEvicted, t.after)}</td><td>${pctCell(t.alsoVeto, t.withVeto)}</td><td class="l">${stackBar(catParts(t.cats), "Every HOH competition")}</td></tr>`;
+  const weeks = byWeekNumber(all.filter(x => x.r.hoh.length)).map(({ week, xs }) => {
+    const cats = hohStats(xs).cats;
+    return { week, xs, parts: catParts(cats) };
+  });
+  return `<p class="lede">${lede}</p>`
+    + `<div class="stats">${statTile(t.wins, "HOH wins", `${t.people} different houseguests`)}`
+    + statTile(`${pctOf(t.theirs, t.decided)}%`, "HOH’s nominee went home", `${t.theirs} of ${t.decided} evictions`)
+    + statTile(`${pctOf(t.byWinner, t.doneWins)}%`, "Won by the eventual winner", `${t.byWinner} of ${t.doneWins}, finished seasons`)
+    + statTile(`${pctOf(t.exEvicted, t.after)}%`, "Evicted the round after", `${t.exNominated} of ${t.after} were nominated`) + `</div>`
+    + `<h2>Season by season</h2><p class="note">One row per season. A backdoor is a replacement nominee evicted after the veto came off someone else. The final HOH, who evicts one of the last three directly, isn’t counted in either.</p>`
+    + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c]))
+    + `<div class="scroll"><table class="players"><thead><tr><th scope="col" class="l">Season</th><th scope="col"><abbr title="HOH rounds (a co-HOH week is one round)">Rounds</abbr></th><th scope="col"><abbr title="Different houseguests who won HOH">Winners</abbr></th>`
+    + `<th scope="col" class="l">Most by one</th><th scope="col"><abbr title="HOHs won by the season’s eventual winner">By the winner</abbr></th>`
+    + `<th scope="col"><abbr title="The evicted houseguest was one of the HOH’s nominees">Nominee went home</abbr></th><th scope="col"><abbr title="A replacement nominee was evicted">Backdoor</abbr></th>`
+    + `<th scope="col"><abbr title="The HOH was evicted in the next round">Out next round</abbr></th><th scope="col"><abbr title="The HOH also won that round’s veto">Also won veto</abbr></th>`
+    + `<th scope="col" class="l">Competition types</th></tr></thead><tbody>${rows}${foot}</tbody></table></div>`
+    + `<h2>Week by week</h2><p class="note">Every HOH, colored by the kind of competition. Hover for the competition and who went home; click for the week.</p>`
+    + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + trendBoard("hoh", all)
+    + `<h2>By week of the season</h2><p class="note">What kind of competition decided HOH in each week, all seasons together. The number on top is how many HOHs were played that week.</p>`
+    + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + weekChart(weeks, g => g.xs.length)
+    + trendLeaders("Most HOHs in a season", t.top, "HOH", "HOHs", true)
+    + `<p class="src">From Wikipedia’s voting tables; competition names and types from the Big Brother Wiki. Twist weeks the grid doesn’t fully model count only the rounds it does.</p>`;
+}
+
+function hohSeasonHtml(all, season) {
+  const mine = all.filter(x => x.season === season);
+  const st = hohStats(mine), t = hohStats(all);
+  const vs = (n, d, tn, td) => d && td ? `all seasons: ${pctOf(tn, td)}%` : "";
+  const lede = `In BB${season}, ${st.wins} HOH wins went to ${st.people} houseguests.`
+    + (st.decided ? ` The HOH’s own nominee went home ${st.theirs} of ${st.decided} times, and ${plural(st.decided - st.theirs, "eviction was a backdoor", "evictions were backdoors")}.` : "");
+  const rows = mine.filter(x => x.r.hoh.length).map(x => {
+    const c = x.hohComp;
+    const out = { theirs: `<span class="tag">Their nominee</span>`, backdoor: `<span class="tag">Backdoor</span>`, final: `<span class="tag">Final HOH</span>` }[x.hohOutcome] || "";
+    const next = x.exEvicted ? `<span class="tag">Evicted</span>` : x.exNominated ? `<span class="tag">Nominated</span>` : x.exEvicted == null ? "" : `<span class="muted">Safe</span>`;
+    return `<tr><td class="l"><a class="plink" href="${weekHash(season, x.label)}">${esc(x.key)}</a></td>`
+      + `<td class="l">${x.r.hoh.map(n => `<div class="pl">${faceHtml(season, n)}${plink(season, n)}</div>`).join("")}</td>`
+      + `<td class="l">${c ? `“${esc(c.name)}”${c.format ? ` <span class="muted">(<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>)</span>` : ""}` : `<span class="zero">–</span>`}</td>`
+      + `<td class="l">${c && c.category ? `<span class="cat">${swatch(catVar(c.category))}${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
+      + `<td class="l wrap">${x.r.nominees_initial.map(n => plink(season, n)).join(", ") || `<span class="zero">–</span>`}</td>`
+      + `<td class="l">${x.r.evicted ? `${plink(season, x.r.evicted)} ${out}` : `<span class="zero">–</span>`}</td>`
+      + `<td class="l">${next}</td></tr>`;
+  }).join("");
+  return `<p class="lede">${lede}</p>`
+    + `<div class="stats">${statTile(st.wins, "HOH wins", `${st.people} different houseguests`)}`
+    + statTile(st.decided ? `${pctOf(st.theirs, st.decided)}%` : "–", "HOH’s nominee went home", vs(st.theirs, st.decided, t.theirs, t.decided))
+    + statTile(st.doneWins ? `${pctOf(st.byWinner, st.doneWins)}%` : "–", "Won by the eventual winner", st.doneWins ? vs(st.byWinner, st.doneWins, t.byWinner, t.doneWins) : "season still airing")
+    + statTile(st.after ? `${pctOf(st.exEvicted, st.after)}%` : "–", "Evicted the round after", vs(st.exEvicted, st.after, t.exEvicted, t.after)) + `</div>`
+    + trendLeaders(`Most HOHs in BB${season}`, st.top, "HOH", "HOHs", false)
+    + `<h2>Every HOH</h2><div class="cat-bar" style="margin:4px 0 10px">${catParts(st.cats).filter(([, n]) => n).map(([l, n, c]) => `<span>${swatch(c)}<b>${n}</b> ${esc(l)}</span>`).join("")}</div>`
+    + `<div class="scroll"><table class="players"><thead><tr><th scope="col" class="l">Week</th><th scope="col" class="l">HOH</th><th scope="col" class="l">Competition</th>`
+    + `<th scope="col" class="l">Type</th><th scope="col" class="l">Nominated</th><th scope="col" class="l">Went home</th><th scope="col" class="l"><abbr title="What happened to the HOH in the next round">Next round</abbr></th></tr></thead>`
+    + `<tbody>${rows}</tbody></table></div>`
+    + `<p class="src">“Their nominee”: one of the HOH’s nominees went home. “Backdoor”: a replacement nominee, named after the veto, went home. <a class="plink" href="#hoh=all">Compare every season ›</a></p>`;
+}
+
+// ---- Veto ----
+
+const vetoParts = st => VETO_OUT.map(([k, l, c]) => [l, st[k], c]);
+
+function vetoAllHtml(all) {
+  const t = vetoStats(all);
+  const seasons = [...new Set(all.map(x => x.season))].sort((a, b) => b - a);
+  const per = seasons.map(s => ({ s, st: vetoStats(all.filter(x => x.season === s)) }));
+  const rated = per.filter(p => p.st.rounds);
+  const lo = rated.reduce((a, b) => pctOf(b.st.used, b.st.rounds) < pctOf(a.st.used, a.st.rounds) ? b : a);
+  const hi = rated.reduce((a, b) => pctOf(b.st.used, b.st.rounds) > pctOf(a.st.used, a.st.rounds) ? b : a);
+  const lede = `Across ${seasonsText(all)} the veto was used in ${t.used} of ${t.rounds} rounds (${pctOf(t.used, t.rounds)}%), `
+    + `from ${lo.st.used} of ${lo.st.rounds} in BB${lo.s} to ${hi.st.used} of ${hi.st.rounds} in BB${hi.s}. `
+    + `A nominee won it ${pctOf(t.byNominee, t.rounds)}% of the time and the HOH ${pctOf(t.byHoh, t.rounds)}%. `
+    + `When it was used, the replacement nominee went home ${pctOf(t.backdoor, t.used)}% of the time.`
+    + mostInSeason(t.top);
+  const rows = per.map(({ s, st }) => {
+    const best = st.top[0];
+    return `<tr><td class="l"><a class="plink" href="#veto=${s}">BB${s}</a></td><td>${st.rounds}</td><td>${st.block || "–"}</td>`
+      + `<td class="l">${stackBar(vetoParts(st), `BB${s}: what the veto did`)}</td><td>${pctCell(st.used, st.rounds)}</td>`
+      + `<td>${pctCell(st.byHoh, st.rounds)}</td><td>${pctCell(st.byNominee, st.rounds)}</td><td>${pctCell(st.byOther, st.rounds)}</td>`
+      + `<td>${pctCell(st.backdoor, st.used)}</td>`
+      + `<td class="l">${best ? `<div class="pl">${faceHtml(s, best.name)}<span>${plink(s, best.name)} <span class="muted">×${best.n}</span></span></div>` : ""}</td></tr>`;
+  }).join("");
+  const foot = `<tr><td class="l"><strong>All</strong></td><td>${t.rounds}</td><td></td><td class="l">${stackBar(vetoParts(t), "Every veto")}</td>`
+    + `<td>${pctCell(t.used, t.rounds)}</td><td>${pctCell(t.byHoh, t.rounds)}</td><td>${pctCell(t.byNominee, t.rounds)}</td><td>${pctCell(t.byOther, t.rounds)}</td>`
+    + `<td>${pctCell(t.backdoor, t.used)}</td><td></td></tr>`;
+  const weeks = byWeekNumber(all.filter(x => x.hasVeto)).map(({ week, xs }) => ({ week, xs, parts: vetoParts(vetoStats(xs)) }));
+  const key = keyHtml(VETO_OUT.map(([, l, c]) => [l, c]));
+  return `<p class="lede">${lede}</p>`
+    + `<div class="stats">${statTile(`${pctOf(t.used, t.rounds)}%`, "Vetoes used", `${t.used} of ${t.rounds}`)}`
+    + statTile(`${pctOf(t.byNominee, t.rounds)}%`, "Won by a nominee", `${t.self} saved themselves`)
+    + statTile(`${pctOf(t.byHoh, t.rounds)}%`, "Won by the HOH", `${t.byHoh} of ${t.rounds}`)
+    + statTile(`${pctOf(t.backdoor, t.used)}%`, "Replacement went home", `${t.backdoor} of ${t.used} used vetoes`) + `</div>`
+    + `<h2>Season by season</h2><p class="note">One row per season. “On the block” is how many were nominated before the veto: seasons with a third nominee (and a twist that saves one) give the veto more to do.</p>`
+    + key
+    + `<div class="scroll"><table class="players"><thead><tr><th scope="col" class="l">Season</th><th scope="col">Vetoes</th><th scope="col"><abbr title="Nominees before the veto, most weeks">On the block</abbr></th>`
+    + `<th scope="col" class="l">What it did</th><th scope="col">Used</th><th scope="col"><abbr title="Won by the HOH">By HOH</abbr></th><th scope="col"><abbr title="Won by one of the nominees">By a nominee</abbr></th>`
+    + `<th scope="col"><abbr title="Won by someone neither HOH nor nominated">By anyone else</abbr></th><th scope="col"><abbr title="Of the used vetoes: the replacement nominee was evicted">Replacement went home</abbr></th>`
+    + `<th scope="col" class="l">Most by one</th></tr></thead><tbody>${rows}${foot}</tbody></table></div>`
+    + `<h2>Week by week</h2><p class="note">Every veto winner, colored by what they did with it. Hover for the details; click for the week.</p>`
+    + key + trendBoard("veto", all)
+    + `<h2>By week of the season</h2><p class="note">What the veto did in each week, all seasons together. The number on top is the share used.</p>`
+    + key + weekChart(weeks, g => `${pctOf(g.xs.filter(x => x.v.used).length, g.xs.length)}%`)
+    + trendLeaders("Most vetoes in a season", t.top, "veto", "vetoes", true)
+    + `<p class="src">From Wikipedia’s voting tables: the veto’s use is read from the nominations before and after it. Competition names and types from the Big Brother Wiki.</p>`;
+}
+
+function vetoSeasonHtml(all, season) {
+  const mine = all.filter(x => x.season === season);
+  const st = vetoStats(mine), t = vetoStats(all);
+  const vs = (tn, td) => td ? `all seasons: ${pctOf(tn, td)}%` : "";
+  const lede = `In BB${season} the veto was used ${st.used} of ${st.rounds} times: `
+    + `${plural(st.self, "nominee saved themselves", "nominees saved themselves")}, ${st.other} went to someone else and ${st.kept} ${st.kept === 1 ? "wasn’t" : "weren’t"} used.`
+    + (st.used ? ` The replacement nominee went home ${st.backdoor} of ${st.used} times.` : "");
+  const roleTag = r => r === "hg" ? "" : `<span class="tag">${r === "hoh" ? "HOH" : "Nominee"}</span>`;
+  const rows = mine.filter(x => x.hasVeto).map(x => {
+    const c = x.vetoComp;
+    return `<tr><td class="l"><a class="plink" href="${weekHash(season, x.label)}">${esc(x.key)}</a></td>`
+      + `<td class="l">${x.r.veto_winners.map((n, i) => `<div class="pl">${faceHtml(season, n)}${plink(season, n)}${roleTag(x.vetoRoles[i])}</div>`).join("")}</td>`
+      + `<td class="l">${c ? `“${esc(c.name)}”${c.format ? ` <span class="muted">(<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>)</span>` : ""}${catTag(c)}` : `<span class="zero">–</span>`}</td>`
+      + `<td class="l wrap">${swatch(outColor[x.vetoOutcome])}${vetoSentence(x)}${x.vetoDecided ? ` <span class="tag">Cast the sole vote</span>` : ""}</td>`
+      + `<td class="l">${x.r.evicted ? `${plink(season, x.r.evicted)}${x.backdoor ? ` <span class="tag">Replacement</span>` : ""}` : `<span class="zero">–</span>`}</td></tr>`;
+  }).join("");
+  return `<p class="lede">${lede}</p>`
+    + `<div class="stats">${statTile(st.rounds ? `${pctOf(st.used, st.rounds)}%` : "–", "Vetoes used", vs(t.used, t.rounds))}`
+    + statTile(st.rounds ? `${pctOf(st.byNominee, st.rounds)}%` : "–", "Won by a nominee", vs(t.byNominee, t.rounds))
+    + statTile(st.rounds ? `${pctOf(st.byHoh, st.rounds)}%` : "–", "Won by the HOH", vs(t.byHoh, t.rounds))
+    + statTile(st.used ? `${pctOf(st.backdoor, st.used)}%` : "–", "Replacement went home", vs(t.backdoor, t.used)) + `</div>`
+    + trendLeaders(`Most vetoes in BB${season}`, st.top, "veto", "vetoes", false)
+    + `<h2>Every veto</h2>` + keyHtml(VETO_OUT.map(([, l, c]) => [l, c]))
+    + `<div class="scroll"><table class="players"><thead><tr><th scope="col" class="l">Week</th><th scope="col" class="l">Won by</th><th scope="col" class="l">Competition</th>`
+    + `<th scope="col" class="l">What they did</th><th scope="col" class="l">Went home</th></tr></thead><tbody>${rows}</tbody></table></div>`
+    + `<p class="src">“Replacement”: the houseguest named after the veto came off someone else went home. <a class="plink" href="#veto=all">Compare every season ›</a></p>`;
+}
+
+// Hover or focus on anything with data-tip shows it in the grid's tooltip.
+function wireTrendTips(panel) {
+  const tip = $("tip");
+  const show = (el, x, y) => {
+    tip.innerHTML = el.dataset.tip;
+    tip.style.display = "block";
+    const r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+    let left = x != null ? x + 12 : Math.min(Math.max(8, r.left), innerWidth - tw - 8);
+    let top = y != null ? y + 12 : r.bottom + 6;
+    if (left + tw > innerWidth - 8) left = Math.max(8, (x ?? r.right) - tw - 12);
+    if (top + th > innerHeight - 8) top = Math.max(8, (y != null ? y : r.top) - th - 12);
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  };
+  const hide = () => { tip.style.display = "none"; };
+  panel.addEventListener("mousemove", e => {
+    const el = e.target.closest("[data-tip]");
+    el && $("drawer").hidden ? show(el, e.clientX, e.clientY) : hide();
+  });
+  panel.addEventListener("mouseleave", hide);
+  panel.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el && $("drawer").hidden) show(el); });
+  panel.addEventListener("focusout", hide);
+  panel.addEventListener("click", hide);
+}
+
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #finale=26 · #hoh=all · #veto=26 ----------
 
 function route() {
   if (!DATA) return;
@@ -1388,6 +1921,8 @@ function route() {
     if (currentView === "weeks" && !currentSeason) currentSeason = newest;
     return showFormat(decodeURIComponent(fm[1]));
   }
+  const tm = location.hash.match(/^#(hoh|veto)=(all|\d+)$/);
+  if (tm) { hideDrawer(); return showTrend(tm[1], tm[2] === "all" ? "all" : +tm[2]); }
   const m = location.hash.match(/^#(week|players|player|comps|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
@@ -1405,7 +1940,8 @@ function route() {
     showPlayers(season || newest);
   } else {
     // A player opened from the Comps or Finale view keeps that view behind the drawer.
-    if (!(["players", "comps", "finale"].includes(currentView) && currentSeason === season)) showPlayers(season);
+    // So does the HOH or Veto view, whichever seasons it shows.
+    if (!(TREND[currentView] || ["players", "comps", "finale"].includes(currentView) && currentSeason === season)) showPlayers(season);
     showPlayer(season, rest);
   }
 }
@@ -1417,6 +1953,11 @@ $("tab-finale").addEventListener("click", () => { location.hash = `#finale=${cur
 wireSeasonPicker("season-pick", s => `#players=${s}`);
 wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
 wireSeasonPicker("finale-season-pick", s => `#finale=${s}`);
+for (const kind of ["hoh", "veto"]) {
+  $(`tab-${kind}`).addEventListener("click", () => { location.hash = `#${kind}=${currentScope}`; });
+  wireSeasonPicker(`${kind}-season-pick`, s => `#${kind}=${s}`);
+  wireTrendTips($(`${kind}-panel`));
+}
 $("grid-mode").addEventListener("click", e => {
   const b = e.target.closest("button[data-mode]");
   if (!b || !DATA) return;
