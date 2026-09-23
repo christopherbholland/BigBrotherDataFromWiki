@@ -25,7 +25,8 @@ fetch workflow, and by hand from the Actions tab. To turn it on:
    needs a paid plan (GitHub Pro or above). Either way, the published site itself is public.
 2. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Merge to `main`, or run **Publish page** from the Actions tab.
-4. The page is then at `https://<user>.github.io/BigBrotherDataFromWiki/`.
+4. The page is then at <https://christopherbholland.github.io/BigBrotherDataFromWiki/>
+   (on a fork, `https://<user>.github.io/BigBrotherDataFromWiki/`).
 
 **Staying current.** The fetch workflow runs every day at 14:00 UTC. When a Wikipedia page
 has changed, it commits the new data, and the Pages workflow republishes. You can also run

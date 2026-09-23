@@ -7,6 +7,30 @@ Wikipedia page. The detail views add data from the fan-run
 [Big Brother Wiki](https://bigbrother.fandom.com/) (Fandom): every competition's name,
 weekly Have-Nots, houseguest bios and season facts. It's also used to cross-check Wikipedia.
 
+## Launch the site
+
+**Live:** <https://christopherbholland.github.io/BigBrotherDataFromWiki/>
+
+**Publish it on GitHub Pages** (one-time setup):
+
+1. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+2. Open the **Actions** tab, choose **Publish page**, and click **Run workflow** (or just
+   merge to `main`).
+3. When the run finishes, the site is at the address above. It republishes by itself after
+   every push to `main` that changes `web/` and after every **Fetch wiki pages** run.
+
+**Run it locally:**
+
+```sh
+python -m http.server -d web      # then open http://localhost:8000
+```
+
+Opening `web/index.html` directly (`file://`) won't work: the page has to load
+`weeks.json` over HTTP. More hosting options, phone setup and embedding are in
+[`docs/integration.md`](docs/integration.md#1-host-the-page).
+
+## How it works
+
 ```
 Wikipedia API ---------> fetch -> cache/        -> grid builder -> interpreter -> validator/exporter
 Big Brother Wiki API --> fetch -> cache/fandom/ -> fandom reader --------------> merge (details.json)
@@ -172,7 +196,7 @@ says what's ready and what to check before building BB1–BB20.
 
 The page is one static HTML file plus `weeks.json`, so it can go anywhere:
 
-- **Host it** on GitHub Pages: `.github/workflows/pages.yml` publishes `web/`, so you can use it from a phone. See the integration guide for setup.
+- **Host it** on GitHub Pages: `.github/workflows/pages.yml` publishes `web/`, so you can use it from a phone. See [Launch the site](#launch-the-site) for setup.
 - **Embed it** in another site with an iframe; `?embed=1` hides the page's title:
   ```html
   <iframe src="https://<user>.github.io/BigBrotherDataFromWiki/?embed=1"
