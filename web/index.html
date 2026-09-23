@@ -430,7 +430,7 @@ table.across tr.here td:first-child { background: var(--cell); }
   <div class="panel" id="panel"><div class="msg">Loading weeks.json…</div></div>
   </section>
   <section id="players-view" role="tabpanel" aria-labelledby="tab-players" hidden>
-    <div class="controls"><span class="seg" id="season-pick" role="group" aria-label="Season"></span></div>
+    <div class="controls"><span class="seg" id="players-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="players-panel"></div>
   </section>
   <section id="comps-view" role="tabpanel" aria-labelledby="tab-comps" hidden>
@@ -582,7 +582,7 @@ function rawHtml(raw) {
 }
 
 function tipHtml(w) {
-  const status = w.status === "ok" ? (w.note || "") : `${w.status === "error" ? "Error" : "Note"}: ${w.note || ""}`;
+  const status = statusText(w);
   return `<h3>BB${w.season} · ${esc(w.week_label)}</h3>`
     + (status ? `<div class="status">${esc(status)}</div>` : "")
     + w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
@@ -748,6 +748,21 @@ const decodeHash = h => { try { return decodeURIComponent(h); } catch (err) { re
 const isCurrent = hash => decodeHash(location.hash) === decodeHash(hash);
 const plink = (season, name) => `<a class="plink" href="${playerHash(season, name)}">${esc(name)}</a>`;
 const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + "s")}`;
+const ZERO = `<span class="zero">–</span>`;
+const num = n => n ? n : `<span class="zero">0</span>`;
+// A column header; title explains an abbreviation on hover.
+const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
+// "Jul 17, 2024" from "2024-07-17"; month "long" gives "July 17, 2024".
+const dateText = (iso, month = "short") => new Date(iso + "T12:00:00Z").toLocaleDateString(undefined, { month, day: "numeric", year: "numeric", timeZone: "UTC" });
+const quoteHtml = (text, cite) => `<blockquote class="wnote">${esc(text)}${cite ? `<cite>${esc(cite)}</cite>` : ""}</blockquote>`;
+
+// Lookups in details.json.
+const seasonPlayers = (d, season) => d.players.filter(p => p.season === season);
+const findPlayer = (d, season, name) => d.players.find(p => p.season === season && p.name === name);
+const weekDetail = (d, season, label) => d.weeks[`${season}|${label}`];
+const fandomComps = wd => (wd && wd.fandom && wd.fandom.comps) || [];
+// The Big Brother Wiki's portrait, larger than the headshot in weeks.json.
+const portraitOf = p => ((p || {}).fandom || {}).portrait || null;
 
 const $ = id => document.getElementById(id);
 let lastFocus = null;
@@ -772,7 +787,7 @@ function hideDrawer() {
 
 // Closing returns to the current view's own address.
 function closeDrawer() {
-  location.hash = currentView === "weeks" ? "" : `#${currentView}=${currentSeason}`;
+  location.hash = VIEWS[currentView].hash(currentSeason);
 }
 
 function errorHtml(err) {
@@ -794,7 +809,7 @@ async function showWeek(season, label) {
   const title = `BB${season} · ${label}`;
   openDrawer(title, statusText(w), `<p class="muted">Loading…</p>`);
   let d;
-  try { d = (await loadDetails()).weeks[`${season}|${label}`]; }
+  try { d = weekDetail(await loadDetails(), season, label); }
   catch (err) { return openDrawer(title, statusText(w), errorHtml(err)); }
   if (!isCurrent(weekHash(season, label))) return;  // moved on while loading
   const summary = w.rounds.length
@@ -848,7 +863,6 @@ function votesHtml(w, d) {
   }).join("");
 }
 
-const roundTitle = roundLabel;
 const compHash = format => `#comp=${encodeURIComponent(format)}`;
 const catTag = c => c && c.category ? ` <span class="cat">${esc(c.category)}</span>` : "";
 
@@ -875,7 +889,7 @@ function compsHtml(w, d) {
       return `<dt>${kindName[kind]}</dt><dd>${c ? `“${esc(c.name)}”${fmt(c)}`
         : `Won by ${winners.map(x => plink(w.season, x)).join(", ")} <span class="muted">(competition not named)</span>`}</dd>`;
     };
-    const title = roundTitle(w, i);
+    const title = roundLabel(w, i);
     html += `${title ? `<h4>${esc(title)}</h4>` : ""}<dl>${line("hoh")}${line("veto")}</dl>`;
   });
   // Everything else the Big Brother Wiki lists this week: twist comps, final HOH parts, unmodeled rounds.
@@ -912,7 +926,7 @@ function vetoHtml(w, d) {
   if (!d.rounds.length) return `<p class="muted">No veto to show.</p>`;
   let html = d.rounds.map((v, i) => {
     const r = w.rounds[i], u = v.veto;
-    const title = roundTitle(w, i);
+    const title = roundLabel(w, i);
     let body;
     if (!u) body = `<p class="muted">No veto recorded.</p>`;
     else {
@@ -935,7 +949,7 @@ function vetoHtml(w, d) {
   }).join("");
   if (d.veto_notes.length) {
     html += `<details class="ep"><summary>From the episode summaries</summary>`
-      + d.veto_notes.map(x => `<blockquote class="wnote">${esc(x)}</blockquote>`).join("") + `</details>`;
+      + d.veto_notes.map(x => quoteHtml(x)).join("") + `</details>`;
   }
   return html;
 }
@@ -962,14 +976,14 @@ function specialHtml(d) {
   let items = d.special.items, notes = d.special.notes;
   const bb = x => /Block Buster/i.test(x);
   if (items.every(bb) && notes.every(n => bb(n.text))) items = notes = [];
-  notes = notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>Wikipedia</cite></blockquote>`).join("");
+  notes = notes.map(n => quoteHtml(n.text, "Wikipedia")).join("");
   if (!items.length && !notes) return "";
   return (items.length ? `<ul class="plain">${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "") + notes;
 }
 
 function fmtDate(ep) {
   if (!ep.air_date) return ep.air_date_text || "";
-  return new Date(ep.air_date + "T12:00:00Z").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  return dateText(ep.air_date);
 }
 
 function episodesHtml(d) {
@@ -984,7 +998,7 @@ function episodesHtml(d) {
   }).join("");
 }
 
-// ---------- Players ----------
+// ---------- Tabs ----------
 
 let currentView = "weeks", currentSeason = null;
 
@@ -1010,20 +1024,30 @@ function seasonList() {
   return [...new Set(DATA.weeks.map(w => w.season))].sort((a, b) => b - a);
 }
 
-const VIEW_TEXT = {
-  weeks: ["Week by week", "Who was evicted each week, or who was HOH. Click or tap a week for the full story."],
-  players: ["Players", "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline."],
-  comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
-  endgame: ["Endgame", "The last few rounds, where a single veto or vote can decide the game. Who held the power, who decided each eviction, and how it compares across seasons."],
-  finale: ["Finale", "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote."],
-  afh: ["America’s Favorite HouseGuest", "The viewers’ vote for their favorite houseguest, announced at each finale, and how that houseguest’s game went."],
+// Each tab: its heading, its address for a season, and what renders it from the
+// address (the part after the season, if any). A drawer closes back to its tab's address.
+const VIEWS = {
+  weeks: { title: "Week by week", sub: "Who was evicted each week, or who was HOH. Click or tap a week for the full story.",
+           hash: () => "" },
+  players: { title: "Players", sub: "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline.",
+             hash: s => `#players=${s}`, show: s => showPlayers(s) },
+  comps: { title: "Competitions", sub: "Every HOH and veto competition of a season. Click or tap a format to see each time it was played.",
+           hash: s => `#comps=${s}`, show: s => showComps(s) },
+  endgame: { title: "Endgame", sub: "The last few rounds, where a single veto or vote can decide the game. Who held the power, who decided each eviction, and how it compares across seasons.",
+             hash: s => endgameHash(s), show: (s, rest) => showEndgame(s, ENDGAME_STARTS.includes(+rest) ? +rest : ENDGAME_DEFAULT) },
+  finale: { title: "Finale", sub: "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote.",
+            hash: s => `#finale=${s}`, show: s => showFinale(s) },
+  afh: { title: "America’s Favorite HouseGuest", sub: "The viewers’ vote for their favorite houseguest, announced at each finale, and how that houseguest’s game went.",
+         hash: () => "#afh" },
 };
+// The tabs with a season picker.
+const SEASON_VIEWS = Object.keys(VIEWS).filter(v => VIEWS[v].show);
 
 function setView(view) {
   currentView = view;
-  $("view-title").textContent = VIEW_TEXT[view][0];
-  $("view-sub").textContent = VIEW_TEXT[view][1];
-  for (const v of ["weeks", "players", "comps", "endgame", "finale", "afh"]) {
+  $("view-title").textContent = VIEWS[view].title;
+  $("view-sub").textContent = VIEWS[view].sub;
+  for (const v of Object.keys(VIEWS)) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
@@ -1035,6 +1059,24 @@ function setView(view) {
     else if (r.left < box.left) tabs.scrollLeft -= box.left - r.left + 4;
   }
 }
+
+// Switch to a tab (and season, for a tab with a season picker), then wait for
+// details.json. Returns it, or null if it failed to load (the panel says so) or
+// the reader moved on while it loaded.
+async function openView(view, season, loading) {
+  setView(view);
+  if (season != null) {
+    currentSeason = season;
+    $(`${view}-season-pick`).innerHTML = seasonPickerHtml(season);
+  }
+  const panel = $(`${view}-panel`);
+  if (!DETAILS) panel.innerHTML = `<div class="msg">${loading}</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return null; }
+  return currentView === view && (season == null || currentSeason === season) ? d : null;
+}
+
+// ---------- Players ----------
 
 // Twist rows a season runs every week get their own column.
 const ARENA_RE = /AI Arena|Block Buster/i;
@@ -1088,27 +1130,18 @@ function playerBio(p) {
 const pct = (n, d) => d ? `${Math.round(100 * n / d)}%` : "";
 
 async function showPlayers(season) {
-  setView("players");
-  currentSeason = season;
-  $("season-pick").innerHTML = seasonPickerHtml(season);
-  const panel = $("players-panel");
-  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading players…</div>`;
-  let d;
-  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
-  if (currentSeason !== season) return;
-  const rows = d.players.filter(p => p.season === season);
-  const num = n => n ? n : `<span class="zero">0</span>`;
-  const dash = `<span class="zero">–</span>`;
+  const d = await openView("players", season, "Loading players…");
+  if (!d) return;
+  const rows = seasonPlayers(d, season);
   const hasBio = rows.some(p => p.bio || p.fandom);
   const hasHaveNots = rows.some(p => p.fandom);
   const arena = arenaLabel(season);
   const info = (d.seasons || {})[season];
-  const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
   // Column groups: who they are, then comps, nominations and votes.
   const groups = [["", 2], ...(hasBio ? [["", 3]] : []), ["Comps", arena ? 4 : 3], ["Nominations", 2], ["Votes", 3],
                   ...(hasHaveNots ? [["", 1]] : [])];
   const grp = groups.map(([label, n], i) => `<th colspan="${n}"${i > (hasBio ? 1 : 0) ? ` class="gs"` : ""}>${esc(label)}</th>`).join("");
-  panel.innerHTML = (info ? seasonInfoHtml(info) : "") + leadersHtml(season, rows) + `<table class="players"><thead>
+  $("players-panel").innerHTML = (info ? seasonInfoHtml(info) : "") + leadersHtml(season, rows) + `<table class="players"><thead>
     <tr class="grp">${grp}</tr><tr>
       <th scope="col">Player</th><th scope="col" style="text-align:left">Result</th>
       ${hasBio ? th("Age", "", "bio num") + th("Hometown", "", "bio") + th("Occupation", "", "bio") : ""}
@@ -1121,10 +1154,10 @@ async function showPlayers(season) {
       const b = playerBio(p);
       const full = b.full_name && b.full_name !== p.name ? `<small>${esc(b.full_name)}</small>` : "";
       return `<tr><td><div class="pl">${faceHtml(season, p.name, faceState(p))}<span>${plink(season, p.name)}${full}</span></div></td><td class="result">${esc(p.result || "In the game")}${afhTagHtml(d, p)}</td>`
-        + (hasBio ? `<td class="bio num">${b.age != null ? b.age : dash}</td><td class="bio">${b.hometown ? esc(b.hometown) : dash}</td><td class="bio">${b.occupation ? esc(b.occupation) : dash}</td>` : "")
+        + (hasBio ? `<td class="bio num">${b.age != null ? b.age : ZERO}</td><td class="bio">${b.hometown ? esc(b.hometown) : ZERO}</td><td class="bio">${b.occupation ? esc(b.occupation) : ZERO}</td>` : "")
         + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td>${num(s.arena)}</td>` : ""}<td>${num(s.twists)}</td>`
         + `<td class="gs">${num(s.noms)}</td><td>${num(s.block)}</td>`
-        + `<td class="gs">${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? pct(s.withHouse, s.cast) : dash}</td>`
+        + `<td class="gs">${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? pct(s.withHouse, s.cast) : ZERO}</td>`
         + (hasHaveNots ? `<td class="gs">${num(((p.fandom || {}).have_not || []).length)}</td>` : "") + `</tr>`;
     }).join("") + `</tbody></table>`;
 }
@@ -1146,7 +1179,7 @@ function leadersHtml(season, rows) {
 }
 
 function seasonInfoHtml(info) {
-  const date = iso => iso ? new Date(iso + "T12:00:00Z").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
+  const date = iso => iso ? dateText(iso) : "";
   const bits = [
     info.premiere && `Premiered ${date(info.premiere)}`,
     info.finale && (info.finale <= new Date().toISOString().slice(0, 10) ? `finale ${date(info.finale)}` : `finale due ${date(info.finale)}`),
@@ -1176,7 +1209,7 @@ async function showPlayer(season, name) {
   let d;
   try { d = await loadDetails(); } catch (err) { return openDrawer(title, status, errorHtml(err)); }
   if (!isCurrent(playerHash(season, name))) return;
-  const p = d.players.find(x => x.season === season && x.name === name);
+  const p = findPlayer(d, season, name);
   if (!p) return openDrawer(title, status, `<p class="muted">No player by that name in BB${season}.</p>`);
   const s = playerStats(p);
   const f = p.fandom || {};
@@ -1186,7 +1219,7 @@ async function showPlayer(season, name) {
   const keys = new Map(roundKeys(season).map(([k, label, i]) => [k, { label, i }]));
   const roundInfo = k => {
     const at = keys.get(k); if (!at) return {};
-    const wd = d.weeks[`${season}|${at.label}`];
+    const wd = weekDetail(d, season, at.label);
     return wd ? { comp: kind => roundComp(wd, at.i + 1, kind), veto: (wd.rounds[at.i] || {}).veto } : {};
   };
   const wins = Object.fromEntries(CATEGORY_NAMES.map(c => [c, 0]));
@@ -1245,7 +1278,7 @@ function bioHtml(p, season) {
     ["Other seasons", (f.seasons || []).filter(x => x !== `Big Brother ${season} (US)`).join(", ")],
     ["America’s Favorite", afhPlace(DETAILS, p)],
   ].filter(([, v]) => v);
-  const face = faceHtml(season, p.name, faceState(p), f.portrait || null);
+  const face = faceHtml(season, p.name, faceState(p), portraitOf(p));
   if (!rows.length) return `<div class="bio-head">${face}</div>`;
   return `<div class="bio-head">${face}<dl class="bio">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>`
     + (f.url ? `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">Profile on the Big Brother Wiki</a></p>` : "");
@@ -1253,19 +1286,21 @@ function bioHtml(p, season) {
 
 // ---------- Comps: every HOH and veto competition, and a page per format ----------
 
+// A competition's Name, Format, Type and Won by cells.
+function compCells(season, c) {
+  return `<td>${c.name ? `“${esc(c.name)}”` : ZERO}</td>`
+    + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : ZERO}</td>`
+    + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : ZERO}</td>`
+    + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || ZERO}</td>`;
+}
+
 async function showComps(season) {
-  setView("comps");
-  currentSeason = season;
-  $("comps-season-pick").innerHTML = seasonPickerHtml(season);
+  const d = await openView("comps", season, "Loading competitions…");
+  if (!d) return;
   const panel = $("comps-panel");
-  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading competitions…</div>`;
-  let d;
-  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
-  if (currentSeason !== season) return;
   const rows = [];
   DATA.weeks.filter(w => w.season === season).forEach(w => {
-    const wd = d.weeks[`${season}|${w.week_label}`];
-    ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => c.kind !== "twist").forEach(c => rows.push({ w, c }));
+    fandomComps(weekDetail(d, season, w.week_label)).filter(c => c.kind !== "twist").forEach(c => rows.push({ w, c }));
   });
   if (!rows.length) { panel.innerHTML = `<div class="msg">No competitions listed for BB${season}.</div>`; return; }
   const counts = Object.fromEntries(CATEGORY_NAMES.map(c => [c, 0]));
@@ -1277,10 +1312,7 @@ async function showComps(season) {
     + `<table class="players comps"><thead><tr><th scope="col">Week</th><th scope="col" class="day">Day</th><th scope="col">Comp</th><th scope="col">Name</th>`
     + `<th scope="col">Format</th><th scope="col">Type</th><th scope="col">Won by</th></tr></thead><tbody>`
     + rows.map(({ w, c }) => `<tr><td><a class="plink" href="${weekHash(season, w.week_label)}">${esc(w.week_label)}</a></td>`
-      + `<td class="day">${esc(c.day || "")}</td><td>${esc(c.type)}</td><td>${c.name ? `“${esc(c.name)}”` : `<span class="zero">–</span>`}</td>`
-      + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : `<span class="zero">–</span>`}</td>`
-      + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
-      + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+      + `<td class="day">${esc(c.day || "")}</td><td>${esc(c.type)}</td>${compCells(season, c)}</tr>`).join("")
     + `</tbody></table><p class="season-info">Types come from the Big Brother Wiki’s page for each format where it names one, otherwise from the episode summaries.</p>`;
 }
 
@@ -1300,14 +1332,14 @@ async function showFormat(format) {
   openDrawer(format, `${plural(f.plays.length, "play")} · ${kinds}${f.category ? ` · ${f.category}` : ""}`,
     (f.description ? `<p style="font-size:15px">${esc(f.description)}</p>` : "")
     + (f.category ? `<p><span class="cat">${esc(f.category)}</span> <span class="muted">${esc(help[f.category] || "")}</span></p>` : "")
-    + (about ? `<h3>${f.description ? "On the show" : "How it works"}</h3><blockquote class="wnote">${esc(about.text)}<cite>BB${about.season} ${esc(about.week)} · Wikipedia</cite></blockquote>` : "")
+    + (about ? `<h3>${f.description ? "On the show" : "How it works"}</h3>${quoteHtml(about.text, `BB${about.season} ${about.week} · Wikipedia`)}` : "")
     // One row per play, newest season first, so it skims like a table.
     + `<h3>Every play</h3><table class="plays"><thead><tr><th scope="col">Season</th><th scope="col">Wk</th>`
     + `<th scope="col">Comp</th><th scope="col">Name</th><th scope="col">Won by</th></tr></thead><tbody>`
     + [...f.plays].reverse().map(x => `<tr><td><a class="plink" href="${weekHash(x.season, x.week)}">BB${x.season}</a></td>`
       + `<td class="n">${esc(x.week.replace(/^Week\s*/i, ""))}</td><td>${x.kind === "hoh" ? "HOH" : "Veto"}</td>`
-      + `<td>${x.name ? esc(x.name) : `<span class="zero">–</span>`}</td>`
-      + `<td>${x.winners.map(n => plink(x.season, n)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+      + `<td>${x.name ? esc(x.name) : ZERO}</td>`
+      + `<td>${x.winners.map(n => plink(x.season, n)).join(" & ") || ZERO}</td></tr>`).join("")
     + `</tbody></table>` + (repeat.length ? `<p class="voters" style="margin-top:10px">Won more than once: ${repeat.join(", ")}</p>` : "")
     + `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
 }
@@ -1315,6 +1347,16 @@ async function showFormat(format) {
 // ---------- Finale: the final HOH, the last eviction and the jury vote ----------
 
 const dayNum = day => parseInt(String(day || "").split("-")[0], 10) || 0;
+// The finalists, most jury votes first.
+const byVotes = f => f.finalists.slice().sort((x, y) => y.votes - x.votes);
+
+// The final HOH's parts in order, from the finale week's Big Brother Wiki comps,
+// each with "part": "Part 1".
+function finalParts(d, f) {
+  return fandomComps(f ? weekDetail(d, f.season, f.week) : null).filter(c => /final hoh/i.test(c.outcome || ""))
+    .sort((a, b) => dayNum(a.day) - dayNum(b.day))
+    .map(c => ({ ...c, part: ((c.outcome.match(/part\s*\d+/i) || ["Part"])[0]).replace(/^p/, "P") }));
+}
 
 // What each finalist had to do with a juror's eviction: HOH that round, holding
 // the veto, or a vote to evict them. Null when the round isn't modeled.
@@ -1325,7 +1367,7 @@ function jurorRound(season, p, finalists) {
   const [, label, i] = at;
   const r = weekRecord(season, label).rounds[i];
   if (!r) return null;
-  const v = ((DETAILS.weeks[`${season}|${label}`] || {}).rounds || [])[i] || { votes: [] };
+  const v = ((weekDetail(DETAILS, season, label) || {}).rounds || [])[i] || { votes: [] };
   const roles = new Map(finalists.map(n => [n, []]));
   for (const n of finalists) {
     if (r.hoh.includes(n)) roles.get(n).push("HOH");
@@ -1337,26 +1379,20 @@ function jurorRound(season, p, finalists) {
 }
 
 async function showFinale(season) {
-  setView("finale");
-  currentSeason = season;
-  $("finale-season-pick").innerHTML = seasonPickerHtml(season);
+  const d = await openView("finale", season, "Loading the finale…");
+  if (!d) return;
   const panel = $("finale-panel");
-  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading the finale…</div>`;
-  let d;
-  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
-  if (currentSeason !== season || currentView !== "finale") return;
   const f = (d.finales || {})[season];
   if (!f) { panel.innerHTML = `<div class="msg">The voting table for BB${season} has no Finale column yet.</div>`; return; }
   const w = weekRecord(season, f.week);
-  const wd = d.weeks[`${season}|${f.week}`];
+  const wd = weekDetail(d, season, f.week);
   const info = (d.seasons || {})[season] || {};
-  const people = new Map(d.players.filter(p => p.season === season).map(p => [p.name, p]));
+  const people = new Map(seasonPlayers(d, season).map(p => [p.name, p]));
   const names = f.finalists.map(x => x.name);
   const jury = f.jury.map((j, i) => ({ ...j, n: i + 1, round: jurorRound(season, people.get(j.name), names) }));
   // The last round decided by one vote is the final HOH's eviction.
   const last = w ? [...w.rounds].reverse().find(r => r.tally && r.tally.type === "sole_vote") : null;
-  const parts = ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => /final hoh/i.test(c.outcome || ""))
-    .sort((a, b) => dayNum(a.day) - dayNum(b.day));
+  const parts = finalParts(d, f);
 
   panel.innerHTML = `<div class="fin">`
     + finaleHeadHtml(season, f, info, last, people)
@@ -1372,15 +1408,15 @@ async function showFinale(season) {
 }
 
 function finaleHeadHtml(season, f, info, last, people) {
-  const portrait = n => ((people.get(n) || {}).fandom || {}).portrait || null;
+  const portrait = n => portraitOf(people.get(n));
   if (!f.decided) {
     const left = [...people.values()].filter(p => !p.result).map(p => p.name);
-    const due = info.finale ? new Date(info.finale + "T12:00:00Z").toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
+    const due = info.finale ? dateText(info.finale, "long") : "";
     return `<div class="fin-head">${left.map(n => `<div class="fin-card">${faceHtml(season, n, "live", portrait(n))}${plink(season, n)}<span class="role">Still in the game</span></div>`).join("")}</div>`
       + `<p class="fin-lede">The finale hasn’t aired yet${due ? ` (due ${esc(due)})` : ""}. `
       + `${plural(f.jury.length, "juror")} so far; the rest of the jury is decided by the evictions still to come.</p>`;
   }
-  const [a, b] = f.finalists.slice().sort((x, y) => y.votes - x.votes);
+  const [a, b] = byVotes(f);
   const card = (x, role) => `<div class="fin-card${role === "Winner" ? " win" : ""}">`
     + faceHtml(season, x.name, role === "Winner" ? "won" : "", portrait(x.name)) + plink(season, x.name) + `<span class="role">${role}</span></div>`;
   const third = last ? last.evicted : null;
@@ -1399,11 +1435,7 @@ function finalHohHtml(season, f, parts, last) {
   } else {
     html += `<div class="scroll"><table class="players comps"><thead><tr><th scope="col">Part</th><th scope="col" class="day">Day</th><th scope="col">Name</th>`
       + `<th scope="col">Format</th><th scope="col">Type</th><th scope="col">Won by</th></tr></thead><tbody>`
-      + parts.map(c => `<tr><td>${esc((c.outcome.match(/part\s*\d+/i) || [c.type])[0].replace(/^p/, "P"))}</td><td class="day">${esc(c.day || "")}</td>`
-        + `<td>${c.name ? `“${esc(c.name)}”` : `<span class="zero">–</span>`}</td>`
-        + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : `<span class="zero">–</span>`}</td>`
-        + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
-        + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+      + parts.map(c => `<tr><td>${esc(c.part)}</td><td class="day">${esc(c.day || "")}</td>${compCells(season, c)}</tr>`).join("")
       + `</tbody></table></div>`;
   }
   if (last && f.decided) {
@@ -1420,7 +1452,7 @@ function juryBoardHtml(season, f, jury) {
   if (!f.decided) {
     return `<h2>The jury so far</h2><div class="board"><div class="board-col"><ul>${jury.map(chip).join("") || `<li class="none">No jurors yet.</li>`}</ul></div></div>`;
   }
-  const cols = f.finalists.slice().sort((x, y) => y.votes - x.votes).map((x, i) => {
+  const cols = byVotes(f).map((x, i) => {
     const mine = jury.filter(j => j.vote === x.name);
     return `<div class="board-col${i === 0 ? " win" : ""}"><h3>${faceHtml(season, x.name)}${plink(season, x.name)}<span class="n">${x.votes}</span></h3>`
       + (mine.length ? `<ul>${mine.map(chip).join("")}</ul>` : `<p class="none">No jury votes.</p>`) + `</div>`;
@@ -1435,14 +1467,14 @@ function juryTableHtml(season, f, jury) {
     const at = j.round;
     const left = `${esc(j.left || "Left")}${j.day != null ? ` Day ${j.day}` : ""}`
       + (at ? ` · <a class="plink" href="${weekHash(season, at.label)}">${esc(at.label)}</a>` : "");
-    const by = at ? `${at.r.hoh.map(n => plink(season, n)).join(" & ")}` : `<span class="zero">–</span>`;
+    const by = at ? `${at.r.hoh.map(n => plink(season, n)).join(" & ")}` : ZERO;
     const part = at ? names.map(n => at.roles.get(n).length
         ? `${plink(season, n)}: ${at.roles.get(n).map(x => `<span class="tag">${esc(x)}</span>`).join("")}` : "").filter(Boolean).join("<br>")
       : "";
     return `<tr><td><div class="pl">${faceHtml(season, j.name, "out")}<span>${plink(season, j.name)}<small>Juror ${j.n}</small></span></div></td>`
       + `<td>${left}</td><td>${by}</td>`
-      + (f.decided ? `<td class="why">${part || `<span class="zero">–</span>`}</td>`
-        + `<td>${j.vote ? `<strong>${plink(season, j.vote)}</strong>` : `<span class="zero">–</span>`}</td>` : "") + `</tr>`;
+      + (f.decided ? `<td class="why">${part || ZERO}</td>`
+        + `<td>${j.vote ? `<strong>${plink(season, j.vote)}</strong>` : ZERO}</td>` : "") + `</tr>`;
   }).join("");
   return `<h2>Who the jurors were</h2><div class="scroll"><table class="players jury"><thead><tr><th scope="col">Juror</th><th scope="col">Left the game</th>`
     + `<th scope="col">HOH that week</th>`
@@ -1452,7 +1484,7 @@ function juryTableHtml(season, f, jury) {
 
 // The final two's games side by side.
 function duelHtml(season, f, jury, parts, people) {
-  const list = f.finalists.slice().sort((x, y) => y.votes - x.votes);
+  const list = byVotes(f);
   const stats = list.map(x => {
     const p = people.get(x.name);
     const s = p ? playerStats(p) : {};
@@ -1460,7 +1492,7 @@ function duelHtml(season, f, jury, parts, people) {
              hand: jury.filter(j => j.round && j.round.roles.get(x.name).some(r => r !== "held the veto")).length,
              votes: x.votes };
   });
-  const row = (label, key) => `<tr><th scope="row">${esc(label)}</th>${stats.map(s => `<td>${s[key] != null ? s[key] : `<span class="zero">–</span>`}</td>`).join("")}</tr>`;
+  const row = (label, key) => `<tr><th scope="row">${esc(label)}</th>${stats.map(s => `<td>${s[key] != null ? s[key] : ZERO}</td>`).join("")}</tr>`;
   return `<h2>The final two’s games</h2><div class="scroll"><table class="players duel"><thead><tr><th scope="col"></th>`
     + list.map(x => `<th scope="col">${plink(season, x.name)}</th>`).join("") + `</tr></thead><tbody>`
     + row("Jury votes", "votes") + row("HOH wins", "hoh") + row("Veto wins", "veto") + row("Final HOH parts won", "parts")
@@ -1477,6 +1509,10 @@ let endgameStart = ENDGAME_DEFAULT;
 const endgameHash = (season, start = endgameStart) => `#endgame=${season}${start !== ENDGAME_DEFAULT ? `/${start}` : ""}`;
 const ordinal = n => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] || "th"}`;
 const placeText = n => n === 1 ? "Winner" : n === 2 ? "Runner-up" : `${ordinal(n)} place`;
+// A finish in the endgame (1 the winner, 2 the runner-up, 3+ evicted, none still in)
+// as a face's ring and a label.
+const placeState = pl => pl === 1 ? "won" : pl === 2 ? "" : pl ? "out" : "live";
+const placeLabel = pl => pl ? placeText(pl) : "Still in";
 // "A", "A and B", "A, B and C", as player links.
 const andList = (season, names) => {
   const xs = names.map(n => plink(season, n));
@@ -1488,7 +1524,7 @@ const andList = (season, names) => {
 // as does a walk or expulsion on a later day. Also who decided each eviction:
 // the sole voter, the HOH breaking a tie, or the voters in the majority.
 function seasonRounds(season, d) {
-  const people = d.players.filter(p => p.season === season);
+  const people = seasonPlayers(d, season);
   const byName = new Map(people.map(p => [p.name, p]));
   const f = (d.finales || {})[season];
   const left = f && f.decided ? f.finalists.map(x => x.name) : people.filter(p => !p.result).map(p => p.name);
@@ -1497,7 +1533,7 @@ function seasonRounds(season, d) {
   for (const [key, label, i] of roundKeys(season)) {
     const r = weekRecord(season, label).rounds[i];
     if (!r || !r.evicted) continue;
-    const wd = d.weeks[`${season}|${label}`] || null;
+    const wd = weekDetail(d, season, label) || null;
     const v = ((wd || {}).rounds || [])[i] || null;
     const votes = v ? v.votes : [];
     let how = null, deciders = [];
@@ -1524,18 +1560,10 @@ function stageRule(x) {
   return `${plural(voters, "vote")}; the HOH breaks a tie.`;
 }
 
-// The HOH or veto competition's name, if either source names it.
-function compName(x, kind) {
+// " in “Name”": the round's HOH or veto competition, if either source names it.
+function compIn(x, kind) {
   const c = x.wd ? roundComp(x.wd, x.i + 1, kind) : null;
   return c && c.name ? ` in “${esc(c.name)}”` : "";
-}
-
-// The final HOH's parts, from the finale week's Big Brother Wiki comps.
-function finalParts(d, f) {
-  const wd = f ? d.weeks[`${f.season}|${f.week}`] : null;
-  return ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => /final hoh/i.test(c.outcome || ""))
-    .sort((a, b) => dayNum(a.day) - dayNum(b.day))
-    .map(c => ({ ...c, part: ((c.outcome.match(/part\s*\d+/i) || ["Part"])[0]).replace(/^p/, "P") }));
 }
 
 // One round in a few sentences.
@@ -1550,10 +1578,10 @@ function roundStory(season, x, parts) {
     out.push(`${L(r.hoh)} evicted ${plink(season, r.evicted)}` + (kept.length ? ` and took ${L(kept)} to the final two.` : "."));
     return out.join(" ");
   }
-  if (r.hoh.length) out.push(`${L(r.hoh)} won HOH${compName(x, "hoh")}` + (r.nominees_initial.length ? ` and nominated ${L(r.nominees_initial)}.` : "."));
+  if (r.hoh.length) out.push(`${L(r.hoh)} won HOH${compIn(x, "hoh")}` + (r.nominees_initial.length ? ` and nominated ${L(r.nominees_initial)}.` : "."));
   for (const [label, names] of Object.entries(r.extras || {})) if (names.length) out.push(`${L(names)} won the ${esc(extraLabel(label))}.`);
   if (r.veto_winners.length) {
-    let s = `${L(r.veto_winners)} won the veto${compName(x, "veto")}`;
+    let s = `${L(r.veto_winners)} won the veto${compIn(x, "veto")}`;
     if (use && use.used) {
       const self = use.on.length === 1 && r.veto_winners.includes(use.on[0]);
       s += self ? " and used it on themselves" : ` and used it on ${L(use.on)}`;
@@ -1601,17 +1629,12 @@ function roleTags(season, x, name, parts) {
 }
 
 async function showEndgame(season, start) {
-  setView("endgame");
-  currentSeason = season;
   endgameStart = start;
-  $("endgame-season-pick").innerHTML = seasonPickerHtml(season);
   $("endgame-start-pick").innerHTML = ENDGAME_STARTS.map(n =>
     `<button aria-pressed="${n === start}" data-start="${n}">From final ${n}</button>`).join("");
+  const d = await openView("endgame", season, "Loading the endgame…");
+  if (!d || endgameStart !== start) return;
   const panel = $("endgame-panel");
-  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading the endgame…</div>`;
-  let d;
-  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
-  if (currentSeason !== season || currentView !== "endgame" || endgameStart !== start) return;
   const S = seasonRounds(season, d);
   const f = S.finale, decided = !!(f && f.decided);
   const eg = S.rounds.filter(x => x.size <= start);
@@ -1643,12 +1666,10 @@ async function showEndgame(season, start) {
 
 function endgameCastHtml({ season, S, cast, place, start, eg }) {
   const first = eg[0];
-  const portrait = n => ((S.people.get(n) || {}).fandom || {}).portrait || null;
   const cards = cast.map(n => {
     const pl = place.get(n);
-    const state = pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live";
-    return `<div class="fin-card${pl === 1 ? " win" : ""}">${faceHtml(season, n, state, portrait(n))}${plink(season, n)}`
-      + `<span class="role">${pl ? esc(placeText(pl)) : "Still in"}</span></div>`;
+    return `<div class="fin-card${pl === 1 ? " win" : ""}">${faceHtml(season, n, placeState(pl), portraitOf(S.people.get(n)))}${plink(season, n)}`
+      + `<span class="role">${esc(placeLabel(pl))}</span></div>`;
   }).join("");
   return `<div class="eg-cast">${cards}</div>`
     + `<p class="fin-lede">From the final ${first.size}, ${plural(eg.length, "eviction")}${S.finale && S.finale.decided ? " and the jury vote decided the game" : " so far"}.</p>`;
@@ -1670,6 +1691,14 @@ function endgameWins(ctx, name) {
 function endgameComps(ctx) {
   return ctx.eg.reduce((n, x) => n + (x.size === 3 ? Math.max(ctx.parts.filter(c => c.winners.length).length, 1)
     : x.r.hoh.length + x.r.veto_winners.length), 0);
+}
+
+// Of these houseguests, whoever had the most HOH and veto wins all season (all of
+// them on a tie) and that many wins.
+function compLeaders(d, season, names) {
+  const wins = names.map(n => { const p = findPlayer(d, season, n); return { n, wins: p ? p.hoh.length + p.veto.length : 0 }; });
+  const best = Math.max(0, ...wins.map(x => x.wins));
+  return { names: wins.filter(x => x.wins === best).map(x => x.n), wins: best };
 }
 
 function endgameNotesHtml(ctx) {
@@ -1704,12 +1733,11 @@ function endgameNotesHtml(ctx) {
     notes.push(s);
   }
   // The season's comp leader, to set the endgame against the whole game.
-  const all = cast.map(n => { const p = ctx.d.players.find(x => x.season === season && x.name === n); return { n, wins: p ? p.hoh.length + p.veto.length : 0 }; })
-    .sort((a, b) => b.wins - a.wins);
-  if (all.length && all[0].wins) {
-    const top = all.filter(x => x.wins === all[0].wins).map(x => x.n);
+  const lead = compLeaders(ctx.d, season, cast);
+  if (lead.wins) {
+    const top = lead.names;
     const pl = top.length === 1 ? place.get(top[0]) : null;
-    notes.push(`Over the whole season, ${L(top)} had the most HOH and veto wins of the final ${eg[0].size} (${all[0].wins})`
+    notes.push(`Over the whole season, ${L(top)} had the most HOH and veto wins of the final ${eg[0].size} (${lead.wins})`
       + (pl ? ` and finished ${pl === 1 ? "as the winner" : pl === 2 ? "as runner-up" : ordinal(pl)}.` : "."));
   }
   // Who decided the most evictions.
@@ -1761,10 +1789,9 @@ function powerGridHtml(ctx) {
     if (decided) {
       const me = f.finalists.find(x => x.name === n), j = f.jury.find(x => x.name === n);
       jury = me ? `<td><span class="t ${me.name === f.winner ? "won" : ""}">${me.name === f.winner ? "Won" : "Lost"} ${me.votes}–${f.finalists.find(x => x.name !== n).votes}</span></td>`
-        : `<td>${j && j.vote ? `<span class="t">Voted ${esc(j.vote)}</span>` : `<span class="zero">–</span>`}</td>`;
+        : `<td>${j && j.vote ? `<span class="t">Voted ${esc(j.vote)}</span>` : ZERO}</td>`;
     }
-    const state = pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live";
-    return `<tr><td><div class="pl">${faceHtml(season, n, state)}<span>${plink(season, n)}<small>${pl ? esc(placeText(pl)) : "Still in"}</small></span></div></td>${cells}${jury}</tr>`;
+    return `<tr><td><div class="pl">${faceHtml(season, n, placeState(pl))}<span>${plink(season, n)}<small>${esc(placeLabel(pl))}</small></span></div></td>${cells}${jury}</tr>`;
   }).join("");
   return `<h2>Who held the power</h2>`
     + `<div class="t-legend"><span><span class="t hoh">HOH</span> Head of Household</span><span><span class="t veto">Veto</span> won the veto</span>`
@@ -1776,23 +1803,21 @@ function powerGridHtml(ctx) {
 function endgameTableHtml(ctx) {
   const { season, d, eg, cast, place } = ctx;
   const keys = new Set(eg.map(x => x.key));
-  const num = n => n ? n : `<span class="zero">0</span>`;
   const hasParts = eg.some(x => x.size === 3) && ctx.parts.length;
   const rows = cast.map(n => {
-    const p = d.players.find(x => x.season === season && x.name === n) || { hoh: [], veto: [] };
+    const p = findPlayer(d, season, n) || { hoh: [], veto: [] };
     const w = endgameWins(ctx, n);
     const before = { hoh: p.hoh.filter(k => !keys.has(k)).length, veto: p.veto.filter(k => !keys.has(k)).length };
     const block = eg.filter(x => x.size > 3 && x.r.nominees_final.includes(n)).length;
     const decided = eg.filter(x => x.deciders.includes(n)).length;
     const alone = eg.filter(x => x.deciders.length === 1 && x.deciders[0] === n).length;
     const pl = place.get(n);
-    return `<tr><td><div class="pl">${faceHtml(season, n, pl === 1 ? "won" : pl ? (pl === 2 ? "" : "out") : "live")}<span>${plink(season, n)}</span></div></td>`
-      + `<td class="result">${pl ? esc(placeText(pl)) : "Still in"}</td>`
+    return `<tr><td><div class="pl">${faceHtml(season, n, placeState(pl))}<span>${plink(season, n)}</span></div></td>`
+      + `<td class="result">${esc(placeLabel(pl))}</td>`
       + `<td class="gs">${num(before.hoh)}</td><td>${num(before.veto)}</td>`
       + `<td class="gs">${num(w.hoh + w.finalHoh)}</td><td>${num(w.veto)}</td>${hasParts ? `<td>${num(w.parts)}</td>` : ""}`
       + `<td class="gs">${num(block)}</td><td>${num(decided)}</td><td>${num(alone)}</td></tr>`;
   }).join("");
-  const th = (text, title, cls) => `<th scope="col"${cls ? ` class="${cls}"` : ""}>${title ? `<abbr title="${esc(title)}">${esc(text)}</abbr>` : esc(text)}</th>`;
   return `<h2>Before the endgame and in it</h2><div class="scroll"><table class="players"><thead>`
     + `<tr class="grp"><th colspan="2"></th><th colspan="2" class="gs">Before</th><th colspan="${hasParts ? 3 : 2}" class="gs">Endgame comps</th><th colspan="3" class="gs">Endgame evictions</th></tr><tr>`
     + `<th scope="col">Houseguest</th><th scope="col" style="text-align:left">Finish</th>`
@@ -1816,12 +1841,9 @@ function acrossSeasonsHtml(ctx) {
     const f = S.finale;
     const c = { season: s, d, eg, parts: finalParts(d, f) };
     const w = endgameWins(c, f.winner);
-    const leaderPool = [...S.left, ...eg.map(x => x.r.evicted)].map(n => {
-      const p = d.players.find(x => x.season === s && x.name === n);
-      return { n, wins: p ? p.hoh.length + p.veto.length : 0 };
-    }).sort((a, b) => b.wins - a.wins);
-    const leaders = leaderPool.filter(x => x.wins === leaderPool[0].wins).map(x => x.n);
-    const egBest = Math.max(...leaderPool.map(x => endgameWins(c, x.n).total));
+    const pool = [...S.left, ...eg.map(x => x.r.evicted)];
+    const leaders = compLeaders(d, s, pool).names;
+    const egBest = Math.max(...pool.map(n => endgameWins(c, n).total));
     rows.push({
       s, f, w, f4, f3,
       f4voter: f4 && f4.how === "sole" ? f4.deciders[0] : null,
@@ -1849,7 +1871,7 @@ function acrossSeasonsHtml(ctx) {
       + `<td>${r.w.total} <span class="muted">(${[r.w.hoh && plural(r.w.hoh, "HOH"), r.w.veto && plural(r.w.veto, "veto", "vetoes"),
           r.w.parts && plural(r.w.parts, "final HOH part"), r.w.total > r.w.hoh + r.w.veto + r.w.parts && "the final HOH"].filter(Boolean).join(", ") || "none"})</span></td>`
       + `<td>${r.winnerNoms || `<span class="zero">0</span>`}</td>`
-      + `<td>${r.f4 ? `${L(r.s, r.f4.r.veto_winners)}${r.f4voter && !r.f4.r.veto_winners.includes(r.f4voter) ? ` <span class="muted">(${plink(r.s, r.f4voter)} voted)</span>` : ""} <span class="muted">out:</span> ${plink(r.s, r.f4.r.evicted)}` : `<span class="zero">–</span>`}</td>`
+      + `<td>${r.f4 ? `${L(r.s, r.f4.r.veto_winners)}${r.f4voter && !r.f4.r.veto_winners.includes(r.f4voter) ? ` <span class="muted">(${plink(r.s, r.f4voter)} voted)</span>` : ""} <span class="muted">out:</span> ${plink(r.s, r.f4.r.evicted)}` : ZERO}</td>`
       + `<td>${plink(r.s, r.f3.r.hoh[0])} <span class="muted">out:</span> ${plink(r.s, r.f3.r.evicted)}</td>`
       + `<td>${L(r.s, r.leaders)}</td></tr>`;
   }).join("");
@@ -1881,7 +1903,7 @@ function afhTagHtml(d, p) {
 
 // Where the favorite's game ended: won, runner-up, a juror, or out before the jury.
 function afhStanding(d, season, name) {
-  const p = d.players.find(x => x.season === season && x.name === name);
+  const p = findPlayer(d, season, name);
   const f = (d.finales || {})[season];
   const juror = f ? f.jury.findIndex(j => j.name === name) : -1;
   if (!p) return { text: "", jury: false };
@@ -1899,15 +1921,16 @@ function afhOthersHtml(season, a) {
   return `<p class="voters">${top ? "Top 3 in the vote" : "Runner-up in the vote"}: ${names.map(n => plink(season, n)).join(", ")}</p>`;
 }
 
+const afhNoteHtml = n => quoteHtml(n.text, `${n.where} · Wikipedia`);
+
 function afhCardHtml(d, season, a) {
-  const people = new Map(d.players.filter(p => p.season === season).map(p => [p.name, p]));
-  const p = people.get(a.winner);
+  const p = findPlayer(d, season, a.winner);
   const full = p ? playerBio(p).full_name : a.winner_text;
   const st = a.winner ? afhStanding(d, season, a.winner) : { text: "" };
   const name = a.winner ? plink(season, a.winner) : esc(a.winner_text);
-  const face = a.winner ? faceHtml(season, a.winner, p ? faceState(p) : "", ((p || {}).fandom || {}).portrait || null) : "";
+  const face = a.winner ? faceHtml(season, a.winner, p ? faceState(p) : "", portraitOf(p)) : "";
   const others = afhOthersHtml(season, a);
-  const notes = a.notes.map(n => `<blockquote class="wnote">${esc(n.text)}<cite>${esc(n.where)} · Wikipedia</cite></blockquote>`).join("");
+  const notes = a.notes.map(afhNoteHtml).join("");
   return `<article class="afh-card won"><h2><a class="plink" href="#finale=${season}">BB${season}</a>${a.prize ? `<span class="n">${esc(a.prize)}</span>` : ""}</h2>`
     + `<div class="afh-who">${face}<span>${name}${full && full !== a.winner ? `<small>${esc(full)}</small>` : ""}${st.text ? `<small>${esc(st.text)}</small>` : ""}</span></div>`
     + others + notes + `</article>`;
@@ -1929,12 +1952,9 @@ function afhFactsHtml(d, seasons) {
 }
 
 async function showAfh() {
-  setView("afh");
+  const d = await openView("afh", null, "Loading…");
+  if (!d) return;
   const panel = $("afh-panel");
-  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading…</div>`;
-  let d;
-  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
-  if (currentView !== "afh") return;
   const all = seasonList();
   const done = all.filter(s => (d.afh || {})[s]);
   const pending = all.filter(s => !(d.afh || {})[s]);
@@ -1956,7 +1976,7 @@ function finaleAfhHtml(season, d, people) {
     + `<div class="afh-who">${a.winner ? faceHtml(season, a.winner, p ? faceState(p) : "") : ""}<span>${a.winner ? plink(season, a.winner) : esc(a.winner_text)}`
     + `<small>${esc([st.text, a.prize].filter(Boolean).join(" · "))}</small></span></div>`
     + afhOthersHtml(season, a)
-    + (a.notes[0] ? `<blockquote class="wnote">${esc(a.notes[a.notes.length - 1].text)}<cite>${esc(a.notes[a.notes.length - 1].where)} · Wikipedia</cite></blockquote>` : "")
+    + (a.notes.length ? afhNoteHtml(a.notes[a.notes.length - 1]) : "")
     + `<p><a class="plink" href="#afh">Every season’s favorite ›</a></p>`;
 }
 
@@ -1977,39 +1997,25 @@ function route() {
   if (kind === "week") {
     if (currentView === "weeks") setView("weeks");
     showWeek(season, rest);
-  } else if (kind === "comps") {
-    hideDrawer();
-    showComps(season || newest);
-  } else if (kind === "endgame") {
-    hideDrawer();
-    showEndgame(season || newest, ENDGAME_STARTS.includes(+rest) ? +rest : ENDGAME_DEFAULT);
-  } else if (kind === "finale") {
-    hideDrawer();
-    showFinale(season || newest);
-  } else if (kind === "players") {
-    hideDrawer();
-    showPlayers(season || newest);
-  } else {
-    // A player opened from the Comps, Endgame, Finale or Favorite view keeps that view behind the drawer.
-    if (!(["players", "comps", "endgame", "finale"].includes(currentView) && currentSeason === season) && currentView !== "afh") showPlayers(season);
+  } else if (kind === "player") {
+    // A player opened from another tab keeps that tab behind the drawer, if it's for their season.
+    const keep = currentView === "afh" || (currentView !== "weeks" && currentSeason === season);
+    if (!keep) showPlayers(season);
     showPlayer(season, rest);
+  } else {
+    hideDrawer();
+    VIEWS[kind].show(season || newest, rest);
   }
 }
 
-$("tab-weeks").addEventListener("click", () => { location.hash = ""; });
-$("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
-$("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
-$("tab-endgame").addEventListener("click", () => { location.hash = endgameHash(currentSeason || seasonList()[0]); });
-$("tab-finale").addEventListener("click", () => { location.hash = `#finale=${currentSeason || seasonList()[0]}`; });
-$("tab-afh").addEventListener("click", () => { location.hash = "#afh"; });
-wireSeasonPicker("season-pick", s => `#players=${s}`);
-wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
-wireSeasonPicker("endgame-season-pick", s => endgameHash(s));
+for (const [view, { hash }] of Object.entries(VIEWS)) {
+  $(`tab-${view}`).addEventListener("click", () => { location.hash = hash(currentSeason || seasonList()[0]); });
+}
+for (const view of SEASON_VIEWS) wireSeasonPicker(`${view}-season-pick`, VIEWS[view].hash);
 $("endgame-start-pick").addEventListener("click", e => {
   const b = e.target.closest("button[data-start]");
   if (b) location.hash = endgameHash(currentSeason, +b.dataset.start);
 });
-wireSeasonPicker("finale-season-pick", s => `#finale=${s}`);
 $("grid-mode").addEventListener("click", e => {
   const b = e.target.closest("button[data-mode]");
   if (!b || !DATA) return;

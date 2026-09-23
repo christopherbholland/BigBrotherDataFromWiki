@@ -1,5 +1,6 @@
 """America's Favorite HouseGuest on a synthetic page (made-up houseguests)."""
 from bbgrid.afh import afh, check, names_in
+from bbgrid.export import add_afh
 
 PEOPLE = [("Remy", "Remy Castillo"), ("Dana K.", "Dana Kirby"), ("Dana W.", "Dana Wells"),
           ("America", "America Soto"), ("Jo", "Jo Park")]
@@ -49,3 +50,14 @@ def test_check_takes_the_wiki_prize_and_reports_disagreements():
     lines = check(27, a, players, decided=True)
     assert a["prize"] == "$50,000 & 7-Day Cruise"
     assert lines == ["BB27: America's Favorite HouseGuest: Wikipedia Dana K. / Fandom Remy"]
+
+
+def test_add_afh_keeps_named_seasons_newest_first():
+    a = afh(PAGE, PEOPLE, EPISODES)
+    finales = {"9": {"decided": True}, "10": {"decided": True}, "11": {"decided": False}}
+    named, lines = add_afh({"9": a, "10": None, "11": None}, finales, [])
+    assert named == {"9": a}
+    # A finished season with no favorite is reported; one still airing isn't.
+    assert lines == ["BB10: Wikipedia's infobox names no America's Favorite HouseGuest"]
+    named, _ = add_afh({"9": a, "10": dict(a)}, finales, [])
+    assert list(named) == ["10", "9"]
