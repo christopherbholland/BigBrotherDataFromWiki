@@ -6,7 +6,7 @@ table. Nothing here is shown on the main cards.
 """
 import re
 
-from .util import mentions, name_key
+from .util import mentions, name_key, split_sentences
 
 OUT_OF_GAME_RE = re.compile(r"^(evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
 # Parts of a week's note that don't describe anything unusual about the game.
@@ -100,7 +100,6 @@ COMP_PATTERNS = [
 ]
 VETO_DECISION_RE = re.compile(
     r"\bveto (meeting|ceremony)\b|\b(used|use|using) the (power of )?veto\b|\bnot to use\b|\bdecided not\b", re.I)
-SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"“])")
 
 
 def episode_insights(record, episodes):
@@ -114,7 +113,7 @@ def episode_insights(record, episodes):
     """
     sentences = []
     for ep in episodes:
-        sentences += [x.strip() for x in SENTENCE_SPLIT.split(ep.get("summary") or "") if x.strip()]
+        sentences += split_sentences(ep.get("summary") or "")
     comps, seen, taken = [], {}, set()  # taken: (round, kind) already given a competition
     for i, sent in enumerate(sentences):
         context = sent + " " + (sentences[i + 1] if i + 1 < len(sentences) else "")
@@ -246,13 +245,13 @@ def finale(record):
         jury.append({"name": name, "vote": vote, "left": left, "day": int(m.group(2)) if m else None})
     # The table lists the latest to leave first; a juror with no exit day goes last.
     jury.sort(key=lambda j: j["day"] if j["day"] is not None else 10**6)
-    pick = lambda word: next((n for n, r in result.items() if r == word), None)
+    winner = next((n for n, r in result.items() if r == "winner"), None)
     return {
         "season": record["season"],
         "week": record["week_label"],
-        "decided": bool(pick("winner")),
-        "winner": pick("winner"),
-        "runner_up": pick("runner-up"),
+        "decided": winner is not None,
+        "winner": winner,
+        "runner_up": next((n for n, r in result.items() if r == "runner-up"), None),
         "finalists": [{"name": n, "votes": sum(j["vote"] == n for j in jury),
                        "jurors": [j["name"] for j in jury if j["vote"] == n]} for n in result],
         "jury": jury,

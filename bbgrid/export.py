@@ -165,8 +165,10 @@ def add_fandom(fandom_seasons, fandom_dir, sources, weeks, details, people, seas
 def add_wikipedia(seasons, cache_dir):
     """Run the grid pipeline over each cached Wikipedia page.
 
-    Returns {"sources", "weeks", "details", "players", "finales", "unmatched", "season_errors"}.
-    A season that isn't cached or fails to parse is reported, not fatal.
+    Returns {"sources", "weeks", "details", "players", "finales", "afh", "unmatched",
+    "season_errors"}; finales and afh are by season as a string, afh None where the
+    page names no favorite. A season that isn't cached or fails to parse is reported,
+    not fatal.
     """
     out = {"sources": [], "weeks": [], "details": {}, "players": [], "finales": {}, "afh": {}, "unmatched": [],
            "season_errors": []}
@@ -197,6 +199,21 @@ def add_wikipedia(seasons, cache_dir):
     return out
 
 
+def add_afh(afh_by_season, finales, people):
+    """Check each season's America's Favorite HouseGuest against the Big Brother Wiki's
+    prize lists (people must have "fandom" by now; see add_fandom).
+
+    Returns (the seasons that name a favorite, newest first; report lines).
+    """
+    named, lines = {}, []
+    for season, result in afh_by_season.items():
+        decided = (finales.get(season) or {}).get("decided", False)
+        lines.extend(check_afh(season, result, [p for p in people if str(p["season"]) == season], decided))
+        if result is not None:
+            named[season] = result
+    return dict(sorted(named.items(), key=lambda kv: -int(kv[0]))), lines
+
+
 def write_json(path, doc, compact=False):
     """weeks.json is indented so its diffs are readable; details.json is compact to stay small."""
     text = json.dumps(doc, ensure_ascii=False, **({"separators": (",", ":")} if compact else {"indent": 1}))
@@ -213,13 +230,7 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         {s: t for s, t in fandom_seasons.items() if s in seasons}, fandom_dir,
         wiki["sources"], wiki["weeks"], wiki["details"], wiki["players"], wiki["season_errors"])
 
-    # America's Favorite HouseGuest, checked against the Big Brother Wiki's prize lists.
-    for season, result in list(wiki["afh"].items()):
-        decided = (wiki["finales"].get(season) or {}).get("decided", False)
-        fandom_lines.extend(check_afh(season, result, [p for p in wiki["players"] if str(p["season"]) == season],
-                                      decided))
-        if result is None:
-            del wiki["afh"][season]
+    favorites, afh_lines = add_afh(wiki["afh"], wiki["finales"], wiki["players"])
 
     out_dir.mkdir(parents=True, exist_ok=True)
     header = {"schema_version": SCHEMA_VERSION, "generated_at": utc_now(), "license": LICENSE}
@@ -232,9 +243,9 @@ def run(seasons=None, cache_dir=CACHE_DIR, out_dir=WEB_DIR, fandom_seasons=None,
         "seasons": {str(k): v for k, v in sorted(seasons_info.items())},
         "categories": [{"name": c, "help": CATEGORY_HELP[c]} for c in CATEGORIES],
         "formats": formats, "weeks": wiki["details"], "players": wiki["players"], "finales": wiki["finales"],
-        "afh": dict(sorted(wiki["afh"].items(), key=lambda kv: -int(kv[0]))),
+        "afh": favorites,
     }, compact=True)
-    report = make_report(wiki["weeks"], wiki["season_errors"], wiki["unmatched"], fandom_lines)
+    report = make_report(wiki["weeks"], wiki["season_errors"], wiki["unmatched"], fandom_lines + afh_lines)
     (out_dir.parent / "report.txt").write_text(report, encoding="utf-8")
     return doc, report
 

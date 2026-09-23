@@ -15,11 +15,11 @@ Names: the two wikis use different short names ("Michie" / "Jackson",
 page, and every Fandom name is translated through that page.
 """
 import re
-import unicodedata
 
 from .config import fandom_permalink, fandom_url
 from .comps import describe, sentences, twist_prize
 from .details import week_key
+from .util import norm
 
 WIN_RE = re.compile(r"^(wins?|is saved|is upgraded|is awarded|is rewarded|returns?)\b", re.I)
 COMPARED = [  # (Wikipedia round field, Fandom game-history field, label)
@@ -28,13 +28,6 @@ COMPARED = [  # (Wikipedia round field, Fandom game-history field, label)
     ("veto_winners", "veto_holders", "Veto winner"),
     ("nominees_final", "nominees_final", "Final nominations"),
 ]
-
-
-def norm(name):
-    """Compare names ignoring case, accents, dots, spaces, hyphens and apostrophes."""
-    text = unicodedata.normalize("NFKD", name or "")
-    text = "".join(ch for ch in text if not unicodedata.combining(ch))
-    return re.sub(r"[\s.'’\-]+", "", text).casefold()
 
 
 class Names:

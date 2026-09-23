@@ -17,8 +17,7 @@ next, when the first is short), verbatim.
 import re
 from collections import Counter
 
-from .details import SENTENCE_SPLIT
-from .util import mentions
+from .util import mentions, split_sentences
 
 CATEGORIES = ["Endurance", "Physical", "Skill", "Mental", "Hybrid", "Puzzle", "Crapshoot"]
 CATEGORY_HELP = {
@@ -108,7 +107,7 @@ def sentences(episodes):
     out = []
     for ep in episodes:
         for para in (ep.get("summary") or "").split("\n"):
-            out += [x.strip() for x in SENTENCE_SPLIT.split(para) if x.strip()]
+            out += split_sentences(para)
     return out
 
 
