@@ -63,7 +63,8 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
   `&theme=light`) to pin one, e.g. `?embed=1&theme=dark` for a stream overlay.
 - **Deep links.** Every view has its own link, so an iframe can open straight into
   one: `?embed=1#week=26/Week%2010` (a week's details), `?embed=1#players=28` (a
-  season's players), or `?embed=1#player=26/Angela` (one player).
+  season's players), `?embed=1#player=26/Angela` (one player) or `?embed=1#finale=26`
+  (the finale and jury vote).
 - **Attribution.** The Wikipedia credit line stays visible in embed mode. It's needed
   for the CC BY-SA license, so don't hide it.
 
@@ -215,6 +216,17 @@ Things to know:
             "episodes": "39", "prize": "$750,000", "winner": "Chelsie Baham", "host": "Julie Chen-Moonves",
             "title": "Big Brother 26 (US)", "url": "…", "revid": 674463, "permalink": "…", "…": "…" }
   },
+  "finales": {                                    // one per season whose table has a Finale column
+    "26": {
+      "season": 26, "week": "Week 13",             // the week holding the Finale column
+      "decided": true,                             // false while the season airs: no finalists, votes null
+      "winner": "Chelsie", "runner_up": "Makensy",
+      "finalists": [{ "name": "Chelsie", "votes": 7, "jurors": ["Quinn", "…"] },
+                    { "name": "Makensy", "votes": 0, "jurors": [] }],
+      "jury": [{ "name": "Quinn", "vote": "Chelsie",   // in the order they left the game
+                 "left": "Evicted", "day": 59 }]       // from their last "Evicted (Day N)" cell
+    }
+  },
   "players": [{
     "season": 26, "name": "Angela", "result": "Evicted (Day 73)",  // null while still in the game
     "hoh": ["Week 1", "Week 4"], "veto": ["Week 9"],
@@ -255,6 +267,10 @@ Things to know:
   on to a moving wall as long as you can"), then in the competition's episode-summary
   sentence, then the most common type among the format's other plays. About 19 in 20
   HOH and veto competitions get one.
+- **`finales`.** Votes are counted from each juror's cell in the Finale column, not
+  read from the table's "N votes to win" line, which can be wrong (BB22's says "Enzo 0
+  votes to win" for a 9–0 vote). The final HOH's parts are in the finale week's
+  `fandom.comps` (outcome "wins Final HOH Part N").
 - **`bio` vs `fandom`.** The page shows age, hometown and occupation from `bio`
   (Wikipedia, age as listed there) and falls back to `fandom`.
 - **`comps`.** Competition names found in the episode summaries. A competition has a

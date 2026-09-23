@@ -213,7 +213,7 @@ table.players td.bio { color: var(--text-secondary); text-align: left; }
 table.players td.bio.num { text-align: right; }
 table.players th.bio { text-align: left; }
 table.players th abbr { text-decoration: none; cursor: help; }
-table.comps th, table.comps td { text-align: left; }
+table.comps th, table.comps td, table.jury th, table.jury td { text-align: left; }
 table.comps th.day, table.comps td.day { text-align: right; color: var(--text-secondary); }
 .cat { font-size: 11px; border-radius: 8px; padding: 1px 7px; background: var(--cell); color: var(--text-secondary); white-space: nowrap; }
 .cat-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 10px 12px 4px; font-size: 13px; color: var(--text-secondary); }
@@ -294,6 +294,43 @@ dl.bio { margin-top: 12px !important; }
 @media (max-width: 400px) { .bio-head > .face { width: 84px; } }
 dl.votes dt { display: flex; align-items: center; gap: 8px; }
 dl.votes dt .face { width: 24px; border-radius: 4px; font-size: 10px; }
+/* Finale view */
+.fin { padding: 4px 16px 20px; }
+.fin h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 22px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.fin-head { display: flex; align-items: center; justify-content: center; gap: 12px 32px; flex-wrap: wrap; padding: 18px 0 4px; }
+.fin-card { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; min-width: 120px; }
+.fin-card .face { width: 96px; border-radius: 10px; font-size: 26px; }
+.fin-card a { font-size: 16px; font-weight: 700; }
+.fin-card .role { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.fin-card.win .role { color: var(--text-primary); }
+.fin-score { font-size: 40px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.fin-lede { text-align: center; color: var(--text-secondary); margin: 8px auto 0; font-size: 15px; max-width: 640px; }
+.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.board-col { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px 12px; background: var(--surface-0); }
+.board-col.win { border-color: var(--gold); }
+.board-col h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 15px; }
+.board-col h3 .face { width: 32px; }
+.board-col h3 .n { margin-left: auto; font-size: 17px; font-weight: 800; padding: 3px 9px; border-radius: 6px; background: var(--cell); font-variant-numeric: tabular-nums; }
+.board-col.win h3 .n { background: var(--good); color: #fff; }
+.board-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.board-col li { display: flex; align-items: center; gap: 6px; font-size: 13px; background: var(--surface-1); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px 4px 4px; }
+.board-col li .face { width: 26px; border-radius: 4px; font-size: 10px; }
+.board-col li small { color: var(--text-muted); font-size: 11px; }
+.board-col .none { color: var(--text-muted); font-size: 13px; }
+table.jury td { vertical-align: middle; }
+table.jury td.why { white-space: normal; min-width: 180px; }
+table.jury .tag { margin: 0 4px 0 0; }
+table.duel th[scope="row"] { text-align: left; font-size: 13px; font-weight: 400; color: var(--text-secondary); text-transform: none; letter-spacing: 0; position: sticky; left: 0; background: var(--surface-1); }
+table.duel tr:last-child th { border-bottom: 0; }
+.fin .scroll { overflow-x: auto; }
+@media (max-width: 640px) {
+  .fin { padding: 4px 12px 16px; }
+  .fin-head { flex-wrap: nowrap; gap: 12px; }
+  .fin-card { min-width: 0; }
+  .fin-card .face { width: 72px; }
+  .fin-score { font-size: 30px; }
+}
+table.duel thead th { text-align: right; font-size: 13px; color: var(--text-primary); text-transform: none; letter-spacing: 0; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -307,6 +344,7 @@ dl.votes dt .face { width: 24px; border-radius: 4px; font-size: 10px; }
       <button role="tab" id="tab-weeks" aria-selected="true" aria-controls="weeks-view">Weeks</button>
       <button role="tab" id="tab-players" aria-selected="false" aria-controls="players-view">Players</button>
       <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
+      <button role="tab" id="tab-finale" aria-selected="false" aria-controls="finale-view">Finale</button>
     </div>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
@@ -331,6 +369,10 @@ dl.votes dt .face { width: 24px; border-radius: 4px; font-size: 10px; }
   <section id="comps-view" role="tabpanel" aria-labelledby="tab-comps" hidden>
     <div class="controls"><span class="seg" id="comps-season-pick" role="group" aria-label="Season"></span></div>
     <div class="panel" id="comps-panel"></div>
+  </section>
+  <section id="finale-view" role="tabpanel" aria-labelledby="tab-finale" hidden>
+    <div class="controls"><span class="seg" id="finale-season-pick" role="group" aria-label="Season"></span></div>
+    <div class="panel" id="finale-panel"></div>
   </section>
   <footer id="footer"></footer>
 </main>
@@ -682,9 +724,11 @@ async function showWeek(season, label) {
     ? w.rounds.map((r, i) => roundHtml(r, roundLabel(w, i))).join("")
     : `<p class="muted">No round was modeled this week. See “What was different”.</p>`;
   const different = specialHtml(d);
+  const fin = (DETAILS.finales || {})[season];
   openDrawer(title, statusText(w),
     pagerHtml(season, label)
     + `<h3>Summary</h3>${summary}`
+    + (fin && fin.week === label ? `<p><a class="plink" href="#finale=${season}">The final HOH and the jury vote ›</a></p>` : "")
     + (different ? `<h3>What was different</h3>${different}` : "")
     + `<h3>Competitions</h3>${compsHtml(w, d)}`
     + `<h3>Veto</h3>${vetoHtml(w, d)}`
@@ -891,13 +935,14 @@ const VIEW_TEXT = {
   weeks: ["Week by week", "Who was evicted each week, or who was HOH. Click or tap a week for the full story."],
   players: ["Players", "Every houseguest’s season in numbers. Click or tap a name for their week-by-week timeline."],
   comps: ["Competitions", "Every HOH and veto competition of a season. Click or tap a format to see each time it was played."],
+  finale: ["Finale", "How each season’s winner was decided: the final HOH, the last eviction and every juror’s vote."],
 };
 
 function setView(view) {
   currentView = view;
   $("view-title").textContent = VIEW_TEXT[view][0];
   $("view-sub").textContent = VIEW_TEXT[view][1];
-  for (const v of ["weeks", "players", "comps"]) {
+  for (const v of ["weeks", "players", "comps", "finale"]) {
     $(`${v}-view`).hidden = view !== v;
     $(`tab-${v}`).setAttribute("aria-selected", view === v);
   }
@@ -1178,7 +1223,162 @@ async function showFormat(format) {
     + `<p class="src"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(format)} on the Big Brother Wiki</a></p>`);
 }
 
-// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall ----------
+// ---------- Finale: the final HOH, the last eviction and the jury vote ----------
+
+const dayNum = day => parseInt(String(day || "").split("-")[0], 10) || 0;
+
+// What each finalist had to do with a juror's eviction: HOH that round, holding
+// the veto, or a vote to evict them. Null when the round isn't modeled.
+function jurorRound(season, p, finalists) {
+  if (!p || !p.evicted) return null;
+  const at = roundKeys(season).find(([k]) => k === p.evicted);
+  if (!at) return null;
+  const [, label, i] = at;
+  const r = weekRecord(season, label).rounds[i];
+  if (!r) return null;
+  const v = ((DETAILS.weeks[`${season}|${label}`] || {}).rounds || [])[i] || { votes: [] };
+  const roles = new Map(finalists.map(n => [n, []]));
+  for (const n of finalists) {
+    if (r.hoh.includes(n)) roles.get(n).push("HOH");
+    if (r.veto_winners.includes(n)) roles.get(n).push("held the veto");
+    if (r.tally && r.tally.type === "sole_vote" && r.tally.by === n) roles.get(n).push("cast the sole vote");
+    else if (v.votes.some(x => x.voter === n && x.vote === p.name)) roles.get(n).push("voted to evict");
+  }
+  return { label, r, roles };
+}
+
+async function showFinale(season) {
+  setView("finale");
+  currentSeason = season;
+  $("finale-season-pick").innerHTML = seasonPickerHtml(season);
+  const panel = $("finale-panel");
+  if (!DETAILS) panel.innerHTML = `<div class="msg">Loading the finale…</div>`;
+  let d;
+  try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return; }
+  if (currentSeason !== season || currentView !== "finale") return;
+  const f = (d.finales || {})[season];
+  if (!f) { panel.innerHTML = `<div class="msg">The voting table for BB${season} has no Finale column yet.</div>`; return; }
+  const w = weekRecord(season, f.week);
+  const wd = d.weeks[`${season}|${f.week}`];
+  const info = (d.seasons || {})[season] || {};
+  const people = new Map(d.players.filter(p => p.season === season).map(p => [p.name, p]));
+  const names = f.finalists.map(x => x.name);
+  const jury = f.jury.map((j, i) => ({ ...j, n: i + 1, round: jurorRound(season, people.get(j.name), names) }));
+  // The last round decided by one vote is the final HOH's eviction.
+  const last = w ? [...w.rounds].reverse().find(r => r.tally && r.tally.type === "sole_vote") : null;
+  const parts = ((wd && wd.fandom && wd.fandom.comps) || []).filter(c => /final hoh/i.test(c.outcome || ""))
+    .sort((a, b) => dayNum(a.day) - dayNum(b.day));
+
+  panel.innerHTML = `<div class="fin">`
+    + finaleHeadHtml(season, f, info, last, people)
+    + finalHohHtml(season, f, parts, last)
+    + juryBoardHtml(season, f, jury)
+    + juryTableHtml(season, f, jury)
+    + (f.decided ? duelHtml(season, f, jury, parts, people) : "")
+    + (wd && wd.episodes.length ? `<h2>Finale week’s episodes</h2>${episodesHtml(wd)}` : "")
+    + `<p class="src">Votes from Wikipedia’s voting table (<a href="${weekHash(season, f.week)}">${esc(f.week)}</a>); final HOH parts from the Big Brother Wiki.</p>`
+    + `</div>`;
+}
+
+function finaleHeadHtml(season, f, info, last, people) {
+  const portrait = n => ((people.get(n) || {}).fandom || {}).portrait || null;
+  if (!f.decided) {
+    const left = [...people.values()].filter(p => !p.result).map(p => p.name);
+    const due = info.finale ? new Date(info.finale + "T12:00:00Z").toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
+    return `<div class="fin-head">${left.map(n => `<div class="fin-card">${faceHtml(season, n, "live", portrait(n))}${plink(season, n)}<span class="role">Still in the game</span></div>`).join("")}</div>`
+      + `<p class="fin-lede">The finale hasn’t aired yet${due ? ` (due ${esc(due)})` : ""}. `
+      + `${plural(f.jury.length, "juror")} so far; the rest of the jury is decided by the evictions still to come.</p>`;
+  }
+  const [a, b] = f.finalists.slice().sort((x, y) => y.votes - x.votes);
+  const card = (x, role) => `<div class="fin-card${role === "Winner" ? " win" : ""}">`
+    + faceHtml(season, x.name, role === "Winner" ? "won" : "", portrait(x.name)) + plink(season, x.name) + `<span class="role">${role}</span></div>`;
+  const third = last ? last.evicted : null;
+  const lede = `${plink(season, a.name)} beat ${plink(season, b.name)} ${a.votes}–${b.votes}`
+    + (b.votes === 0 ? ", a unanimous jury vote" : "")
+    + (info.prize ? `, and won ${esc(info.prize)}` : "") + "."
+    + (third ? ` ${plink(season, third)} finished third, evicted by ${plink(season, last.hoh[0])} at the final three.` : "");
+  return `<div class="fin-head">${card(a, "Winner")}<div class="fin-score" aria-label="${a.votes} votes to ${b.votes}">${a.votes}–${b.votes}</div>${card(b, "Runner-up")}</div>`
+    + `<p class="fin-lede">${lede}</p>`;
+}
+
+function finalHohHtml(season, f, parts, last) {
+  let html = `<h2>The final Head of Household</h2>`;
+  if (!parts.length) {
+    html += `<p class="muted">${f.decided ? "The Big Brother Wiki doesn’t list the final HOH’s parts." : "Not played yet."}</p>`;
+  } else {
+    html += `<div class="scroll"><table class="players comps"><thead><tr><th scope="col">Part</th><th scope="col" class="day">Day</th><th scope="col">Name</th>`
+      + `<th scope="col">Format</th><th scope="col">Type</th><th scope="col">Won by</th></tr></thead><tbody>`
+      + parts.map(c => `<tr><td>${esc((c.outcome.match(/part\s*\d+/i) || [c.type])[0].replace(/^p/, "P"))}</td><td class="day">${esc(c.day || "")}</td>`
+        + `<td>${c.name ? `“${esc(c.name)}”` : `<span class="zero">–</span>`}</td>`
+        + `<td>${c.format ? `<a class="plink" href="${compHash(c.format)}">${esc(c.format)}</a>` : `<span class="zero">–</span>`}</td>`
+        + `<td>${c.category ? `<span class="cat">${esc(c.category)}</span>` : `<span class="zero">–</span>`}</td>`
+        + `<td>${c.winners.map(x => plink(season, x)).join(" & ") || `<span class="zero">–</span>`}</td></tr>`).join("")
+      + `</tbody></table></div>`;
+  }
+  if (last && f.decided) {
+    const kept = last.nominees_final.filter(n => n !== last.evicted);
+    html += `<p>${plink(season, last.hoh[0])} won the final HOH and cast the sole vote to evict ${plink(season, last.evicted)}`
+      + (kept.length ? `, taking ${kept.map(n => plink(season, n)).join(" and ")} to the final two` : "") + `.`
+      + ` ${plink(season, last.evicted)} became the last juror.</p>`;
+  }
+  return html;
+}
+
+function juryBoardHtml(season, f, jury) {
+  const chip = j => `<li>${faceHtml(season, j.name)}${plink(season, j.name)}<small>#${j.n}</small></li>`;
+  if (!f.decided) {
+    return `<h2>The jury so far</h2><div class="board"><div class="board-col"><ul>${jury.map(chip).join("") || `<li class="none">No jurors yet.</li>`}</ul></div></div>`;
+  }
+  const cols = f.finalists.slice().sort((x, y) => y.votes - x.votes).map((x, i) => {
+    const mine = jury.filter(j => j.vote === x.name);
+    return `<div class="board-col${i === 0 ? " win" : ""}"><h3>${faceHtml(season, x.name)}${plink(season, x.name)}<span class="n">${x.votes}</span></h3>`
+      + (mine.length ? `<ul>${mine.map(chip).join("")}</ul>` : `<p class="none">No jury votes.</p>`) + `</div>`;
+  });
+  return `<h2>The jury vote</h2><div class="board">${cols.join("")}</div>`;
+}
+
+function juryTableHtml(season, f, jury) {
+  if (!jury.length) return "";
+  const names = f.finalists.map(x => x.name);
+  const rows = jury.map(j => {
+    const at = j.round;
+    const left = `${esc(j.left || "Left")}${j.day != null ? ` Day ${j.day}` : ""}`
+      + (at ? ` · <a class="plink" href="${weekHash(season, at.label)}">${esc(at.label)}</a>` : "");
+    const by = at ? `${at.r.hoh.map(n => plink(season, n)).join(" & ")}` : `<span class="zero">–</span>`;
+    const part = at ? names.map(n => at.roles.get(n).length
+        ? `${plink(season, n)}: ${at.roles.get(n).map(x => `<span class="tag">${esc(x)}</span>`).join("")}` : "").filter(Boolean).join("<br>")
+      : "";
+    return `<tr><td><div class="pl">${faceHtml(season, j.name, "out")}<span>${plink(season, j.name)}<small>Juror ${j.n}</small></span></div></td>`
+      + `<td>${left}</td><td>${by}</td>`
+      + (f.decided ? `<td class="why">${part || `<span class="zero">–</span>`}</td>`
+        + `<td>${j.vote ? `<strong>${plink(season, j.vote)}</strong>` : `<span class="zero">–</span>`}</td>` : "") + `</tr>`;
+  }).join("");
+  return `<h2>Who the jurors were</h2><div class="scroll"><table class="players jury"><thead><tr><th scope="col">Juror</th><th scope="col">Left the game</th>`
+    + `<th scope="col">HOH that week</th>`
+    + (f.decided ? `<th scope="col">The finalists’ part in it</th><th scope="col">Voted for</th>` : "") + `</tr></thead><tbody>${rows}</tbody></table></div>`
+    + (f.decided ? `<p class="src">From each juror’s eviction round: which of the final two was HOH, held the veto or voted them out.</p>` : "");
+}
+
+// The final two's games side by side.
+function duelHtml(season, f, jury, parts, people) {
+  const list = f.finalists.slice().sort((x, y) => y.votes - x.votes);
+  const stats = list.map(x => {
+    const p = people.get(x.name);
+    const s = p ? playerStats(p) : {};
+    return { ...s, parts: parts.filter(c => c.winners.includes(x.name)).length,
+             hand: jury.filter(j => j.round && j.round.roles.get(x.name).some(r => r !== "held the veto")).length,
+             votes: x.votes };
+  });
+  const row = (label, key) => `<tr><th scope="row">${esc(label)}</th>${stats.map(s => `<td>${s[key] != null ? s[key] : `<span class="zero">–</span>`}</td>`).join("")}</tr>`;
+  return `<h2>The final two’s games</h2><div class="scroll"><table class="players duel"><thead><tr><th scope="col"></th>`
+    + list.map(x => `<th scope="col">${plink(season, x.name)}</th>`).join("") + `</tr></thead><tbody>`
+    + row("Jury votes", "votes") + row("HOH wins", "hoh") + row("Veto wins", "veto") + row("Final HOH parts won", "parts")
+    + row("Times nominated", "noms") + row("On the block at the vote", "block") + row("Votes to evict them", "against")
+    + row("Jurors they helped evict (HOH or vote)", "hand")
+    + `</tbody></table></div>`;
+}
+
+// ---------- Routing: #week=26/Week%2010 · #players=26 · #player=26/Angela · #comps=26 · #comp=The%20Wall · #finale=26 ----------
 
 function route() {
   if (!DATA) return;
@@ -1188,7 +1388,7 @@ function route() {
     if (currentView === "weeks" && !currentSeason) currentSeason = newest;
     return showFormat(decodeURIComponent(fm[1]));
   }
-  const m = location.hash.match(/^#(week|players|player|comps)=(\d+)(?:\/(.*))?$/);
+  const m = location.hash.match(/^#(week|players|player|comps|finale)=(\d+)(?:\/(.*))?$/);
   if (!m) { setView("weeks"); hideDrawer(); return; }
   const kind = m[1], season = +m[2], rest = m[3] ? decodeURIComponent(m[3]) : null;
   if (kind === "week") {
@@ -1197,12 +1397,15 @@ function route() {
   } else if (kind === "comps") {
     hideDrawer();
     showComps(season || newest);
+  } else if (kind === "finale") {
+    hideDrawer();
+    showFinale(season || newest);
   } else if (kind === "players") {
     hideDrawer();
     showPlayers(season || newest);
   } else {
-    // A player opened from the Comps view keeps that view behind the drawer.
-    if (!(["players", "comps"].includes(currentView) && currentSeason === season)) showPlayers(season);
+    // A player opened from the Comps or Finale view keeps that view behind the drawer.
+    if (!(["players", "comps", "finale"].includes(currentView) && currentSeason === season)) showPlayers(season);
     showPlayer(season, rest);
   }
 }
@@ -1210,8 +1413,10 @@ function route() {
 $("tab-weeks").addEventListener("click", () => { location.hash = ""; });
 $("tab-players").addEventListener("click", () => { location.hash = `#players=${currentSeason || seasonList()[0]}`; });
 $("tab-comps").addEventListener("click", () => { location.hash = `#comps=${currentSeason || seasonList()[0]}`; });
+$("tab-finale").addEventListener("click", () => { location.hash = `#finale=${currentSeason || seasonList()[0]}`; });
 wireSeasonPicker("season-pick", s => `#players=${s}`);
 wireSeasonPicker("comps-season-pick", s => `#comps=${s}`);
+wireSeasonPicker("finale-season-pick", s => `#finale=${s}`);
 $("grid-mode").addEventListener("click", e => {
   const b = e.target.closest("button[data-mode]");
   if (!b || !DATA) return;

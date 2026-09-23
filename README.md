@@ -148,6 +148,17 @@ and a link to it on the Big Brother Wiki. Types come from the format's Big Broth
 page ("a recurring endurance competition") where it names one, otherwise from the
 episode summaries.
 
+**Finale**: how each season's winner was decided. The final two and the jury vote
+(`7–0`), the final HOH's three parts with their formats and winners, and who the final HOH
+evicted at the final three. A vote board shows which jurors voted for whom. Then a row per juror, in the
+order they left: when they were evicted, who was HOH that week, and what each finalist had to
+do with it (HOH, held the veto, voted to evict). Last, the final two's games side by
+side: HOH and veto wins, final HOH parts, nominations, votes against, and how many jurors
+each helped evict. The votes are counted from each juror's own cell in Wikipedia's Finale
+column. The table's own "N votes to win" line isn't used because it can be wrong (BB22's reads
+"Enzo 0 votes to win"). While a season is airing the view shows who's left and the
+jury so far. The finale week's details link to it.
+
 ![Comps view for BB28 with each competition's format and type](docs/screenshots/comps.png)
 
 ![The Wall's format page: how it's played and every play](docs/screenshots/comp-format.png)
@@ -161,7 +172,7 @@ On a phone, details open as a bottom sheet:
 <img src="docs/screenshots/mobile-details.png" alt="BB26 Week 10 details on a phone" width="390">
 
 Every view has its own link, e.g. `#week=26/Week%204`, `#players=28`,
-`#player=26/Angela`, `#comps=28` or `#comp=The%20Wall`, so it can be shared or embedded directly. The detail data lives in
+`#player=26/Angela`, `#comps=28`, `#comp=The%20Wall` or `#finale=26`, so it can be shared or embedded directly. The detail data lives in
 `web/details.json`, which loads only when a detail view is first opened.
 
 ## Usage
