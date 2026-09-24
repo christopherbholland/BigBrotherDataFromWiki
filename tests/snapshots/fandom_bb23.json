@@ -76,7 +76,7 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699088
+   "revid": 699647
   },
   "Microchip Mayhem": {
    "description": "Put balls into other houseguests' tube to eliminate them.",
@@ -121,7 +121,7 @@
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 695415
+   "revid": 699601
   },
   "Snapshot Shuffle": {
    "description": "Arrange the photos in chronological order in the fastest time.",
@@ -1789,7 +1789,7 @@
    "seasons": [
     "Big Brother 23 (US)"
    ],
-   "revid": 668578,
+   "revid": 699596,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/8/89/BB23_Frenchie_Large.jpg/revision/latest"
   },
   "Travis Long": {

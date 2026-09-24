@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-23T18:52:05+00:00",
+ "generated_at": "2026-09-24T18:11:29+00:00",
  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/): adapted from Wikipedia (CC BY-SA 4.0) and the Big Brother Wiki, bigbrother.fandom.com (CC BY-SA 3.0); sources and revisions are listed in each file. Houseguest photos are CBS promotional images, linked from the Big Brother Wiki and not covered by this license.",
  "sources": [
   {
@@ -8,44 +8,44 @@
    "title": "Big Brother 21 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_21_(American_season)",
    "revid": 1369903816,
-   "fetched_at": "2026-09-23T18:15:20+00:00",
+   "fetched_at": "2026-09-24T18:10:58+00:00",
    "permalink": "https://en.wikipedia.org/w/index.php?oldid=1369903816",
    "fandom": {
     "title": "Big Brother 21 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_21_(US)",
     "revid": 667547,
     "permalink": "https://bigbrother.fandom.com/?oldid=667547",
-    "fetched_at": "2026-09-23T18:15:23+00:00"
+    "fetched_at": "2026-09-24T18:11:01+00:00"
    }
   },
   {
    "season": 22,
    "title": "Big Brother 22 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_22_(American_season)",
-   "revid": 1376038681,
-   "fetched_at": "2026-09-23T18:15:23+00:00",
-   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376038681",
+   "revid": 1376494287,
+   "fetched_at": "2026-09-24T18:11:01+00:00",
+   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376494287",
    "fandom": {
     "title": "Big Brother 22 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_22_(US)",
     "revid": 692170,
     "permalink": "https://bigbrother.fandom.com/?oldid=692170",
-    "fetched_at": "2026-09-23T18:15:26+00:00"
+    "fetched_at": "2026-09-24T18:11:04+00:00"
    }
   },
   {
    "season": 23,
    "title": "Big Brother 23 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_23_(American_season)",
-   "revid": 1372642905,
-   "fetched_at": "2026-09-23T18:15:26+00:00",
-   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372642905",
+   "revid": 1376519824,
+   "fetched_at": "2026-09-24T18:11:06+00:00",
+   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376519824",
    "fandom": {
     "title": "Big Brother 23 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_23_(US)",
     "revid": 693308,
     "permalink": "https://bigbrother.fandom.com/?oldid=693308",
-    "fetched_at": "2026-09-23T18:15:29+00:00"
+    "fetched_at": "2026-09-24T18:11:09+00:00"
    }
   },
   {
@@ -53,14 +53,14 @@
    "title": "Big Brother 24 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_24_(American_season)",
    "revid": 1375920189,
-   "fetched_at": "2026-09-23T18:15:29+00:00",
+   "fetched_at": "2026-09-24T18:11:09+00:00",
    "permalink": "https://en.wikipedia.org/w/index.php?oldid=1375920189",
    "fandom": {
     "title": "Big Brother 24 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_24_(US)",
     "revid": 676431,
     "permalink": "https://bigbrother.fandom.com/?oldid=676431",
-    "fetched_at": "2026-09-23T18:15:32+00:00"
+    "fetched_at": "2026-09-24T18:11:12+00:00"
    }
   },
   {
@@ -68,14 +68,14 @@
    "title": "Big Brother 25 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_25_(American_season)",
    "revid": 1375920068,
-   "fetched_at": "2026-09-23T18:15:32+00:00",
+   "fetched_at": "2026-09-24T18:11:12+00:00",
    "permalink": "https://en.wikipedia.org/w/index.php?oldid=1375920068",
    "fandom": {
     "title": "Big Brother 25 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_25_(US)",
     "revid": 673368,
     "permalink": "https://bigbrother.fandom.com/?oldid=673368",
-    "fetched_at": "2026-09-23T18:15:35+00:00"
+    "fetched_at": "2026-09-24T18:11:15+00:00"
    }
   },
   {
@@ -83,14 +83,14 @@
    "title": "Big Brother 26 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_26_(American_season)",
    "revid": 1374009562,
-   "fetched_at": "2026-09-23T18:15:35+00:00",
+   "fetched_at": "2026-09-24T18:11:15+00:00",
    "permalink": "https://en.wikipedia.org/w/index.php?oldid=1374009562",
    "fandom": {
     "title": "Big Brother 26 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_26_(US)",
     "revid": 674463,
     "permalink": "https://bigbrother.fandom.com/?oldid=674463",
-    "fetched_at": "2026-09-23T18:15:38+00:00"
+    "fetched_at": "2026-09-24T18:11:18+00:00"
    }
   },
   {
@@ -98,29 +98,29 @@
    "title": "Big Brother 27 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_27_(American_season)",
    "revid": 1376055015,
-   "fetched_at": "2026-09-23T18:15:38+00:00",
+   "fetched_at": "2026-09-24T18:11:18+00:00",
    "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376055015",
    "fandom": {
     "title": "Big Brother 27 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_27_(US)",
     "revid": 696035,
     "permalink": "https://bigbrother.fandom.com/?oldid=696035",
-    "fetched_at": "2026-09-23T18:15:41+00:00"
+    "fetched_at": "2026-09-24T18:11:21+00:00"
    }
   },
   {
    "season": 28,
    "title": "Big Brother 28 (American season)",
    "url": "https://en.wikipedia.org/wiki/Big_Brother_28_(American_season)",
-   "revid": 1376360472,
-   "fetched_at": "2026-09-23T18:15:41+00:00",
-   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376360472",
+   "revid": 1376486087,
+   "fetched_at": "2026-09-24T18:11:21+00:00",
+   "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376486087",
    "fandom": {
     "title": "Big Brother 28 (US)",
     "url": "https://bigbrother.fandom.com/wiki/Big_Brother_28_(US)",
     "revid": 699556,
     "permalink": "https://bigbrother.fandom.com/?oldid=699556",
-    "fetched_at": "2026-09-23T18:15:44+00:00"
+    "fetched_at": "2026-09-24T18:11:24+00:00"
    }
   }
  ],

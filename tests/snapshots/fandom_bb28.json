@@ -43,6 +43,11 @@
    "category": null,
    "revid": 691915
   },
+  "Cover Your Days": {
+   "description": "Guess what day an event occurred.",
+   "category": null,
+   "revid": 699599
+  },
   "Fitting In": {
    "description": "Take a series of shapes and fit them into a certain shape",
    "category": null,
@@ -78,6 +83,11 @@
    "category": null,
    "revid": 684535
   },
+  "Laser Maze": {
+   "description": "Navigate through a series of lasers while guiding an object to the finish.",
+   "category": null,
+   "revid": 699714
+  },
   "Living Art": {
    "description": "Houseguests race to find discrepancies in artwork or imagery and tape in the correct answer on their podium.",
    "category": null,
@@ -86,12 +96,12 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699088
+   "revid": 699647
   },
   "Niagara Balls": {
    "description": "Get a specific number of colored balls into your container the quickest.",
    "category": null,
-   "revid": 686600
+   "revid": 699751
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
@@ -146,7 +156,7 @@
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 695415
+   "revid": 699601
   },
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
@@ -1033,8 +1043,8 @@
    "day": "75",
    "type": "POV",
    "kind": "veto",
-   "name": null,
-   "format": null,
+   "name": "Block Like an Egyptian",
+   "format": "Laser Maze",
    "winners": [
     "Drew"
    ],
@@ -1062,7 +1072,7 @@
    "type": "POV",
    "kind": "veto",
    "name": null,
-   "format": null,
+   "format": "Cover Your Days",
    "winners": [
     "Drew"
    ],
@@ -1810,7 +1820,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 697014,
+   "revid": 699662,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a2/US28_Yash_Large.jpg/revision/latest"
   },
   "Barrett Pfeiffer": {
