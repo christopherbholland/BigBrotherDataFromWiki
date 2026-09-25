@@ -26,17 +26,17 @@
   "Berry Balanced": {
    "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
    "category": null,
-   "revid": 690155
+   "revid": 700156
   },
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699966
+   "revid": 700165
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
    "category": null,
-   "revid": 521301
+   "revid": 700171
   },
   "Giddy Up": {
    "description": "Buck or spin on a horse/podium for a certain amount of times to get a set amount of time to stack objects on a pedestal. Contestants must keep on eye on their clock, as they must get back to their horse/podium on time.",
@@ -51,7 +51,7 @@
   "In The Balance": {
    "description": "Competitors compete to balance a set of objects without touching the ground",
    "category": null,
-   "revid": 689941
+   "revid": 700184
   },
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",

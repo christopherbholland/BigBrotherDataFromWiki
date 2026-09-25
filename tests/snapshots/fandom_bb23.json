@@ -31,17 +31,17 @@
   "Caged Eggs": {
    "description": "Get eggs through a wire cage to their destination.",
    "category": null,
-   "revid": 645084
+   "revid": 700161
   },
   "Carnival Quick Shot": {
    "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
    "category": null,
-   "revid": 691915
+   "revid": 700162
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
    "category": null,
-   "revid": 521301
+   "revid": 700171
   },
   "Getting Loopy": {
    "description": "View a certain amount of video, then answer questions about them.",
@@ -51,7 +51,7 @@
   "HouseguestsOnly.com": {
    "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
    "category": null,
-   "revid": 666850
+   "revid": 700182
   },
   "How Bad Do You Want It?": {
    "description": "Add points to your score/Continue playing by facing punishments",

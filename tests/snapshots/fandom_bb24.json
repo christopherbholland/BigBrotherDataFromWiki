@@ -21,12 +21,12 @@
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699966
+   "revid": 700165
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
    "category": null,
-   "revid": 521301
+   "revid": 700171
   },
   "Faster Than A Speeding Veto": {
    "description": "One player is attached to a rope and is raised upward as the other player runs forward. Both come back as the runner returns to the starting platform in order to hand pieces to complete a vertical puzzle.",
@@ -36,12 +36,12 @@
   "Feeling Knotty": {
    "description": "Untie a series of knots",
    "category": null,
-   "revid": 696397
+   "revid": 700173
   },
   "Gear Puzzle": {
    "description": "Place a number of gears on a wall so that they all move together.",
    "category": null,
-   "revid": 677822
+   "revid": 700177
   },
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",

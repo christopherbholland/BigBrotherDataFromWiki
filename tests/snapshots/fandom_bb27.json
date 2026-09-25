@@ -21,22 +21,22 @@
   "Big Top Drop": {
    "description": "Aim balls down a tube in a predetermined amount of time or balls",
    "category": null,
-   "revid": 693873
+   "revid": 700157
   },
   "Binary Bridge": {
    "description": "Try to guess the correct path of tiles to reach the end.",
    "category": null,
-   "revid": 683422
+   "revid": 700158
   },
   "Block and Roll": {
    "description": "Move blocks around to guide the ball towards the end goal",
    "category": null,
-   "revid": 606964
+   "revid": 700160
   },
   "Blockbusters": {
    "description": "Knock down the giant billboards and then reconstruct the puzzle.",
    "category": null,
-   "revid": 615939
+   "revid": 700159
   },
   "Build the Bridge": {
    "description": "Build a bridge using two planks of different length",
@@ -46,27 +46,27 @@
   "Carnival Quick Shot": {
    "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
    "category": null,
-   "revid": 691915
+   "revid": 700162
   },
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699966
+   "revid": 700165
   },
   "Digital Decryption": {
    "description": "Contestants must unscramble words to identify a hidden phrase which will reveal how to win.",
    "category": null,
-   "revid": 606839
+   "revid": 700169
   },
   "Feeling Knotty": {
    "description": "Untie a series of knots",
    "category": null,
-   "revid": 696397
+   "revid": 700173
   },
   "Fitting In": {
    "description": "Take a series of shapes and fit them into a certain shape",
    "category": null,
-   "revid": 696993
+   "revid": 700174
   },
   "Getting Loopy": {
    "description": "View a certain amount of video, then answer questions about them.",
@@ -76,27 +76,27 @@
   "Hide and Seek": {
    "description": "Figure out which of the given hiding spots is safe to hide at to avoid elimination.",
    "category": null,
-   "revid": 684486
+   "revid": 700179
   },
   "Hourglass": {
    "description": "Stack objects/solve a puzzle while refilling their timer.",
    "category": null,
-   "revid": 691061
+   "revid": 700180
   },
   "HouseguestsOnly.com": {
    "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
    "category": null,
-   "revid": 666850
+   "revid": 700182
   },
   "In The Balance": {
    "description": "Competitors compete to balance a set of objects without touching the ground",
    "category": null,
-   "revid": 689941
+   "revid": 700184
   },
   "Item Maze": {
    "description": "Maneuver an object through a maze to release it.",
    "category": null,
-   "revid": 649744
+   "revid": 700187
   },
   "Jetpack Attack": {
    "description": "Hold onto a moving object that swings back and forth",
@@ -211,7 +211,7 @@
   "Zingbot Competition": {
    "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
    "category": null,
-   "revid": 691511
+   "revid": 700188
   }
  },
  "roster": [

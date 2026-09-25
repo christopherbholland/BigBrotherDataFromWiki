@@ -16,17 +16,17 @@
   "BB Flix & Chill": {
    "description": "Look at a set of movie posters and try to guess the correct one based on a set of clues.",
    "category": null,
-   "revid": 518095
+   "revid": 700155
   },
   "Big Top Drop": {
    "description": "Aim balls down a tube in a predetermined amount of time or balls",
    "category": null,
-   "revid": 693873
+   "revid": 700157
   },
   "Carnival Quick Shot": {
    "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
    "category": null,
-   "revid": 691915
+   "revid": 700162
   },
   "Coin Stacking": {
    "description": "Balance and stack coins/discs/boxes on a small podium then race back to stack more.",
@@ -36,12 +36,12 @@
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699966
+   "revid": 700165
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
    "category": null,
-   "revid": 521301
+   "revid": 700171
   },
   "Feel The Burn": {
    "description": "Perform a set of reps in a certain time limit.",
@@ -61,7 +61,7 @@
   "Hide and Seek": {
    "description": "Figure out which of the given hiding spots is safe to hide at to avoid elimination.",
    "category": null,
-   "revid": 684486
+   "revid": 700179
   },
   "Johnny Mac": {
    "description": null,

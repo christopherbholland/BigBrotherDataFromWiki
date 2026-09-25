@@ -16,17 +16,17 @@
   "Berry Balanced": {
    "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
    "category": null,
-   "revid": 690155
+   "revid": 700156
   },
   "Big Top Drop": {
    "description": "Aim balls down a tube in a predetermined amount of time or balls",
    "category": null,
-   "revid": 693873
+   "revid": 700157
   },
   "Binary Bridge": {
    "description": "Try to guess the correct path of tiles to reach the end.",
    "category": null,
-   "revid": 683422
+   "revid": 700158
   },
   "Bowlerina": {
    "description": "Spin around to lower a barrier to roll down a set of pins.",
@@ -41,17 +41,17 @@
   "Carnival Quick Shot": {
    "description": "Contestants must roll a number of balls on the flat platform and/or knock the balls off of the platform in the fastest time.",
    "category": null,
-   "revid": 691915
+   "revid": 700162
   },
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699966
+   "revid": 700165
   },
   "Fitting In": {
    "description": "Take a series of shapes and fit them into a certain shape",
    "category": null,
-   "revid": 696993
+   "revid": 700174
   },
   "Getting Loopy": {
    "description": "View a certain amount of video, then answer questions about them.",
@@ -61,17 +61,17 @@
   "Hide and Seek": {
    "description": "Figure out which of the given hiding spots is safe to hide at to avoid elimination.",
    "category": null,
-   "revid": 684486
+   "revid": 700179
   },
   "Hourglass": {
    "description": "Stack objects/solve a puzzle while refilling their timer.",
    "category": null,
-   "revid": 691061
+   "revid": 700180
   },
   "In The Balance": {
    "description": "Competitors compete to balance a set of objects without touching the ground",
    "category": null,
-   "revid": 689941
+   "revid": 700184
   },
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
@@ -196,7 +196,7 @@
   "Zingbot Competition": {
    "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
    "category": null,
-   "revid": 691511
+   "revid": 700188
   }
  },
  "roster": [

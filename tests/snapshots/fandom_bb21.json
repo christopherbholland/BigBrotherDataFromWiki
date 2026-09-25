@@ -16,12 +16,12 @@
   "Caged Eggs": {
    "description": "Get eggs through a wire cage to their destination.",
    "category": null,
-   "revid": 645084
+   "revid": 700161
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
    "category": null,
-   "revid": 521301
+   "revid": 700171
   },
   "Get A Grip": {
    "description": "Be the last one to hold onto your pole to win.",
@@ -31,22 +31,22 @@
   "Hourglass": {
    "description": "Stack objects/solve a puzzle while refilling their timer.",
    "category": null,
-   "revid": 691061
+   "revid": 700180
   },
   "HouseguestsOnly.com": {
    "description": "Look at the clues and match the appropriate houseguest/item to the correct stand.",
    "category": null,
-   "revid": 666850
+   "revid": 700182
   },
   "In The Balance": {
    "description": "Competitors compete to balance a set of objects without touching the ground",
    "category": null,
-   "revid": 689941
+   "revid": 700184
   },
   "Item Catching": {
    "description": "Catch items in a certain amount of time while being covered in slime.",
    "category": null,
-   "revid": 517789
+   "revid": 700186
   },
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",
