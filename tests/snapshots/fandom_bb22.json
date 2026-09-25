@@ -21,7 +21,7 @@
   "BB Comics": {
    "description": null,
    "category": null,
-   "revid": 694169
+   "revid": 700035
   },
   "Berry Balanced": {
    "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
@@ -31,7 +31,7 @@
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699599
+   "revid": 699966
   },
   "Dizzy Discs": {
    "description": "Hold on to a rope while spinned and bashed by an arm to be the last standing.",
@@ -1337,7 +1337,7 @@
     "Big Brother 22 (US)",
     "Big Brother Reindeer Games"
    ],
-   "revid": 686685,
+   "revid": 699865,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/0e/BB22_Large_Nicole_F.jpg/revision/latest"
   },
   "Christmas Abbott": {

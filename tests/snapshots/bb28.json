@@ -39,7 +39,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f",
+   "e",
    "h"
   ]
  },
@@ -83,7 +83,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -126,7 +126,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -169,7 +169,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -212,7 +212,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -257,7 +257,7 @@
   "raw": null,
   "footnotes": [
    "d",
-   "f"
+   "e"
   ]
  },
  {
@@ -300,7 +300,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -383,13 +383,6 @@
      ]
     },
     {
-     "label": "Dee",
-     "cells": [
-      "Drew\nHaley",
-      "La Trice"
-     ]
-    },
-    {
      "label": "Devens",
      "cells": [
       "Saved",
@@ -408,6 +401,13 @@
      "cells": [
       "Saved",
       "Nominated"
+     ]
+    },
+    {
+     "label": "Dee",
+     "cells": [
+      "Drew\nHaley",
+      "La Trice"
      ]
     },
     {
@@ -512,7 +512,7 @@
   },
   "footnotes": [
    "b",
-   "f"
+   "e"
   ]
  },
  {
@@ -555,7 +555,7 @@
   ],
   "raw": null,
   "footnotes": [
-   "f"
+   "e"
   ]
  },
  {
@@ -624,16 +624,16 @@
   "raw": null,
   "footnotes": [
    "c",
-   "e",
-   "f"
+   "f",
+   "e"
   ]
  },
  {
   "season": 28,
   "week": 11,
   "week_label": "Week 11",
-  "status": "note",
-  "note": "Two rounds: Day 74 / Day 77; Round 2 (Day 77): Eviction to come",
+  "status": "ok",
+  "note": "Two evictions",
   "rounds": [
    {
     "sub_label": "Day 74",
@@ -672,182 +672,20 @@
     "veto_winners": [
      "Drew"
     ],
-    "nominees_final": [],
-    "evicted": null,
-    "tally": null,
+    "nominees_final": [
+     "Dee",
+     "Devens"
+    ],
+    "evicted": "Dee",
+    "tally": {
+     "type": "sole_vote",
+     "by": "Drew"
+    },
     "extras": {},
     "double_eviction": false
    }
   ],
-  "raw": {
-   "columns": [
-    "Day 74",
-    "Day 77"
-   ],
-   "rows": [
-    {
-     "label": "Head of Household",
-     "cells": [
-      "Devens",
-      "Taylor"
-     ]
-    },
-    {
-     "label": "Nominations (initial)",
-     "cells": [
-      "Drew\nMelody",
-      "Dee\nDrew"
-     ]
-    },
-    {
-     "label": "Veto winner(s)",
-     "cells": [
-      "Drew",
-      "Drew"
-     ]
-    },
-    {
-     "label": "Block Buster winner",
-     "cells": [
-      "(None)",
-      "(None)"
-     ]
-    },
-    {
-     "label": "Nominations (final)",
-     "cells": [
-      "Melody\nTaylor",
-      ""
-     ]
-    },
-    {
-     "label": "Dee",
-     "cells": [
-      "Melody",
-      "Nominated"
-     ]
-    },
-    {
-     "label": "Devens",
-     "cells": [
-      "Melody",
-      ""
-     ]
-    },
-    {
-     "label": "Drew",
-     "cells": [
-      "Taylor",
-      "Nominated"
-     ]
-    },
-    {
-     "label": "Taylor",
-     "cells": [
-      "Nominated",
-      "Head of\nHousehold"
-     ]
-    },
-    {
-     "label": "Melody",
-     "cells": [
-      "Nominated",
-      "Evicted\n(Day 77)"
-     ]
-    },
-    {
-     "label": "Yash",
-     "cells": [
-      "Evicted\n(Day 73)",
-      "Evicted\n(Day 73)"
-     ]
-    },
-    {
-     "label": "Barrett",
-     "cells": [
-      "Evicted\n(Day 73)",
-      "Evicted\n(Day 73)"
-     ]
-    },
-    {
-     "label": "Angela",
-     "cells": [
-      "Evicted\n(Day 66)",
-      "Evicted\n(Day 66)"
-     ]
-    },
-    {
-     "label": "La Trice",
-     "cells": [
-      "Evicted\n(Day 59)",
-      "Evicted\n(Day 59)"
-     ]
-    },
-    {
-     "label": "Haley",
-     "cells": [
-      "Eliminated\n(Day 53)",
-      "Eliminated\n(Day 53)"
-     ]
-    },
-    {
-     "label": "Mallory",
-     "cells": [
-      "Evicted\n(Day 52)",
-      "Evicted\n(Day 52)"
-     ]
-    },
-    {
-     "label": "Kamu",
-     "cells": [
-      "Evicted\n(Day 45)",
-      "Evicted\n(Day 45)"
-     ]
-    },
-    {
-     "label": "Chuk",
-     "cells": [
-      "Evicted\n(Day 38)",
-      "Evicted\n(Day 38)"
-     ]
-    },
-    {
-     "label": "Lyric",
-     "cells": [
-      "Evicted\n(Day 31)",
-      "Evicted\n(Day 31)"
-     ]
-    },
-    {
-     "label": "Jason",
-     "cells": [
-      "Evicted\n(Day 24)",
-      "Evicted\n(Day 24)"
-     ]
-    },
-    {
-     "label": "Rome",
-     "cells": [
-      "Evicted\n(Day 17)",
-      "Evicted\n(Day 17)"
-     ]
-    },
-    {
-     "label": "Ashley",
-     "cells": [
-      "Evicted\n(Day 10)",
-      "Evicted\n(Day 10)"
-     ]
-    },
-    {
-     "label": "Evicted",
-     "cells": [
-      "Melody\n2 of 3\nvotes\nto evict",
-      ""
-     ]
-    }
-   ]
-  },
+  "raw": null,
   "footnotes": [
    "a",
    "g"
@@ -899,6 +737,13 @@
      "cells": [
       "",
       "(None)"
+     ]
+    },
+    {
+     "label": "Dee",
+     "cells": [
+      "Evicted\n(Day 80)",
+      "Jury Member"
      ]
     },
     {

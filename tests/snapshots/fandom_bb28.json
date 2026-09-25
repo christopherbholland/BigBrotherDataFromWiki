@@ -46,7 +46,7 @@
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
    "category": null,
-   "revid": 699599
+   "revid": 699966
   },
   "Fitting In": {
    "description": "Take a series of shapes and fit them into a certain shape",
@@ -158,6 +158,11 @@
    "category": null,
    "revid": 699601
   },
+  "Starting Lineup": {
+   "description": "Complete the correct houseguest puzzle by finding out who is missing from the lineup",
+   "category": null,
+   "revid": 699917
+  },
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
@@ -196,10 +201,6 @@
  },
  "roster": [
   [
-   "Dee Valladares",
-   "Dee"
-  ],
-  [
    "Rick Devens",
    "Devens"
   ],
@@ -210,6 +211,10 @@
   [
    "Taylor Brown",
    "Taylor"
+  ],
+  [
+   "Dee Valladares",
+   "Dee"
   ],
   [
    "Melody Morris",
@@ -1057,8 +1062,8 @@
    "day": "77",
    "type": "HOH",
    "kind": "hoh",
-   "name": null,
-   "format": null,
+   "name": "Eternally Yours",
+   "format": "Starting Lineup",
    "winners": [
     "Taylor"
    ],
@@ -1071,13 +1076,27 @@
    "day": "78",
    "type": "POV",
    "kind": "veto",
-   "name": null,
+   "name": "Time Travel Toilet",
    "format": "Cover Your Days",
    "winners": [
     "Drew"
    ],
    "outcome": "wins the Veto",
    "result": "Drew wins the Veto",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "80",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Taylor"
+   ],
+   "outcome": "wins HOH Part 1",
+   "result": "Taylor wins HOH Part 1",
    "extra": {}
   }
  ],
@@ -1588,9 +1607,14 @@
    "veto_holders": [
     "Drew"
    ],
-   "veto_used": null,
-   "nominees_final": [],
-   "evicted": [],
+   "veto_used": true,
+   "nominees_final": [
+    "Dee",
+    "Devens"
+   ],
+   "evicted": [
+    "Dee"
+   ],
    "vote": "1-0",
    "finish": "14th Evicted 6th Jury Member Day 80",
    "other": {}
@@ -1633,37 +1657,6 @@
   }
  ],
  "bios": {
-  "Dee Valladares": {
-   "page": "Dee Valladares",
-   "full_name": "Dianelys Maria \"Dee\" Valladares",
-   "birth_date": "1996-10-02",
-   "age": 29,
-   "hometown": [
-    "Havana, Cuba",
-    "Miami, FL"
-   ],
-   "occupation": "Entrepreneur",
-   "nickname": [],
-   "place": null,
-   "days": null,
-   "alliances": [
-    "Café con Leche",
-    "Mosh Pit",
-    "The Crossovers",
-    "The Culture",
-    "The Honor Society",
-    "The Icons",
-    "The Red Corner",
-    "The Toolshed",
-    "The Wolfpack"
-   ],
-   "other_prizes": [],
-   "seasons": [
-    "Big Brother 28 (US)"
-   ],
-   "revid": 699356,
-   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c7/US28_Dee_Large.jpg/revision/latest"
-  },
   "Rick Devens": {
    "page": "Rick Devens",
    "full_name": "Patrick William \"Rick\" Devens",
@@ -1678,7 +1671,7 @@
     "Devens"
    ],
    "place": null,
-   "days": null,
+   "days": "87",
    "alliances": [
     "Bermuda Triangle",
     "Mosh Pit",
@@ -1697,7 +1690,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699357,
+   "revid": 700064,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/40/US28_Devens_Large.jpg/revision/latest"
   },
   "Drew Campbell": {
@@ -1711,7 +1704,7 @@
    "occupation": "Surgical dental assistant",
    "nickname": [],
    "place": null,
-   "days": null,
+   "days": "87",
    "alliances": [
     "4 Seasons",
     "F.A.P.",
@@ -1731,7 +1724,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699355,
+   "revid": 700065,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2b/US28_Drew_Large.jpg/revision/latest"
   },
   "Taylor Brown": {
@@ -1757,8 +1750,39 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699359,
+   "revid": 700063,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d7/US28_Taylor_Large.jpg/revision/latest"
+  },
+  "Dee Valladares": {
+   "page": "Dee Valladares",
+   "full_name": "Dianelys Maria \"Dee\" Valladares",
+   "birth_date": "1996-10-02",
+   "age": 29,
+   "hometown": [
+    "Havana, Cuba",
+    "Miami, FL"
+   ],
+   "occupation": "Entrepreneur",
+   "nickname": [],
+   "place": "4th",
+   "days": "80",
+   "alliances": [
+    "Café con Leche",
+    "Mosh Pit",
+    "The Crossovers",
+    "The Culture",
+    "The Honor Society",
+    "The Icons",
+    "The Red Corner",
+    "The Toolshed",
+    "The Wolfpack"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 699970,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c7/US28_Dee_Large.jpg/revision/latest"
   },
   "Melody Morris": {
    "page": "Melody Morris",
@@ -2389,10 +2413,10 @@
   }
  },
  "photos": {
-  "Dee Valladares": "https://static.wikia.nocookie.net/bigbrother/images/1/11/US28_Small_Dee.jpg/revision/latest?cb=20260711020009",
   "Rick Devens": "https://static.wikia.nocookie.net/bigbrother/images/5/5f/US28_Small_Devens.jpg/revision/latest?cb=20260710012752",
   "Drew Campbell": "https://static.wikia.nocookie.net/bigbrother/images/8/88/US28_Small_Drew.jpg/revision/latest?cb=20260707172041",
   "Taylor Brown": "https://static.wikia.nocookie.net/bigbrother/images/9/98/US28_Small_Taylor.jpg/revision/latest?cb=20260707174628",
+  "Dee Valladares": "https://static.wikia.nocookie.net/bigbrother/images/1/11/US28_Small_Dee.jpg/revision/latest?cb=20260711020009",
   "Melody Morris": "https://static.wikia.nocookie.net/bigbrother/images/9/99/US28_Small_Melody.jpg/revision/latest?cb=20260707174118",
   "Yash Patel": "https://static.wikia.nocookie.net/bigbrother/images/8/83/US28_Small_Yash.jpg/revision/latest?cb=20260707174851",
   "Barrett Pfeiffer": "https://static.wikia.nocookie.net/bigbrother/images/7/7c/US28_Small_Barrett.jpg/revision/latest?cb=20260707171003",

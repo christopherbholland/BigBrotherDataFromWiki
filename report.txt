@@ -1,4 +1,4 @@
-100 weeks: 85 ok, 15 note, 0 error
+100 weeks: 86 ok, 14 note, 0 error
 
 Big Brother Wiki (Fandom): 7 to check
   BB22 Week 6: Initial nominations: Wikipedia David, Kevin, Tyler / Fandom Kevin, Tyler
@@ -301,10 +301,10 @@ BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard o
     Veto winner(s): (None) | Yash
     Block Buster winner: (None) | Devens
     Nominations (final): Drew / Barrett / Yash / La Trice / Haley | La Trice / Taylor
-    Dee: Drew / Haley | La Trice
     Devens: Saved | La Trice
     Drew: Barrett | Head of / Household
     Taylor: Saved | Nominated
+    Dee: Drew / Haley | La Trice
     Melody: Saved | Taylor
     Yash: Haley | La Trice
     Barrett: La Trice / Yash | La Trice
@@ -319,31 +319,6 @@ BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard o
     Rome: Evicted / (Day 17) | Evicted / (Day 17)
     Ashley: Evicted / (Day 10) | Evicted / (Day 10)
     Evicted: Haley / Yash's / choice / to eliminate | La Trice / 4 of 6 / votes / to evict
-BB28 Week 11: NOTE: Two rounds: Day 74 / Day 77; Round 2 (Day 77): Eviction to come
-    columns: Day 74 | Day 77
-    Head of Household: Devens | Taylor
-    Nominations (initial): Drew / Melody | Dee / Drew
-    Veto winner(s): Drew | Drew
-    Block Buster winner: (None) | (None)
-    Nominations (final): Melody / Taylor | 
-    Dee: Melody | Nominated
-    Devens: Melody | 
-    Drew: Taylor | Nominated
-    Taylor: Nominated | Head of / Household
-    Melody: Nominated | Evicted / (Day 77)
-    Yash: Evicted / (Day 73) | Evicted / (Day 73)
-    Barrett: Evicted / (Day 73) | Evicted / (Day 73)
-    Angela: Evicted / (Day 66) | Evicted / (Day 66)
-    La Trice: Evicted / (Day 59) | Evicted / (Day 59)
-    Haley: Eliminated / (Day 53) | Eliminated / (Day 53)
-    Mallory: Evicted / (Day 52) | Evicted / (Day 52)
-    Kamu: Evicted / (Day 45) | Evicted / (Day 45)
-    Chuk: Evicted / (Day 38) | Evicted / (Day 38)
-    Lyric: Evicted / (Day 31) | Evicted / (Day 31)
-    Jason: Evicted / (Day 24) | Evicted / (Day 24)
-    Rome: Evicted / (Day 17) | Evicted / (Day 17)
-    Ashley: Evicted / (Day 10) | Evicted / (Day 10)
-    Evicted: Melody / 2 of 3 / votes / to evict | 
 BB28 Week 12: NOTE: Finale; Eviction to come
     columns: Day 87 | Finale
     Head of Household:  | (None)
@@ -351,6 +326,7 @@ BB28 Week 12: NOTE: Finale; Eviction to come
     Veto winner(s): (None) | (None)
     Block Buster winner: (None) | (None)
     Nominations (final):  | (None)
+    Dee: Evicted / (Day 80) | Jury Member
     Melody: Evicted / (Day 77) | Jury Member
     Yash: Evicted / (Day 73) | Jury Member
     Barrett: Evicted / (Day 73) | Jury Member
