@@ -76,13 +76,13 @@ def take(browser, base, name, viewport, path, hover):
     page.wait_for_selector("table.grid", state="attached")
     for view in ("players", "comps", "endgame"):
         if f"#{view}=" in path:
-            page.wait_for_selector(f"#{view}-panel table")
+            page.wait_for_selector(f"#{view}-panel table", state="attached")
     if path.endswith("#analytics"):
-        page.wait_for_selector("#analytics-panel table")
+        page.wait_for_selector("#analytics-panel .stats")
     if path.endswith("#afh"):
         page.wait_for_selector("#afh-panel .afh-card")
     if "simple=1" in path and ("#week=" in path or "#weekall=" in path):
-        # The simple view shows a week as a full board instead of the drawer.
+        # The stream view shows a week as a full board instead of the drawer.
         page.wait_for_selector("#board-view:not([hidden]) .wk-board")
     elif "#week=" in path or "#player=" in path or "#comp=" in path:
         page.wait_for_selector("#drawer:not([hidden])")

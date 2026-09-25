@@ -4,6 +4,11 @@ A week-by-week grid of US Big Brother seasons 21–28. Each cell is one week of 
 with the season currently airing (BB28) on top. Hovering shows that week's HOH, noms, veto
 winner(s), final noms, who was evicted, and the vote tally.
 
+The page opens brief: each tab shows what happened and who won, and ends with a list of
+the sections it's holding back and a **Show** button. **All details** next to the tabs
+shows every section, column and tab (HOH, Veto, Analytics) everywhere; it's remembered,
+and `?details=1` sets it in a link.
+
 The grid comes from the "Voting history" table on each season's Wikipedia page. The detail
 views add data from the fan-run [Big Brother Wiki](https://bigbrother.fandom.com/)
 (Fandom): every competition's name, weekly Have-Nots, houseguest bios and season facts.
@@ -35,7 +40,7 @@ Opening `web/index.html` directly (`file://`) won't work: the page has to load
 11?", open `?simple=1&embed=1&theme=dark#week=26/11` for that week's story on one screen
 (HOH, nominees, veto, eviction and vote, twists, episodes with viewers), or `#weekall=11`
 for Week 11 in every season. ← → and ↑ ↓ step through weeks and seasons. Without a
-`#week=`, the simple view is the whole grid laid out like the dashboard's boards. See
+`#week=`, the stream view is the whole grid laid out like the dashboard's boards. See
 [On a stream](docs/integration.md#on-a-stream).
 
 ![Stream week board for BB26 Week 11: HOH, nominees, veto, the eviction and its vote, episodes](docs/screenshots/stream-week.png)
