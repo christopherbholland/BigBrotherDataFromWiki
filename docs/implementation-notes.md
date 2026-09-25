@@ -73,7 +73,7 @@ All of this comes from the same cached page. Nothing is shown on the main cards.
   "Nominated", "Not eligible"). "Evicted (Day X)"-style cells are left out.
 - **What was different.**
   - The unusual parts of the week's note: two rounds, non-standard outcomes. "Finale"
-    and "No eviction" don't count.
+    and "Eviction to come" don't count.
   - The week's twist rows.
   - The text of every Wikipedia footnote on the week's cells, header included.
     `grid.footnote_texts` resolves each `[a]` marker to its entry in the page's notes
@@ -140,7 +140,8 @@ the first.
 - A Finale sub-column is never a round. It sets `note` / `Finale`, and the week's regular
   column is still modeled as a round and validated.
 - Three or more non-Finale sub-columns: `note`, no rounds, raw text kept.
-- A round with an empty or missing Evicted cell: `note` / `No eviction`. If it has an HOH
+- A round with an empty or missing Evicted cell: `note` / `Eviction to come` (the eviction
+  hasn't aired; Wikipedia fills the cell in when it does). If it has an HOH
   it's still modeled, with `evicted` and `tally` null, so a round in progress (BB28 Week
   11's Day 77: Taylor's HOH, nominations and veto) shows up; the validator checks only
   its HOH. With no HOH either, the round isn't modeled. The week's other rounds are
