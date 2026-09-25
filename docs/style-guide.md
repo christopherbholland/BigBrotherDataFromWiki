@@ -61,7 +61,7 @@ One family (`--font`, the system UI font). Ten sizes:
 | `--fs-3xl` | 28 | initials on portrait faces, the phone jury score |
 | `--fs-4xl` | 40 | the jury score |
 
-**Simple view** (`?simple=1`, the stream board) redefines every `--fs-*` token larger
+**Stream view** (`?simple=1`, the stream board) redefines every `--fs-*` token larger
 in the `:root.simple` block, from 12px up to 48px. A new size token gets a value there
 too. Its layout rules sit with the embed rules in the Views part: the grid's columns
 share the width (above 640px), cells are text only and bold, and `fitGrid()` adds
@@ -117,9 +117,11 @@ the same look, add its selector to that list.
 | Component | Markup | Notes |
 |---|---|---|
 | Page header | `.kicker`, `h1` + `.pill`, `.sub` | Title and intro change with the tab (`VIEWS` in the script). |
-| View tabs | `.tabs` > `button[role=tab]` | Nine tabs make two rows on phones, five then four. A tenth would need a third row, so rethink the labels first. |
-| Simple view toggle | `#simple-btn` in a `.seg`, after `.tabs` | Adds or removes `?simple=1` in the address. `?embed=1&simple=1` hides the whole toolbar and the `.controls`. |
-| Week board | `.view-body.trend.wk-board` in `#board-panel` | A view with no tab (`VIEWS.board`), opened by `#week=` in the simple view and by `#weekall=`. Each round is a row of `.stat` tiles (a name as the big text, the role, then the context); `.stat.out` is the eviction. The header comes from `BOARD_HEAD`. |
+| View tabs | `.tabs` > `button[role=tab]` | Nine tabs make two rows on phones, five then four. A tenth would need a third row, so rethink the labels first. HOH, Veto and Analytics are `.extra`: the brief page shows six tabs (three to a row on phones), plus whichever one is open. |
+| Details toggle | `#details-btn` in a `.seg`, after `.tabs` | All details: turns the brief page off (`:root.brief`), everywhere. Remembered, and `?details=1` / `?details=0` set it in a link. |
+| Stream view toggle | `#simple-btn` in a `.seg`, after `.tabs` | Adds or removes `?simple=1` in the address. `?embed=1&simple=1` hides the whole toolbar and the `.controls`. |
+| Week board | `.view-body.trend.wk-board` in `#board-panel` | A view with no tab (`VIEWS.board`), opened by `#week=` in the stream view and by `#weekall=`. Each round is a row of `.stat` tiles (a name as the big text, the role, then the context); `.stat.out` is the eviction. The header comes from `BOARD_HEAD`. |
+| Extra and more row | `.extra`, `extra(html)`, `[data-extra]`, `.more` | The page opens brief. Wrap a section only a keen reader needs in `extra()`, or put `.extra` on table cells and name them with `data-extra` on the table. `foldExtras()` hides them and ends the panel or drawer with a `.more` row (“Also here: …” and a Show button) listing their headings. All details and the stream view show everything. |
 | Picker / toggle | `.seg` > `button[aria-pressed]` (or a `select`) | Every secondary control, season pickers included. Wraps on phones. |
 | Panel | `.panel` | The box each tab renders into. Tables go straight inside. |
 | Panel body | `.view-body` | Pads a panel of prose, charts and sections (Finale, Endgame, HOH, Veto). |
@@ -166,6 +168,10 @@ the same look, add its selector to that list.
 inside the view's `.view-body`, then the content (a `.scroll`-wrapped `table.players`,
 a `.board` of cards, `.stats`), and end with a `.src` line naming the source.
 
+**Brief or detailed?** Every view opens brief: what happened and who won, in a screen or
+two. The rest (breakdowns, across-season comparisons, secondary columns, episodes) goes
+in `extra()`. A new section starts as extra unless it's the point of the view.
+
 **Add a tab.** Add a `button[role=tab]` to `.tabs`, a `<section role="tabpanel">` with
 `.controls` (a `.seg` season picker) and a `.panel`, an entry in `VIEWS` (title, intro,
 hash, `show`), and render into `<div class="view-body">`. Add a shot to
@@ -179,7 +185,7 @@ add it to the table above, and (for colors) give it a dark value in both dark bl
 not the places that use it.
 
 **Before pushing** run `pytest -q` and look at the change at desktop and 390px, in light
-and dark (`?theme=dark`), and in the simple view (`?simple=1`) if it's on the Weeks tab. If it shows in the README's screenshots, run
+and dark (`?theme=dark`), brief and with All details (`?details=1`), and in the stream view (`?simple=1`) if it's on the Weeks tab. If it shows in the README's screenshots, run
 `python tools/screenshots.py` to retake them.
 
 ## What the test checks

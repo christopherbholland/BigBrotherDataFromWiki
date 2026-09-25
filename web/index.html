@@ -194,7 +194,7 @@ a.plink:hover { text-decoration-color: currentColor; }
   font-size: var(--fs-xs); color: var(--text-primary);
   margin: var(--sp-6) 0 var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--line);
 }
-.view-body h2:first-child { border-top: 0; margin-top: var(--sp-2); }
+.view-body > h2:first-child { border-top: 0; margin-top: var(--sp-2); }
 .leaders h2 { font-size: var(--fs-xs); margin: 0 0 var(--sp-2); }
 /* Subheading: a round or part inside a section. */
 #drawer-body h4, .wk-board h4 { font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-secondary); margin: var(--sp-3) 0 var(--sp-1); }
@@ -203,6 +203,17 @@ a.plink:hover { text-decoration-color: currentColor; }
 .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-lg); overflow-x: auto; }
 .view-body { padding: var(--sp-1) var(--inset) var(--sp-5); }
 .scroll { overflow-x: auto; }
+
+/* Details: the page opens brief. A section, table column or tab marked .extra shows only with
+   All details on (or in the stream view), or once the panel's .more row is opened. */
+.brief .folded .extra, .brief .tabs .extra:not([aria-selected="true"]) { display: none; }
+.more { display: none; }
+.brief .folded > .more {
+  display: flex; align-items: center; gap: var(--sp-2) var(--sp-3); flex-wrap: wrap;
+  margin: var(--sp-6) 0 0; padding-top: var(--sp-3); border-top: 1px solid var(--line);
+  font-size: var(--fs-sm); color: var(--text-secondary);
+}
+.brief .panel.folded > .more { margin: 0; padding: var(--sp-3) var(--inset); }
 
 /* Card: a boxed item on a panel (a round, a jury column, a favorite, a leader). */
 .board-col, .eg-round, .afh-card, .leaders li {
@@ -258,9 +269,11 @@ th .icon { width: 1.8em; height: 1.8em; vertical-align: middle; }
 }
 .tabs button:hover { color: var(--text-primary); }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
-/* Phones: nine tabs don't fit one row, so they sit in two rows (five, then four), all in sight. */
+/* Phones: nine tabs don't fit one row, so they sit in two rows (five, then four), all in sight.
+   The brief page shows six, three to a row. */
 @media (max-width: 640px) {
   .tabs { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; overflow: visible; }
+  .brief .tabs { grid-template-columns: repeat(3, 1fr); }
   .tabs button { padding: 7px var(--sp-1); font-size: var(--fs-sm); }
 }
 .seg {
@@ -658,7 +671,7 @@ table.power thead th small { display: block; font-weight: var(--fw-regular); tex
 table.across th, table.across td { text-align: left; }
 table.across tr.here td, table.across tr.here td:first-child { background: var(--cell); }
 
-/* Week board (#week=26/11 in the simple view) and one week across seasons (#weekall=11):
+/* Week board (#week=26/11 in the stream view) and one week across seasons (#weekall=11):
    the story behind a week on the stream's stock-watch dashboard, on one screen. */
 .wk-board .stats { max-width: none; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
 .wk-board .stat b { line-height: 1.15; }
@@ -698,12 +711,13 @@ table.across tr.here td, table.across tr.here td:first-child { background: var(-
       <button role="tab" id="tab-comps" aria-selected="false" aria-controls="comps-view">Comps</button>
       <button role="tab" id="tab-endgame" aria-selected="false" aria-controls="endgame-view">Endgame</button>
       <button role="tab" id="tab-finale" aria-selected="false" aria-controls="finale-view">Finale</button>
-      <button role="tab" id="tab-hoh" aria-selected="false" aria-controls="hoh-view">HOH</button>
-      <button role="tab" id="tab-veto" aria-selected="false" aria-controls="veto-view">Veto</button>
+      <button role="tab" class="extra" id="tab-hoh" aria-selected="false" aria-controls="hoh-view">HOH</button>
+      <button role="tab" class="extra" id="tab-veto" aria-selected="false" aria-controls="veto-view">Veto</button>
       <button role="tab" id="tab-afh" aria-selected="false" aria-controls="afh-view" title="America’s Favorite HouseGuest">Favorite</button>
-      <button role="tab" id="tab-analytics" aria-selected="false" aria-controls="analytics-view">Analytics</button>
+      <button role="tab" class="extra" id="tab-analytics" aria-selected="false" aria-controls="analytics-view">Analytics</button>
     </div>
-    <span class="seg" role="group" aria-label="Layout"><button id="simple-btn" aria-pressed="false" title="Bigger and plainer, for showing on a stream">Simple view</button></span>
+    <span class="seg" role="group" aria-label="Detail"><button id="details-btn" aria-pressed="false" title="Every section, column and tab">All details</button></span>
+    <span class="seg" role="group" aria-label="Layout"><button id="simple-btn" aria-pressed="false" title="Bigger and plainer, for showing on a stream">Stream view</button></span>
   </div>
   <section id="weeks-view" role="tabpanel" aria-labelledby="tab-weeks">
   <div class="controls">
@@ -772,9 +786,19 @@ const params = new URLSearchParams(location.search);
 if (params.has("embed")) document.documentElement.classList.add("embed");
 // ?theme=dark or ?theme=light pins the look, e.g. to match a host page.
 if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
-// ?simple=1 is the stream view: bigger, with less on screen (the Simple view button toggles it).
+// ?simple=1 is the stream view: bigger, with less on screen (the Stream view button toggles it).
 let simple = params.has("simple") && params.get("simple") !== "0";
 document.documentElement.classList.toggle("simple", simple);
+// The page opens brief: sections, columns and tabs marked .extra wait behind a "Show" row
+// (see foldExtras). All details shows them everywhere; it's remembered, and ?details=1 or
+// ?details=0 sets it in a link. The stream view always shows everything.
+let details = params.has("details") ? params.get("details") !== "0"
+  : (() => { try { return localStorage.getItem("details") === "on"; } catch (e) { return false; } })();
+function setBrief() {
+  document.documentElement.classList.toggle("brief", !details && !simple);
+  document.getElementById("details-btn").setAttribute("aria-pressed", details);
+}
+setBrief();
 // ?seasons=26-28 (or 21,26 or 21-23,28) shows only those seasons, e.g. to keep an embed short.
 function seasonFilter(text) {
   if (!text) return null;
@@ -1003,10 +1027,11 @@ function renderGrid(data) {
   document.querySelectorAll("#grid-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === gridMode));
   $("faces-btn").setAttribute("aria-pressed", showFaces);
   $("simple-btn").setAttribute("aria-pressed", simple);
+  setBrief();
   fitGrid();
 }
 
-// The page header. On the simple view's grid it reads like the stream's boards:
+// The page header. On the stream view's grid it reads like the stream's boards:
 // "Season 28", then what the grid shows, then the week that's airing.
 let NOW = null;
 let BOARD_HEAD = null;  // { kicker, title } while a week board is showing
@@ -1024,7 +1049,7 @@ function renderHeader() {
   $("now-pill").textContent = board ? NOW.label : `BB${NOW.season} · ${NOW.label}`;
 }
 
-// Simple view: step down any name too wide for its column, then scroll the grid so the
+// Stream view: step down any name too wide for its column, then scroll the grid so the
 // week that's airing is in sight at the right edge. Needs the grid on screen to measure.
 function fitGrid() {
   const panel = $("panel");
@@ -1233,12 +1258,12 @@ async function showWeek(season, label) {
       + ((DETAILS.afh || {})[season] ? ` · <a class="plink" href="#afh">America’s Favorite HouseGuest ›</a>` : "") + `</p>` : "")
     + (seasonRounds(season, DETAILS).rounds.some(x => x.label === label && x.size <= ENDGAME_DEFAULT) ? `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} played out ›</a></p>` : "")
     + (different ? `<h3>What was different</h3>${different}` : "")
-    + `<h3>Competitions</h3>${compsHtml(w, d)}`
-    + `<h3>Veto</h3>${vetoHtml(w, d)}`
     + `<h3>Votes to evict</h3>${votesHtml(w, d)}`
-    + (d.fandom && d.fandom.have_nots.length ? `<h3>Have-Nots</h3>${haveNotsHtml(w, d)}` : "")
     + checksHtml(w, d)
-    + `<h3>Episodes</h3>${episodesHtml(d)}`);
+    + extra(`<h3>Competitions</h3>${compsHtml(w, d)}`)
+    + extra(`<h3>Veto</h3>${vetoHtml(w, d)}`)
+    + extra(d.fandom && d.fandom.have_nots.length ? `<h3>Have-Nots</h3>${haveNotsHtml(w, d)}` : "")
+    + extra(`<h3>Episodes</h3>${episodesHtml(d)}`));
 }
 
 // The weeks before and after this one in the same season, in table order.
@@ -1459,7 +1484,7 @@ const VIEWS = {
   // HOH and Veto show every season ("all") or one; their address keeps whichever is showing.
   hoh: { title: "Head of Household", sub: "Who won HOH, in what kind of competition, and whether their nominee went home. Every season, one season, or week by week.",
          hash: () => `#hoh=${currentScope}` },
-  // A week board has no tab: it's opened from the grid or a link (#week=26/11 in the simple view, #weekall=11).
+  // A week board has no tab: it's opened from the grid or a link (#week=26/11 in the stream view, #weekall=11).
   board: { title: "Week", sub: "One week’s story: who held the power, who went home, and how it compares with the same week in other seasons.",
            hash: () => "" },
   veto: { title: "Power of Veto", sub: "Who won the veto, what they did with it, and who went home because of it. Every season, one season, or week by week.",
@@ -1502,6 +1527,25 @@ async function openView(view, season, loading) {
   let d;
   try { d = await loadDetails(); } catch (err) { panel.innerHTML = `<div class="msg">${errorHtml(err)}</div>`; return null; }
   return currentView === view && (season == null || currentSeason === season) ? d : null;
+}
+
+// ---------- Details ----------
+
+// A section only All details shows. A panel lists its hidden sections by their headings,
+// and anything else marked .extra (a table's columns) by a data-extra label on its table.
+const extra = html => html ? `<div class="extra">${html}</div>` : "";
+
+// Panels whose "Show" was clicked stay open for the visit.
+const opened = new Set();
+function foldExtras(panel) {
+  const box = panel.querySelector(":scope > .view-body") || panel;
+  if (box.lastElementChild && box.lastElementChild.classList.contains("more")) return;
+  const names = [...new Set([...box.querySelectorAll(".extra, [data-extra]")]
+    .map(el => el.dataset.extra || (el.querySelector("h2, h3") || {}).textContent).filter(Boolean))];
+  const fold = names.length > 0 && !opened.has(panel.id);
+  box.classList.toggle("folded", fold);
+  if (fold) box.insertAdjacentHTML("beforeend", `<p class="more"><span class="grow">Also here: ${names.map(esc).join(" · ")}</span>`
+    + `<span class="seg"><button type="button">Show</button></span></p>`);
 }
 
 // ---------- Players ----------
@@ -1565,28 +1609,30 @@ async function showPlayers(season) {
   const hasHaveNots = rows.some(p => p.fandom);
   const arena = arenaLabel(season);
   const info = (d.seasons || {})[season];
-  // Column groups: who they are, then comps, nominations and votes.
+  // Column groups: who they are, then comps, nominations and votes. Brief, the table keeps
+  // the result, HOHs, vetoes and nominations, without the group labels.
   const groups = [["", 2], ...(hasBio ? [["", 3]] : []), ["Comps", arena ? 4 : 3], ["Nominations", 2], ["Votes", 3],
                   ...(hasHaveNots ? [["", 1]] : [])];
   const grp = groups.map(([label, n], i) => `<th colspan="${n}"${i > (hasBio ? 1 : 0) ? ` class="gs"` : ""}>${esc(label)}</th>`).join("");
-  $("players-panel").innerHTML = (info ? seasonInfoHtml(info) : "") + leadersHtml(season, rows) + `<table class="players"><thead>
-    <tr class="grp">${grp}</tr><tr>
+  $("players-panel").innerHTML = (info ? seasonInfoHtml(info) : "") + leadersHtml(season, rows)
+    + `<table class="players" data-extra="${hasBio ? "Age, hometown and job, " : ""}twist wins and votes"><thead>
+    <tr class="grp extra">${grp}</tr><tr>
       <th scope="col">Player</th><th scope="col" class="l">Result</th>
-      ${hasBio ? th("Age", "", "bio num") + th("Hometown", "", "bio") + th("Occupation", "", "bio") : ""}
-      ${th("HOHs", "", "gs")}${th("Vetoes")}${arena ? th(arena, `${arena} wins`) : ""}${th("Twists", "Powers, safety and other twist wins")}
+      ${hasBio ? th("Age", "", "bio num extra") + th("Hometown", "", "bio extra") + th("Occupation", "", "bio extra") : ""}
+      ${th("HOHs", "", "gs")}${th("Vetoes")}${arena ? th(arena, `${arena} wins`, "extra") : ""}${th("Twists", "Powers, safety and other twist wins", "extra")}
       ${th("Noms", "Weeks nominated, at the ceremony or as a replacement", "gs")}${th("Final noms", "On the block at the vote")}
-      ${th("VTE", "Votes to evict them", "gs")}${th("Cast", "Votes cast")}${th("With house", "Votes cast with the majority")}
-      ${hasHaveNots ? th("Have-Not wks", "", "gs") : ""}
+      ${th("VTE", "Votes to evict them", "gs extra")}${th("Cast", "Votes cast", "extra")}${th("With house", "Votes cast with the majority", "extra")}
+      ${hasHaveNots ? th("Have-Not wks", "", "gs extra") : ""}
     </tr></thead><tbody>` + rows.map(p => {
       const s = playerStats(p);
       const b = playerBio(p);
       const full = b.full_name && b.full_name !== p.name ? `<small>${esc(b.full_name)}</small>` : "";
       return `<tr><td><div class="pl">${faceHtml(season, p.name, faceState(p))}<span>${plink(season, p.name)}${full}</span></div></td><td class="result">${esc(p.result || "In the game")}${afhTagHtml(d, p)}</td>`
-        + (hasBio ? `<td class="bio num">${b.age != null ? b.age : ZERO}</td><td class="bio">${b.hometown ? esc(b.hometown) : ZERO}</td><td class="bio">${b.occupation ? esc(b.occupation) : ZERO}</td>` : "")
-        + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td>${num(s.arena)}</td>` : ""}<td>${num(s.twists)}</td>`
+        + (hasBio ? `<td class="bio num extra">${b.age != null ? b.age : ZERO}</td><td class="bio extra">${b.hometown ? esc(b.hometown) : ZERO}</td><td class="bio extra">${b.occupation ? esc(b.occupation) : ZERO}</td>` : "")
+        + `<td class="gs">${num(s.hoh)}</td><td>${num(s.veto)}</td>${arena ? `<td class="extra">${num(s.arena)}</td>` : ""}<td class="extra">${num(s.twists)}</td>`
         + `<td class="gs">${num(s.noms)}</td><td>${num(s.block)}</td>`
-        + `<td class="gs">${num(s.against)}</td><td>${num(s.cast)}</td><td>${s.cast ? pct(s.withHouse, s.cast) : ZERO}</td>`
-        + (hasHaveNots ? `<td class="gs">${num(((p.fandom || {}).have_not || []).length)}</td>` : "") + `</tr>`;
+        + `<td class="gs extra">${num(s.against)}</td><td class="extra">${num(s.cast)}</td><td class="extra">${s.cast ? pct(s.withHouse, s.cast) : ZERO}</td>`
+        + (hasHaveNots ? `<td class="gs extra">${num(((p.fandom || {}).have_not || []).length)}</td>` : "") + `</tr>`;
     }).join("") + `</tbody></table>`;
 }
 
@@ -1953,11 +1999,11 @@ async function showFinale(season) {
     + finaleHeadHtml(season, f, info, last, people)
     + finalHohHtml(season, f, parts, last)
     + juryBoardHtml(season, f, jury)
-    + juryTableHtml(season, f, jury)
-    + (f.decided ? duelHtml(season, f, jury, parts, people) : "")
-    + finaleAfhHtml(season, d, people)
-    + (wd && wd.episodes.length ? `<h2>Finale week’s episodes</h2>${episodesHtml(wd)}` : "")
     + `<p><a class="plink" href="${endgameHash(season, ENDGAME_DEFAULT)}">How the final ${ENDGAME_DEFAULT} got here ›</a></p>`
+    + extra(juryTableHtml(season, f, jury))
+    + extra(f.decided ? duelHtml(season, f, jury, parts, people) : "")
+    + extra(finaleAfhHtml(season, d, people))
+    + extra(wd && wd.episodes.length ? `<h2>Finale week’s episodes</h2>${episodesHtml(wd)}` : "")
     + `<p class="src">Votes from Wikipedia’s voting table (<a href="${weekHash(season, f.week)}">${esc(f.week)}</a>); final HOH parts from the Big Brother Wiki.</p>`
     + `</div>`;
 }
@@ -2384,11 +2430,11 @@ function hohAllHtml(all) {
     + `<th scope="col"><abbr title="The evicted houseguest was one of the HOH’s nominees">Nominee went home</abbr></th><th scope="col"><abbr title="A replacement nominee who hadn’t played in the veto was evicted">Backdoor</abbr></th>`
     + `<th scope="col"><abbr title="The HOH was evicted in the next round">Out next round</abbr></th><th scope="col"><abbr title="The HOH also won that round’s veto">Also won veto</abbr></th>`
     + `<th scope="col" class="l">Competition types</th></tr></thead><tbody>${rows}${foot}</tbody></table></div>`
-    + `<h2>Week by week</h2><p class="note">Every HOH, colored by the kind of competition. Hover for the competition and who went home; click for the week.</p>`
-    + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + trendBoard("hoh", all)
-    + `<h2>By week of the season</h2><p class="note">What kind of competition decided HOH in each week, all seasons together. The number on top is how many HOHs were played that week.</p>`
-    + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + weekChart(weeks, g => g.xs.length)
     + trendLeaders("Most HOHs in a season", t.top, "HOH", "HOHs", true)
+    + extra(`<h2>Week by week</h2><p class="note">Every HOH, colored by the kind of competition. Hover for the competition and who went home; click for the week.</p>`
+      + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + trendBoard("hoh", all))
+    + extra(`<h2>By week of the season</h2><p class="note">What kind of competition decided HOH in each week, all seasons together. The number on top is how many HOHs were played that week.</p>`
+      + keyHtml(catParts(t.cats).map(([l, , c]) => [l, c])) + weekChart(weeks, g => g.xs.length))
     + `<p class="src">From Wikipedia’s voting tables; competition names and types from the Big Brother Wiki. Twist weeks the grid doesn’t fully model count only the rounds it does.</p>`;
 }
 
@@ -2463,11 +2509,11 @@ function vetoAllHtml(all) {
     + `<th scope="col" class="l">What it did</th><th scope="col">Used</th><th scope="col"><abbr title="Won by the HOH">By HOH</abbr></th><th scope="col"><abbr title="Won by one of the nominees">By a nominee</abbr></th>`
     + `<th scope="col"><abbr title="Won by someone neither HOH nor nominated">By anyone else</abbr></th><th scope="col"><abbr title="Of the used vetoes: the replacement nominee was evicted">Replacement went home</abbr></th>`
     + `<th scope="col" class="l">Most by one</th></tr></thead><tbody>${rows}${foot}</tbody></table></div>`
-    + `<h2>Week by week</h2><p class="note">Every veto winner, colored by what they did with it. Hover for the details; click for the week.</p>`
-    + key + trendBoard("veto", all)
-    + `<h2>By week of the season</h2><p class="note">What the veto did in each week, all seasons together. The number on top is the share used.</p>`
-    + key + weekChart(weeks, g => `${pctOf(g.xs.filter(x => x.v.used).length, g.xs.length)}%`)
     + trendLeaders("Most vetoes in a season", t.top, "veto", "vetoes", true)
+    + extra(`<h2>Week by week</h2><p class="note">Every veto winner, colored by what they did with it. Hover for the details; click for the week.</p>`
+      + key + trendBoard("veto", all))
+    + extra(`<h2>By week of the season</h2><p class="note">What the veto did in each week, all seasons together. The number on top is the share used.</p>`
+      + key + weekChart(weeks, g => `${pctOf(g.xs.filter(x => x.v.used).length, g.xs.length)}%`))
     + `<p class="src">From Wikipedia’s voting tables: the veto’s use is read from the nominations before and after it. Competition names and types from the Big Brother Wiki.</p>`;
 }
 
@@ -2681,9 +2727,9 @@ async function showEndgame(season, start) {
     + endgameNotesHtml(ctx)
     + `<h2>Round by round</h2><div class="eg-rounds">${eg.map(x => endgameRoundHtml(ctx, x)).join("")}</div>`
     + endgameLaterHtml(ctx)
-    + powerGridHtml(ctx)
-    + endgameTableHtml(ctx)
-    + acrossSeasonsHtml(ctx)
+    + extra(powerGridHtml(ctx))
+    + extra(endgameTableHtml(ctx))
+    + extra(acrossSeasonsHtml(ctx))
     + `<p class="src">Rounds and votes from Wikipedia’s voting table; competition names and the final HOH’s parts from the Big Brother Wiki.`
     + (decided ? ` <a href="#finale=${season}">The jury vote is on the Finale tab ›</a>` : "") + `</p>`
     + `</div>`;
@@ -3193,15 +3239,15 @@ function analyticsHtml(A, d) {
     + statTile(late.typed ? `${pctOf(late.athletic, late.typed)}%` : "–", "Athletic comps with 5 or fewer left", `against ${pctOf(early.athletic, early.typed)}% with 10 or more`)
     + `</div>`
     + `<h2>What stands out</h2><ul class="eg-notes">${notes.map(n => `<li>${n}</li>`).join("")}</ul>`
-    + compBeastsHtml(A)
-    + compThreatHtml(A, leaders)
-    + streakHtml(streaks)
-    + firstHohHtml(A, firsts)
-    + weekOneHtml(A, firsts)
-    + offBlockHtml(clean, never)
-    + stagesHtml(stageComps)
-    + agesHtml(ages)
-    + seasonPatternsHtml(A)
+    + extra(compBeastsHtml(A))
+    + extra(compThreatHtml(A, leaders))
+    + extra(streakHtml(streaks))
+    + extra(firstHohHtml(A, firsts))
+    + extra(weekOneHtml(A, firsts))
+    + extra(offBlockHtml(clean, never))
+    + extra(stagesHtml(stageComps))
+    + extra(agesHtml(ages))
+    + extra(seasonPatternsHtml(A))
     + `<p class="src">From Wikipedia’s voting tables and the Big Brother Wiki (competition types, placings); ages from Wikipedia’s cast tables. Only the rounds the grid models are counted, so a twist week it doesn’t fully model can leave a gap in a streak.</p>`;
 }
 
@@ -3487,7 +3533,7 @@ function route() {
   if (kind === "week") {
     // "#week=26/11" names the week by number, the way the stream's dashboard does.
     const label = /^\d+$/.test(rest || "") ? ((DATA.weeks.find(w => w.season === season && w.week === +rest) || {}).week_label || rest) : rest;
-    // The simple view shows a week as a full board, sized for the stream, instead of the drawer.
+    // The stream view shows a week as a full board, sized for the stream, instead of the drawer.
     if (simple) { hideDrawer(); return showWeekBoard(season, label); }
     if (currentView === "weeks" || currentView === "board") setView("weeks");
     showWeek(season, label);
@@ -3532,17 +3578,39 @@ $("faces-btn").addEventListener("click", () => {
   try { localStorage.setItem("faces", showFaces ? "on" : "off"); } catch (err) {}
   renderGrid(DATA);
 });
-// Simple view lives in the address (?simple=1), so a stream's browser source can link straight to it.
+$("details-btn").addEventListener("click", () => {
+  details = !details;
+  try { localStorage.setItem("details", details ? "on" : "off"); } catch (err) {}
+  if (params.has("details")) {
+    params.delete("details");
+    const query = params.toString();
+    history.replaceState(null, "", location.pathname + (query ? "?" + query : "") + location.hash);
+  }
+  setBrief();
+});
+// Every panel and the drawer fold their .extra parts each time they're drawn.
+const folder = new MutationObserver(ms => new Set(ms.map(m => m.target)).forEach(foldExtras));
+document.querySelectorAll(".panel, #drawer-body").forEach(el => folder.observe(el, { childList: true }));
+document.addEventListener("click", e => {
+  const b = e.target.closest(".more button");
+  if (!b) return;
+  const panel = b.closest(".panel, #drawer-body");
+  opened.add(panel.id);
+  b.closest(".more").parentElement.classList.remove("folded");
+  b.closest(".more").remove();
+});
+// The stream view lives in the address (?simple=1), so a stream's browser source can link straight to it.
 $("simple-btn").addEventListener("click", () => {
   simple = !simple;
   document.documentElement.classList.toggle("simple", simple);
+  setBrief();
   showFaces = defaultFaces();
   if (DATA) renderGrid(DATA);
   if (simple) params.set("simple", "1"); else params.delete("simple");
   const query = params.toString();
   history.replaceState(null, "", location.pathname + (query ? "?" + query : "") + location.hash);
 });
-// Simple view is left open for a whole show, so it picks up new data by itself: every
+// Stream view is left open for a whole show, so it picks up new data by itself: every
 // 10 minutes it rereads weeks.json and, if it was rebuilt, redraws the grid and the open tab.
 const REFRESH_MS = 10 * 60 * 1000;
 async function refreshData() {

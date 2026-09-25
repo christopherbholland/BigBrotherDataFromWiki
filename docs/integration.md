@@ -76,8 +76,8 @@ Add `?embed=1` to hide the page's own title and intro, so it sits inside your la
 The stream's stock-watch dashboard scores every week of every season (Episodes, HOH
 reigns, Production, …). This page answers the follow-up question, "why did BB26 get a
 4.6 in Week 11?", by showing what happened that week, in the same season and week
-numbers the dashboard uses. Add `?simple=1` for the stream-sized simple view (or click
-**Simple view** next to the tabs), and `&embed=1&theme=dark` for an OBS or Streamlabs
+numbers the dashboard uses. Add `?simple=1` for the stream view, sized for a stream (or click
+**Stream view** next to the tabs), and `&embed=1&theme=dark` for an OBS or Streamlabs
 browser source, which hides the tabs and matches the dashboard's navy board.
 
 **A week's story: `#week=<season>/<week>`**
@@ -118,7 +118,7 @@ low across the board?" or "why did BB21 beat everyone that week?".
   just set `iframe.src` (or `location.hash`) to the next week.
 - **From the keyboard** (in a browser, or OBS's **Interact** window): ← → step through
   the weeks and ↑ ↓ through the seasons, keeping the week. Esc goes back to the grid.
-- **From the grid.** In the simple view, clicking a week opens its board instead of the
+- **From the grid.** In the stream view, clicking a week opens its board instead of the
   side panel.
 - Weeks are the numbers in Wikipedia's tables, the same as the dashboard's "WK 11". The
   full label works too (`#week=26/Week%2010`).
@@ -128,9 +128,9 @@ like the dashboard's boards. It has a "Season 28" line, "Evictions" (or "HOH rei
 `&mode=hoh`) with a pill for the airing week, bold names with photos off (`&photos=1`
 turns them on), the airing week outlined and the airing season marked on its left edge.
 
-![Simple view grid: every season's evictions, dark theme, Week 12 outlined](screenshots/stream-dark.png)
+![Stream view grid: every season's evictions, dark theme, Week 12 outlined](screenshots/stream-dark.png)
 
-Details of the simple view:
+Details of the stream view:
 
 - **Size.** 1280 × 720 fits the whole grid, the Week board and the every-season table,
   credits included; 1920 × 1080 works too. A double-eviction week runs taller.
@@ -142,7 +142,7 @@ Details of the simple view:
 - **Updates itself.** While it's open, the page rereads `weeks.json` every 10 minutes
   and redraws when the data has been rebuilt, so the source doesn't need refreshing
   during a show.
-- **Other views.** Any deep link works in the simple view too, e.g.
+- **Other views.** Any deep link works in the stream view too, e.g.
   `?simple=1&embed=1&theme=dark#finale=28` for the jury vote on finale night.
 
 ## 3. Use the data directly
