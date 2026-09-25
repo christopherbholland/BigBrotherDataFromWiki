@@ -206,14 +206,14 @@ def build_round(rows, col, sub_label):
 def round_problem(rnd, evicted_cell):
     """Return None, or (status, message, modeled) for a round that isn't a plain eviction.
 
-    An empty Evicted cell is flagged: the round is kept when it has an HOH
-    (a round still airing, e.g. HOH and nominations with the eviction to come)
-    and left out otherwise. An outcome that isn't a vote tally or a sole vote
+    An empty Evicted cell means the eviction hasn't aired yet (a week with no
+    eviction says so in the cell), so it's flagged "Eviction to come": the
+    round is kept when it has an HOH and left out otherwise. An outcome that isn't a vote tally or a sole vote
     (competition eliminations, re-entries, cancelled evictions) is flagged and
     the round is left out. A plain eviction with no HOH is a structural error.
     """
     if rnd["evicted"] is None:
-        return ("note", "No eviction", bool(rnd["hoh"]))
+        return ("note", "Eviction to come", bool(rnd["hoh"]))
     if rnd["tally"] is None:
         return ("note", NON_STANDARD + " ".join(evicted_cell.names), False)
     if not rnd["hoh"]:

@@ -3398,8 +3398,11 @@ function roundTilesHtml(w, r, i, d) {
   const tiles = [];
   if (r.hoh.length) tiles.push(statTile(names(S, r.hoh), "Head of Household", comp("hoh")));
   if (r.nominees_initial.length) {
-    const changed = r.nominees_final.length && r.nominees_final.map(nkey).join() !== r.nominees_initial.map(nkey).join();
-    tiles.push(statTile(names(S, r.nominees_initial), "Nominated", changed ? `On the block at the vote: ${esc(r.nominees_final.join(", "))}` : "Still on the block at the vote"));
+    // No final nominees yet (a round still airing): there's been no vote to be on the block at.
+    const block = !r.nominees_final.length ? ""
+      : r.nominees_final.map(nkey).join() !== r.nominees_initial.map(nkey).join() ? `On the block at the vote: ${esc(r.nominees_final.join(", "))}`
+      : "Still on the block at the vote";
+    tiles.push(statTile(names(S, r.nominees_initial), "Nominated", block));
   }
   if (r.veto_winners.length) {
     let what = "";

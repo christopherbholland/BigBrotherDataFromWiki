@@ -88,7 +88,7 @@ def test_double_eviction_with_one_round_unfinished_keeps_both_rounds():
     html = FIXTURE.replace("<td>Dana<br /><small>2 of 2 votes<br />to evict</small></td>", "<td></td>")
     w = {w["week"]: w for w in process_season(99, html)}[3]
     assert w["status"] == "note"
-    assert w["note"] == "Two rounds: Day 20 / Day 23; Round 2 (Day 23): No eviction"
+    assert w["note"] == "Two rounds: Day 20 / Day 23; Round 2 (Day 23): Eviction to come"
     assert [r["evicted"] for r in w["rounds"]] == ["Gus", None]
     assert w["rounds"][1]["hoh"] and w["rounds"][1]["tally"] is None
 
@@ -110,7 +110,7 @@ def test_week_without_eviction_is_a_note():
     # Like an in-progress week: summary rows filled in, Evicted cell still empty.
     html = FIXTURE.replace("<td>Fran<br /><small>3 of 4 votes<br />to evict</small></td>", "<td></td>")
     w = {w["week"]: w for w in process_season(99, html)}[2]
-    assert w["status"] == "note" and w["note"] == "No eviction"
+    assert w["status"] == "note" and w["note"] == "Eviction to come"
     assert [r["hoh"] for r in w["rounds"]] == [["Casey"]] and w["rounds"][0]["evicted"] is None
     assert w["raw"]["rows"]
 
@@ -119,7 +119,7 @@ def test_week_without_eviction_or_hoh_is_not_modeled():
     html = FIXTURE.replace("<td>Fran<br /><small>3 of 4 votes<br />to evict</small></td>", "<td></td>")
     html = html.replace('<td>Casey<sup class="reference"><a href="#cite_note-a">[a]</a></sup></td>', "<td></td>")
     w = {w["week"]: w for w in process_season(99, html)}[2]
-    assert w["status"] == "note" and w["note"] == "No eviction"
+    assert w["status"] == "note" and w["note"] == "Eviction to come"
     assert w["rounds"] == [] and w["raw"]["rows"]
 
 

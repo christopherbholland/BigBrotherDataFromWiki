@@ -11,7 +11,7 @@ from .util import mentions, name_key, split_sentences
 OUT_OF_GAME_RE = re.compile(r"^(evicted|eliminated|walked|expelled|ejected|removed|quit)\b", re.I)
 # Parts of a week's note that don't describe anything unusual about the game.
 WINNER_SUFFIX = re.compile(r"\s+winners?$", re.I)
-ROUTINE_NOTES = re.compile(r"^(finale|no eviction)$|: no eviction$", re.I)
+ROUTINE_NOTES = re.compile(r"^(finale|eviction to come)$|: eviction to come$", re.I)
 
 
 def week_key(season, week_label):
