@@ -28,8 +28,8 @@ fetch workflow, and by hand from the Actions tab. To turn it on:
 4. The page is then at <https://christopherbholland.github.io/BigBrotherDataFromWiki/>
    (on a fork, `https://<user>.github.io/BigBrotherDataFromWiki/`).
 
-**Staying current.** The fetch workflow runs every day at 14:00 UTC. When a Wikipedia page
-has changed, it commits the new data, and the Pages workflow republishes. You can also run
+**Staying current.** The fetch workflow fetches the airing (newest) season every hour and
+every season once a day at 14:00 UTC. When a page has changed, it commits the new data, and the Pages workflow republishes. You can also run
 **Fetch wiki pages** by hand from the Actions tab, including from the GitHub mobile app.
 
 **On your phone.** Open the Pages address in Safari or Chrome. To open it like an app

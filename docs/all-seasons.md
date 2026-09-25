@@ -67,10 +67,10 @@ was written), so expect some of them to need work:
    (`details/26.json`) and load the season being viewed. Most of that change is in
    `loadDetails()` in `web/index.html` and `run()` in `bbgrid/export.py`. The format index
    (`formats`) spans seasons, so it would stay in one shared file.
-6. **The daily fetch.** It fetches every season each day and only commits when a page
-   changed. With 28 seasons that's about 110 API requests a day (four per season). If that ever
-   seems too many, have the scheduled run fetch only the airing season. The workflow
-   already takes a season list.
+6. **The daily fetch.** It fetches every season once a day (the newest season also every
+   hour) and only commits when a page changed. With 28 seasons that's about 110 API requests
+   for the daily run (four per season). If that ever seems too many, drop the daily run and
+   keep only the hourly one, which already fetches just the airing season.
 
 ## Other versions of the show
 

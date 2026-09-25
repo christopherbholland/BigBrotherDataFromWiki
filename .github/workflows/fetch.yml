@@ -3,14 +3,19 @@ name: Fetch wiki pages
 # Fetches each season's Wikipedia page and Big Brother Wiki (Fandom) page into cache/,
 # rebuilds web/weeks.json, details.json, report.txt and proofread.xlsx, and commits
 # them back to the branch, with updated test snapshots, if any page changed.
-# Runs daily, when this file or seasons.yaml changes, or by hand from the Actions tab.
+# Fetches the airing (newest) season every hour and every season once a day; also runs
+# when this file or seasons.yaml changes, or by hand from the Actions tab.
 on:
   push:
     paths:
       - .github/workflows/fetch.yml
       - seasons.yaml
   schedule:
-    # Daily at 14:00 UTC, so the hosted page picks up last night's episode.
+    # Hourly, the airing season only, so HOH, veto and eviction results show up within
+    # an hour or two of being added to the wikis (GitHub often starts scheduled runs late,
+    # so a once-a-day run could leave the page most of a day behind).
+    - cron: "17 * * * *"
+    # Daily at 14:00 UTC, every season, to pick up edits to past seasons.
     - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
@@ -40,7 +45,12 @@ jobs:
         # is only ever read as season numbers.
         env:
           SEASONS: ${{ github.event.inputs.seasons }}
-        run: python -m bbgrid fetch $SEASONS
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ "$SCHEDULE" = "17 * * * *" ]; then
+            SEASONS=$(python -c "from bbgrid.config import load_seasons; print(max(load_seasons()))")
+          fi
+          python -m bbgrid fetch $SEASONS
       - name: Build weeks.json and report.txt
         run: |
           python -m bbgrid build
