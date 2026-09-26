@@ -16,7 +16,7 @@
   "Berry Balanced": {
    "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
    "category": null,
-   "revid": 700156
+   "revid": 700433
   },
   "Big Top Drop": {
    "description": "Aim balls down a tube in a predetermined amount of time or balls",
@@ -76,7 +76,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -96,17 +96,17 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699647
+   "revid": 700235
   },
   "Niagara Balls": {
    "description": "Get a specific number of colored balls into your container the quickest.",
    "category": null,
-   "revid": 699751
+   "revid": 700234
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -116,32 +116,32 @@
   "Perfect Shot": {
    "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
    "category": null,
-   "revid": 692023
+   "revid": 700228
   },
   "Pipeline": {
    "description": "Build a pipeline that passes through each connector piece to the other podium.",
    "category": null,
-   "revid": 676365
+   "revid": 700226
   },
   "Pyramid": {
    "description": "A group of houseguests hold onto ropes that hold the base of a pyramid. Each houseguest takes turns stacking & holding. If the tower falls, the team must restart.",
    "category": null,
-   "revid": 675338
+   "revid": 700222
   },
   "Reclaim the Relic": {
    "description": "Search for the correct item.",
    "category": null,
-   "revid": 676390
+   "revid": 700221
   },
   "Roll It Down": {
    "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
    "category": null,
-   "revid": 696882
+   "revid": 700219
   },
   "Seesaw": {
    "description": "Balance on a large seesaw to transport balls from one end to the other.",
    "category": null,
-   "revid": 691144
+   "revid": 700317
   },
   "Sequence Explosion": {
    "description": "A competition where houseguests watch a sequence of patterns to complete a task.",
@@ -151,12 +151,12 @@
   "Shootout": {
    "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
    "category": null,
-   "revid": 694509
+   "revid": 700216
   },
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 699601
+   "revid": 700210
   },
   "Starting Lineup": {
    "description": "Complete the correct houseguest puzzle by finding out who is missing from the lineup",
@@ -166,32 +166,32 @@
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "To Drink or to Bluff": {
    "description": "Houseguests guess who drank the \"poisoned\" drink.",
    "category": null,
-   "revid": 682374
+   "revid": 700203
   },
   "Tower of Hanoi": {
    "description": "Rearrange disc so that they are matching and are in order.",
    "category": null,
-   "revid": 678024
+   "revid": 700201
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "What The Bleep?": {
    "description": "Try to guess what the bleeped out word or phrase is said in the clip.",
    "category": null,
-   "revid": 696933
+   "revid": 700189
   },
   "What's The Hold Up": {
    "description": "By using a long flexible structure, hold up object against a plaque.",
    "category": null,
-   "revid": 696359
+   "revid": 700200
   },
   "Zingbot Competition": {
    "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
@@ -1098,6 +1098,20 @@
    "outcome": "wins HOH Part 1",
    "result": "Taylor wins HOH Part 1",
    "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "81",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": null,
+   "format": null,
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins HOH Part 2",
+   "result": "Devens wins HOH Part 2",
+   "extra": {}
   }
  ],
  "have_nots": {
@@ -1625,7 +1639,9 @@
    "nominees_initial": [],
    "veto_holders": [],
    "veto_used": null,
-   "nominees_final": [],
+   "nominees_final": [
+    "Drew"
+   ],
    "evicted": [],
    "vote": "1-0",
    "finish": "15th Evicted 7th Jury Member Day 87",
@@ -1690,7 +1706,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 700064,
+   "revid": 700296,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/40/US28_Devens_Large.jpg/revision/latest"
   },
   "Drew Campbell": {
@@ -1724,7 +1740,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 700065,
+   "revid": 700297,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2b/US28_Drew_Large.jpg/revision/latest"
   },
   "Taylor Brown": {
@@ -2154,7 +2170,7 @@
     "Big Brother 22 (US)",
     "Big Brother 12 (US)"
    ],
-   "revid": 675074,
+   "revid": 700347,
    "portrait": null
   },
   "Rachel Reilly": {
@@ -2177,7 +2193,7 @@
     "Big Brother 13 (US)",
     "Big Brother 27 (US)"
    ],
-   "revid": 697391,
+   "revid": 700340,
    "portrait": null
   },
   "Howie Gordon": {
@@ -2251,7 +2267,7 @@
     "Big Brother 11 (US)",
     "Big Brother 10 (US)"
    ],
-   "revid": 679609,
+   "revid": 700324,
    "portrait": null
   },
   "Morgan Pope": {
@@ -2293,7 +2309,7 @@
     "Big Brother 18 (US)",
     "Big Brother 19 (US)"
    ],
-   "revid": 687748,
+   "revid": 700625,
    "portrait": null
   },
   "Britney Haynes": {
@@ -2316,7 +2332,7 @@
     "Big Brother 12 (US)",
     "Big Brother Reindeer Games"
    ],
-   "revid": 697439,
+   "revid": 700346,
    "portrait": null
   },
   "Cody Calafiore": {

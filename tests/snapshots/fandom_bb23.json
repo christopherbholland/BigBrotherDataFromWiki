@@ -56,7 +56,7 @@
   "How Bad Do You Want It?": {
    "description": "Add points to your score/Continue playing by facing punishments",
    "category": null,
-   "revid": 674809
+   "revid": 700311
   },
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",
@@ -66,7 +66,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -76,17 +76,17 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699647
+   "revid": 700235
   },
   "Microchip Mayhem": {
    "description": "Put balls into other houseguests' tube to eliminate them.",
    "category": null,
-   "revid": 690074
+   "revid": 700212
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -96,17 +96,17 @@
   "Perfect Shot": {
    "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
    "category": null,
-   "revid": 692023
+   "revid": 700228
   },
   "Roll It Down": {
    "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
    "category": null,
-   "revid": 696882
+   "revid": 700219
   },
   "Seesaw": {
    "description": "Balance on a large seesaw to transport balls from one end to the other.",
    "category": null,
-   "revid": 691144
+   "revid": 700317
   },
   "Sequence Explosion": {
    "description": "A competition where houseguests watch a sequence of patterns to complete a task.",
@@ -116,12 +116,12 @@
   "Shootout": {
    "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
    "category": null,
-   "revid": 694509
+   "revid": 700216
   },
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 699601
+   "revid": 700210
   },
   "Snapshot Shuffle": {
    "description": "Arrange the photos in chronological order in the fastest time.",
@@ -131,22 +131,22 @@
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "Who Did What?": {
    "description": "Pair phrases with the person that accomplished/did the phrase.",
    "category": null,
-   "revid": 643648
+   "revid": 700196
   },
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 697394
+   "revid": 700269
   }
  },
  "roster": [

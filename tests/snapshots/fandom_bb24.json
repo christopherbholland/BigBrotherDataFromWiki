@@ -31,7 +31,7 @@
   "Faster Than A Speeding Veto": {
    "description": "One player is attached to a rope and is raised upward as the other player runs forward. Both come back as the runner returns to the starting platform in order to hand pieces to complete a vertical puzzle.",
    "category": null,
-   "revid": 522146
+   "revid": 700314
   },
   "Feeling Knotty": {
    "description": "Untie a series of knots",
@@ -51,7 +51,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -61,12 +61,12 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699647
+   "revid": 700235
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -86,7 +86,7 @@
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 699601
+   "revid": 700210
   },
   "Stacking": {
    "description": "Balance and stack coins/discs/boxes on a small podium then race back to stack more.",
@@ -106,22 +106,22 @@
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "What Competition Was That?": {
    "description": "Place the competitions in the order they occurred.",
    "category": null,
-   "revid": 533015
+   "revid": 700191
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 697394
+   "revid": 700269
   }
  },
  "roster": [

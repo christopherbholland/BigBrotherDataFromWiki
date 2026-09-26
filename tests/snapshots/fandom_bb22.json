@@ -26,7 +26,7 @@
   "Berry Balanced": {
    "description": "Contestants must traverse across a series of balance beams to retrieve an object then head back to deposit it",
    "category": null,
-   "revid": 700156
+   "revid": 700433
   },
   "Cover Your Days": {
    "description": "Guess what day an event occurred.",
@@ -61,7 +61,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -76,7 +76,7 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -96,17 +96,17 @@
   "Seesaw": {
    "description": "Balance on a large seesaw to transport balls from one end to the other.",
    "category": null,
-   "revid": 691144
+   "revid": 700317
   },
   "Take It Off": {
    "description": "Strip down to undergarments in fastest time while trying to keep three buttons pushed down at all times.",
    "category": null,
-   "revid": 666845
+   "revid": 700208
   },
   "The Black Box": {
    "description": "Inside a black box, search for objects and have the most after time runs out.",
    "category": null,
-   "revid": 639395
+   "revid": 700207
   },
   "The Maze": {
    "description": "Find a select number of objects in a maze in the shortest amount of time.",
@@ -116,22 +116,22 @@
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "Tower of Hanoi": {
    "description": "Rearrange disc so that they are matching and are in order.",
    "category": null,
-   "revid": 678024
+   "revid": 700201
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "Who Did What?": {
    "description": "Pair phrases with the person that accomplished/did the phrase.",
    "category": null,
-   "revid": 643648
+   "revid": 700196
   },
   "Will Kirby": {
    "description": null,
@@ -141,7 +141,7 @@
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 697394
+   "revid": 700269
   }
  },
  "roster": [
@@ -1296,7 +1296,7 @@
     "Big Brother 22 (US)",
     "Big Brother 12 (US)"
    ],
-   "revid": 675074,
+   "revid": 700347,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/00/BB22_Large_Enzo.jpg/revision/latest"
   },
   "Nicole Franzel": {
@@ -1337,7 +1337,7 @@
     "Big Brother 22 (US)",
     "Big Brother Reindeer Games"
    ],
-   "revid": 699865,
+   "revid": 700626,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/0e/BB22_Large_Nicole_F.jpg/revision/latest"
   },
   "Christmas Abbott": {
@@ -1460,7 +1460,7 @@
     "Big Brother 13 (US)",
     "Big Brother 22 (US)"
    ],
-   "revid": 696204,
+   "revid": 700356,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/6/69/BB22_Large_Dani.jpg/revision/latest"
   },
   "David Alexander": {
@@ -1514,7 +1514,7 @@
     "Big Brother 22 (US)",
     "Big Brother 11 (US)"
    ],
-   "revid": 673769,
+   "revid": 700330,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/de/BB22_Large_Kevin.jpg/revision/latest"
   },
   "Da'Vonne Rogers": {
@@ -1572,7 +1572,7 @@
     "Big Brother 22 (US)",
     "Big Brother 14 (US)"
    ],
-   "revid": 694706,
+   "revid": 700374,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/4a/BB22_Large_Ian.jpg/revision/latest"
   },
   "Bayleigh Dayton": {

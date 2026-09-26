@@ -56,7 +56,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -66,57 +66,62 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Perfect Shot": {
    "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
    "category": null,
-   "revid": 692023
+   "revid": 700228
   },
   "Pull Some Strings": {
    "description": "Use two ropes to propel a bar/tilt a table up a ramp to carry balls to a target",
    "category": null,
-   "revid": 690163
+   "revid": 700224
+  },
+  "Reclaim the Relic": {
+   "description": "Search for the correct item.",
+   "category": null,
+   "revid": 700221
   },
   "Roll It Down": {
    "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
    "category": null,
-   "revid": 696882
+   "revid": 700219
   },
   "Shootout": {
    "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
    "category": null,
-   "revid": 694509
+   "revid": 700216
   },
   "Slippery Slope": {
    "description": "Collect a product from a bucket, slide down your lane and put it in another container to retrieve a ball.",
    "category": null,
-   "revid": 699601
+   "revid": 700210
   },
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "Time Highway": {
    "description": "Place yourself on or inside of a platform that will roll and launch yourself down the path. Reach the finish line in the time closest to the designated target time.",
    "category": null,
-   "revid": 517841
+   "revid": 700202
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "Who Did What?": {
    "description": "Pair phrases with the person that accomplished/did the phrase.",
    "category": null,
-   "revid": 643648
+   "revid": 700196
   },
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 697394
+   "revid": 700269
   }
  },
  "roster": [
@@ -724,7 +729,7 @@
    "type": "HOH",
    "kind": "hoh",
    "name": "Raiders of the BB Relics",
-   "format": null,
+   "format": "Reclaim the Relic",
    "winners": [
     "Jackson"
    ],

@@ -81,7 +81,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -101,17 +101,17 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699647
+   "revid": 700235
   },
   "Niagara Balls": {
    "description": "Get a specific number of colored balls into your container the quickest.",
    "category": null,
-   "revid": 699751
+   "revid": 700234
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -126,12 +126,12 @@
   "Roll It Down": {
    "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
    "category": null,
-   "revid": 696882
+   "revid": 700219
   },
   "Slingshot Aim": {
    "description": "Use a slingshot or similar apparatus to shoot balls at a target to knock down panels.",
    "category": null,
-   "revid": 535611
+   "revid": 700211
   },
   "Spelling Search": {
    "description": "Houseguests attempt to spell the longest word using letters they find.",
@@ -146,22 +146,22 @@
   "The Black Box": {
    "description": "Inside a black box, search for objects and have the most after time runs out.",
    "category": null,
-   "revid": 639395
+   "revid": 700207
   },
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "What's The Hold Up": {
    "description": "By using a long flexible structure, hold up object against a plaque.",
    "category": null,
-   "revid": 696359
+   "revid": 700200
   }
  },
  "roster": [

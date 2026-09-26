@@ -735,8 +735,15 @@
     {
      "label": "Nominations (final)",
      "cells": [
-      "",
+      "Drew",
       "(None)"
+     ]
+    },
+    {
+     "label": "Drew",
+     "cells": [
+      "Nominated",
+      ""
      ]
     },
     {

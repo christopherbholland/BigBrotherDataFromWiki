@@ -111,7 +111,7 @@
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
    "category": null,
-   "revid": 694212
+   "revid": 700304
   },
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
@@ -131,17 +131,17 @@
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
-   "revid": 699647
+   "revid": 700235
   },
   "Niagara Balls": {
    "description": "Get a specific number of colored balls into your container the quickest.",
    "category": null,
-   "revid": 699751
+   "revid": 700234
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 688598
+   "revid": 700229
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -151,7 +151,7 @@
   "Perfect Shot": {
    "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
    "category": null,
-   "revid": 692023
+   "revid": 700228
   },
   "Ready, Set, Woah": {
    "description": "Contestants must wait for the word go and not be the last one across the finish.",
@@ -161,52 +161,52 @@
   "Roll It Down": {
    "description": "Roll balls down a winding track and attempt to land it in one of the holes.",
    "category": null,
-   "revid": 696882
+   "revid": 700219
   },
   "Seesaw": {
    "description": "Balance on a large seesaw to transport balls from one end to the other.",
    "category": null,
-   "revid": 691144
+   "revid": 700317
   },
   "Shootout": {
    "description": "Roll/hit/shoot a ball/arrow to get the highest point value.",
    "category": null,
-   "revid": 694509
+   "revid": 700216
   },
   "The Black Box": {
    "description": "Inside a black box, search for objects and have the most after time runs out.",
    "category": null,
-   "revid": 639395
+   "revid": 700207
   },
   "The Wall": {
    "description": "Hang on to a moving wall as long as you can.",
    "category": "Endurance",
-   "revid": 682100
+   "revid": 700205
   },
   "To Drink or to Bluff": {
    "description": "Houseguests guess who drank the \"poisoned\" drink.",
    "category": null,
-   "revid": 682374
+   "revid": 700203
   },
   "Tower of Hanoi": {
    "description": "Rearrange disc so that they are matching and are in order.",
    "category": null,
-   "revid": 678024
+   "revid": 700201
   },
   "Tumblin' Dice": {
    "description": "Competitors roll a dice to land on a specific face on the final platform",
    "category": null,
-   "revid": 614834
+   "revid": 700204
   },
   "What Did They Just Do?": {
    "description": "Watch a short performance and then answer questions.",
    "category": null,
-   "revid": 694511
+   "revid": 700190
   },
   "What's The Hold Up": {
    "description": "By using a long flexible structure, hold up object against a plaque.",
    "category": null,
-   "revid": 696359
+   "revid": 700200
   },
   "Zingbot Competition": {
    "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
@@ -1770,7 +1770,7 @@
    "seasons": [
     "Big Brother 27 (US)"
    ],
-   "revid": 683426,
+   "revid": 700479,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/46/US27_Kelley_Large.jpg/revision/latest"
   },
   "Will Williams": {
@@ -1831,7 +1831,7 @@
     "Big Brother 13 (US)",
     "Big Brother 27 (US)"
    ],
-   "revid": 697391,
+   "revid": 700340,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f6/US27_Rachel_Large.jpg/revision/latest"
   },
   "Mickey Lee": {
