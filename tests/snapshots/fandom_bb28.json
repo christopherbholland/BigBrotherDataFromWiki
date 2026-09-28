@@ -93,6 +93,11 @@
    "category": null,
    "revid": 676628
   },
+  "Log Roll": {
+   "description": "Stay on a log while it is rolling for as long as possible while holding onto a string attached to an object. If the object falls or the houseguest falls off, they are eliminated.",
+   "category": null,
+   "revid": 701269
+  },
   "Microbrews": {
    "description": "Stack tiny objects in a vertical formation by using oversized tweezers.",
    "category": null,
@@ -1090,8 +1095,8 @@
    "day": "80",
    "type": "HOH",
    "kind": "hoh",
-   "name": null,
-   "format": null,
+   "name": "Shock and Roll",
+   "format": "Log Roll",
    "winners": [
     "Taylor"
    ],
@@ -2101,7 +2106,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 694298,
+   "revid": 701347,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/e/e5/US28_Jason_Large.jpg/revision/latest"
   },
   "Rome Seymour": {
@@ -2193,7 +2198,7 @@
     "Big Brother 13 (US)",
     "Big Brother 27 (US)"
    ],
-   "revid": 700340,
+   "revid": 701345,
    "portrait": null
   },
   "Howie Gordon": {
