@@ -111,7 +111,7 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 700229
+   "revid": 701929
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -1334,7 +1334,7 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 697449,
+   "revid": 702013,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/36/US26_Chelsie_Large.jpg/revision/latest"
   },
   "Makensy Manbeck": {
@@ -1741,7 +1741,7 @@
    "seasons": [
     "Big Brother 26 (US)"
    ],
-   "revid": 688003,
+   "revid": 701973,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/45/US26_Matt_Large.jpg/revision/latest"
   }
  },
