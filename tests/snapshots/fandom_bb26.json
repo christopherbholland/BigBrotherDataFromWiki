@@ -76,7 +76,7 @@
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",
    "category": null,
-   "revid": 665975
+   "revid": 702212
   },
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
@@ -131,7 +131,7 @@
   "Slingshot Aim": {
    "description": "Use a slingshot or similar apparatus to shoot balls at a target to knock down panels.",
    "category": null,
-   "revid": 700211
+   "revid": 702194
   },
   "Spelling Search": {
    "description": "Houseguests attempt to spell the longest word using letters they find.",
@@ -1473,7 +1473,7 @@
     "Big Brother 26 (US)",
     "Big Brother 28 (US)"
    ],
-   "revid": 694233,
+   "revid": 702266,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/3b/US26_Angela_Large.jpg/revision/latest"
   },
   "Leah Peters": {

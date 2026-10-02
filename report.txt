@@ -302,8 +302,8 @@ BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard o
     Block Buster winner: (None) | Devens
     Nominations (final): Drew / Barrett / Yash / La Trice / Haley | La Trice / Taylor
     Devens: Saved | La Trice
-    Drew: Barrett | Head of / Household
     Taylor: Saved | Nominated
+    Drew: Barrett | Head of / Household
     Dee: Drew / Haley | La Trice
     Melody: Saved | Taylor
     Yash: Haley | La Trice
@@ -319,20 +319,22 @@ BB28 Week 8: NOTE: Two rounds: Day 52 / Day 53; Round 1 (Day 52): Non-standard o
     Rome: Evicted / (Day 17) | Evicted / (Day 17)
     Ashley: Evicted / (Day 10) | Evicted / (Day 10)
     Evicted: Haley / Yash's / choice / to eliminate | La Trice / 4 of 6 / votes / to evict
-BB28 Week 12: NOTE: Finale; Eviction to come
+BB28 Week 12: NOTE: Finale; Non-standard outcome: Drew Devens' choice to evict
     columns: Day 87 | Finale
-    Head of Household:  | (None)
+    Head of Household: Devens | (None)
     Nominations (initial): (None) | (None)
     Veto winner(s): (None) | (None)
     Block Buster winner: (None) | (None)
-    Nominations (final): Drew | (None)
-    Drew: Nominated | 
-    Dee: Evicted / (Day 80) | Jury Member
-    Melody: Evicted / (Day 77) | Jury Member
-    Yash: Evicted / (Day 73) | Jury Member
-    Barrett: Evicted / (Day 73) | Jury Member
-    Angela: Evicted / (Day 66) | Jury Member
-    La Trice: Evicted / (Day 59) | Jury Member
+    Nominations (final): Drew / Taylor | (None)
+    Devens: Drew | Winner
+    Taylor: Nominated | Runner-up
+    Drew: Evicted / (Day 87) | Devens
+    Dee: Evicted / (Day 80) | Devens
+    Melody: Evicted / (Day 77) | Devens
+    Yash: Evicted / (Day 73) | Devens
+    Barrett: Evicted / (Day 73) | Devens
+    Angela: Evicted / (Day 66) | Devens
+    La Trice: Evicted / (Day 59) | Taylor
     Haley: Eliminated / (Day 53) | Eliminated / (Day 53)
     Mallory: Evicted / (Day 52) | Evicted / (Day 52)
     Kamu: Evicted / (Day 45) | Evicted / (Day 45)
@@ -341,3 +343,4 @@ BB28 Week 12: NOTE: Finale; Eviction to come
     Jason: Evicted / (Day 24) | Evicted / (Day 24)
     Rome: Evicted / (Day 17) | Evicted / (Day 17)
     Ashley: Evicted / (Day 10) | Evicted / (Day 10)
+    Evicted: Drew / Devens' / choice / to evict | Devens / 6 votes / to win

@@ -7,8 +7,8 @@
   "houseguests": "17",
   "episodes": "41",
   "prize": "$750,000",
-  "winner": null,
-  "runner_up": null,
+  "winner": "Rick Devens",
+  "runner_up": "Taylor Brown",
   "host": "Julie Chen-Moonves",
   "average_viewers": null
  },
@@ -72,6 +72,11 @@
    "description": "Competitors compete to balance a set of objects without touching the ground",
    "category": null,
    "revid": 700184
+  },
+  "Jury Statements": {
+   "description": "Houseguests try to finish off the statement the juror says.",
+   "category": null,
+   "revid": 702212
   },
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
@@ -198,6 +203,11 @@
    "category": null,
    "revid": 700200
   },
+  "Who Did What?": {
+   "description": "Pair phrases with the person that accomplished/did the phrase.",
+   "category": null,
+   "revid": 702198
+  },
   "Zingbot Competition": {
    "description": "A themed competition where the Houseguests compete to The Zingbot's need.",
    "category": null,
@@ -210,12 +220,12 @@
    "Devens"
   ],
   [
-   "Drew Campbell",
-   "Drew"
-  ],
-  [
    "Taylor Brown",
    "Taylor"
+  ],
+  [
+   "Drew Campbell",
+   "Drew"
   ],
   [
    "Dee Valladares",
@@ -1109,13 +1119,27 @@
    "day": "81",
    "type": "HOH",
    "kind": "hoh",
-   "name": null,
-   "format": null,
+   "name": "To Be HOH or Not to Be HOH",
+   "format": "Who Did What?",
    "winners": [
     "Devens"
    ],
    "outcome": "wins HOH Part 2",
    "result": "Devens wins HOH Part 2",
+   "extra": {}
+  },
+  {
+   "week": 12,
+   "day": "87",
+   "type": "HOH",
+   "kind": "hoh",
+   "name": "Back In My Day",
+   "format": "Jury Statements",
+   "winners": [
+    "Devens"
+   ],
+   "outcome": "wins HOH Part 3",
+   "result": "Devens wins HOH Part 3",
    "extra": {}
   }
  ],
@@ -1640,14 +1664,19 @@
   },
   {
    "week": 12,
-   "hoh": [],
+   "hoh": [
+    "Devens"
+   ],
    "nominees_initial": [],
    "veto_holders": [],
    "veto_used": null,
    "nominees_final": [
+    "Drew",
+    "Taylor"
+   ],
+   "evicted": [
     "Drew"
    ],
-   "evicted": [],
    "vote": "1-0",
    "finish": "15th Evicted 7th Jury Member Day 87",
    "other": {}
@@ -1659,8 +1688,10 @@
    "veto_holders": [],
    "veto_used": null,
    "nominees_final": [],
-   "evicted": [],
-   "vote": "?-?",
+   "evicted": [
+    "Taylor"
+   ],
+   "vote": "6-1",
    "finish": "Runner-Up",
    "other": {}
   },
@@ -1671,8 +1702,10 @@
    "veto_holders": [],
    "veto_used": null,
    "nominees_final": [],
-   "evicted": [],
-   "vote": "?-?",
+   "evicted": [
+    "Devens"
+   ],
+   "vote": "6-1",
    "finish": "Winner",
    "other": {}
   }
@@ -1691,7 +1724,7 @@
    "nickname": [
     "Devens"
    ],
-   "place": null,
+   "place": "1st",
    "days": "87",
    "alliances": [
     "Bermuda Triangle",
@@ -1706,13 +1739,40 @@
     "The Wolfpack"
    ],
    "other_prizes": [
-    "$10,000"
+    "$10,000",
+    "$50,000 (Fan Favorite)"
    ],
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 700296,
+   "revid": 702316,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/40/US28_Devens_Large.jpg/revision/latest"
+  },
+  "Taylor Brown": {
+   "page": "Taylor Brown",
+   "full_name": "Taylor Brown",
+   "birth_date": "1998-09-29",
+   "age": 27,
+   "hometown": [
+    "Deerfield Beach, FL"
+   ],
+   "occupation": "Elementary school counselor",
+   "nickname": [],
+   "place": "2nd",
+   "days": "87",
+   "alliances": [
+    "The Ceasefire",
+    "The Covenant",
+    "The Culture",
+    "The Honor Society",
+    "The Primaries"
+   ],
+   "other_prizes": [],
+   "seasons": [
+    "Big Brother 28 (US)"
+   ],
+   "revid": 702291,
+   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d7/US28_Taylor_Large.jpg/revision/latest"
   },
   "Drew Campbell": {
    "page": "Drew Campbell",
@@ -1724,7 +1784,7 @@
    ],
    "occupation": "Surgical dental assistant",
    "nickname": [],
-   "place": null,
+   "place": "3rd",
    "days": "87",
    "alliances": [
     "4 Seasons",
@@ -1745,34 +1805,8 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 700297,
+   "revid": 702288,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/2/2b/US28_Drew_Large.jpg/revision/latest"
-  },
-  "Taylor Brown": {
-   "page": "Taylor Brown",
-   "full_name": "Taylor Brown",
-   "birth_date": "1998-09-29",
-   "age": 27,
-   "hometown": [
-    "Deerfield Beach, FL"
-   ],
-   "occupation": "Elementary school counselor",
-   "nickname": [],
-   "place": null,
-   "days": "87",
-   "alliances": [
-    "The Ceasefire",
-    "The Covenant",
-    "The Culture",
-    "The Honor Society",
-    "The Primaries"
-   ],
-   "other_prizes": [],
-   "seasons": [
-    "Big Brother 28 (US)"
-   ],
-   "revid": 700063,
-   "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d7/US28_Taylor_Large.jpg/revision/latest"
   },
   "Dee Valladares": {
    "page": "Dee Valladares",
@@ -1802,7 +1836,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699970,
+   "revid": 702289,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/c/c7/US28_Dee_Large.jpg/revision/latest"
   },
   "Melody Morris": {
@@ -1834,7 +1868,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 698741,
+   "revid": 702269,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f6/US28_Melody_Large.jpg/revision/latest"
   },
   "Yash Patel": {
@@ -1865,7 +1899,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 699662,
+   "revid": 702268,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a2/US28_Yash_Large.jpg/revision/latest"
   },
   "Barrett Pfeiffer": {
@@ -1894,7 +1928,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 696898,
+   "revid": 702267,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/f2/US28_Barrett_Large.jpg/revision/latest"
   },
   "Angela Murray": {
@@ -1924,7 +1958,7 @@
     "Big Brother 26 (US)",
     "Big Brother 28 (US)"
    ],
-   "revid": 694233,
+   "revid": 702266,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/4/4b/US28_Angela_Large.jpg/revision/latest"
   },
   "LaTrice Verrett": {
@@ -1951,7 +1985,7 @@
    "seasons": [
     "Big Brother 28 (US)"
    ],
-   "revid": 691686,
+   "revid": 702265,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/0/0a/US28_LaTrice_Large.jpg/revision/latest"
   },
   "Haley Thogmartin": {
@@ -2405,7 +2439,7 @@
    "seasons": [
     "Big Brother 27 (US)"
    ],
-   "revid": 697442,
+   "revid": 702297,
    "portrait": null
   },
   "Vince Panaro": {
@@ -2435,8 +2469,8 @@
  },
  "photos": {
   "Rick Devens": "https://static.wikia.nocookie.net/bigbrother/images/5/5f/US28_Small_Devens.jpg/revision/latest?cb=20260710012752",
-  "Drew Campbell": "https://static.wikia.nocookie.net/bigbrother/images/8/88/US28_Small_Drew.jpg/revision/latest?cb=20260707172041",
   "Taylor Brown": "https://static.wikia.nocookie.net/bigbrother/images/9/98/US28_Small_Taylor.jpg/revision/latest?cb=20260707174628",
+  "Drew Campbell": "https://static.wikia.nocookie.net/bigbrother/images/8/88/US28_Small_Drew.jpg/revision/latest?cb=20260707172041",
   "Dee Valladares": "https://static.wikia.nocookie.net/bigbrother/images/1/11/US28_Small_Dee.jpg/revision/latest?cb=20260711020009",
   "Melody Morris": "https://static.wikia.nocookie.net/bigbrother/images/9/99/US28_Small_Melody.jpg/revision/latest?cb=20260707174118",
   "Yash Patel": "https://static.wikia.nocookie.net/bigbrother/images/8/83/US28_Small_Yash.jpg/revision/latest?cb=20260707174851",

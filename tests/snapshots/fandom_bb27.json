@@ -106,7 +106,7 @@
   "Jury Statements": {
    "description": "Houseguests try to finish off the statement the juror says.",
    "category": null,
-   "revid": 665975
+   "revid": 702212
   },
   "Kaitlyn's Puzzle": {
    "description": "Pass the puzzle pieces through a barrier and complete it on the other side in the allotted time, or gather all the puzzle pieces and complete it in the fastest time.",
@@ -1606,7 +1606,7 @@
    "seasons": [
     "Big Brother 27 (US)"
    ],
-   "revid": 681224,
+   "revid": 702261,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/9/97/US27_Ashley_Large.jpg/revision/latest"
   },
   "Vince Panaro": {
@@ -1724,7 +1724,7 @@
    "seasons": [
     "Big Brother 27 (US)"
    ],
-   "revid": 697442,
+   "revid": 702297,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/3/3c/US27_Keanu_Large.jpg/revision/latest"
   },
   "Lauren Domingue": {

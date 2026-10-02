@@ -7,8 +7,8 @@ US28 Logo.jpg|Original
 |prizemoney = $750,000
 |numberofhouseguests = 17
 |numberofdays = 87
-|winner = 
-|runnersup = 
+|winner = [[Rick Devens]]
+|runnersup = [[Taylor Brown]]
 |network = [[CBS]]<br>[[wikipedia:Paramount+|Paramount+]] (live feeds)<br>[[wikipedia:Pluto TV|Pluto TV]] (live feeds)<br>[[wikipedia:YouTube|YouTube]] (live feeds; limited)
 |executiveproducer = [[wikipedia:Allison Grodner|Allison Grodner]]<br>Rich Meehan
 |challengeproducer = 
@@ -26,10 +26,10 @@ US28 Cast.jpg|Poster
 </gallery>
 |video = BB28 Intro
 |previousseason = [[Big Brother 27 (US)]]
-|nextseason = 
+|nextseason = [[Big Brother 29 (US)]]
 |host= [[Julie Chen-Moonves]]
 |version= [[Big Brother U.S. (franchise)|United States]]
-}}'''Big Brother 28''' is the current 28th season of the broadcasted edition of ''[[Big Brother U.S. (franchise)|Big Brother (U.S.)]]'' and the 33rd season overall.
+}}'''Big Brother 28''' is the 28th season of the broadcasted edition of ''[[Big Brother U.S. (franchise)|Big Brother (U.S.)]]'' and the 33rd season overall.
 ==Background==
 [[File:BB28 Promo Logo.jpg|thumb|200px|Promotional Logo]]
 [[File:BB 1000th Logo.jpg|thumb|250px|1000th Episode Logo]]

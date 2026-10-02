@@ -40,7 +40,7 @@
   "raw": null,
   "footnotes": [
    "e",
-   "h"
+   "i"
   ]
  },
  {
@@ -390,17 +390,17 @@
      ]
     },
     {
-     "label": "Drew",
-     "cells": [
-      "Barrett",
-      "Head of\nHousehold"
-     ]
-    },
-    {
      "label": "Taylor",
      "cells": [
       "Saved",
       "Nominated"
+     ]
+    },
+    {
+     "label": "Drew",
+     "cells": [
+      "Barrett",
+      "Head of\nHousehold"
      ]
     },
     {
@@ -696,7 +696,7 @@
   "week": 12,
   "week_label": "Week 12",
   "status": "note",
-  "note": "Finale; Eviction to come",
+  "note": "Finale; Non-standard outcome: Drew Devens' choice to evict",
   "rounds": [],
   "raw": {
    "columns": [
@@ -707,7 +707,7 @@
     {
      "label": "Head of Household",
      "cells": [
-      "",
+      "Devens",
       "(None)"
      ]
     },
@@ -735,57 +735,71 @@
     {
      "label": "Nominations (final)",
      "cells": [
-      "Drew",
+      "Drew\nTaylor",
       "(None)"
+     ]
+    },
+    {
+     "label": "Devens",
+     "cells": [
+      "Drew",
+      "Winner"
+     ]
+    },
+    {
+     "label": "Taylor",
+     "cells": [
+      "Nominated",
+      "Runner-up"
      ]
     },
     {
      "label": "Drew",
      "cells": [
-      "Nominated",
-      ""
+      "Evicted\n(Day 87)",
+      "Devens"
      ]
     },
     {
      "label": "Dee",
      "cells": [
       "Evicted\n(Day 80)",
-      "Jury Member"
+      "Devens"
      ]
     },
     {
      "label": "Melody",
      "cells": [
       "Evicted\n(Day 77)",
-      "Jury Member"
+      "Devens"
      ]
     },
     {
      "label": "Yash",
      "cells": [
       "Evicted\n(Day 73)",
-      "Jury Member"
+      "Devens"
      ]
     },
     {
      "label": "Barrett",
      "cells": [
       "Evicted\n(Day 73)",
-      "Jury Member"
+      "Devens"
      ]
     },
     {
      "label": "Angela",
      "cells": [
       "Evicted\n(Day 66)",
-      "Jury Member"
+      "Devens"
      ]
     },
     {
      "label": "La Trice",
      "cells": [
       "Evicted\n(Day 59)",
-      "Jury Member"
+      "Taylor"
      ]
     },
     {
@@ -843,9 +857,18 @@
       "Evicted\n(Day 10)",
       "Evicted\n(Day 10)"
      ]
+    },
+    {
+     "label": "Evicted",
+     "cells": [
+      "Drew\nDevens'\nchoice\nto evict",
+      "Devens\n6 votes\nto win"
+     ]
     }
    ]
   },
-  "footnotes": []
+  "footnotes": [
+   "h"
+  ]
  }
 ]
