@@ -46,7 +46,7 @@
   "Fitting In": {
    "description": "Take a series of shapes and fit them into a certain shape",
    "category": null,
-   "revid": 703288
+   "revid": 704798
   },
   "Hide and Go Veto": {
    "description": "Houseguests hide an item and then later have to find someone else's item.",
@@ -86,7 +86,7 @@
   "Knockout": {
    "description": "Look at a picture, buzz in first, and answer correctly.",
    "category": null,
-   "revid": 684535
+   "revid": 704789
   },
   "Laser Maze": {
    "description": "Navigate through a series of lasers while guiding an object to the finish.",
