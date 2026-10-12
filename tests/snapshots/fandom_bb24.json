@@ -31,7 +31,7 @@
   "Faster Than A Speeding Veto": {
    "description": "One player is attached to a rope and is raised upward as the other player runs forward. Both come back as the runner returns to the starting platform in order to hand pieces to complete a vertical puzzle.",
    "category": null,
-   "revid": 700314
+   "revid": 705235
   },
   "Feeling Knotty": {
    "description": "Untie a series of knots",
@@ -66,7 +66,7 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 701929
+   "revid": 705270
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -121,7 +121,7 @@
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 700269
+   "revid": 705234
   }
  },
  "roster": [
@@ -1486,7 +1486,7 @@
    "seasons": [
     "Big Brother 24 (US)"
    ],
-   "revid": 494504,
+   "revid": 705238,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/f/fb/US24_Paloma_Large.jpg/revision/latest"
   }
  },

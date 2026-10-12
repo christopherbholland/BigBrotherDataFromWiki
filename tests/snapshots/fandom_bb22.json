@@ -71,12 +71,12 @@
   "Laser Maze": {
    "description": "Navigate through a series of lasers while guiding an object to the finish.",
    "category": null,
-   "revid": 699714
+   "revid": 705237
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 701929
+   "revid": 705270
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -101,7 +101,7 @@
   "Take It Off": {
    "description": "Strip down to undergarments in fastest time while trying to keep three buttons pushed down at all times.",
    "category": null,
-   "revid": 700208
+   "revid": 705233
   },
   "The Black Box": {
    "description": "Inside a black box, search for objects and have the most after time runs out.",
@@ -141,7 +141,7 @@
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 700269
+   "revid": 705234
   }
  },
  "roster": [

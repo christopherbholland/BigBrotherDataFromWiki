@@ -91,7 +91,7 @@
   "Laser Maze": {
    "description": "Navigate through a series of lasers while guiding an object to the finish.",
    "category": null,
-   "revid": 699714
+   "revid": 705237
   },
   "Living Art": {
    "description": "Houseguests race to find discrepancies in artwork or imagery and tape in the correct answer on their podium.",
@@ -106,12 +106,12 @@
   "Niagara Balls": {
    "description": "Get a specific number of colored balls into your container the quickest.",
    "category": null,
-   "revid": 700234
+   "revid": 705232
   },
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 701929
+   "revid": 705270
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",

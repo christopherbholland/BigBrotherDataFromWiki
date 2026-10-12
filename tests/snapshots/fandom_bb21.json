@@ -66,7 +66,7 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 701929
+   "revid": 705270
   },
   "Perfect Shot": {
    "description": "Contestants must roll a ball down a ramp of obstacles to either land it in a box or get the highest point value.",
@@ -121,7 +121,7 @@
   "Yankee Swap": {
    "description": "A competition where houseguests can either swap or keep prizes, punishments, and the veto or HOH.",
    "category": null,
-   "revid": 700269
+   "revid": 705234
   }
  },
  "roster": [
@@ -1677,7 +1677,7 @@
    "seasons": [
     "Big Brother 21 (US)"
    ],
-   "revid": 691547,
+   "revid": 705231,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/d/d3/BB21_Ovi_Large.jpg/revision/latest"
   },
   "David Alexander": {
