@@ -76,7 +76,7 @@
   "OTEV": {
    "description": "A competition where houseguests listen to a riddle and search for an answer before they are the last one to return.",
    "category": null,
-   "revid": 705270
+   "revid": 707852
   },
   "Only One Path": {
    "description": "Try to find the correct path and reach the buzzer before the time limit",
@@ -1627,7 +1627,7 @@
     "Big Brother 7 (US)",
     "Big Brother 6 (US)"
    ],
-   "revid": 707769,
+   "revid": 707959,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a9/BB22_Large_Kaysar.jpg/revision/latest"
   },
   "Janelle Pierzina": {
@@ -1703,7 +1703,7 @@
     "Big Brother 22 (US)",
     "Big Brother 10 (US)"
    ],
-   "revid": 669633,
+   "revid": 707994,
    "portrait": "https://static.wikia.nocookie.net/bigbrother/images/a/a3/BB22_Large_Keesha.jpg/revision/latest"
   }
  },
